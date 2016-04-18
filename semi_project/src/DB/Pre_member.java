@@ -2,11 +2,13 @@ package DB;
 
 public class Pre_member {
 	String p_id;
-	String p_pass;
+	String p_passwd;
 	String p_name;
-	int p_number; 
+	int p_gender; 
 	String p_eamil;
 	int p_birth;
+	String p_phone;
+	String p_tel;
 	String jumin1;
 	String jumin2;
 	String p_cereer;
@@ -15,19 +17,17 @@ public class Pre_member {
 	String p_address;
 	String p_category;
 	int p_count;
-	
-	
 	public String getP_id() {
 		return p_id;
 	}
 	public void setP_id(String p_id) {
 		this.p_id = p_id;
 	}
-	public String getP_pass() {
-		return p_pass;
+	public String getP_passwd() {
+		return p_passwd;
 	}
-	public void setP_pass(String p_pass) {
-		this.p_pass = p_pass;
+	public void setP_passwd(String p_passwd) {
+		this.p_passwd = p_passwd;
 	}
 	public String getP_name() {
 		return p_name;
@@ -35,11 +35,11 @@ public class Pre_member {
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
-	public int getP_number() {
-		return p_number;
+	public int getP_gender() {
+		return p_gender;
 	}
-	public void setP_number(int p_number) {
-		this.p_number = p_number;
+	public void setP_gender(int p_gender) {
+		this.p_gender = p_gender;
 	}
 	public String getP_eamil() {
 		return p_eamil;
@@ -52,6 +52,18 @@ public class Pre_member {
 	}
 	public void setP_birth(int p_birth) {
 		this.p_birth = p_birth;
+	}
+	public String getP_phone() {
+		return p_phone;
+	}
+	public void setP_phone(String p_phone) {
+		this.p_phone = p_phone;
+	}
+	public String getP_tel() {
+		return p_tel;
+	}
+	public void setP_tel(String p_tel) {
+		this.p_tel = p_tel;
 	}
 	public String getJumin1() {
 		return jumin1;
@@ -101,6 +113,9 @@ public class Pre_member {
 	public void setP_count(int p_count) {
 		this.p_count = p_count;
 	}
+	
+	
+	
 	
 	
 	

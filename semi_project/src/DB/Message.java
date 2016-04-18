@@ -5,11 +5,10 @@ import java.sql.Timestamp;
 public class Message {
 	String p_id;
 	String co_id;
+	int f_num;
 	String m_title;
 	String m_context;
-	Timestamp m_reg_date;
-	
-	
+	Timestamp m_regdate;
 	public String getP_id() {
 		return p_id;
 	}
@@ -21,6 +20,12 @@ public class Message {
 	}
 	public void setCo_id(String co_id) {
 		this.co_id = co_id;
+	}
+	public int getF_num() {
+		return f_num;
+	}
+	public void setF_num(int f_num) {
+		this.f_num = f_num;
 	}
 	public String getM_title() {
 		return m_title;
@@ -34,12 +39,15 @@ public class Message {
 	public void setM_context(String m_context) {
 		this.m_context = m_context;
 	}
-	public Timestamp getM_reg_date() {
-		return m_reg_date;
+	public Timestamp getM_regdate() {
+		return m_regdate;
 	}
-	public void setM_reg_date(Timestamp m_reg_date) {
-		this.m_reg_date = m_reg_date;
+	public void setM_regdate(Timestamp m_regdate) {
+		this.m_regdate = m_regdate;
 	}
+	
+	
+	
 	
 	
 }
