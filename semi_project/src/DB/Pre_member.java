@@ -7,6 +7,8 @@ public class Pre_member {
 	int p_number; 
 	String p_eamil;
 	int p_birth;
+	String jumin1;
+	String jumin2;
 	String p_cereer;
 	String p_award;
 	String p_zipcode;
@@ -50,6 +52,18 @@ public class Pre_member {
 	}
 	public void setP_birth(int p_birth) {
 		this.p_birth = p_birth;
+	}
+	public String getJumin1() {
+		return jumin1;
+	}
+	public void setJumin1(String jumin1) {
+		this.jumin1 = jumin1;
+	}
+	public String getJumin2() {
+		return jumin2;
+	}
+	public void setJumin2(String jumin2) {
+		this.jumin2 = jumin2;
 	}
 	public String getP_cereer() {
 		return p_cereer;
