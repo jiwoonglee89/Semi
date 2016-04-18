@@ -6,7 +6,7 @@ public class Qna_board {
 	int num;
 	String p_id;
 	String co_id;
-	String qna_title;
+	String qna_title; 
 	String passwd;
 	Timestamp reg_date;
 	int readcount;

@@ -79,7 +79,7 @@ public class Co_member {
 	}
 	public void setCo_tel(String co_tel) {
 		this.co_tel = co_tel;
-	}
+	} 
 	public String getCo_phone() {
 		return co_phone;
 	}

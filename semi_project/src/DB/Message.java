@@ -1,7 +1,7 @@
 package DB;
 
 import java.sql.Timestamp;
-
+ 
 public class Message {
 	String p_id;
 	String co_id;

@@ -4,7 +4,7 @@ public class Pre_member {
 	String p_id;
 	String p_pass;
 	String p_name;
-	int p_number;
+	int p_number; 
 	String p_eamil;
 	int p_birth;
 	String p_cereer;
