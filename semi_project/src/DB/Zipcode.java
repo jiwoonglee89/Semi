@@ -5,7 +5,7 @@ public class Zipcode {
 	private String area1;//
 	private String area2;//
 	private String area3;// 
-	private String area4;//
+	private String area4;// 
 	
 	public void setZipcode(String zipcode){
 		this.zipcode=zipcode;
