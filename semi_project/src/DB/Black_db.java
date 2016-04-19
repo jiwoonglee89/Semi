@@ -3,6 +3,14 @@ package DB;
 public class Black_db{
 	String p_id;
 	String co_id;
+	String reason;
+	
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
 	public String getP_id() {
 		return p_id;
 	} 

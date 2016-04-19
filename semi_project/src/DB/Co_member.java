@@ -2,7 +2,7 @@ package DB;
 
 public class Co_member {
 	String co_id;
-	String co_pass;
+	String co_passwd;
 	int co_number;
 	String co_com;
 	String co_boss;
@@ -20,11 +20,11 @@ public class Co_member {
 	public void setCo_id(String co_id) {
 		this.co_id = co_id;
 	}
-	public String getCo_pass() {
-		return co_pass;
+	public String getCo_passwd() {
+		return co_passwd;
 	}
-	public void setCo_pass(String co_pass) {
-		this.co_pass = co_pass;
+	public void setCo_passwd(String co_passwd) {
+		this.co_passwd = co_passwd;
 	}
 	public int getCo_number() {
 		return co_number;

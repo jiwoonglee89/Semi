@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 public class Message {
 	String p_id;
 	String co_id;
-	int f_num;
 	String m_title;
 	String m_context;
 	Timestamp m_regdate;
@@ -20,12 +19,6 @@ public class Message {
 	}
 	public void setCo_id(String co_id) {
 		this.co_id = co_id;
-	}
-	public int getF_num() {
-		return f_num;
-	}
-	public void setF_num(int f_num) {
-		this.f_num = f_num;
 	}
 	public String getM_title() {
 		return m_title;

@@ -2,29 +2,20 @@ package DB;
 
 import java.sql.Timestamp; 
 
-public class File {
-	String f_id;
-	int filesize;
+public class Fileupload {
+	String p_id;
 	String realpath;
-	Timestamp reg_date;
+	Timestamp f_regdate;
 	String f_description;
 	String f_title;
-	int read_count;
+	int f_readcount;
 	String f_category;
 	int f_num;
-	
-	
-	public String getF_id() {
-		return f_id;
+	public String getP_id() {
+		return p_id;
 	}
-	public void setF_id(String f_id) {
-		this.f_id = f_id;
-	}
-	public int getFilesize() {
-		return filesize;
-	}
-	public void setFilesize(int filesize) {
-		this.filesize = filesize;
+	public void setP_id(String p_id) {
+		this.p_id = p_id;
 	}
 	public String getRealpath() {
 		return realpath;
@@ -32,11 +23,11 @@ public class File {
 	public void setRealpath(String realpath) {
 		this.realpath = realpath;
 	}
-	public Timestamp getReg_date() {
-		return reg_date;
+	public Timestamp getF_regdate() {
+		return f_regdate;
 	}
-	public void setReg_date(Timestamp reg_date) {
-		this.reg_date = reg_date;
+	public void setF_regdate(Timestamp f_regdate) {
+		this.f_regdate = f_regdate;
 	}
 	public String getF_description() {
 		return f_description;
@@ -50,11 +41,11 @@ public class File {
 	public void setF_title(String f_title) {
 		this.f_title = f_title;
 	}
-	public int getRead_count() {
-		return read_count;
+	public int getF_readcount() {
+		return f_readcount;
 	}
-	public void setRead_count(int read_count) {
-		this.read_count = read_count;
+	public void setF_readcount(int f_readcount) {
+		this.f_readcount = f_readcount;
 	}
 	public String getF_category() {
 		return f_category;
@@ -68,6 +59,9 @@ public class File {
 	public void setF_num(int f_num) {
 		this.f_num = f_num;
 	}
+	
+	
+	
 	
 	
 }
