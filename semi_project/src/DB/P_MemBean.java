@@ -5,18 +5,49 @@ public class P_MemBean {
 	String p_passwd;
 	String p_name;
 	int p_gender; 
-	String p_eamil;
+	String p_email;
 	int p_birth;
 	String p_phone;
 	String p_tel;
 	String jumin1;
 	String jumin2;
-	String p_cereer;
+	String p_career;
 	String p_award;
 	String p_zipcode;
 	String p_address;
 	String p_category;
 	int p_count;
+	
+	public P_MemBean (){}
+	
+	
+	
+	
+	public P_MemBean(String p_id, String p_passwd, String p_name, int p_gender, String p_email, int p_birth,
+			String p_phone, String p_tel, String jumin1, String jumin2, String p_career, String p_award,
+			String p_zipcode, String p_address, String p_category, int p_count) {
+		super();
+		this.p_id = p_id;
+		this.p_passwd = p_passwd;
+		this.p_name = p_name;
+		this.p_gender = p_gender;
+		this.p_email = p_email;
+		this.p_birth = p_birth;
+		this.p_phone = p_phone;
+		this.p_tel = p_tel;
+		this.jumin1 = jumin1;
+		this.jumin2 = jumin2;
+		this.p_career = p_career;
+		this.p_award = p_award;
+		this.p_zipcode = p_zipcode;
+		this.p_address = p_address;
+		this.p_category = p_category;
+		this.p_count = p_count;
+	}
+
+
+
+
 	public String getP_id() {
 		return p_id;
 	}
@@ -41,11 +72,11 @@ public class P_MemBean {
 	public void setP_gender(int p_gender) {
 		this.p_gender = p_gender;
 	}
-	public String getP_eamil() {
-		return p_eamil;
+	public String getP_email() {
+		return p_email;
 	}
-	public void setP_eamil(String p_eamil) {
-		this.p_eamil = p_eamil;
+	public void setP_email(String p_email) {
+		this.p_email = p_email;
 	}
 	public int getP_birth() {
 		return p_birth;
@@ -77,11 +108,11 @@ public class P_MemBean {
 	public void setJumin2(String jumin2) {
 		this.jumin2 = jumin2;
 	}
-	public String getP_cereer() {
-		return p_cereer;
+	public String getP_career() {
+		return p_career;
 	}
-	public void setP_cereer(String p_cereer) {
-		this.p_cereer = p_cereer;
+	public void setP_career(String p_career) {
+		this.p_career = p_career;
 	}
 	public String getP_award() {
 		return p_award;
@@ -113,10 +144,6 @@ public class P_MemBean {
 	public void setP_count(int p_count) {
 		this.p_count = p_count;
 	}
-	
-	
-	
-	
 	
 	
 }
