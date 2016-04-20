@@ -2,7 +2,7 @@ package DB;
 
 public class Admin {
 	String admin_id;
-	int q_num; 
+	int q_num;  
 	String co_id;
 	int f_num;
 	String p_id;
