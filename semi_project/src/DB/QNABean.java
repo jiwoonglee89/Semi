@@ -9,7 +9,7 @@ public class QNABean {
 	String qna_title; 
 	String q_passwd;
 	Timestamp q_regdate;
-	int qref_number;
+	int qref_number; 
 	int readcount;
 	String content;
 	public int getQ_num() {

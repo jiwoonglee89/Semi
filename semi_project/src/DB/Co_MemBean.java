@@ -6,7 +6,7 @@ public class Co_MemBean {
 	int co_number;
 	String co_com;
 	String co_boss;
-	String co_job;
+	String co_job; 
 	String co_subjob;
 	String co_category;
 	String co_name;

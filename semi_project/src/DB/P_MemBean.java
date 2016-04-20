@@ -5,7 +5,7 @@ public class P_MemBean {
 	String p_passwd;
 	String p_name;
 	int p_gender; 
-	String p_eamil;
+	String p_email;
 	int p_birth;
 	String p_phone;
 	String p_tel;
@@ -41,11 +41,11 @@ public class P_MemBean {
 	public void setP_gender(int p_gender) {
 		this.p_gender = p_gender;
 	}
-	public String getP_eamil() {
-		return p_eamil;
+	public String getP_email() {
+		return p_email;
 	}
-	public void setP_eamil(String p_eamil) {
-		this.p_eamil = p_eamil;
+	public void setP_eamil(String p_email) {
+		this.p_email = p_email;
 	}
 	public int getP_birth() {
 		return p_birth;

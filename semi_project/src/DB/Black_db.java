@@ -6,7 +6,7 @@ public class Black_db{
 	String reason;
 	
 	public String getReason() {
-		return reason;
+		return reason; 
 	}
 	public void setReason(String reason) {
 		this.reason = reason;

@@ -25,7 +25,7 @@ public class AdminBean {
 		this.co_id = co_id;
 	}
 	public int getF_num() {
-		return f_num;
+		return f_num; 
 	}
 	public void setF_num(int f_num) {
 		this.f_num = f_num;

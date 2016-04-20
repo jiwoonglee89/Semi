@@ -7,7 +7,7 @@ public class MessageBean {
 	String co_id;
 	String m_title;
 	String m_context;
-	Timestamp m_regdate;
+	Timestamp m_regdate; 
 	int m_count;
 	
 	

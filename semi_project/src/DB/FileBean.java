@@ -9,7 +9,7 @@ public class FileBean {
 	String f_description;
 	String f_title;
 	int f_readcount;
-	String f_category;
+	String f_category; 
 	int f_num;
 	public String getP_id() {
 		return p_id;
