@@ -1,5 +1,11 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+
 <html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
 
-
-</html>
+<% response.sendRedirect("/semi_project/login/main.do"); %>
+</body>
+</html> 
