@@ -8,6 +8,15 @@ public class Message {
 	String m_title;
 	String m_context;
 	Timestamp m_regdate;
+	int count;
+	
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public String getP_id() {
 		return p_id;
 	}
