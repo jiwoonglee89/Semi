@@ -4,24 +4,24 @@
 
 <mapper namespace="co_member">
 	<insert id="add" parameterType="DB.Co_MemBean">
-		insert into per_member values(#{co_id},#{co_passwd}, #{co_number}, #{co_com}, #{p_name},#{p_gender}, #{jumin1},#{jumin2}, #{p_email}, 
-		#{p_birth}, #{p_tel}, #{p_career}, #{p_award}, #{p_zipcode}, #{p_address}, #{p_category}, #{p_count})
+		insert into co_member values(#{co_id},#{co_passwd}, #{co_number}, #{co_com}, #{co_boss},#{co_job}, 
+		#{co_subjob},#{co_category}, #{co_name}, #{co_email}, #{co_phone}, #{co_count})
 	</insert>
 	<update id="modify" parameterType="DB.Co_MemBean">
-		update per_member set p_passwd=#{p_passwd}, p_name=#{p_name}, p_gender=#{p_gender}, p_email=#{p_email},
-		p_birth=#{p_birth}, p_tel=#{p_tel}, p_career=#{p_career}, p_award=#{p_award}, p_zipcode=#{p_zipcode},
-		p_address=#{p_address}, p_category=#{p_category} where id=#{id}
+		update co_member set co_passwd=#{co_passwd}, co_name=#{co_com}, co_boss=#{co_boss}, co_job=#{co_job},
+		co_subjob=#{co_subjob}, co_category=#{co_category}, co_name=#{co_name}, co_phone=#{co_phone} 
+		where co_id=#{co_id} 
 	</update>
 	<delete id="remove" parameterType="java.lang.String">
-		delete from per_member where p_id=#{P_id} and p_passwd=#{p_passwd}
+		delete from co_member where co_id=#{co_id} and co_passwd=#{co_passwd}
 	</delete>
-	<select id="list" resultType="DB.P_MemBean">
-		select * from per_member 
+	<select id="list" resultType="DB.Co_MemBean">
+		select * from co_member 
 	</select>
-	<select id="find" parameterType="String" resultType="DB.P_MemBean">
-		select * from per_member where p_id=#{p_id}
+	<select id="find" parameterType="String" resultType="DB.Co_MemBean">
+		select * from co_member where co_id=#{co_id}
 	</select>
 	<select id="getInfo" parameterType="String" resultType="hashmap">
-		select * from per_member where p_id=#{p_id}
+		select * from co_member where co_id=#{co_id}
 	</select>
 </mapper>
