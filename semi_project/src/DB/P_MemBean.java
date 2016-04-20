@@ -138,4 +138,4 @@ public class P_MemBean {
 	public void setP_count(int p_count) {
 		this.p_count = p_count;
 	}
-}
+} 

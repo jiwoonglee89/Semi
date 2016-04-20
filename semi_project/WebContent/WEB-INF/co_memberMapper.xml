@@ -16,7 +16,7 @@
 		delete from per_member where p_id=#{P_id} and p_passwd=#{p_passwd}
 	</delete>
 	<select id="list" resultType="DB.P_MemBean">
-		select * from per_member
+		select * from per_member 
 	</select>
 	<select id="find" parameterType="String" resultType="DB.P_MemBean">
 		select * from per_member where p_id=#{p_id}
