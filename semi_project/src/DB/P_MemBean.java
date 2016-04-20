@@ -31,7 +31,7 @@ public class P_MemBean {
 		this.p_passwd = p_passwd;
 		this.p_name = p_name;
 		this.p_gender = p_gender;
-		this.p_email = p_email;
+		this.p_email = p_email; 
 		this.p_birth = p_birth;
 		this.p_phone = p_phone;
 		this.p_tel = p_tel;

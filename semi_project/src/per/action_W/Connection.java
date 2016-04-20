@@ -20,7 +20,7 @@ public class Connection {
 			return session;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return null; 
 		}
 	}
 }

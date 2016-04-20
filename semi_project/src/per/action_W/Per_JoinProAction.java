@@ -58,5 +58,5 @@ public class Per_JoinProAction implements CommandAction {
 		
 		return "/login/loginPro.jsp";
 	}
-
+ 
 }
