@@ -2,7 +2,7 @@ package DB;
 
 import java.sql.Timestamp;
  
-public class Message {
+public class MessageBean {
 	String p_id;
 	String co_id;
 	String m_title;

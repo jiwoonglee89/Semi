@@ -1,6 +1,6 @@
 package DB;
 
-public class Co_member {
+public class Co_MemBean {
 	String co_id;
 	String co_passwd;
 	int co_number;

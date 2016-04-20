@@ -1,6 +1,6 @@
 package DB;
 
-public class Admin {
+public class AdminBean {
 	String admin_id;
 	int q_num;
 	String co_id;

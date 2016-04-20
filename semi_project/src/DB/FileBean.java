@@ -2,7 +2,7 @@ package DB;
 
 import java.sql.Timestamp; 
 
-public class Fileupload {
+public class FileBean {
 	String p_id;
 	String realpath;
 	Timestamp f_regdate;

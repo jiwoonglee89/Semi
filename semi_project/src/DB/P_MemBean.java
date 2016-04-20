@@ -1,6 +1,6 @@
 package DB;
 
-public class Pre_member {
+public class P_MemBean {
 	String p_id;
 	String p_passwd;
 	String p_name;

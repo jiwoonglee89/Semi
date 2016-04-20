@@ -2,7 +2,7 @@ package DB;
 
 import java.sql.Timestamp;
 
-public class Qna_board {
+public class QNABean {
 	int q_num;
 	String p_id;
 	String co_id;
