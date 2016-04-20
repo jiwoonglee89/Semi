@@ -38,8 +38,8 @@ public class Per_JoinProAction implements CommandAction {
 			
 
 			P_MemBean p_bean = new P_MemBean(id, passwd, name, gender, email,birth, phone, tel, jumin1, jumin2, career, award, zipcode, address, category, count);
-		
-			int success = session.insert("member.add", p_bean);
+			
+			int success = session.insert("per_member.add", p_bean);
 		
 			if (success >0) {
 				session.commit();
@@ -56,7 +56,7 @@ public class Per_JoinProAction implements CommandAction {
 		
 		
 		
-		return "/login/loginPro.jsp";
+		return "/login/joinPro.jsp";
 	}
  
 }
