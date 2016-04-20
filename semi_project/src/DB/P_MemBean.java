@@ -20,9 +20,6 @@ public class P_MemBean {
 	
 	public P_MemBean (){}
 	
-	
-	
-	
 	public P_MemBean(String p_id, String p_passwd, String p_name, int p_gender, String p_email, int p_birth,
 			String p_phone, String p_tel, String jumin1, String jumin2, String p_career, String p_award,
 			String p_zipcode, String p_address, String p_category, int p_count) {
@@ -44,9 +41,6 @@ public class P_MemBean {
 		this.p_category = p_category;
 		this.p_count = p_count;
 	}
-
-
-
 
 	public String getP_id() {
 		return p_id;
@@ -144,6 +138,4 @@ public class P_MemBean {
 	public void setP_count(int p_count) {
 		this.p_count = p_count;
 	}
-	
-	
 }
