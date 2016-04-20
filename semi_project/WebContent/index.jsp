@@ -6,6 +6,6 @@
 </head>
 <body>
 
-<% response.sendRedirect("/semi_project/login/main.do"); %>
+<% response.sendRedirect("/semi_project/join/p_inputForm.jsp"); %>
 </body>
 </html> 

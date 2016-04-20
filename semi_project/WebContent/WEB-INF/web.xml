@@ -10,4 +10,18 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  
+  <servlet>
+    <servlet-name>handler</servlet-name>
+    <servlet-class>controller.Controller</servlet-class>
+    <init-param>
+      <param-name>propertyConfig</param-name>
+      <param-value>/WEB-INF/commandHandlerURI.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>handler</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
