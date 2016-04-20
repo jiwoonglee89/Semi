@@ -6,7 +6,11 @@ public class Black_db{
 	String reason;
 	
 	public String getReason() {
+<<<<<<< HEAD
 		return reason;
+=======
+		return reason; 
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	}
 	public void setReason(String reason) {
 		this.reason = reason;

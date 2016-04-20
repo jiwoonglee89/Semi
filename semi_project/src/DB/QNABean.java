@@ -9,7 +9,11 @@ public class QNABean {
 	String qna_title; 
 	String q_passwd;
 	Timestamp q_regdate;
+<<<<<<< HEAD
 	int qref_number;
+=======
+	int qref_number; 
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	int readcount;
 	String content;
 	public int getQ_num() {

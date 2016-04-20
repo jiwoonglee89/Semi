@@ -7,7 +7,11 @@ public class ZipcodeBean {
 	private String area3;// 
 	private String area4;//
 	
+<<<<<<< HEAD
 	public void setZipcode(String zipcode){
+=======
+	public void setZipcode(String zipcode){ 
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 		this.zipcode=zipcode;
 	}
 	

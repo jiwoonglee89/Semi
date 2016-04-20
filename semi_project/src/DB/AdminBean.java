@@ -25,7 +25,11 @@ public class AdminBean {
 		this.co_id = co_id;
 	}
 	public int getF_num() {
+<<<<<<< HEAD
 		return f_num;
+=======
+		return f_num; 
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	}
 	public void setF_num(int f_num) {
 		this.f_num = f_num;

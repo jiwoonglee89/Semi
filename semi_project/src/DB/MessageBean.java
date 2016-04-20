@@ -7,10 +7,17 @@ public class MessageBean {
 	String co_id;
 	String m_title;
 	String m_context;
+<<<<<<< HEAD
 	Timestamp m_regdate;
 	int m_count;
 	  
 	 
+=======
+	Timestamp m_regdate; 
+	int m_count;
+	
+	
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	public int getCount() {
 		return m_count;
 	}

@@ -5,6 +5,7 @@ public class P_MemBean {
 	String p_passwd;
 	String p_name;
 	int p_gender; 
+<<<<<<< HEAD
 	String p_eamil;
 	int p_birth;
 	String p_phone;
@@ -46,6 +47,49 @@ public class P_MemBean {
 	}
 	public void setP_eamil(String p_eamil) {
 		this.p_eamil = p_eamil;
+=======
+	String p_email;
+	int p_birth;
+	String p_phone;
+	String p_tel;
+	String jumin1;
+	String jumin2;
+	String p_cereer;
+	String p_award;
+	String p_zipcode;
+	String p_address;
+	String p_category;
+	int p_count;
+	public String getP_id() {
+		return p_id;
+	}
+	public void setP_id(String p_id) {
+		this.p_id = p_id;
+	}
+	public String getP_passwd() {
+		return p_passwd;
+	}
+	public void setP_passwd(String p_passwd) {
+		this.p_passwd = p_passwd;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public int getP_gender() {
+		return p_gender;
+	}
+	public void setP_gender(int p_gender) {
+		this.p_gender = p_gender;
+	}
+	public String getP_email() {
+		return p_email;
+	}
+	public void setP_eamil(String p_email) {
+		this.p_email = p_email;
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	}
 	public int getP_birth() {
 		return p_birth;

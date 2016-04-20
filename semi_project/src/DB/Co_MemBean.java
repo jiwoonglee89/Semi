@@ -6,7 +6,11 @@ public class Co_MemBean {
 	int co_number;
 	String co_com;
 	String co_boss;
+<<<<<<< HEAD
 	String co_job;
+=======
+	String co_job; 
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	String co_subjob;
 	String co_category;
 	String co_name;

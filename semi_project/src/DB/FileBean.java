@@ -9,7 +9,11 @@ public class FileBean {
 	String f_description;
 	String f_title;
 	int f_readcount;
+<<<<<<< HEAD
 	String f_category;
+=======
+	String f_category; 
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 	int f_num;
 	public String getP_id() {
 		return p_id;
