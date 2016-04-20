@@ -17,6 +17,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="memberMapper.xml" />
+		<mapper resource="per_memberMapper.xml" />
 	</mappers>
 </configuration>
