@@ -8,4 +8,4 @@
 
 <% response.sendRedirect("/semi_project/login/main.do"); %>
 </body>
-</html>
+</html> 
