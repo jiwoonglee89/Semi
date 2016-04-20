@@ -5,7 +5,7 @@ public class Admin {
 	int q_num;  
 	String co_id;
 	int f_num;
-	String p_id; 
+	String p_id;    
 	public String getAdmin_id() {
 		return admin_id;
 	}
