@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>기업 회원가입</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="view/style.css" rel="stylesheet" type="text/css">
 <script>
 function checkIt() {
 	var userinput = eval("document.userinput");
@@ -38,7 +38,7 @@ function openConfirmid(userinput) {
 		return;
 	}
 	// url과 사용자 입력 id를 조합합니다.
-	url = "confirmId.jsp?id=" + userinput.co_id.value;
+	url = "co_confirmId.do?id=" + userinput.co_id.value;
 
 	// 새로운 윈도우를 엽니다.
 	open(
@@ -85,13 +85,14 @@ function openConfirmid(userinput) {
 				<td width="400"><input type="text" name="co_com" size="15" maxlength="20"></td>
 			</tr>
 			<tr>
-				<td width="200">회사 전화번호 :</td>
-				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20"></td>
-			</tr>
-			<tr>
 				<td width="200">대표자 명 :</td>
 				<td width="400"><input type="text" name="co_boss" size="15" maxlength="20"></td>
 			</tr>
+			<tr>
+				<td width="200">회사 전화번호 :</td>
+				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20"></td>
+			</tr>
+			
 			<tr> 
 				<td width="200">업종 :</td>
 				<td width="400">
