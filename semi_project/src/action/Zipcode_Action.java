@@ -26,11 +26,11 @@ public class Zipcode_Action implements CommandAction{
 			ZipcodeBean.setZipcode(request.getParameter("zipcode"));
 			ZipcodeBean.setArea1(request.getParameter("area1"));
 			ZipcodeBean.setArea2(request.getParameter("area2"));
-			ZipcodeBean.setArea3(request.getParameter("area3"));
+			ZipcodeBean.setArea3(request.getParameter("area3")); 
 			ZipcodeBean.setArea4(request.getParameter("area4"));
 			
 			 
-			int success = session.insert("Zipcode.add", Zipcode);
+			int success = session.insert("Zipcode.add", ZipcodeBean);
 			if(success>0){
 				session.commit();
 			}else
@@ -41,7 +41,7 @@ public class Zipcode_Action implements CommandAction{
 			e.printStackTrace();
 		}
 		System.out.println("È®ÀÎ¿ë");
-		return "./person/Zipcheck.jsp";
+		return "Zipcheck.jsp";
 	}
 
 }
