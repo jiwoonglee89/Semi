@@ -32,7 +32,7 @@ public class Per_LoginPro implements CommandAction{
 				session.commit();
 				System.out.println("로그인 성공");
 			}else{
-				System.out.println("로그인 실패");
+				System.out.println("로그인 실패"); 
 			}
 		}else{
 			System.out.println("로그인 실패");

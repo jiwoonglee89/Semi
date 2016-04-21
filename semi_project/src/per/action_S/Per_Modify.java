@@ -11,7 +11,7 @@ import per.action_W.Connection;
 
 public class Per_Modify implements CommandAction {
 
-	String res = "config.xml";
+	String res = "config.xml"; 
 
 	
 

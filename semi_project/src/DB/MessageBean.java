@@ -10,7 +10,7 @@ public class MessageBean {
 	Timestamp m_regdate;
 	int m_count;
 	
-	public MessageBean(){}
+	public MessageBean(){} 
 	
 	public MessageBean(String p_id,String co_id,String m_title, String m_context,Timestamp m_regdate){
 		

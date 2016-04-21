@@ -34,7 +34,7 @@ public class Message implements CommandAction {
 			int success = session.update("message.add", check);
 
 			if (success > 0) {
-				session.commit();
+				session.commit(); 
 			} else {
 				session.rollback();
 			}

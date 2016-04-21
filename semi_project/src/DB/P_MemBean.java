@@ -20,7 +20,7 @@ public class P_MemBean {
 	
 	public P_MemBean (){}
 	
-	public P_MemBean (String p_id, String p_passwd){ 
+	public P_MemBean (String p_id, String p_passwd){  
 		super();
 		this.p_id = p_id;
 		this.p_passwd = p_passwd;
