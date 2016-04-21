@@ -191,7 +191,7 @@ function openConfirmid(userinput) {
 				<td colspan="2" align="center" bgcolor="${value_c}"><input
 					type="submit" name="confirm" value="회원가입"> <input
 					type="button" value="취소"
-					onclick="javascript:window.location='main.jsp'"></td>
+					onclick="javascript:window.location='main.do'"></td>
 			</tr>
 		</table>
 	</form>
