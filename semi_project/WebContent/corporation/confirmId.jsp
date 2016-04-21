@@ -9,7 +9,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <body bgcolor="<%=bodyback_c%>">
-
+ 
 <c:if test="${check == 1}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
 	<tr bgcolor="<%=title_c %>">
