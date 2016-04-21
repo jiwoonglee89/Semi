@@ -56,10 +56,7 @@
 		url = "zipcheck.do?check=y";
 		/* check의 속성값을 y로 보내줌  */
 
-		window
-				.open(
-						url,
-						"post",
+		window.open(url,"post",
 						"toolbar=no ,width=500 ,height=300,directories=no,status=yes,scrollbars=yes,menubar=no");
 	}
 </script>
@@ -141,8 +138,7 @@
 			<tr>
 			<tr>
 				<td>주소</td>
-				<td><input type="text" name="p_address" size="70"> 주소를 적어
-					주세요.</td>
+				<td><input type="text" name="p_address" size="70"></td>
 			</tr>
 			<tr>
 				<td width="200">디자인분류</td>
