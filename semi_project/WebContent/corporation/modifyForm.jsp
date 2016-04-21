@@ -37,14 +37,7 @@
 -->
 </script>
 
-<%
-    String co_id = (String)session.getAttribute("co_id");
-  
-    LogonDBBean manager = LogonDBBean.getInstance();
-    LogonDataBean c = manager.getMember(co_id);
 
-try{
-%>
 
 <body bgcolor="${bodyback_c}>">
 	<form method="post" action="modifyPro.jsp" name="userinput"

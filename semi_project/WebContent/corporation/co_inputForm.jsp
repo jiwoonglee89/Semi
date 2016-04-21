@@ -7,13 +7,6 @@
 <title>기업 회원가입</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
-function checkit2(){
-	var userinput=eval("document.userinput");
-	if(userinput.co_job.value==0){
-		alert("ㅎㅇ");
-		return false;
-	}
-}
 function checkIt() {
 	var userinput = eval("document.userinput");
 
@@ -58,7 +51,7 @@ function openConfirmid(userinput) {
 
 
 <body bgcolor="${bodyback_c}">
-	<form method="post" action="inputPro.do" name="userinput" onsubmit="return checkIt()">
+	<form method="post" action="co_inputPro.do" name="userinput" onsubmit="return checkIt()">
 		<table width="600" border="1" cellspacing="0" cellpadding="3"
 			align="center">
 			<tr>
@@ -122,20 +115,45 @@ function openConfirmid(userinput) {
 				<option value="5" >전자 전기 반도체</option>
 				<option value="6" >제조업 기타</option>
 				<option>----- 정보통신업 -----</option>
-				<option value="0" >농업 임업 어업 광업</option>
-				<option value="1" >가죽 가방 신발</option>
-				<option value="2" >기계 조선 자동차 운송장비</option>
-				<option value="3" >컴퓨터 하드웨어 장비</option>
-				<option value="4" >생활 용품 화장품</option>
-				<option value="5" >전자 전기 반도체</option>
-				<option value="6" >제조업 기타</option>
+				<option value="0" >네트워크 통신</option>
+				<option value="1" >소프트웨어 솔루션 ASP</option>
+				<option value="2" >인터넷 포털 컨텐츠 게임</option>
+				<option value="3" >쇼핑몰 전자상거래 오픈마켓</option>
+				<option value="4" >웹 에이전시 IT 컨설팅</option>
+				<option value="5" >모바일 무선 </option>
+				<option value="6" >디자인 CAD</option>
+				<option>----- 건설토목업 -----</option>
+				<option value="0" >건설 건축 토목 조경</option>
+				<option value="1" >인테리어 디자인</option>
+				<option value="2" >건축사 감리회사</option>
+				<option value="3" >부동산 개발 시행 분양</option>
+				<option value="4" >토목 ENG CM 시험 측량</option>
+				<option value="5" >건설자재 중장비 </option>
+				<option value="6" >전기 설비 환경 플랜트</option>
+				<option>-----개인 가사서비스업-----</option>
+				<option value="0" >건설 건축 토목 조경</option>
+				<option value="1" >수리업</option>
+				<option value="2" >하수 폐기물 청소</option>
+				<option value="3" >개인서비스</option>
+				<option value="4" >가사 서비스</option>
+				<option>-----공공 의료 사회기반 사업-----</option>
+				<option value="0" >의약 보건 사회복지</option>
+				<option value="1" >정부 비영리 단체</option>
+				<option value="2" >전기 가스 수도 에너지</option>
+				<option value="3" >국제 및 외국 기관</option>
+				<option>-----여행 숙박 음식점업-----</option>
+				<option value="0" >호텔 여행 항공</option>
+				<option value="1" >식음료 외식(프랜차이즈)</option>
+				
+				
+				
 				
 				</select>				
 				</td>
 			</tr>
 			<tr>
 				<td width="200">기업기관분류 :</td>
-				<td><input type="text" name="co_category" size="15">
+				<td>
 				<select name="co_category" size="1" >
 				<option value="0" >일반기업</option>
 				<option value="1" >서치펌 </option>
@@ -144,6 +162,7 @@ function openConfirmid(userinput) {
 				<option value="4" >기타</option>
 				
 				</select>
+			</td>
 			</tr>
 
 			<tr>
@@ -160,6 +179,10 @@ function openConfirmid(userinput) {
 			</tr>
 			<tr>
 				<td width="200">담당자 전화번호 :</td>
+				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20"></td>
+			</tr>
+			<tr>
+				<td width="200">담당자 휴대폰 :</td>
 				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20"></td>
 			</tr>
 
