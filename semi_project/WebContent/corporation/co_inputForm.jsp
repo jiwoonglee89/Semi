@@ -92,7 +92,7 @@ function openConfirmid(userinput) {
 				<td width="200">대표자 명 :</td>
 				<td width="400"><input type="text" name="co_boss" size="15" maxlength="20"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<td width="200">업종 :</td>
 				<td width="400">
 				<select name="co_job" size="1">
