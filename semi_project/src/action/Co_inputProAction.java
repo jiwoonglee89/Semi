@@ -21,9 +21,9 @@ public class Co_inputProAction implements CommandAction{
 			
 			co_member.setCo_id(request.getParameter("co_id"));
 			co_member.setCo_passwd(request.getParameter("co_passwd"));
-			co_member.setCo_boss(request.getParameter("co_boss"));
-			co_member.setCo_category(request.getParameter("co_category"));
-			co_member.setCo_com(request.getParameter("co_com"));
+			co_member.setCo_boss(request.getParameter("co_com"));
+			co_member.setCo_category(request.getParameter("co_boss"));
+			co_member.setCo_com(request.getParameter("co_job"));
 			co_member.setCo_email(request.getParameter("co_email"));
 			co_member.setCo_job(request.getParameter("co_job"));
 			co_member.setCo_name(request.getParameter("co_name"));

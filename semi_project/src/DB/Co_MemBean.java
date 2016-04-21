@@ -1,19 +1,19 @@
 package DB;
 
 public class Co_MemBean {
-	String co_id;
-	String co_passwd;
-	int co_number;
-	String co_com;
-	String co_boss;
-	String co_job;
-	String co_subjob;
-	String co_category;
-	String co_name;
-	String co_email;
-	String co_tel;
-	String co_phone;
-	int co_count;
+	String co_id; //아이디
+	String co_passwd; //패스워드
+	int co_number; //사업자 번호
+	String co_com; // 회사 이름
+	String co_boss;// 대표자명
+	String co_job; // 직종
+	String co_subjob; //상세직종
+	String co_category; //범주
+	String co_name; //담당자 이름
+	String co_email; //담당자 이메일
+	String co_tel; //담당자 전화 번호
+	String co_phone; //담당자 휴대폰 번호
+	int co_count; //경고 횟수
 	public String getCo_id() {
 		return co_id;
 	}
