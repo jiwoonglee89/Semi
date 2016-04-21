@@ -134,7 +134,7 @@
 			</tr>
 			<tr>
 				<td width="200">우편번호</td>
-				<td><input type="text" name="zipcode" size="7">
+				<td><input type="text" name="p_zipcode" size="7">
 					<input type="button" value="우편번호찾기" onClick="zipCheck()">
 					우편번호를 검색하세요.</td>
 			</tr>
