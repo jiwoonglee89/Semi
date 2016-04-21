@@ -2,7 +2,7 @@
 <%@ include file="view/color.jsp"%>
 <html>
 <head><title>메인입니다..</title>
-<link href="view/style.css" rel="stylesheet" type="text/css">
+<link href="login/view/style.css" rel="stylesheet" type="text/css">
 <% 
 	try{
 		if(session.getAttribute("memId")==null){
