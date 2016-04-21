@@ -1,4 +1,4 @@
-package per.action_W;
+package connection;
 
 import java.io.InputStream;
 
@@ -8,9 +8,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class Connection {
-	String res = "config.xml";
+	
 
 	public SqlSession connection() {
+		String res = "config.xml";
 		try {
 			InputStream is = Resources.getResourceAsStream(res);
 
