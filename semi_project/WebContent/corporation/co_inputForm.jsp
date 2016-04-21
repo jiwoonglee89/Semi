@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>기업 회원가입</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="view/style.css" rel="stylesheet" type="text/css">
 <script>
 function checkIt() {
 	var userinput = eval("document.userinput");
