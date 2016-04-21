@@ -1,16 +1,16 @@
-<%@ page contentType="text/html;charset=euc-kr"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ page import="java.util.*,DB.*"%>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
-<%request.setCharacterEncoding("euc-kr"); %>
+<%request.setCharacterEncoding("UTF-8"); %>
 <html>
 <head>
-<title>������ȣ�˻�</title>
+<title>우편번호검색</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
 	function dongCheck() {
 		if (document.zipForm.area4.value == "") {
-			alert("���̸��� �Է��ϼ���");
+			alert("동이름을 입력하세요");
 			document.zipForm.area4.focus();
 			return;
 		}
@@ -27,13 +27,13 @@
 </head>
 <body align="center" bgcolor="#FFFFCC">
 	
-		<b>������ȣ ã��</b>
+		<b>우편번호 찾기</b>
 		<form name="zipForm" method="post" action="zipcheck.do">
 		<table>
 			
 				<tr>
-					<td><br> ���θ� �ּ� �Է� : <input name="area4" type="text">
-						<input type="button" value="�˻�" onclick="dongCheck();">
+					<td><br> 도로명 주소 입력 : <input name="area4" type="text">
+						<input type="button" value="검색" onclick="dongCheck();">
 						<input type="hidden" name="check" value="n">
 						</td>
 				</tr>
@@ -44,13 +44,13 @@
 			
 				<c:if test="${totalList==0 }">
 				<tr>
-					<td align="center"><br>�˻��� ����� �����ϴ�.</td>
+					<td align="center"><br>검색된 결과가 없습니다.</td>
 				</tr>
 				</c:if>
 				
 				<c:if test="${totalList!=0 }"> 
 				<tr>
-					<td align="center"><br> �ذ˻� ��, �Ʒ� ������ȣ�� Ŭ���ϸ� �ڵ����� �Էµ˴ϴ�.</td>
+					<td align="center"><br> ※검색 후, 아래 우편번호를 클릭하면 자동으로 입력됩니다.</td>
 				</tr>
 		
 			<c:forEach var="i" items="${zipcodeList}">
@@ -60,7 +60,7 @@
 				<c:set var="temptArea3" value="${i.area3}"/>
 				<c:set var="temptArea4" value="${i.area4}"/>
 			<tr>
-				<!-- ��µǴ� �ּҿ� a�±� �ɷ����� -->
+				<!-- 출력되는 주소에 a태그 걸려있음 -->
 				<td><a href="javascript:sendAddress('${tempZipcode}','${temptArea1}',
 				'${temptArea2}','${temptArea3}','${temptArea4}')">
 	${tempZipcode}&nbsp;${temptArea1}&nbsp;${temptArea2}&nbsp; ${temptArea3}&nbsp; ${temptArea4}</a><br>
@@ -77,7 +77,7 @@
 			
 			<tr>
 				<td align="center"><br>
-				<a href="javascript:this.close();">�ݱ�</a>
+				<a href="javascript:this.close();">닫기</a>
 			<tr>
 				</td>
 		</table>

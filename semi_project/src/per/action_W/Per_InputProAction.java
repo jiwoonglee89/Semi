@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import DB.P_MemBean;
 import action.CommandAction;
 
-public class Per_JoinProAction implements CommandAction {
+public class Per_InputProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -16,13 +16,16 @@ public class Per_JoinProAction implements CommandAction {
 		String res = "config.xml";
 		
 		try {
+			request.setCharacterEncoding("UTF-8");
+			
 			Connection con=new Connection();
 			SqlSession session = con.connection();
 			
 			String id = request.getParameter("id");
 			String passwd = request.getParameter("passwd");
 			String name = request.getParameter("name");
-			int gender = Integer.parseInt(request.getParameter("gender"));
+			int gender1 = Integer.parseInt(request.getParameter("gender1"));
+			int gender2 = Integer.parseInt(request.getParameter("gender2"));
 			String email = request.getParameter("email");
 			int birth = Integer.parseInt(request.getParameter("birth"));
 			String phone = request.getParameter("phone");
@@ -34,10 +37,9 @@ public class Per_JoinProAction implements CommandAction {
 			String zipcode = request.getParameter("zipcode");
 			String address = request.getParameter("address");
 			String category = request.getParameter("category");
-			int count = Integer.parseInt(request.getParameter("count"));
 			
 
-			P_MemBean p_bean = new P_MemBean(id, passwd, name, gender, email,birth, phone, tel, jumin1, jumin2, career, award, zipcode, address, category, count);
+			P_MemBean p_bean = new P_MemBean(id, passwd, name, gender1, email,birth, phone, tel, jumin1, jumin2, career, award, zipcode, address, category,0);
 			
 			int success = session.insert("per_member.add", p_bean);
 		
@@ -56,7 +58,7 @@ public class Per_JoinProAction implements CommandAction {
 		
 		
 		
-		return "/login/joinPro.jsp";
+		return "/person/p_inputPro.jsp";
 	}
  
 }

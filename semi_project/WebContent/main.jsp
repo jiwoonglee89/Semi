@@ -49,7 +49,7 @@
        <tr>
           <td colspan="3" bgcolor="<%=title_c%>"   align="center">
             <input type="submit" name="Submit" value="로그인">
-            <input type="button"  value="회원가입" onclick="javascript:window.location='inputForm.do'">
+            <input type="button"  value="회원가입" onclick="javascript:window.location='p_inputForm.do'">
           </td>
        </tr>
        </form>   

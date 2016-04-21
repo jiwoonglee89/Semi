@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.CommandAction;
 
-public class Per_JoinFormAction implements CommandAction{
+public class Per_InputFormAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		return "/join/joinForm.jsp";
+		return "/person/p_inputForm.jsp";
 	}
 
 }
