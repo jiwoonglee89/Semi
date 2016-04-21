@@ -1,5 +1,6 @@
 package action;
 
+import java.util.List;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,8 +25,7 @@ public class Zipcode_Action implements CommandAction{
 		try{
 			String check=request.getParameter("check");
 			String area4=request.getParameter("area4");
-			 
-			Vector result =(Vector)session.selectList("zipcode.find", area4);
+			List result = session.selectList("zipcode.find", area4);
 			int totalList=result.size();
 			request.setAttribute("zipcodeList", result);
 			request.setAttribute("totalList", totalList);
@@ -36,7 +36,7 @@ public class Zipcode_Action implements CommandAction{
 			e.printStackTrace();
 		}
 		
-		return "Zipcheck.jsp";
+		return "ZipCheck.jsp";
 	}
 
 }

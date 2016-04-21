@@ -10,7 +10,7 @@
 <script>
 	function dongCheck() {
 		if (document.zipForm.area4.value == "") {
-			alert("동이름을 입력하세요");
+			alert("도로명 주소를 입력하세요");
 			document.zipForm.area4.focus();
 			return;
 		}
@@ -19,8 +19,8 @@
 
 	function sendAddress(zipcode, area1, area2, area3 ,area4) {
 		var address = area1 + " " + area2 + " "  + area3 + " "  + area4;
-		opener.document.userinput.zipcode.value = zipcode;
-		opener.document.userinput.address.value = address;
+		opener.document.userinput.p_zipcode.value = zipcode;
+		opener.document.userinput.p_address.value = address;
 		self.close();
 	}
 </script>
@@ -60,9 +60,8 @@
 				<c:set var="temptArea3" value="${i.area3}"/>
 				<c:set var="temptArea4" value="${i.area4}"/>
 			<tr>
-				<!-- 출력되는 주소에 a태그 걸려있음 -->
-				<td><a href="javascript:sendAddress('${tempZipcode}','${temptArea1}',
-				'${temptArea2}','${temptArea3}','${temptArea4}')">
+				<td>
+				<a href="javascript:sendAddress('${tempZipcode}','${temptArea1}', '${temptArea2}','${temptArea3}','${temptArea4}')">
 	${tempZipcode}&nbsp;${temptArea1}&nbsp;${temptArea2}&nbsp; ${temptArea3}&nbsp; ${temptArea4}</a><br>
 					
 				</td>
