@@ -174,6 +174,6 @@
 			</tr>
 		</table>
 	</form>
-	${gender1 }
+	${gender1}
 </body>
 </html>
