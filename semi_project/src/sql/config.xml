@@ -18,5 +18,6 @@
 	<mappers>
 		<mapper resource="sql/per_memberMapper.xml" />
 		<mapper resource="sql/co_memberMapper.xml" /> 
+		<mapper resource="sql/zipcode_Mapper.xml" />
 	</mappers>
 </configuration>

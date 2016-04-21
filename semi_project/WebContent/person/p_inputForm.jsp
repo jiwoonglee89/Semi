@@ -4,7 +4,7 @@
 <head>
 <title>회원가입</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-<script language="JavaScript">
+<script>
 	function checkIt() {
 		var userinput = eval("document.userinput");
 
@@ -42,7 +42,7 @@
 			return;
 		}
 		// url과 사용자 입력 id를 조합합니다.
-		url = "confirmId.do?id=" + userinput.id.value;
+		url = "per_confirmId.do?id=" + userinput.id.value;
 
 		// 새로운 윈도우를 엽니다.
 		open(
