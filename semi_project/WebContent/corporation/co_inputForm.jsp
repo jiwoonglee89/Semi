@@ -38,7 +38,7 @@ function openConfirmid(userinput) {
 		return;
 	}
 	// url과 사용자 입력 id를 조합합니다.
-	url = "confirmId.jsp?id=" + userinput.co_id.value;
+	url = "co_confirmId.do?id=" + userinput.co_id.value;
 
 	// 새로운 윈도우를 엽니다.
 	open(

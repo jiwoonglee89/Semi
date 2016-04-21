@@ -12,6 +12,10 @@
 		co_subjob=#{co_subjob}, co_category=#{co_category}, co_name=#{co_name}, co_phone=#{co_phone} 
 		where co_id=#{co_id} 
 	</update>
+	<select id="confirmId" parameterType="String" resultType="String">
+		select co_id from co_member where co_id=#{co_id}
+	</select> 
+	
 	<delete id="remove" parameterType="java.lang.String">
 		delete from co_member where co_id=#{co_id} and co_passwd=#{co_passwd}
 	</delete>
