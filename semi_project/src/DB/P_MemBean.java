@@ -4,10 +4,9 @@ public class P_MemBean {
 	String p_id;
 	String p_passwd;
 	String p_name;
-	int p_gender; 
+	String p_gender; 
 	String p_email;
 	int p_birth;
-	String p_phone;
 	String p_tel;
 	String jumin1;
 	String jumin2;
@@ -26,8 +25,8 @@ public class P_MemBean {
 		this.p_passwd = p_passwd;
 	}
 	
-	public P_MemBean(String p_id, String p_passwd, String p_name, int p_gender, String p_email, int p_birth,
-			String p_phone, String p_tel, String jumin1, String jumin2, String p_career, String p_award,
+	public P_MemBean(String p_id, String p_passwd, String p_name, String p_gender, String p_email, int p_birth,
+			 String p_tel, String jumin1, String jumin2, String p_career, String p_award,
 			String p_zipcode, String p_address, String p_category, int p_count) {
 		super();
 		this.p_id = p_id;
@@ -36,7 +35,7 @@ public class P_MemBean {
 		this.p_gender = p_gender;
 		this.p_email = p_email; 
 		this.p_birth = p_birth;
-		this.p_phone = p_phone;
+		
 		this.p_tel = p_tel;
 		this.jumin1 = jumin1;
 		this.jumin2 = jumin2;
@@ -66,10 +65,10 @@ public class P_MemBean {
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
-	public int getP_gender() {
+	public String getP_gender() {
 		return p_gender;
 	}
-	public void setP_gender(int p_gender) {
+	public void setP_gender(String p_gender) {
 		this.p_gender = p_gender;
 	}
 	public String getP_email() {
@@ -84,12 +83,7 @@ public class P_MemBean {
 	public void setP_birth(int p_birth) {
 		this.p_birth = p_birth;
 	}
-	public String getP_phone() {
-		return p_phone;
-	}
-	public void setP_phone(String p_phone) {
-		this.p_phone = p_phone;
-	}
+	
 	public String getP_tel() {
 		return p_tel;
 	}
