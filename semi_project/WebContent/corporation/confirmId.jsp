@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <title>ID 중복확인</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="view/style.css" rel="stylesheet" type="text/css">
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <body bgcolor="${bodyback_c}">
