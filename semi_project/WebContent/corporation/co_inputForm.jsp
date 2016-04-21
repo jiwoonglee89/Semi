@@ -1,12 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="DB.Co_MemBean"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./view/color.jspf"%>
 <html>
 <head>
 <title>기업 회원가입</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-<script language="JavaScript">
-
+<script>
+function checkit2(){
+	var userinput=eval("document.userinput");
+	if(userinput.co_job.value==0){
+		alert("ㅎㅇ");
+		return false;
+	}
+}
 function checkIt() {
 	var userinput = eval("document.userinput");
 
@@ -51,8 +58,7 @@ function openConfirmid(userinput) {
 
 
 <body bgcolor="${bodyback_c}">
-	<form method="post" action="inputPro.do" name="userinput"
-		onSubmit="return checkIt()">
+	<form method="post" action="inputPro.do" name="userinput" onsubmit="return checkIt()">
 		<table width="600" border="1" cellspacing="0" cellpadding="3"
 			align="center">
 			<tr>
@@ -91,29 +97,52 @@ function openConfirmid(userinput) {
 			</tr>
 			<tr>
 				<td width="200">업종 :</td>
-				<td width="400"><input type="text" name="co_job" size="15"></td>
-				<select name="co_job" size="1" >
-				<option value="0" >웹디자인 </option>
-				<option value="1" >산업디자인 </option>
-				<option value="2" >게임디자인</option>
+				<td width="400">
+				<select name="co_job" size="1">
+				<option value="0" >제조업 </option>
+				<option value="1" >정보통신업 </option>
+				<option value="2" >건설 토목업</option>
+				<option value="3" >개인 가사서비스업</option>
+				<option value="4" >공공 의료 사회기반사업</option>
+				<option value="5" >여행 숙박 음식점업</option>
+				<option value="6" >기타</option>
 				</select>
+				</td>
 			</tr>
 			<tr>
 				<td width="200">상세업종 :</td>
-				<td width="400"><input type="text" name="co_subjob" size="15"></td>
+				<td width="400">
 				<select name="co_subjob" size="1" >
-				<option value="0" >웹디자인 </option>
-				<option value="1" >산업디자인 </option>
-				<option value="2" >게임디자인</option>
-				</select>
+				<option>----- 제조업 ----- </option>
+				<option value="0" >농업 임업 어업 광업</option>
+				<option value="1" >가죽 가방 신발</option>
+				<option value="2" >기계 조선 자동차 운송장비</option>
+				<option value="3" >컴퓨터 하드웨어 장비</option>
+				<option value="4" >생활 용품 화장품</option>
+				<option value="5" >전자 전기 반도체</option>
+				<option value="6" >제조업 기타</option>
+				<option>----- 정보통신업 -----</option>
+				<option value="0" >농업 임업 어업 광업</option>
+				<option value="1" >가죽 가방 신발</option>
+				<option value="2" >기계 조선 자동차 운송장비</option>
+				<option value="3" >컴퓨터 하드웨어 장비</option>
+				<option value="4" >생활 용품 화장품</option>
+				<option value="5" >전자 전기 반도체</option>
+				<option value="6" >제조업 기타</option>
+				
+				</select>				
+				</td>
 			</tr>
 			<tr>
 				<td width="200">기업기관분류 :</td>
 				<td><input type="text" name="co_category" size="15">
 				<select name="co_category" size="1" >
-				<option value="0" >중소기업 </option>
-				<option value="1" >중견기업 </option>
-				<option value="2" >대기업</option>
+				<option value="0" >일반기업</option>
+				<option value="1" >서치펌 </option>
+				<option value="2" >파견 대행 기업</option>
+				<option value="3" >교육 기관</option>
+				<option value="4" >기타</option>
+				
 				</select>
 			</tr>
 

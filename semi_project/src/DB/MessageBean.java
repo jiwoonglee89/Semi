@@ -10,6 +10,17 @@ public class MessageBean {
 	Timestamp m_regdate;
 	int m_count;
 	
+	public MessageBean(){} 
+	
+	public MessageBean(String p_id,String co_id,String m_title, String m_context,Timestamp m_regdate){
+		
+		super();
+		this.p_id = p_id;
+		this.co_id = co_id;
+		this.m_title = m_title;
+		this.m_context = m_context;
+		this.m_regdate = m_regdate;
+	}
 	
 	public int getCount() {
 		return m_count;
