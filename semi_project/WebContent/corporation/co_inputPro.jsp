@@ -12,7 +12,7 @@
 
 <c:if test="${success!=0 }">
 <script>alert("회원가입에성공하였습니다")</script>
-<c:redirect url="main.do"></c:redirect>
+<c:redirect url="/main.do"></c:redirect>
 </c:if>
 
 </body>

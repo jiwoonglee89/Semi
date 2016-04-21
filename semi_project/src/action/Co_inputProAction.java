@@ -6,18 +6,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 
 import DB.Co_MemBean;
-import per.action_W.Connection;
+import sql.*;
 
 public class Co_inputProAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("UTF-8");
+		Connection con=new Connection();
+		SqlSession session = con.connection();
 		
 		try{
-			Connection con=new Connection();
-			SqlSession session = con.connection();
-			
 			Co_MemBean co_member=new Co_MemBean();
 			
 			co_member.setCo_id(request.getParameter("co_id"));
@@ -39,10 +38,12 @@ public class Co_inputProAction implements CommandAction{
 			}else
 				session.rollback();
 			request.setAttribute("success", success);
+			session.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return "corporation/inputPro.jsp";
+		System.out.println("È®ÀÎ¿ë");
+		return "co_inputPro.jsp";
 	}
 
 }
