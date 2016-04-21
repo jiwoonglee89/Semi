@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import DB.P_MemBean;
 import action.CommandAction;
-import connection.Connection;
 
 public class Per_InputProAction implements CommandAction {
 
