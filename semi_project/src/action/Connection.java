@@ -1,4 +1,4 @@
-package sql;
+package action;
 
 import java.io.InputStream;
 
@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class Connection {
-	String res = "config.xml";
+	String res = "sql/config.xml";
 
 	public SqlSession connection() {
 		try {
