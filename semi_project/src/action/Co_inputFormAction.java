@@ -7,7 +7,7 @@ public class Co_inputFormAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		return "corporation/co_inputForm.jsp";
+		return "co_inputForm.jsp";
 	}
 
 }

@@ -145,9 +145,6 @@ function openConfirmid(userinput) {
 				<option value="0" >호텔 여행 항공</option>
 				<option value="1" >식음료 외식(프랜차이즈)</option>
 				
-				
-				
-				
 				</select>				
 				</td>
 			</tr>
@@ -179,7 +176,7 @@ function openConfirmid(userinput) {
 			</tr>
 			<tr>
 				<td width="200">담당자 전화번호 :</td>
-				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20"></td>
+				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20"></td>
 			</tr>
 			<tr>
 				<td width="200">담당자 휴대폰 :</td>
