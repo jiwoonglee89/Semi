@@ -19,28 +19,23 @@ public class Zipcode_Action implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("UTF-8");
 		Connection con=new Connection();
+		session=con.connection();
 		
 		try{
-			ZipcodeBean =new ZipcodeBean();
-			
-			ZipcodeBean.setZipcode(request.getParameter("zipcode"));
-			ZipcodeBean.setArea1(request.getParameter("area1"));
-			ZipcodeBean.setArea2(request.getParameter("area2"));
-			ZipcodeBean.setArea3(request.getParameter("area3")); 
-			ZipcodeBean.setArea4(request.getParameter("area4"));
-			
+			String check=request.getParameter("check");
+			String area4=request.getParameter("area4");
 			 
-			int success = session.insert("Zipcode.add", ZipcodeBean);
-			if(success>0){
-				session.commit();
-			}else
-				session.rollback();
-			request.setAttribute("success", success);
+			Vector result =(Vector)session.selectList("zipcode.find", area4);
+			int totalList=result.size();
+			request.setAttribute("zipcodeList", result);
+			request.setAttribute("totalList", totalList);
+			request.setAttribute("check", check);
+			request.setAttribute("area4", area4);
 			session.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		System.out.println("È®ÀÎ¿ë");
+		
 		return "Zipcheck.jsp";
 	}
 
