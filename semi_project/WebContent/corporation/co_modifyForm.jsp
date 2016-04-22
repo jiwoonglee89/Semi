@@ -41,8 +41,7 @@
 <%try{%>
 </head>
 <body bgcolor="${bodyback_c}>">
-	<form method="post" action="co_modifyPro.jsp" name="userinput"
-		onsubmit="return checkIt()">
+	<form method="post" action="co_modifyPro.do" name="userinput" onsubmit="return checkIt()">
 
 		<table width="600" border="1" cellspacing="0" cellpadding="3"
 			align="center">
@@ -145,7 +144,7 @@
 			<tr>
 				<td colspan="2" align="center" bgcolor="${value_c}>">
 				<input type="submit" name="modify" value="수   정"> 
-					<input type="button" value="취  소" onclick="javascript:window.location='main.jsp'"></td>
+					<input type="button" value="취  소" onclick="javascript:window.location='main.do'"></td>
 			</tr>
 		</table>
 	</form>
