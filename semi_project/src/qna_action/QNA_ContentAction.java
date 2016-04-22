@@ -33,7 +33,7 @@ public class QNA_ContentAction implements CommandAction {
 				if(success>0){
 					return "/main.jsp";
 				}else
-					return "/contentForm.jsp";
+					return "/QNA_content.jsp";
 			
 		}
 	
