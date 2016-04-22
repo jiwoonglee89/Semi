@@ -9,7 +9,7 @@
 		var userinput = eval("document.userinput");
 
 		if (!userinput.p_id.value) {
-			alert("ID를 입력하세 요"); 
+			alert("ID를 입력하세 요");
 			return false;
 		}
 

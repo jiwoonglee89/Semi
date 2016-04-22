@@ -17,30 +17,28 @@ public class QNA_ContentAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		
-		try{
-			QNABean QNA_board = new QNABean();
-			
-			QNA_board.setCo_id(request.getParameter("co_id"));
-			QNA_board.setP_id(request.getParameter("p_id"));
-			QNA_board.setQ_passwd(request.getParameter("q_passwd"));
-			QNA_board.setQna_title(request.getParameter("qna_title"));
-			QNA_board.setContent(request.getParameter("content"));
-			QNA_board.setP_id(request.getParameter("p_id"));
-			
-			int success = session.insert("QNA_board.content_add", QNA_board);
-			if(success>0){
-				session.commit();
-			}else
-				session.rollback();
-			request.setAttribute("success", success);
-			session.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		System.out.println("확인용");
-		return "co_inputPro.jsp"; // 다시 
 		
-	}
-
+			
+			int success;
+			int num = Integer.parseInt(request.getParameter("num"));
+			String q_passwd=session.selectOne("QNA_board.get", request.getAttribute("num"));
+			
+			//수정 진행중
+			
+			if(q_passwd.equals(request.getParameter("q_passwd"))){
+				success=session.insert("QNA_board.co_add", request.getParameter("num"));
+			}else{
+					success=0;
+				}
+				if(success>0){
+					return "/main.jsp";
+				}else
+					return "/contentForm.jsp";
+			
+		}
+	
 }
+
+	
+
 

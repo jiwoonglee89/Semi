@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import action.*;
 
-public class Qna_listAtion implements CommandAction {
+public class QNA_listAtion implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -19,6 +19,7 @@ public class Qna_listAtion implements CommandAction {
 		
 		String pageNum = request.getParameter("pageNum") ;
 		String search = request.getParameter("search");
+		 //수정 미완
 		int searchn = 0;
 		
 		if(pageNum == null) { pageNum = "1"; }
