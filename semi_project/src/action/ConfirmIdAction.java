@@ -12,7 +12,7 @@ public class ConfirmIdAction implements CommandAction {
 		String co_id=request.getParameter("id");
 		Connection con=new Connection();
 		SqlSession session = con.connection();
-		String id=session.selectOne("co_member.confirmId", co_id);
+		String id = session.selectOne("co_member.confirmId", co_id);
 		int check;
 		if(id==null){
 			check=-1;

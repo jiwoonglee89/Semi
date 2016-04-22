@@ -143,10 +143,9 @@
 			
 			
 			<tr>
-				<td colspan="2" align="center" bgcolor="${value_c}>"><input
-					type="submit" name="modify" value="수   정"> <input
-					type="button" value="취  소"
-					onclick="javascript:window.location='main.jsp'"></td>
+				<td colspan="2" align="center" bgcolor="${value_c}>">
+				<input type="submit" name="modify" value="수   정"> 
+					<input type="button" value="취  소" onclick="javascript:window.location='main.jsp'"></td>
 			</tr>
 		</table>
 	</form>
