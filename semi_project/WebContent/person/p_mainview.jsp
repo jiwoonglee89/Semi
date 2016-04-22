@@ -8,6 +8,25 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="main_msg/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		
+		<script>
+		function fileupload(userinput) {
+			/* // 아이디를 입력했는지 검사
+			if (userinput.p_id.value == "") {
+				alert("아이디를 입력하세요");
+				return;
+			} */
+			// url과 사용자 입력 id를 조합합니다.
+			url = "fileuploadForm.do";
+
+			// 새로운 윈도우를 엽니다.
+			open(
+					url,
+					"fileupload",
+					"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=500");
+		}
+		
+		</script>
 	</head>
 	<body id="top">
 
@@ -29,7 +48,11 @@
 						</header>
 						
 						<ul class="actions">
-							<li><a href="#" class="button">파일올리기</a></li>
+							<form enctype="multipart/form-data">
+								<input type="button" class="button" value="파일올리기"
+								onclick="fileupload(this.form)">
+							</form>
+							<!-- <li><a href="#" class="button">파일올리기</a></li> -->
 						</ul>
 					</section>
 					
