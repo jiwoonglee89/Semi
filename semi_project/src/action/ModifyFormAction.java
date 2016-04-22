@@ -4,8 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ssol.logon.LogonDBBean;
-import ssol.logon.LogonDataBean;
+import DB.Co_MemBean;
 
 public class ModifyFormAction implements CommandAction{
 
@@ -15,7 +14,7 @@ public class ModifyFormAction implements CommandAction{
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("memId");
 		Co_MemBean co_member=new Co_MemBean();
-		LogonDataBean c=manager.getMember(id);
+		
 		request.setAttribute("c", c);
 		return "modifyForm.jsp";
 	}
