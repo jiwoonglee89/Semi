@@ -39,6 +39,8 @@
 	기업용 페이지	
 	<a href="QNA_board.do">QnA</a> <a href="co_modify.do">정보수정</a> <a href="../main.do">로그아웃</a>
 	<br>
+	<br>
+	<br>
 	<form method="post">
 	<select name="category" size=1>
 	<option>디자인분류</option>
@@ -55,12 +57,12 @@
 	</select>
 	</form>
 	<form>
-	<select name="search" size=1>
+	<select name="option" size=1>
 	<option>SEARCH</option>
 	<option value=0>제목</option>
 	<option value=1>설명</option>
 	</select>
-	<input type="text" name="co_name" size="15" maxlength="30">
+	<input type="text" name="search" size="15" maxlength="50">
 	<input type="submit" value="검색">
 	</form>
 		<!-- Wrapper -->
