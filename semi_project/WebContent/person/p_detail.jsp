@@ -10,6 +10,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="detail/assets/css/noscript.css" /></noscript>
+		
 	</head>
 	<body class="is-loading-0 is-loading-1 is-loading-2">
 
