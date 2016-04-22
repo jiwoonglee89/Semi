@@ -2,6 +2,7 @@ package per.action_W;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -15,12 +16,15 @@ public class Per_InputProAction implements CommandAction {
 		
 		Connection con=new Connection();
 		SqlSession session = con.connection();
+		int success = 0;
+		
+		String p_id = null;
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
 			
 			
-			String p_id = request.getParameter("p_id");
+			p_id = request.getParameter("p_id");
 			String p_passwd = request.getParameter("p_passwd");
 			String p_name = request.getParameter("p_name");
 			String p_gender = request.getParameter("p_gender");
@@ -35,11 +39,6 @@ public class Per_InputProAction implements CommandAction {
 			String p_address = request.getParameter("p_address");
 			String p_category = request.getParameter("p_category");
 			
-			/*System.out.println(id +"\n"+passwd +"\n"+name
-					+"\n"+gender +"\n"+email +"\n"+birth
-					+"\n"+tel+"\n"+jumin1+"\n"+jumin2+"\n"+career+"\n"+award
-					+"\n"+zipcode+"\n"+address+"\n"+p_category);*/
-			
 			if (p_category != null) {
 				if (p_category.equals("0")) {
 					p_category = "sanup";
@@ -49,13 +48,10 @@ public class Per_InputProAction implements CommandAction {
 					p_category = "guncuck";
 				}
 			}
-			
-			
-			
 
 			P_MemBean p_bean = new P_MemBean(p_id, p_passwd, p_name, p_gender, jumin1, jumin2, p_email, p_birth, p_tel,  p_career, p_award, p_zipcode, p_address, p_category,0);
 			
-			int success = session.insert("per_member.add", p_bean);
+			success = session.insert("per_member.add", p_bean);
 		
 			if (success >0) {
 				session.commit();
@@ -66,14 +62,15 @@ public class Per_InputProAction implements CommandAction {
 			
 			System.out.println(success);
 			
-			request.setAttribute("success", new Integer(success));
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
-		
+		request.setAttribute("success", new Integer(success));
+		HttpSession session2 = request.getSession();
+		session2.setAttribute("memId", p_id);
 		
 		return "/person/p_inputPro.jsp";
 	}
