@@ -1,8 +1,8 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
-<%@ include file="view/color.jsp"%>
+<%@ include file="./view/color.jsp"%>
 <html>
 <head><title>메인입니다..</title>
-<link href="login/view/style.css" rel="stylesheet" type="text/css">
+<link href="view/style.css" rel="stylesheet" type="text/css">
 <% 
 	try{
 		if(session.getAttribute("memId")==null){
@@ -49,7 +49,7 @@
        <tr>
           <td colspan="3" bgcolor="<%=title_c%>"   align="center">
             <input type="submit" name="Submit" value="로그인">
-            <input type="button"  value="회원가입" onclick="javascript:window.location='p_inputForm.do'">
+            <input type="button"  value="회원가입" onclick="javascript:window.location='join.jsp'">
           </td>
        </tr>
        </form>   

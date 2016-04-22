@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QNA_board">
+	<insert id="add" parameterType="DB.QNABean">
+		insert into QNA_board values(#{q_num},#{p_id}, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number},
+		#{readCount},#{cotent})
+	</insert>
+	<insert id="content_add" parameterType="DB.QNABean">
+		insert into QNA_board values(#{p_id}, #{co_id}, #{qna_title}, #{cotent},#{q_passwd)
+	</insert>
+	<update id="modify" parameterType="DB.QNABean">
+		update QNA_board set p_id=#{p_id}, co_id=#{co_id}, co_boss=#{q_title}, co_job=#{q_content},
+		q_passwd=#{q_passwd} where q_num=#{q_num} 
+	</update>
+	
+	<delete id="remove" parameterType="DB.QNABean">
+		delete from board where q_num=#{q_num} and q_passwd=#{q_passwd}
+	</delete>
+	<select id="list" resultType="DB.QNABean">
+		select * from QNA_board 
+	</select>
+	<select id="find" parameterType="String" resultType="DB.QNABean">
+		select * from QNA_board where co_id=#{co_id} and p_id=#{p_id}
+	</select>
+	<select id="get" parameterType="String" resultType="DB.QNABean">
+		select * from QNA_board where co_id=#{co_id} and p_id=#{p_id}
+	</select>
+	
+	<select id="getArticle" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board
+	</select>
+	
+	<select id="writer_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board where writer like '%'|| #{writer} || '%'
+	</select>
+	<select id="subject_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board where subject like '%'|| #{subject} || '%'
+	</select>
+	<select id="content_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board where content like '%'|| #{content} || '%'
+	</select>
+</mapper>

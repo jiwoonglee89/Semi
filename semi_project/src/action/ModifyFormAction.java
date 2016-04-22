@@ -4,20 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ssol.logon.LogonDBBean;
-import ssol.logon.LogonDataBean;
+import org.apache.ibatis.session.SqlSession;
+
+import DB.Co_MemBean;
 
 public class ModifyFormAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		request.setCharacterEncoding("UTF-8");
-		HttpSession session=request.getSession();
-		String id=(String)session.getAttribute("memId");
-		Co_MemBean co_member=new Co_MemBean();
-		LogonDataBean c=manager.getMember(id);
-		request.setAttribute("c", c);
-		return "modifyForm.jsp";
+
+		return "co_modifyForm.jsp";
 	}
 
-}
+} 

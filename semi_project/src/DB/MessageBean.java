@@ -12,6 +12,12 @@ public class MessageBean {
 	
 	public MessageBean(){} 
 	
+	public MessageBean( String m_title, Timestamp m_regdate,int m_count){
+		super();
+		this.m_title = m_title;
+		this.m_regdate = m_regdate;
+	}
+	
 	public MessageBean(String p_id,String co_id,String m_title, String m_context,Timestamp m_regdate){
 		
 		super();
@@ -22,6 +28,8 @@ public class MessageBean {
 		this.m_regdate = m_regdate;
 	}
 	
+	
+
 	public int getCount() {
 		return m_count;
 	}
