@@ -17,7 +17,7 @@ public class P_MemBean {
 	String p_category;
 	int p_count;
 	
-	public P_MemBean (){}
+	public P_MemBean (String id, String passwd, String name, int gender, String email, int birth, String phone, String tel, String jumin12, String jumin22, String career, String award, String zipcode, String address, String category, int i){}
 	
 	public P_MemBean (String p_id, String p_passwd){  
 		super();
