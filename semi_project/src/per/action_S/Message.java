@@ -22,6 +22,7 @@ public class Message implements CommandAction {
 		SqlSession session = con.connection();
 
 		try {
+			request.setCharacterEncoding("UTF-8");
 
 			String p_id = request.getParameter("p_id");
 			String co_id = request.getParameter("co_id");

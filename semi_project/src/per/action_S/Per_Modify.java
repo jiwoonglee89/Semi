@@ -25,10 +25,9 @@ public class Per_Modify implements CommandAction {
 		String id = request.getParameter("p_id");
 		String passwd = request.getParameter("p_passwd");
 		String name = request.getParameter("p_name");
-		int gender = Integer.parseInt(request.getParameter("p_gender"));
+		String gender = request.getParameter("p_gender");
 		String email = request.getParameter("p_email");
 		int birth = Integer.parseInt(request.getParameter("P_birth"));
-		String phone = request.getParameter("p_phone");
 		String tel = request.getParameter("p_tel");
 		String jumin1 = request.getParameter("jumin1");
 		String jumin2 = request.getParameter("jumin2");
@@ -37,8 +36,8 @@ public class Per_Modify implements CommandAction {
 		String zipcode = request.getParameter("p_zipcode");
 		String address = request.getParameter("p_address");
 		String category = request.getParameter("p_category");
-		
-		P_MemBean check = new P_MemBean(id, passwd, name, gender, email, birth, phone, tel, jumin1, jumin2, career, award, zipcode, address, category, 0);
+		 
+		P_MemBean check = new P_MemBean(id, passwd, name, gender, jumin1, jumin2, email, birth, tel, career, award, zipcode, address, category, 0);
 		
 		int success = session.update("per_member.modify",check);
 		

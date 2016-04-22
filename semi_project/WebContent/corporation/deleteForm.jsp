@@ -6,8 +6,8 @@
 <head><title>기업회원탈퇴</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 
-   <script language="javascript">
-     <!--
+<script>
+
        function begin(){
          document.myform.passwd.focus();
        }
@@ -18,9 +18,8 @@
            document.myform.passwd.focus();
            return false;
          }
-   }  
-     -->
-   </script>
+   }
+</script>
 </head>
 <body onload="begin()" bgcolor="${bodyback_c}">
 	<form name="myform" action="deletePro.do" method="post" onSubmit="return checkIt()">
@@ -40,7 +39,7 @@
 			<tr height="30">
 				<td colspan="2" align="middle" bgcolor="${value_c}">
 				<input type=submit value="회원탈퇴"> 
-				<input type="button" value="취  소" onclick="javascript:window.location='main.do'"></TD>
+				<input type="button" value="취  소" onclick="javascript:window.location='co_main.do'"></TD>
 			</tr>
 		</table>
 	</form>
