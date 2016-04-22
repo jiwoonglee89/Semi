@@ -39,7 +39,7 @@
 			<tr height="30">
 				<td colspan="2" align="middle" bgcolor="${value_c}">
 				<input type=submit value="회원탈퇴"> 
-				<input type="button" value="취  소" onclick="javascript:window.location='main.do'"></TD>
+				<input type="button" value="취  소" onclick="javascript:window.location='co_main.do'"></TD>
 			</tr>
 		</table>
 	</form>
