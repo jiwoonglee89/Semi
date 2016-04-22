@@ -23,9 +23,9 @@ public class ModifyProAction implements CommandAction{
 		String id=(String)session.getAttribute("memId");
 		member=manager.getMember(id);		
 		
-		member.setPasswd(passwd);
+		member.setPasswd(passwd); 
 		member.setName(name);
-		member.setEmail(email);
+		member.setEmail(email);  
 		member.setBlog(blog);
 		
 		manager.updateMember(member);
