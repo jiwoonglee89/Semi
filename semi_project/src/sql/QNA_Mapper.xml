@@ -27,4 +27,18 @@
 	<select id="get" parameterType="String" resultType="DB.QNABean">
 		select * from QNA_board where co_id=#{co_id} and p_id=#{p_id}
 	</select>
+	
+	<select id="getArticle" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board
+	</select>
+	
+	<select id="writer_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board where writer like '%'|| #{writer} || '%'
+	</select>
+	<select id="subject_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board where subject like '%'|| #{subject} || '%'
+	</select>
+	<select id="content_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
+		select count(*) from QNA_board where content like '%'|| #{content} || '%'
+	</select>
 </mapper>

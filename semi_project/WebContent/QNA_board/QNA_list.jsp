@@ -13,7 +13,7 @@
 <table width="700">
 	<tr>
 		<td align="right" bgcolor="${value_c}">
-		<a href="/Semi_project/QNA_board/QNA_writeForm.do"> write </a>
+		<a href="QNA_writeForm.do"> write </a>
 		</td>
 	</tr>
 </table>
@@ -90,17 +90,17 @@
          
 <c:if test="${startPage > 10}">
 
-	<a href="/MarJSP/mvc_board/list.do?pageNum=${startPage - 10 }">[이전]</a>
+	<a href="QNA_list.do?pageNum=${startPage - 10 }">[이전]</a>
 </c:if>
 
 
 
 <c:forEach var="i" begin="${startPage}" end="${endPage}">
-	<a href="/MarJSP/mvc_board/list.do?pageNum=${i}">[${i}]</a>
+	<a href="QNA_list.do?pageNum=${i}">[${i}]</a>
 </c:forEach>
 	
 	<c:if test="${endPage < pageCount}">
-		<a href="/MarJSP/mvc_board/list.do?pageNum=${startPage + 10}">[다음]</a>
+		<a href="QNA_list.do?pageNum=${startPage + 10}">[다음]</a>
 	</c:if>
 </c:if>
 
