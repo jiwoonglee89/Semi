@@ -5,11 +5,10 @@
 <html>
 <head>
 <title>기업회원 정보수정</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="view/style.css" rel="stylesheet" type="text/css">
 
 
-<script language="JavaScript">
-   <!--
+<script>
    function checkIt() {
 		var userinput = eval("document.userinput");
 
@@ -33,8 +32,6 @@
 		}
 		return true;
 	}
- 
--->
 </script>
 
 
