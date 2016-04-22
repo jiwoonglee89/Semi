@@ -15,14 +15,17 @@
 	<select id="confirmId" parameterType="String" resultType="String">
 		select co_id from co_member where co_id=#{co_id}
 	</select>
-	<delete id="remove" parameterType="java.lang.String">
-		delete from co_member where co_id=#{co_id} and co_passwd=#{co_passwd}
+	<delete id="remove" parameterType="String">
+		delete from co_member where co_id=#{co_id}
 	</delete>
 	<select id="list" resultType="DB.Co_MemBean">
 		select * from co_member 
 	</select>
 	<select id="find" parameterType="String" resultType="DB.Co_MemBean">
 		select * from co_member where co_id=#{co_id}
+	</select>
+	<select id="find_passwd" parameterType="String" resultType="String">
+		select co_passwd from co_member where co_id=#{co_id}
 	</select>
 	<select id="get" parameterType="String" resultType="DB.Co_MemBean">
 		select * from co_member where co_id=#{co_id}
