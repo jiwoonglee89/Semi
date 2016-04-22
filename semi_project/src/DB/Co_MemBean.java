@@ -14,6 +14,14 @@ public class Co_MemBean {
 	String co_tel; //담당자 전화 번호
 	String co_phone; //담당자 휴대폰 번호
 	int co_count; //경고 횟수
+	
+	public Co_MemBean(){}
+	
+	public Co_MemBean(String co_com){
+		super();
+		this.co_com = co_com;
+	}
+	
 	public String getCo_id() {
 		return co_id;
 	}
