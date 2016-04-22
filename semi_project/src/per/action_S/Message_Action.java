@@ -1,33 +1,24 @@
 package per.action_S;
 
-import java.sql.ResultSet;
 import java.sql.Timestamp;
-import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.session.SqlSession;
-
 import DB.Co_MemBean;
 import DB.MessageBean;
 import action.CommandAction;
-import per.action_W.Connection;
 
 public class Message_Action implements CommandAction {
 
-	String res = "config.xml";
+	
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-		Connection con = new Connection();
-		SqlSession session = con.connection();
-
-		ResultSet rs = null;
-		Vector vecList = new Vector();
-
 		try {
+
+			request.setCharacterEncoding("UTF-8");
 
 			Co_MemBean check = new Co_MemBean();
 			MessageBean check2 = new MessageBean();
