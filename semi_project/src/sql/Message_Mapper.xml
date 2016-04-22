@@ -11,7 +11,7 @@
 		delete from message where p_id=#{p_id} and co_id=#{co_id} and m_title=#{m_title} and m_context=#{m_context} and m_regdate = #{m_regdate} and m_count = #{m_count}
 	</delete>
 	<select id="set" resultType="DB.Message">
-		select m_title,m_regdate,m_count from message where m_title=#{m_title},m_regdate=#{m_regdate},m_count=#{m_count} 
+		select m_title, m_regdate, m_count from message where m_title=#{m_title} and m_regdate=#{m_regdate} and m_count=#{m_count} 
 	</select>
 	<select id="list" resultType="DB.Message">
 		select * from message
