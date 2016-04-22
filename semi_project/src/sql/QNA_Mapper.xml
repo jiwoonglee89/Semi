@@ -39,11 +39,9 @@
 		select q_passwd from QNA_board where q_num=#{q_num}
 	</select>
 	<select id="find" parameterType="String" resultType="DB.QNABean">
-		select * from QNA_board where co_id=#{co_id} and p_id=#{p_id}
+		select * from QNA_board where q_num=#{q_num}
 	</select>
-	<select id="get" parameterType="String" resultType="DB.QNABean">
-		select * from QNA_board where co_id=#{co_id} and p_id=#{p_id}
-	</select>
+	
 	
 	<select id="getArticle" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board
