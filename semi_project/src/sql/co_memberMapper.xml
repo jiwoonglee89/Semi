@@ -9,13 +9,12 @@
 	</insert>
 	<update id="modify" parameterType="DB.Co_MemBean">
 		update co_member set co_passwd=#{co_passwd}, co_name=#{co_com}, co_boss=#{co_boss}, co_job=#{co_job},
-		co_subjob=#{co_subjob}, co_category=#{co_category}, co_name=#{co_name}, co_phone=#{co_phone} 
-		where co_id=#{co_id} 
+		co_subjob=#{co_subjob}, co_category=#{co_category}, co_name=#{co_name}, co_phone=#{co_phone},
+		co_tel=#{co_tel}, co_email=#{co_email}, co_number=#{co_number} where co_id=#{co_id} 
 	</update>
 	<select id="confirmId" parameterType="String" resultType="String">
 		select co_id from co_member where co_id=#{co_id}
-	</select> 
-	
+	</select>
 	<delete id="remove" parameterType="java.lang.String">
 		delete from co_member where co_id=#{co_id} and co_passwd=#{co_passwd}
 	</delete>
@@ -25,7 +24,7 @@
 	<select id="find" parameterType="String" resultType="DB.Co_MemBean">
 		select * from co_member where co_id=#{co_id}
 	</select>
-	<select id="getInfo" parameterType="String" resultType="hashmap">
+	<select id="get" parameterType="String" resultType="DB.Co_MemBean">
 		select * from co_member where co_id=#{co_id}
 	</select>
 </mapper>

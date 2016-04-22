@@ -1,13 +1,8 @@
 package action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.ibatis.session.SqlSession;
-
-import DB.Co_MemBean;
 
 public class ConfirmIdAction implements CommandAction {
 

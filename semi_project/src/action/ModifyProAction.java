@@ -30,7 +30,7 @@ public class ModifyProAction implements CommandAction{
 		
 		manager.updateMember(member);
 
-		return "modifyPro.jsp";
+		return "/main.jsp";
 	}
 
 }
