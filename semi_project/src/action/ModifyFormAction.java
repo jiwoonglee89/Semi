@@ -27,4 +27,4 @@ public class ModifyFormAction implements CommandAction{
 		return "/main.jsp";
 	}
 
-}
+} 

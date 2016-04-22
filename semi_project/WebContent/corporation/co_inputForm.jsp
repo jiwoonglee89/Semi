@@ -179,10 +179,7 @@ function openConfirmid(userinput) {
 				<td width="200">담당자 E-Mail :</td>
 				<td width="400"><input type="text" name="co_email" size="15" maxlength="30"></td>
 			</tr>
-			<tr>
-				<td width="200">담당자 전화번호 :</td>
-				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20"></td>
-			</tr>
+			
 			<tr>
 				<td width="200">담당자 휴대폰 :</td>
 				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20"></td>

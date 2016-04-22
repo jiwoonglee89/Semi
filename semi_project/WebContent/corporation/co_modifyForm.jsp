@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="DB.Co_MemBean"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./view/color.jspf"%>
 
 <html>
@@ -37,17 +37,11 @@
 -->
 </script>
 
-<%
-    String co_id = (String)session.getAttribute("co_id");
-  
-    LogonDBBean manager = LogonDBBean.getInstance();
-    LogonDataBean c = manager.getMember(co_id);
 
-try{
-%>
-
+<%try{%>
+</head>
 <body bgcolor="${bodyback_c}>">
-	<form method="post" action="modifyPro.jsp" name="userinput"
+	<form method="post" action="co_modifyPro.jsp" name="userinput"
 		onsubmit="return checkIt()">
 
 		<table width="600" border="1" cellspacing="0" cellpadding="3"
@@ -64,18 +58,15 @@ try{
 				<td width="200" bgcolor="${value_c}"><b>아이디</b></td>
 				<td width="400" bgcolor="${value_c}"></td>
 			<tr>
-			<tr>
-				<td width="200">아이디</td>
-				<td width="400"><%=c.getco_Id()%></td>
-			</tr>
+			
 
 			<tr>
 				<td width="200">패스워드</td>
-				<td width="400"><input type="password" name="co_passwd" size="10" maxlength="20" value="<%=c.getPasswd()%>"></td>
+				<td width="400"><input type="password" name="co_passwd" size="10" maxlength="20" value="${co.co_passwd}"></td>
 			<tr>
 				<td width="200">사업자번호</td>
-				<td width="400"><%=c.getco_number()%> 
-				<input type="text"name="co_number" size="15" maxlength="20" value="<%=c.getco_number()%>"></td>
+				<td width="400">
+				<input type="text"name="co_number" size="15" maxlength="20" value="${co.co_number}"></td>
 			</tr>
 			<tr>
 			<tr>
@@ -84,27 +75,50 @@ try{
 			<tr>
 			<tr>
 				<td width="200">기업 이름 :</td>
-				<td width="400"><input type="text" name="co_com" size="15" maxlength="20" value="<%=c.getco_com()%>"></td>
+				<td width="400"><input type="text" name="co_com" size="15" maxlength="20" value="${co.co_com}"></td>
 			</tr>
 			<tr>
+				<td width="200">대표자 명 :</td>
+				<td width="400"><input type="text" name="co_com" size="15" maxlength="20" value="${co.co_boss}"></td>
+			</tr>
+			
+			<tr>
 				<td width="200">회사전화번호</td>
-				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20" value="<%=c.getco_tel()%>"></td>
+				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20" value="${co.co_tel}"></td>
 			</tr>
 			<tr>
 				<td width="200">업종</td>
 				<td width="400">
-					<%if(c.getco_job()==null){%> 
+					<c:if test="${co.co_job==null}"> 
 					<input type="text" name="co_job">
-					<%}else{%> 
-					<input type="text" name="co_job" size="40" maxlength="30" value="<%=c.getco_job()%>"> <%}%>
+					</c:if>
+					<c:if test="${co.co_job!=null}">
+					<input type="text" name="co_job" value="${co.co_job}">
+				 </c:if>
 				</td>
 			</tr>
 			<tr>
 				<td width="200">상세업종</td>
 				<td width="400">
-					<%if(c.getco_subjob()==null){%> 
+					<c:if test="${co.co_subjob==null}"> 
 					<input type="text" name="co_subjob">
-					<%}else{%> <input type="text" name="co_subjob" size="60" maxlength="50" value="<%=c.getco_subjob()%>"> <%}%>
+					</c:if>
+					
+					<c:if test="${co.co_subjob!=null}">
+					 <input type="text" name="co_subjob" size="60" maxlength="50"  value="${co.co_subjob}">
+				   </c:if>
+				</td>
+			</tr>
+			<tr>
+				<td width="200">기업기관분류</td>
+				<td width="400">
+					<c:if test="${co.co_category==null}"> 
+					<input type="text" name="co_subjob">
+					</c:if>
+					
+					<c:if test="${co.co_category!=null}">
+					 <input type="text" name="co_subjob" size="60" maxlength="50" value="${co.co_category}">
+				</c:if>
 				</td>
 			</tr>
 
@@ -114,16 +128,18 @@ try{
 			<tr>
 			<tr>
 				<td width="200">담당자 이름 :</td>
-				<td width="400"><input type="text" name="co_name" size="15" maxlength="20" value="<%=c.getco_name()%>">
+				<td width="400"><input type="text" name="co_name" size="15" maxlength="20" value="${co.co_name}"></td>
 			</tr>
 
 			<tr>
 				<td width="200">담당자 E-Mail :</td>
-				<td width="400"><input type="text" name="co_email" size="15" maxlength="20" value="<%=c.getco_email()%>">
+				<td width="400"><input type="text" name="co_email" size="15" maxlength="20" value="${co.co_email}"></td>
 			</tr>
+			
 			<tr>
-				<td width="200">담당자 전화번호</td>
-				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20" value="<%=c.getco_phone()%>"></td>
+				<td width="200">담당자 휴대폰</td>
+				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20" value="${co.phone}"></td>
+			</tr>
 			
 			
 			<tr>
