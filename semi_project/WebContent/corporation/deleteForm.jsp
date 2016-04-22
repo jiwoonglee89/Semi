@@ -6,8 +6,8 @@
 <head><title>기업회원탈퇴</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 
-   <script language="javascript">
-     <!--
+<script>
+
        function begin(){
          document.myform.passwd.focus();
        }
@@ -18,9 +18,8 @@
            document.myform.passwd.focus();
            return false;
          }
-   }  
-     -->
-   </script>
+   }
+</script>
 </head>
 <body onload="begin()" bgcolor="${bodyback_c}">
 	<form name="myform" action="deletePro.do" method="post" onSubmit="return checkIt()">
