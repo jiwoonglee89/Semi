@@ -16,6 +16,7 @@ public class Per_DeletePro implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 
+		try{
 		P_MemBean p_bean = new P_MemBean();
 
 		String p_id = p_bean.getP_id();
@@ -56,6 +57,9 @@ public class Per_DeletePro implements CommandAction {
 			session.rollback();
 		}
 
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return null;
 	}
 
