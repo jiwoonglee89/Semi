@@ -49,9 +49,6 @@ public class P_MemBean {
 		this.p_count = p_count;
 	}
 
-	public P_MemBean() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getP_id() {
 		return p_id;
