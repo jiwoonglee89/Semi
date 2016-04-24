@@ -436,7 +436,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<li><a href="#" ><span class="label">Q&A</span></a></li>
 					<li><a href="#" ><span class="label">쪽지함</span></a></li>
 					<li><a href="#" ><span class="label">정보수정</span></a></li>
-					<li><a href="#" ><span class="label">로그아웃</span></a></li>
+					<!-- <li><a href="deleteForm.do" ><span class="label">로그아웃</span></a></li> -->
+					<li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li>
 				</ul>
 			</footer>
 
