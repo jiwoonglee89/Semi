@@ -41,10 +41,10 @@ public class QNA_ListAction implements CommandAction{//글목록 처리
         List articleList = null;
         List forcount=null;
         
-        if(count>0)
+        if(count>0){
         	forcount=session.selectList("QNA_board.all");
-        count = forcount.size();
- 
+        	count = forcount.size();
+        }
         if (count > 0) {
             articleList = session.selectList("QNA_board.getA", map);
         } else {
