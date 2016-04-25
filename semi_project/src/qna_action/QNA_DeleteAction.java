@@ -10,7 +10,7 @@ import action.Connection;
 import sql.*;
 
 public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
-
+dddd
     public String requestPro(HttpServletRequest request, HttpServletResponse response) 
     		throws Throwable 
     {
