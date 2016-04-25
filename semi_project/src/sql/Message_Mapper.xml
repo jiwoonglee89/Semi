@@ -5,7 +5,7 @@
 <mapper namespace="message">
 
 	<insert id="add" parameterType="DB.Message">
-		insert into message values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count = 0})
+		insert into message values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count})
 	</insert>
 	<delete id="del" parameterType="DB.Message">
 		delete from message where p_id=#{p_id} and co_id=#{co_id} and m_title=#{m_title} and m_context=#{m_context} and m_regdate = #{m_regdate} and m_count = #{m_count}
@@ -15,7 +15,7 @@
 	</select>
 	<!-- join 으로 co_id값 일치하는 co_member의 정보들 가져옴 -->
 	<select id="co_list" parameterType="DB.Co_MemBean">
-		select * from message m inner join co_member co on m.co_id=co.co_id where m.co_id=#{co_id}
+		select * from co_member where co_id=#{co_id}
 	</select>
 	<!-- 메세지 데이터조회 -->
 	<select id="m_list" parameterType="DB.MessageBean">
