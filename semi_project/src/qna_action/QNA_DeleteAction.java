@@ -10,7 +10,7 @@ import action.Connection;
 import sql.*;
 
 public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
-
+dddd
     public String requestPro(HttpServletRequest request, HttpServletResponse response) 
     		throws Throwable 
     {
@@ -20,12 +20,10 @@ public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
 
 		
 			int success;
-			QNABean QNA_board = new QNABean();
-			QNA_board.setQ_passwd(request.getParameter("q_passwd"));
 			String q_passwd=session.selectOne("QNA_board.find_passwd", request.getAttribute("num"));
 			
-			if(q_passwd.equals(request.getParameter("q_passwd"))){
-				success=session.delete("QNA_board.remove", request.getParameter("num"));
+			if(q_passwd.equals(request.getAttribute("q_passwd"))){
+				success=session.delete("QNA_board.remove", request.getAttribute("num"));
 			}else{
 				success=0;
 			}
