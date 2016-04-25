@@ -26,7 +26,7 @@ public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
 			
 			
 			QNA_board= session.selectOne("QNA_board.get", q_num);
-			String q_passwd=session.selectOne("QNA_board.find_passwd", q_num);
+			
 			
 			int success;
 			

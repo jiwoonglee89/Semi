@@ -29,7 +29,7 @@
 	<update id="readArticle" parameterType="DB.QNABean" >
 		 update QNA_board set readCount=readCount+1 where q_num=#{q_num}
 	</update>
-	<select id="find_passwd" parameterType="String" resultType="String">
+	<select id="find_passwd" parameterType="Integer" resultType="String">
 		select q_passwd from QNA_board where q_num=#{q_num}
 	</select>
 	<select id="find" parameterType="String" resultType="DB.QNABean">
