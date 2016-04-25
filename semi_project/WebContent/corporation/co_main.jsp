@@ -38,7 +38,7 @@
 	</head>
 	<body>
 	기업용 페이지	
-	<a href="QNA_board.do">QnA</a> <a href="co_modify.do">정보수정</a> <a href="../main.do">로그아웃</a>
+	<a href="../QNA_board/QNA_list.do">QnA</a> <a href="co_modify.do">정보수정</a> <a href="../main.do">로그아웃</a>
 	<br>
 	<br>
 	<br>
