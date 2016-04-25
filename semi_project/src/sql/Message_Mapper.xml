@@ -13,7 +13,12 @@
 	<select id="set" parameterType="DB.Message">
 		select m_title, m_regdate, m_count from message where m_title=#{m_title} and m_regdate=#{m_regdate} and m_count=#{m_count} 
 	</select>
-	<select id="list" parameterType="DB.Message">
+	<!-- join 으로 co_id값 일치하는 co_member의 정보들 가져옴 -->
+	<select id="co_list" parameterType="DB.Co_MemBean">
+		select * from message m inner join co_member co on m.co_id=co.co_id where m.co_id=#{co_id}
+	</select>
+	<!-- 메세지 데이터조회 -->
+	<select id="m_list" parameterType="DB.MessageBean">
 		select * from message
 	</select>
 	<select id="view1" parameterType="DB.Message">
@@ -25,4 +30,7 @@
 	<select id="co_com" parameterType="DB.Message">
 		select co_com from co_member where co_com=#{co_com} 
 	</select>
+	
+	
+	
 </mapper>
