@@ -17,7 +17,8 @@
 		p_birth=#{p_birth}, p_tel=#{p_tel}, p_career=#{p_career}, p_award=#{p_award}, p_zipcode=#{p_zipcode},
 		p_address=#{p_address}, p_category=#{p_category} where id=#{id}
 	</update>
-	<delete id="remove" parameterType="java.lang.String">
+	<!-- 잘못된거이거 -->
+	<delete id="remove" parameterType="DB.P_MemBean">
 		delete from per_member where p_id=#{p_id} and p_passwd=#{p_passwd}
 	</delete>
 	<select id="list" resultType="DB.P_MemBean">
