@@ -8,7 +8,7 @@ public class Co_mainAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		return "co_main.html";
+		return "co_main.jsp";
 	}
 
 }
