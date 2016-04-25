@@ -1,4 +1,4 @@
-package per.action_S;
+package per.action_W;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +10,7 @@ import DB.P_MemBean;
 import action.CommandAction;
 import per.action_W.Connection;
 
-public class Per_LoginPro implements CommandAction{
+public class Per_LoginProAction implements CommandAction{
 
 	String res = "config.xml";
 	
@@ -26,15 +26,15 @@ public class Per_LoginPro implements CommandAction{
 		
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
+		String memId = null;
 		
-		P_MemBean p_bean = new P_MemBean();
-		P_MemBean check = session.selectOne("member.find",p_bean.getP_id());
+		P_MemBean check = session.selectOne("per_member.find",id);
 		
-		if(check.equals(id)){
-			if((p_bean.getP_passwd()).equals(passwd)){
+		if(check != null){
+			if((check.getP_passwd()).equals(passwd)){
 				
-				String mem_id = (String)session2.getAttribute("memId");
-				request.setAttribute("p_id", mem_id);
+				memId = id;
+				request.setAttribute("memId", memId);
 				
 				session.commit();
 				System.out.println("로그인 성공");

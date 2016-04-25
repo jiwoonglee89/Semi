@@ -7,6 +7,9 @@
 	<insert id="add" parameterType="DB.Message">
 		insert into message values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count})
 	</insert>
+	<insert id="insertdes" parameterType="DB.Message">
+		insert into message (m_countdes) values(#{m_countdes})
+	</insert>
 	<delete id="del" parameterType="DB.Message">
 		delete from message where p_id=#{p_id} and co_id=#{co_id} and m_title=#{m_title} and m_context=#{m_context} and m_regdate = #{m_regdate} and m_count = #{m_count}
 	</delete>
@@ -19,7 +22,7 @@
 	</select>
 	<!-- 메세지 데이터조회 -->
 	<select id="m_list" parameterType="DB.MessageBean">
-		select * from message where co_id=#{co_id}
+		select * from message where p_id=#{p_id}
 	</select>
 	<select id="view1" parameterType="DB.Message">
 		select co_com, co_name, co_phone, co_email from co_member where co_com=#{co_com} and co_name=#{co_name} and co_phone=#{co_phone} and co_email=#{co_email} 
