@@ -82,6 +82,14 @@ public class Per_FileUpProAction implements CommandAction {
 
 		System.out.println(/* p_id+"\n"+ */realpath + "\n" + f_title + "\n" + f_description + "\n" + f_category);
 
+		if (f_category.equals("0")) {
+			f_category = "sanup";
+		}else if (f_category.equals("1")) {
+			f_category = "web";
+		}else if (f_category.equals("2")) {
+			f_category = "gun";
+		}
+		
 		filebean.setP_id("1");
 		filebean.setRealpath(realpath);
 		filebean.setF_regdate(new Timestamp(System.currentTimeMillis()));
@@ -98,7 +106,8 @@ public class Per_FileUpProAction implements CommandAction {
 			session.rollback();
 			System.out.println("업로드 실패");
 		}
-
+		
+		request.setAttribute("f_category", f_category);
 		request.setAttribute("f_title", filebean.getF_title());
 		request.setAttribute("f_description", filebean.getF_description());
 		request.setAttribute("f_regdate", filebean.getF_regdate());

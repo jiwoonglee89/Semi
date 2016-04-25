@@ -58,15 +58,15 @@
 					
 					<form id="signup-form" method="post" action="#">
 					<h3>검색</h3>
-						<select>
+						<select name="search">
 							<option>검색종류</option>
-							<option value="0">제목</option>
-							<option value="1">설명</option>
+							<option value="0">디자인분야</option>
+							<option value="1">제목</option>
+							<option value="2">설명</option>
 						</select>
-						<input type="email" name="email" id="email" placeholder="검색내용" size="50"/>
-						<input type="submit" value="Sign Up" />
+						<input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
+						<input type="submit" value="검색" />
 					</form>
-
 				<!-- Two -->
 					<section id="two">
 						<h2>나의 포트폴리오 목록</h2>
@@ -433,11 +433,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<!-- Footer -->
 			 <footer id="footer">
 				<ul class="icons">
-					<li><a href="#" ><span class="label">Q&A</span></a></li>
-					<li><a href="#" ><span class="label">쪽지함</span></a></li>
-					<li><a href="#" ><span class="label">정보수정</span></a></li>
-					<!-- <li><a href="deleteForm.do" ><span class="label">로그아웃</span></a></li> -->
-					<li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li>
+					<li><a href="../QNA_board/QNA_list.do" ><span class="label">Q&A</span></a></li>
+					<li><a href="p_messageList.do" ><span class="label">쪽지함</span></a></li>
+					<li><a href="" ><span class="label">정보수정</span></a></li>
+					<li><a href="../main.do" ><span class="label">로그아웃</span></a></li> 
+					<!-- <li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li> -->
 				</ul>
 			</footer>
 
@@ -448,6 +448,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="main_msg/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="main_msg/assets/js/main.js"></script>
-
 	</body>
 </html>

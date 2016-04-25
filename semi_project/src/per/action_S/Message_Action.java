@@ -42,18 +42,19 @@ public class Message_Action implements CommandAction {
 
 			int success = session.insert("message.add", list);
 
-			request.setAttribute("co_com", coBean.getCo_com());
-			request.setAttribute("m_title", mBean.getM_title());
-			request.setAttribute("m_count", new Integer(mBean.getCount()));
-			request.setAttribute("m_regdate", mBean.getM_regdate());
-
+			
 			if (m_count == m_count_request) {
 				m_countdes = "읽지않음";
 			} else {
 				m_countdes = "읽음";
 				success = 1;
 			}
-
+			
+			
+			request.setAttribute("co_com", coBean.getCo_com());
+			request.setAttribute("m_title", mBean.getM_title());
+			//request.setAttribute("m_count", new Integer(mBean.getCount()));
+			request.setAttribute("m_regdate", mBean.getM_regdate());
 			request.setAttribute("m_countdes", m_countdes);
 			request.setAttribute("success", new Integer(success));
 		} catch (Exception e) {
