@@ -10,11 +10,8 @@ import action.Connection;
 
 
 public class QNA_writeAction implements CommandAction {
-	public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
-	
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable
 		 {
-			
-				
 		    	request.setCharacterEncoding("UTF-8");
 				Connection con = new Connection();
 				SqlSession session = con.connection();
@@ -37,7 +34,7 @@ public class QNA_writeAction implements CommandAction {
 					}
 					
 					if(success>0){
-						return "QNA_board/main.jsp";
+						return "QNA_board/QNA_list.jsp";
 					}
 				
 				else{
@@ -46,7 +43,6 @@ public class QNA_writeAction implements CommandAction {
 			}
 			
 		 }
-	}
 }
 	
 
