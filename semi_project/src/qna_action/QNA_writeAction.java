@@ -13,33 +13,40 @@ public class QNA_writeAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
 	
 		 {
+			
+				
 		    	request.setCharacterEncoding("UTF-8");
 				Connection con = new Connection();
 				SqlSession session = con.connection();
+				QNABean QNA_board = new QNABean();
+	
+				int num = Integer.parseInt(request.getParameter("num"));
+				String q_passwd = session.selectOne("QNA_board.list", request.getAttribute("num"));
+			
+				int success;
 				
-		 
-		        
-				try{
-					QNABean QNA_board = new QNABean();
+				
+				if(q_passwd.equals(request.getParameter("q_passwd"))){
 					
-					QNA_board.setQ_passwd(request.getParameter("q_passwd"));
-					
-					
-					int success = session.delete("QNA_board.remove", QNA_board);
+					success = session.insert("QNA_board.add", QNA_board);
+				
+				}
+				
+					else{
+						success=0;
+					}
 					
 					if(success>0){
-						session.commit();
-					}else
-						session.rollback();
-					request.setAttribute("success", success);
-					session.close();
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-				System.out.println("확인용");
-				return "co_inputPro.jsp"; // 다시 
+						return "QNA_board/main.jsp";
+					}
+				
+				else{
+						return "QNA_board/QNA_content.jsp";
 				
 			}
-
-		}
+			
+		 }
+	}
+}
+	
 

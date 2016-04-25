@@ -12,7 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import DB.QNABean;
 import action.*;
 
-public class QNA_modifyAction implements CommandAction {
+public class QNA_updateAction implements CommandAction {
 	
 	
  public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
@@ -21,8 +21,8 @@ public class QNA_modifyAction implements CommandAction {
 	SqlSession session = con.connection();
 	QNABean QNA_board = new QNABean();
 
-	int num=Integer.parseInt(request.getParameter("num"));
-	QNA_board=session.selectOne("QNA_board.get", num);
+	
+	QNA_board=session.selectOne("QNA_board.get", request.getAttribute("num"));
 	String q_passwd=session.selectOne("QNA_board.find_passwd", request.getAttribute("num"));
 	
 	int success;
@@ -32,8 +32,8 @@ public class QNA_modifyAction implements CommandAction {
 			success=0;
 		}
 		if(success>0){
-			return "/main.jsp";
+			return "QNA_board/QNA_list.jsp";
 		}else
-			return "/updateForm.jsp";
+			return "QNA_board/QNA_updateForm.jsp";
 	}
 }

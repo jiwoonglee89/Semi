@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 
 import action.*;
+import DB.QNABean;
 
 public class QNA_listAtion implements CommandAction {
 
@@ -16,6 +17,8 @@ public class QNA_listAtion implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		Connection con=new Connection();
 		SqlSession session=con.connection();
+		
+		QNABean QNA_board = new QNABean();
 		
 		String pageNum = request.getParameter("pageNum") ;
 		String search = request.getParameter("search");
@@ -49,18 +52,16 @@ public class QNA_listAtion implements CommandAction {
 				count = session.selectOne("QNA_board.writer_article");
 			else if(searchn==1)
 				count=session.selectOne("QNA_board.subject_article");
-			else
+			else if(searchn==2)
 				count=session.selectOne("QNA_board.content_article");
 		}
 		if(count > 0)
 		{
 		  if(search.equals("") || search == null)
 			
-			articleList = dbPro.getArticles(startRow, endRow);
-            
+			articleList = session.selectOne("Board.getArticle",request.getAttribute("num"));
 		  else
-				articleList = dbPro.getArticles(startRow, endRow, searchn, search);
-		  
+				articleList = session.selectOne("Board.getArticle", request.getAttribute("searchn"));
 		  
 			System.out.println("articleList.size():::"+articleList.size());
 		}

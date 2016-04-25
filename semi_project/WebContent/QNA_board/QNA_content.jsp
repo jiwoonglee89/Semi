@@ -64,19 +64,13 @@ a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif')
 
 <form method=post action=contentPro.jsp >
 					<tr bgcolor=bgcolor="${value_c}" align="center">
-						<td>코멘트 작성</td>
-						<td colspan=2>
-							<textarea name=commentt rows="6" cols="40"></textarea>
-							<input type=hidden name=content_num value="${article.num}">
-							<input type=hidden name=p_num value="${pageNum}">
-							<input type=hidden name=comment_num value="${count+1}">
-						</td>
+						
 						<td align=center>
 							작성자<br>
 							<input type=text name=commenter size=10><br>
 							비밀번호<br>
 							<input type=password name=passwd size=10><p>
-							<input type=submit value=코멘트달기> <!-- submit 폼안에 내용들이 전송됨 -->
+							<!-- submit 폼안에 내용들이 전송됨 -->
 						</td>
 					</tr>
 					</form>
