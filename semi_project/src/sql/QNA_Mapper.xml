@@ -28,10 +28,11 @@
 		select * from QNA_board where co_id=#{co_id} and p_id=#{p_id}
 	</select>
 	
+	
+	
 	<select id="getArticle" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board
 	</select>
-	
 	<select id="writer_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board where writer like '%'|| #{writer} || '%'
 	</select>
@@ -40,5 +41,11 @@
 	</select>
 	<select id="content_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board where content like '%'|| #{content} || '%'
+	</select>
+	<select id="getA">
+		select Q_num, p_id, co_id, qna_title, q_passwd, Q_regdate, Qref_number, content, readCount, r " +
+					"from (select num, writer, email, subject, passwd, reg_date, ref, re_step, re_level, content, ip, readcount, rownum r " +
+					"from (select num, writer, email, subject, passwd, reg_date, ref, re_step, re_level, content, ip, readcount "+
+					"from board order by ref desc, re_step asc)order by ref desc, re_step asc)where r>=? and r<=?
 	</select>
 </mapper>
