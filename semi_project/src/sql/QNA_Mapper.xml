@@ -16,10 +16,16 @@
 	<select id="get" parameterType="Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
 	</select>
+	<update id="p_modify" parameterType="DB.QNABean">
+		update QNA_board set p_id=#{p_id}, q_title=#{q_title}, q_content=#{q_content},
+		q_passwd=#{q_passwd} where q_num=#{q_num} 
+	</update>
+	<update id="co_modify" parameterType="DB.QNABean">
+		update QNA_board set co_id=#{co_id}, q_title=#{q_title}, q_content=#{q_content},
+		q_passwd=#{q_passwd} where q_num=#{q_num} 
 	<update id="modify" parameterType="DB.QNABean">
 		update QNA_board set q_title=#{q_title}, q_content=#{q_content}, q_passwd=#{q_passwd} where q_num=#{q_num} 
 	</update>
-	
 	<delete id="remove" parameterType="DB.QNABean">
 		delete from QNA_board where q_num=#{q_num}
 	</delete>
@@ -36,15 +42,14 @@
 		select * from QNA_board where q_num=#{q_num}
 	</select>
 	
+	<select id="all" resultType="DB.QNABean">
+		select * from QNA_board
 	<select id="ArticleView" parameterType="String" resultType="DB.QNABean">
 		select max(q_num) from QNA_board
 	</select>
-	
-	
 	<select id="getArticle" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board
 	</select>
-	
 	<select id="writer_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board where writer like '%'|| #{writer} || '%'
 	</select>
@@ -53,5 +58,16 @@
 	</select>
 	<select id="content_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board where content like '%'|| #{content} || '%'
+	</select>
+	<select id="getA" parameterType="java.util.HashMap" resultType="java.util.List">
+		select Q_num, p_id, co_id, qna_title, q_passwd, Q_regdate, Qref_number, content, readCount, r from 
+		(select Q_num, p_id, co_id, qna_title, q_passwd, Q_regdate, Qref_number, content, readCount, rownum r 
+		from order by qref_number desc) where r>=#{start} and r<=#{end}
+	</select>
+	<select id="searchCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from qna_board where #{search} like '%'|| #{search_content} || '%'
+	</select>
+	<select id="searchContent" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from qna_board where #{search} like '%'|| #{search_content} || '%'
 	</select>
 </mapper>
