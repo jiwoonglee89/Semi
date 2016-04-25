@@ -1,17 +1,16 @@
-package qna_action;
+package per.action_W;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import action.*;
+import action.CommandAction;
 
-public class Qna_writePro implements CommandAction{
+public class Per_MainViewAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		return "QNA_writeForm.jsp";
-	
+		return "/person/p_mainview.jsp";
 	}
 
 }

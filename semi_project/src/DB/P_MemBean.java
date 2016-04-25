@@ -49,6 +49,7 @@ public class P_MemBean {
 		this.p_count = p_count;
 	}
 
+
 	public String getP_id() {
 		return p_id;
 	}

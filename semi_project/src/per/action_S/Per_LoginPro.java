@@ -2,6 +2,7 @@ package per.action_S;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,23 +19,31 @@ public class Per_LoginPro implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		Connection con=new Connection();
 		SqlSession session = con.connection();
+		
 		try{
+			HttpSession session2 = request.getSession();
 		
 		
+		String id = request.getParameter("id");
+		String passwd = request.getParameter("passwd");
 		
-		String id = request.getParameter("p_id");
-		String passwd = request.getParameter("p_passwd");
-		P_MemBean check = new P_MemBean(id,passwd);
-		P_MemBean p_id = session.selectOne("member.pcheck",check.getP_id());
+		P_MemBean p_bean = new P_MemBean();
+		P_MemBean check = session.selectOne("member.find",p_bean.getP_id());
 		
-		if((p_id.getP_id()).equals(p_id)){
-			if((p_id.getP_passwd()).equals(passwd)){
+		if(check.equals(id)){
+			if((p_bean.getP_passwd()).equals(passwd)){
+				
+				String mem_id = (String)session2.getAttribute("memId");
+				request.setAttribute("p_id", mem_id);
+				
 				session.commit();
 				System.out.println("로그인 성공");
 			}else{
+				session.rollback();
 				System.out.println("로그인 실패"); 
 			}
 		}else{
+			session.rollback();
 			System.out.println("로그인 실패");
 		}
 		
