@@ -10,7 +10,7 @@ import action.Connection;
 
 
 public class QNA_writeAction implements CommandAction {
-	public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable
 	{
 			    request.setCharacterEncoding("UTF-8");
 				Connection con = new Connection();
@@ -50,11 +50,8 @@ public class QNA_writeAction implements CommandAction {
 					}
 					
 					if(success>0){
-<<<<<<< HEAD
+
 						return "QNA_board/QNA_list.jsp";
-=======
-						return "/main.jsp";
->>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
 					}
 				
 				else{
