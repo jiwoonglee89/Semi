@@ -17,7 +17,7 @@ public class P_MemBean {
 	String p_category;
 	int p_count;
 	
-	public P_MemBean (){}
+	public P_MemBean(){}
 	
 	public P_MemBean (String p_id, String p_passwd){  
 		super();
