@@ -5,7 +5,7 @@
 <mapper namespace="QNA_board">
 	<insert id="add" parameterType="DB.QNABean">
 		insert into QNA_board values(q_seq.NEXTVAL,#{p_id}, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number},
-		#{readCount},#{cotent})
+		#{readCount},#{cotent},q_passwd)
 	</insert>
 	<insert id="write_co_add" parameterType="DB.QNABean">
 		insert into QNA_board values(#{co_id},#{qna_title}, #{cotent}, #{q_passwd})
@@ -13,7 +13,7 @@
 	<insert id="write_p_add" parameterType="DB.QNABean">
 		insert into QNA_board values(#{p_id},#{qna_title}, #{cotent}, #{q_passwd})
 	</insert>
-	<select id="get" parameterType="String" resultType="DB.Co_MemBean">
+	<select id="get" parameterType="Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
 	</select>
 	<update id="p_modify" parameterType="DB.QNABean">
@@ -32,10 +32,10 @@
 	<select id="list" resultType="DB.QNABean">
 		select * from QNA_board 
 	</select>
-	<update id="readArticle" parameterType="String" >
+	<update id="readArticle" parameterType="DB.QNABean" >
 		 update QNA_board set readCount=readCount+1 where q_num=#{q_num}
 	</update>
-	<select id="find_passwd" parameterType="String" resultType="String">
+	<select id="find_passwd" parameterType="Integer" resultType="String">
 		select q_passwd from QNA_board where q_num=#{q_num}
 	</select>
 	<select id="find" parameterType="String" resultType="DB.QNABean">

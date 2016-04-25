@@ -16,18 +16,22 @@ public class QNA_updateAction implements CommandAction {
 	
 	
  public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
+	
 	request.setCharacterEncoding("UTF-8");
 	Connection con = new Connection();
 	SqlSession session = con.connection();
 	QNABean QNA_board = new QNABean();
 
+	int q_num = Integer.parseInt(request.getParameter("q_num"));
+	String pageNum = request.getParameter("pageNum");
 	
-	QNA_board=session.selectOne("QNA_board.get", request.getAttribute("num"));
-	String q_passwd=session.selectOne("QNA_board.find_passwd", request.getAttribute("num"));
+	
+	QNA_board= session.selectOne("QNA_board.get", q_num);
+	String q_passwd=session.selectOne("QNA_board.find_passwd", q_num);
 	
 	int success;
 	if(q_passwd.equals(request.getParameter("q_passwd"))){
-		success=session.update("QNA_board.p_modify", request.getParameter("num"));
+		success=session.update("QNA_board.modify", request.getParameter("q_num"));
 	}else{
 			success=0;
 		}
