@@ -22,6 +22,7 @@ public class Per_MessageViewAction implements CommandAction{
 		SqlSession session = con.connection();
 		
 		String co_id = request.getParameter("co_id");
+		int count = 1;
 		
 		Co_MemBean colist = session.selectOne("message.co_list",co_id);
 		
@@ -33,6 +34,7 @@ public class Per_MessageViewAction implements CommandAction{
 		request.setAttribute("co_phone", colist.getCo_phone());
 		request.setAttribute("co_email", colist.getCo_email());
 		request.setAttribute("m_context", mlist.getM_context());
+		request.setAttribute("count", new Integer(count));
 		
 		return "/person/messageview.jsp";
 	}
