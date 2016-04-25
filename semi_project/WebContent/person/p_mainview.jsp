@@ -434,7 +434,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			 <footer id="footer">
 				<ul class="icons">
 					<li><a href="#" ><span class="label">Q&A</span></a></li>
-					<li><a href="#" ><span class="label">쪽지함</span></a></li>
+					<li><a href="p_messageList.do" ><span class="label">쪽지함</span></a></li>
 					<li><a href="#" ><span class="label">정보수정</span></a></li>
 					<!-- <li><a href="deleteForm.do" ><span class="label">로그아웃</span></a></li> -->
 					<li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li>
@@ -448,6 +448,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="main_msg/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="main_msg/assets/js/main.js"></script>
-
 	</body>
 </html>
