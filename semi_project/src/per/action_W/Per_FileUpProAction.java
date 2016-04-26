@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,8 +38,10 @@ public class Per_FileUpProAction implements CommandAction {
 		String f_category = null;
 		String realpath = null;
 
-		FileBean filebean = new FileBean();
+		Vector fileList = new Vector();
 
+		FileBean filebean = new FileBean();
+		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		List<FileItem> items = upload.parseRequest(request);
@@ -91,13 +94,24 @@ public class Per_FileUpProAction implements CommandAction {
 			f_category = "gun";
 		}
 		
-		filebean.setP_id(p_id);
-		filebean.setRealpath(realpath);
-		filebean.setF_regdate(new Timestamp(System.currentTimeMillis()));
-		filebean.setF_title(f_title);
-		filebean.setF_description(f_description);
-		filebean.setF_readcount(0);
-		filebean.setF_category(f_category);
+		
+		while(fileList.){
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(new Timestamp(System.currentTimeMillis()));
+			fileList.addElement(filebean.getF_title());
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(filebean.getP_id());
+			
+			fileList.setRealpath(realpath);
+			fileList.setF_regdate(new Timestamp(System.currentTimeMillis()));
+			fileList.setF_title(f_title);
+			fileList.setF_description(f_description);
+			fileList.setF_readcount(0);
+			fileList.setF_category(f_category);
+		}
+		
 		
 		int success = session.insert("per_member.fileadd", filebean);
 		if (success > 0) {
@@ -108,12 +122,12 @@ public class Per_FileUpProAction implements CommandAction {
 			System.out.println("업로드 실패");
 		}
 		
-		
-		request.setAttribute("f_category", f_category);
+		request.setAttribute("file", filebean);
+		/*request.setAttribute("f_category", f_category);
 		request.setAttribute("f_title", filebean.getF_title());
 		request.setAttribute("f_description", filebean.getF_description());
 		request.setAttribute("f_regdate", filebean.getF_regdate());
-		request.setAttribute("realpath", filebean.getRealpath());
+		request.setAttribute("realpath", filebean.getRealpath());*/
 		request.setAttribute("success", success);
 
 		return "/person/p_mainview.jsp";
