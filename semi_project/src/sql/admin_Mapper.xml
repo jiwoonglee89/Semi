@@ -12,7 +12,7 @@
 	<insert id="remove_per" parameterType="String">
 		insert into black_db(p_id, reason) values (#{p_id}, '강제 퇴출')
 	</insert>
-	<update id="count_up" parameterType="String">
+	<update id="countup_per" parameterType="String">
 		update per_member set p_count=4 where p_id=#{p_id} 
 	</update>
 	
