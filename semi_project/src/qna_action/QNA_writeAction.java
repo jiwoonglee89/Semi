@@ -24,20 +24,21 @@ public class QNA_writeAction implements CommandAction {
 					if(request.getParameter("q_num")!=null){
 						q_num = Integer.parseInt(request.getParameter("q_num"));
 						Q_ref = Integer.parseInt(request.getParameter("Q_ref"));
+						
+						request.setAttribute("q_num", new Integer(q_num));
+						request.setAttribute("Q_ref", new Integer(Q_ref));
 					}
 				}
 				catch(Exception e){
 					e.printStackTrace();
 				}
 				
-				request.setAttribute("q_num", new Integer(q_num));
-				request.setAttribute("Q_ref", new Integer(Q_ref));
-				
 				//QNA_writeForm.jsp
-		 
-				q_num = Integer.parseInt(request.getParameter("q_num"));
-				QNABean article = session.selectOne("QNA_board.add", request.getAttribute("q_num"));
-			
+				
+				QNABean article = session.selectOne("QNA_board.add", request.getParameter("q_num"));
+				
+				request.setAttribute("article", article);
+				
 				int success;
 				
 				success = session.insert("add", article);
