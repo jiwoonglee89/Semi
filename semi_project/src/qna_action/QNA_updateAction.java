@@ -47,9 +47,9 @@ public class QNA_updateAction implements CommandAction {
 			success=0;
 		}
 		if(success>0){
-			return "QNA_board/QNA_updatePro.jsp";
+			return "QNA_updatePro.jsp";
 		}else
-			return "QNA_board/QNA_updateForm.jsp";
+			return "QNA_updateForm.jsp";
 	}
 }
 

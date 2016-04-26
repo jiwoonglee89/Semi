@@ -49,11 +49,11 @@ public class QNA_ContentAction implements CommandAction {
 				}
 				
 				if(success>0){
-					return "QNA_board/QNA_content.jsp";
+					return "QNA_content.jsp";
 				}
 			
 			else{
-					return "QNA_board/QNA_list.jsp";
+					return "QNA_list.jsp";
 			
 		}
 	}

@@ -44,11 +44,11 @@ public class QNA_writeAction implements CommandAction {
 				 
 					if(success>0){
 
-						return "QNA_board/QNA_writePro.jsp";
+						return "QNA_writePro.jsp";
 					}
 				
 				else{
-						return "QNA_board/QNA_writeForm.jsp";
+						return "QNA_writeForm.jsp";
 				
 			}
 			

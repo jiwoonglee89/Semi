@@ -44,9 +44,9 @@ public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
 				success=0;
 			}
 			if(success>0){
-				return "QNA_board/QNA_deletePro.jsp";
+				return "QNA_deletePro.jsp";
 			}else
-				return "QNA_board/QNA_deleteForm.jsp";
+				return "QNA_deleteForm.jsp";
 		
            
 		}

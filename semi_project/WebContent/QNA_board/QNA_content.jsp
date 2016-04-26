@@ -50,33 +50,16 @@ a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif')
   	
   	<tr height="30">
   		<td colspan="4" bgcolor="${value_c}" align="right">
-  			<input type="button" value="글수정" onclick="document.location.href='/MarJSP/mvc_board/updateForm.do?num=${article.num}&pageNum=${pageNum}'">
+  			<input type="button" value="글수정" onclick="document.location.href='/semi_project/QNA_board/QNA_updateForm.do?num=${article.num}&pageNum=${pageNum}'">
   			&nbsp;&nbsp;&nbsp;&nbsp;
-  			<input type="button" value="글삭제" onclick="document.location.href='/MarJSP/mvc_board/deleteForm.do?num=${article.num}&pageNum=${pageNum}'">
+  			<input type="button" value="글삭제" onclick="document.location.href='/semi_project/QNA_board/QNA_deleteForm.do?num=${article.num}&pageNum=${pageNum}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="button" value="답글쓰기" onclick="document.location.href='/MarJSP/mvc_board/writeForm.do?num=${article.num}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'">
+      		<input type="button" value="답글쓰기" onclick="document.location.href='/semi_project/QNA_board/QNA_writeForm.do?num=${article.num}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
-       		<input type="button" value="글목록" onclick="document.location.href='/MarJSP/mvc_board/list.do?pageNum=${pageNum}'">
+       		<input type="button" value="글목록" onclick="document.location.href='/semi_project/QNA_board/QNA_list.do?pageNum=${pageNum}'">
     	</td>
 	</tr>		
-
-</form>
-
-<form method=post action=contentPro.jsp >
-					<tr bgcolor=bgcolor="${value_c}" align="center">
-						
-						<td align=center>
-							작성자<br>
-							<input type=text name=commenter size=10><br>
-							비밀번호<br>
-							<input type=password name=passwd size=10><p>
-							<!-- submit 폼안에 내용들이 전송됨 -->
-						</td>
-					</tr>
-					</form>
-
 </table>
-
-
+</form>
 </body>
 </html>
