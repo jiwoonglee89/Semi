@@ -33,7 +33,7 @@
 						<ul class="actions">
 							<form enctype="multipart/form-data">
 								<input type="button" class="button" value="파일올리기"
-								onclick="javascript:window.location='person/p_mainview.do'">
+								onclick="javascript:window.location='fileuploadForm.do'">
 							</form>
 							<!-- <li><a href="#" class="button">파일올리기</a></li> -->
 						</ul>
@@ -54,36 +54,26 @@
 					<section id="two">
 						<h2>나의 포트폴리오 목록</h2>
 						<div class="row">
+						<c:forEach var="f" items="${file}">
+						<c:set var="f_title" value="${f.f_title}"/>
+						<c:set var="f_description" value="${f.f_description}"/>
+						<c:set var="f_regdate" value="${f.f_regdate}"/>
 							<article class="6u 12u$(xsmall) work-item">
-								<a href="main_msg/images/fulls/01.jpg" class="image fit thumb"><img src="${realpath}" alt="" /></a>
-								<h3>Magna sed consequat tempus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+							<%-- <c:forEach var="i" items="${f_filename}">
+								<c:set var=""></c:set>
+							</c:forEach> --%>
+								<a href="main_msg/images/fulls/01.jpg" class="image fit thumb"><img src="/semi_project/File/${f_filename}" alt="" /></a>
+								<h3>${f_title}</h3>
+								<p>${f_description }</p>
+								<p>${f_regdate }</p>
 							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
+							</c:forEach>
+							<!-- <article class="6u$ 12u$(xsmall) work-item">
 								<a href="main_msg/images/fulls/02.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/02.jpg" alt="" /></a>
 								<h3>Ultricies lacinia interdum</h3>
 								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
 							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="main_msg/images/fulls/03.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/03.jpg" alt="" /></a>
-								<h3>Tortor metus commodo</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="main_msg/images/fulls/04.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/04.jpg" alt="" /></a>
-								<h3>Quam neque phasellus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="main_msg/images/fulls/05.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/05.jpg" alt="" /></a>
-								<h3>Nunc enim commodo aliquet</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="main_msg/images/fulls/06.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/06.jpg" alt="" /></a>
-								<h3>Risus ornare lacinia</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
+							 -->
 						</div>
 						<ul class="actions">
 							<li><a href="#" class="button">Full Portfolio</a></li>

@@ -5,7 +5,7 @@
 <mapper namespace="message">
 
 	<insert id="add" parameterType="DB.Message">
-		insert into message values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count})
+		insert into message (p_id,co_id,m_title,m_context,m_regdate,m_count)values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count})
 	</insert>
 	<insert id="insertdes" parameterType="DB.Message">
 		insert into message (m_countdes) values(#{m_countdes})
