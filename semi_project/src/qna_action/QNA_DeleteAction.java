@@ -18,25 +18,33 @@ public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 
-		QNABean QNA_board = new QNABean();
+		QNABean article = new QNABean();
 			
 			int q_num = Integer.parseInt(request.getParameter("q_num"));
-			String PageNum = request.getParameter("PageNum");
+			String pageNum = request.getParameter("PageNum");
+			
+			 request.setAttribute("q_num", new Integer(q_num));
+			 request.setAttribute("pageNum", new Integer(pageNum));
+			
+			// QNA_updateForm.jsp
+			
+		   
 			String q_passwd = request.getParameter("q_passwd");
-			
-			
-			QNA_board= session.selectOne("QNA_board.get", q_num);
-			
-			
+		    
+		    int check = session.delete("QNA_board.find_passwd","QNA_board.remove");
+		    
+		    request.setAttribute("check", new Integer(check));
+		   
+		    
 			int success;
 			
-			if(q_passwd.equals(request.getAttribute("q_passwd"))){
-				success=session.delete("QNA_board.remove", q_num);
+			if(q_passwd.equals(request.getParameter("q_passwd"))){
+				success=session.delete("QNA_board.find_passwd","QNA_board.remove" );
 			}else{
 				success=0;
 			}
 			if(success>0){
-				return "QNA_board/QNA_list.jsp";
+				return "QNA_board/QNA_deletePro.jsp";
 			}else
 				return "QNA_board/QNA_deleteForm.jsp";
 		
