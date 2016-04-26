@@ -16,7 +16,7 @@ public class QNA_writeAction implements CommandAction {
 				Connection con = new Connection();
 				SqlSession session = con.connection();
 				
-				QNABean QNA_board = new QNABean();
+			
 	        
 				int q_num =0,Q_ref=1;
 				
@@ -30,36 +30,30 @@ public class QNA_writeAction implements CommandAction {
 					e.printStackTrace();
 				}
 				
-				request.setAttribute("q_num", q_num);
-				request.setAttribute("Q_ref", Q_ref);
+				request.setAttribute("q_num", new Integer(q_num));
+				request.setAttribute("Q_ref", new Integer(Q_ref));
+				
+				//QNA_writeForm.jsp
 		 
 				q_num = Integer.parseInt(request.getParameter("q_num"));
-				String q_passwd = session.selectOne("QNA_board.add", request.getAttribute("q_num"));
+				QNABean article = session.selectOne("QNA_board.add", request.getAttribute("q_num"));
 			
 				int success;
 				
-				
-				if(q_passwd.equals(request.getParameter("q_num"))){
-					
-					success = session.insert("QNA_board.add", QNA_board);
-				
-				}
-				
-					else{
-						success=0;
-					}
-					
+				success = session.insert("add", article);
+				 
 					if(success>0){
 
-						return "QNA_board/QNA_list.jsp";
+						return "QNA_writePro.jsp";
 					}
 				
 				else{
-						return "QNA_board/QNA_list.jsp";
+						return "QNA_writeForm.jsp";
 				
 			}
 			
 		 }
 }
+//QNA_writePro.jsp
 	
 

@@ -19,19 +19,29 @@ public class QNA_ContentAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		
-		QNABean QNA_board = new QNABean();
 		
-			
+		 
 			int success;
+			int q_num = Integer.parseInt(request.getParameter("q_num"));
+			String pageNum = request.getParameter("pageNum");
 			
-			String id = session.selectOne("QNA_board.list", request.getAttribute("num"));
-		
+			QNABean article = session.selectOne("QNA_board.get", q_num);
+			
+			request.setAttribute("q_num", new Integer(q_num));
+			request.setAttribute("pageNum", new Integer(pageNum));
+			request.setAttribute("article", article);
+			
+			
+		     String co_id = request.getParameter("co_id");
+		     String p_id = request.getParameter("p_id");
 			
 			
 			
-			if(id.equals(request.getAttribute("id"))){
-				success=session.selectOne("QNA_board.get", request.getAttribute("num"));
-			
+			if(co_id.equals(request.getParameter("co_id"))){
+				success = session.selectOne("QNA_board.get", q_num);
+			}
+			if(p_id.equals(request.getParameter("p_id"))){
+				success = session.selectOne("QNA_board.get", q_num);
 			}
 			
 				else{
@@ -39,19 +49,16 @@ public class QNA_ContentAction implements CommandAction {
 				}
 				
 				if(success>0){
-					return "QNA_board/main.jsp";
+					return "QNA_content.jsp";
 				}
 			
 			else{
-					return "QNA_board/QNA_content.jsp";
+					return "QNA_list.jsp";
 			
 		}
-	
+	}
+}  //QNA_content.jsp
 
-	
-}
-}
-	
 
 
 
