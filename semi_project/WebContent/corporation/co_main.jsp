@@ -38,7 +38,7 @@
 	</head>
 	<body>
 	${co_id}님의 페이지입니다.<br>
-	<a href="../QNA_board/QNA_list.do">QnA</a> <a href="co_modify.do">정보수정</a> <a href="../main.do">로그아웃</a>
+	<a href="../QNA_board/QNA_list.do">QnA</a> <a href="co_modify.do">정보수정</a> <a href="logout.jsp">로그아웃</a>
 	<br>
 	<br>
 	<br>
@@ -90,9 +90,9 @@
 											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
 										</div>
 									</a>
-									제목 : ${item.title} <br> 
-									설명 :	 ${item.description} <br>
-									날짜 : ${item.regdate}<br>
+									제목 : ${item.f_title} <br> 
+									설명 :	 ${item.f_description} <br>
+									날짜 : ${item.f_regdate}<br>
 								</article>
 							</c:forEach>
 							</section>
