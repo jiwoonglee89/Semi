@@ -57,7 +57,7 @@
 				<img src="images/level.gif" width="${5 * article.re_level}" height="16">
 			</c:if>
 			
-			<a href="/MarJSP/mvc_board/content.do?num=${article.num}&pageNum=${currentPage}"> <%-- context root, key 값 --%>
+			<a href="QNA_content.do?num=${article.num}&pageNum=${currentPage}"> <%-- context root, key 값 --%>
 			${article.subject}</a>
 			
 			<c:if test="${article.readcount >= 20}">

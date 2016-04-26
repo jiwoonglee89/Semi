@@ -12,8 +12,8 @@
 <body bgcolor="${bodyback_c}">
 <center><b>update</b>
 <br>
-<form method="post" name="writeform" action="/semi_project/QNA_board/updatePro.do?pageNum=${pageNum}" onsubmit="returnSave()">
-<<table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
+<form method="post" name="writeform" action="/semi_project/QNA_board/QNA_updatePro.do?pageNum=${pageNum}" onsubmit="returnSave()">
+<table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
   <tr>
     <td  width="70"  bgcolor="${value_c}" align="center">이 름</td>
     <td align="left" width="330">
@@ -45,7 +45,7 @@
    <td colspan=2 bgcolor="${value_c}" align="center">
      <input type="submit" value="글수정" > 
      <input type="reset" value="다시작성">
-     <input type="button" value="목록보기" onclick="document.location.href='/semi_project/QNA_board/list.do?pageNum=${pageNum}'">
+     <input type="button" value="목록보기" onclick="document.location.href='/semi_project/QNA_board/QNA_list.do?pageNum=${pageNum}'">
    </td>
 </tr>
 </table>

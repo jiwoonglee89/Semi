@@ -10,7 +10,7 @@
 <body bgcolor="${bodyback_c}">
 <center><b>write</b>
 <br>
-<form method="post" name="writeform" action="/MarJSP/mvc_board/writePro.do" onsumit="return writeSave()">
+<form method="post" name="writeform" action="/semi_project/QNA_board/QNA_writePro.do" onsumit="return writeSave()">
 <input type="hidden" name="num" value="${num}">
 <input type="hidden" name="ref" value="${ref}">
 <input type="hidden" name="re_step" value="${re_step}">
@@ -19,7 +19,7 @@
 <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr>
 		<td align="right" colspan="2" bgcolor="${value_c}">
-			<a href="/MarJSP/mvc_board/list.do">list</a>
+			<a href="/semi_project/QNA_board/QNA_list.do">list</a>
 		</td>
 	</tr>
 	
@@ -68,7 +68,7 @@
 		<td colspan=2 bgcolor="${value_c}" align="center">
   			<input type="submit" value="글쓰기" > 
   			<input type="reset" value="다시작성">
-  			<input type="button" value="목록보기" OnClick="window.location='/MarJSP/mvc_board/list.do'">
+  			<input type="button" value="목록보기" OnClick="window.location='/semi_project/QNA_board/QNA_list.do'">
 		</td>
 	</tr>
 </table>   

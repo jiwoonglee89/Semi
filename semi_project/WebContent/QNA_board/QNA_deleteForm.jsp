@@ -26,7 +26,7 @@
 <body bgcolor="${bodyback_c}">
 <center><b>글삭제</b>
 <br>
-<form method="POST" name="delForm"  action="/semi_project/QNA_board/deleteForm.do?pageNum=${pageNum}" onsubmit="return deleteSave()">
+<form method="POST" name="delForm"  action="/semi_project/QNA_board/QNA_deleteForm.do?pageNum=${pageNum}" onsubmit="return deleteSave()">
 
 <table border="1" align="center" cellspacing="0" cellpadding="0" width="360">
 	<tr height="30">
@@ -43,7 +43,7 @@
 	<tr height="30">
     	<td align=center bgcolor="${value_c}">
       		<input type="submit" value="글삭제" >
-      		<input type="button" value="글목록" onclick="document.location.href='/MarJSP/QNA_board/list.do?pageNum=${pageNum}'">    
+      		<input type="button" value="글목록" onclick="document.location.href='/semi_project/QNA_board/QNA_list.do?pageNum=${pageNum}'">    
    		</td>
 	</tr>
 	 
