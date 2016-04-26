@@ -52,7 +52,7 @@
 			</tr>
 			<tr>
 				<td width="200" bgcolor="${value_c}"><b>아이디</b></td>
-				<td width="400" bgcolor="${value_c}"></td>
+				<td width="400" bgcolor="${value_c}">${co_id}</td>
 			<tr>
 			
 
@@ -75,7 +75,7 @@
 			</tr>
 			<tr>
 				<td width="200">대표자 명 :</td>
-				<td width="400"><input type="text" name="co_com" size="15" maxlength="20" value="${co.co_boss}"></td>
+				<td width="400"><input type="text" name="co_boss" size="15" maxlength="20" value="${co.co_boss}"></td>
 			</tr>
 			
 			<tr>
@@ -150,11 +150,11 @@
 				<td width="200">기업기관분류</td>
 				<td width="400">
 					<c:if test="${co.co_category==null}"> 
-					<input type="text" name="co_subjob">
+					<input type="text" name="co_category">
 					</c:if>
 					
 					<c:if test="${co.co_category!=null}">
-					 <input type="text" name="co_subjob" size="60" maxlength="50" value="${co.co_category}">
+					 <input type="text" name="co_category" size="60" maxlength="50" value="${co.co_category}">
 				</c:if>
 				</td>
 			</tr>
@@ -174,15 +174,15 @@
 			</tr>
 			
 			<tr>
-				<td width="200">담당자 휴대폰</td>
-				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20" value="${co.phone}"></td>
+				<td width="200">담당자 휴대폰 : </td>
+				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20" value="${co.co_phone}"></td>
 			</tr>
 			
 			
 			<tr>
 				<td colspan="2" align="center" bgcolor="${value_c}>">
 				<input type="submit" name="modify" value="수   정"> 
-					<input type="button" value="취  소" onclick="javascript:window.location='main.do'"></td>
+					<input type="button" value="취  소" onclick="javascript:window.location='../main.do'"></td>
 			</tr>
 		</table>
 	</form>
