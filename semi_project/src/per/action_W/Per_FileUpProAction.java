@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,8 +38,10 @@ public class Per_FileUpProAction implements CommandAction {
 		String f_category = null;
 		String realpath = null;
 
-		FileBean filebean = new FileBean();
+		Vector fileList = new Vector();
 
+		FileBean filebean = new FileBean();
+		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		List<FileItem> items = upload.parseRequest(request);
@@ -62,6 +65,7 @@ public class Per_FileUpProAction implements CommandAction {
 				String name = item.getFieldName();
 				if (name.equals("file")) {
 					realpath = fileup(f_title, item);
+					request.setAttribute("f_filename", item.getName());
 				}
 			}
 		}
@@ -71,8 +75,8 @@ public class Per_FileUpProAction implements CommandAction {
 		// P_MemBean pbean = new P_MemBean();
 
 		// 세션값가져오기
-		// HttpSession session1 = request.getSession();
-		// String p_id = (String) session1.getAttribute("memId");
+		 HttpSession session1 = request.getSession();
+		 String p_id = (String) session1.getAttribute("p_id");
 
 		// String realPath = file.getAbsolutePath();
 		// 아이디에맞는 카테고리 가져오기
@@ -90,14 +94,25 @@ public class Per_FileUpProAction implements CommandAction {
 			f_category = "gun";
 		}
 		
-		filebean.setP_id("1");
-		filebean.setRealpath(realpath);
-		filebean.setF_regdate(new Timestamp(System.currentTimeMillis()));
-		filebean.setF_title(f_title);
-		filebean.setF_description(f_description);
-		filebean.setF_readcount(0);
-		filebean.setF_category(f_category);
-
+		
+		while(fileList.){
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(new Timestamp(System.currentTimeMillis()));
+			fileList.addElement(filebean.getF_title());
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(filebean.getP_id());
+			fileList.addElement(filebean.getP_id());
+			
+			fileList.setRealpath(realpath);
+			fileList.setF_regdate(new Timestamp(System.currentTimeMillis()));
+			fileList.setF_title(f_title);
+			fileList.setF_description(f_description);
+			fileList.setF_readcount(0);
+			fileList.setF_category(f_category);
+		}
+		
+		
 		int success = session.insert("per_member.fileadd", filebean);
 		if (success > 0) {
 			session.commit();
@@ -107,11 +122,12 @@ public class Per_FileUpProAction implements CommandAction {
 			System.out.println("업로드 실패");
 		}
 		
-		request.setAttribute("f_category", f_category);
+		request.setAttribute("file", filebean);
+		/*request.setAttribute("f_category", f_category);
 		request.setAttribute("f_title", filebean.getF_title());
 		request.setAttribute("f_description", filebean.getF_description());
 		request.setAttribute("f_regdate", filebean.getF_regdate());
-		request.setAttribute("realpath", filebean.getRealpath());
+		request.setAttribute("realpath", filebean.getRealpath());*/
 		request.setAttribute("success", success);
 
 		return "/person/p_mainview.jsp";
@@ -120,16 +136,18 @@ public class Per_FileUpProAction implements CommandAction {
 
 	public String fileup(String f_title, FileItem item) {
 		System.out.println("fileup()");
-		String directory = "e://File";
+		String directory = "C:/Users/wonmo/Desktop/workspaces/semi_project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semi_project/File";
 
 		int randomValue = random.nextInt(50);
 		// String fileName = f_title + "_" + Integer.toString(randomValue);
 		String fileName = item.getName();
+		System.out.println("fileName:::"+fileName);
 		File file = new File(directory, fileName);
 		String realpath = file.getAbsolutePath();
 		System.out.println(realpath);
 		FileOutputStream os = null;
 
+		
 		InputStream is;
 		try {
 			is = item.getInputStream();

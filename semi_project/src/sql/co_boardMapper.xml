@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co_board">
+	<select id="all_file" resultType="DB.FileBean">
+		select * from fileupload order by 
+	</select>
+	<select id="all_per" resultType="DB.P_MemBean">
+		select * from per_member
+	</select>
+</mapper>
