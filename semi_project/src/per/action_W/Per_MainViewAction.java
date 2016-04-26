@@ -10,7 +10,7 @@ public class Per_MainViewAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		return "/person/p_mainview.jsp";
+		return "p_mainview.jsp";
 	}
 
 }
