@@ -15,23 +15,52 @@
 		<div class="container">
 			<header class="major">
 				<h2>신고목록</h2>
-				<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
-					<tr>
-						<td width="200">글제목</td>
-						<td width="400">${m_title}</td>
-					</tr>
-					<tr>
-						<td width="200">이름</td>
-						<td width="400">${p_name}</td>
-					<tr>
-						<td width="200">E-Mail</td>
-						<td width="400">${p_email}</td>
-					</tr>
-					<tr>
-						<td width="200">분야</td>
-						<td width="400">${p_category}</td>
-					</tr>
-				</table>
+				<c:if test="${count == 0}">
+					<table width="700" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td align="center">board is empty!</td>
+						</tr>
+					</table>
+				</c:if>
+				<c:if test="${count > 0}">
+					<table width="600" border="1" cellspacing="0" cellpadding="3"
+						align="center">
+						<tr>
+							<td align="center" width="250">제목</td>
+							<td align="center" width="250">${m_title}</td>
+						</tr>
+
+
+						<c:forEach var="article" items="${articleList}">
+							<tr height="30">
+								<td align="center" width="50"><c:out value="${number}" />
+									<c:set var="number" value="${number - 1}" /></td>
+
+								<td width="250"><c:if test="${article.re_level > 0}">
+										<%-- getter 메서드 호출!! --%>
+										<img src="images/level.gif" width="${5 * article.re_level}"
+											height="16">
+										<img src="images/re.gif">
+									</c:if> <c:if test="${article.re_level == 0}">
+										<img src="images/level.gif" width="${5 * article.re_level}"
+											height="16">
+									</c:if> <a
+									href="/MarJSP/mvc_board/content.do?num=${article.num}&pageNum=${currentPage}">
+										<%-- context root, key 값 --%> ${article.subject}
+								</a> <c:if test="${article.readcount >= 20}">
+										<img src="images/hot.gif" border="0" height="16">
+									</c:if></td>
+
+								<td align="center" width="100"><a
+									href="mailto:${article.email}">${article.writer}</a></td>
+
+								<td align="center" width="150">${article.reg_date}</td>
+								<td align="center" width="50">${article.readcount}</td>
+								<td align="center" width="100">${article.ip}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:if>
 			</header>
 			<form method="post" action="#">
 				<div class="row uniform">
