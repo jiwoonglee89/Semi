@@ -79,7 +79,7 @@
 					<div id="main">
 						<div class="inner">
 							<section class="tiles">
-							<c:forEach var="i" begin="1" end="10">
+							<c:forEach var="item" items="${file}">
 								<article class="style1">
 									<span class="image">
 										<img src="images/pic01.jpg" alt="" />
@@ -90,9 +90,9 @@
 											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
 										</div>
 									</a>
-									제목 : <br> 
-									설명 :	 <br>
-									날짜 : <br>
+									제목 : ${item.title} <br> 
+									설명 :	 ${item.description} <br>
+									날짜 : ${item.regdate}<br>
 								</article>
 							</c:forEach>
 							</section>

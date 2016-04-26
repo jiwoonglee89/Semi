@@ -1,9 +1,13 @@
 package action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
+
+import DB.Co_boardBean;
 
 public class Co_mainAction implements CommandAction{
 
@@ -12,7 +16,10 @@ public class Co_mainAction implements CommandAction{
 		
 		Connection con=new Connection();
 		SqlSession session=con.connection();
-		
+		List people=session.selectList("co_board.all_per");
+		List file=session.selectList("co_board.all_file");
+		request.setAttribute("people", people);
+		request.setAttribute("file", file);
 		return "co_main.jsp";
 	}
 
