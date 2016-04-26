@@ -12,8 +12,6 @@ public class MessageBean {
 	int m_count;
 	String m_countdes;
 
-	
-
 	public MessageBean() {
 	}
 
