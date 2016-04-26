@@ -20,7 +20,7 @@
 			alert("회원가입에성공하였습니다");
 		</script>
 		<c:redirect url="/main.do" context="/semi_project">
-			<c:param name="memId" value="${memId}"></c:param>
+			<%-- <c:param name="memId" value="${memId}"></c:param> --%>
 		</c:redirect>
 	</c:if>
 

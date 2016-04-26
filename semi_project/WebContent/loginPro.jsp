@@ -9,7 +9,7 @@
 <c:redirect url="corporation/co_main.jsp"></c:redirect>
 </c:if>
 <c:if test="${select==1 }">
-<c:redirect url="main.jsp"></c:redirect>
+<c:redirect url="person/p_mainview.jsp"></c:redirect>
 </c:if>
 </body>
 </html>

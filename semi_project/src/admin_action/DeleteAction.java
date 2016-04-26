@@ -16,9 +16,9 @@ public class DeleteAction implements CommandAction{
 		
 		String p_id=request.getParameter("id");
 		int success=session.insert("admin.remove_per", p_id);
-		if(success>0){
+		int success_count=session.update("admin.countup_per", p_id);
+		if(success>0 || success_count>0){
 			session.commit();
-			
 		}else
 		{
 			session.rollback();
