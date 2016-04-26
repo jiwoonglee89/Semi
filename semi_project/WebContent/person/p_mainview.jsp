@@ -58,18 +58,24 @@
 					
 					<form id="signup-form" method="post" action="#">
 					<h3>검색</h3>
-						<select>
+						<select name="search">
 							<option>검색종류</option>
-							<option value="0">제목</option>
-							<option value="1">설명</option>
+							<option value="0">디자인분류</option>
+							<option value="1">이름</option>
+							<option value="2">설명</option>
 						</select>
-						<input type="email" name="email" id="email" placeholder="검색내용" size="50"/>
-						<input type="submit" value="Sign Up" />
+						<c:forEach var="dataList" items="${searchn}">
+							<c:if test="${search}">
+						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
+						<input type="submit" value="검색" />
+						</c:if>
+						</c:forEach>
 					</form>
 
 				<!-- Two -->
 					<section id="two">
 						<h2>나의 포트폴리오 목록</h2>
+						
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item">
 								<a href="main_msg/images/fulls/01.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/01.jpg" alt="" /></a>
@@ -102,9 +108,13 @@
 								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
 							</article>
 						</div>
+						
 						<ul class="actions">
 							<li><a href="#" class="button">Full Portfolio</a></li>
 						</ul>
+						
+								
+							
 					</section>
 
 				

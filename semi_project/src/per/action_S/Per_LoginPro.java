@@ -24,7 +24,7 @@ public class Per_LoginPro implements CommandAction{
 			HttpSession session2 = request.getSession();
 		
 		
-		String id = request.getParameter("id");
+		String id = request.getParameter("memId");
 		String passwd = request.getParameter("passwd");
 		
 		P_MemBean p_bean = new P_MemBean();
@@ -34,7 +34,7 @@ public class Per_LoginPro implements CommandAction{
 			if((p_bean.getP_passwd()).equals(passwd)){
 				
 				String mem_id = (String)session2.getAttribute("memId");
-				request.setAttribute("p_id", mem_id);
+				session2.setAttribute("p_id", mem_id);
 				
 				session.commit();
 				System.out.println("로그인 성공");
