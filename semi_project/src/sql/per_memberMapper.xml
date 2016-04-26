@@ -9,7 +9,7 @@
 	</insert>
 	
 	<insert id="fileadd" parameterType="DB.FileBean">
-		insert into fileupload values(f_seq.NEXTVAL,#{p_id},#{realpath},#{f_regdate},#{f_title},#{f_description},#{f_readcount}, #{f_category})
+		insert into fileupload (f_num,p_id,realpath,f_regdate,f_title,f_description,f_readcount,f_category)values(f_seq.NEXTVAL,#{p_id},#{realpath},#{f_regdate},#{f_title},#{f_description},#{f_readcount}, #{f_category})
 	</insert>
 	
 	<update id="modify" parameterType="DB.P_MemBean">
@@ -26,6 +26,9 @@
 	</select>
 	<select id="find" parameterType="String" resultType="DB.P_MemBean">
 		select * from per_member where p_id=#{p_id}
+	</select>
+	<select id="findpass" parameterType="String" resultType="String">
+		select p_passwd from per_member where p_id=#{p_id}
 	</select>
 	<select id="getInfo" parameterType="String" resultType="hashmap">
 		select * from per_member where p_id=#{p_id}

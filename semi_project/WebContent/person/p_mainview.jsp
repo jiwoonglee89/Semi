@@ -9,31 +9,14 @@
 		<link rel="stylesheet" href="main_msg/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		
-		<script>
-		function fileupload(userinput) {
-			/* // 아이디를 입력했는지 검사
-			if (userinput.p_id.value == "") {
-				alert("아이디를 입력하세요");
-				return;
-			} */
-			// url과 사용자 입력 id를 조합합니다.
-			url = "fileuploadForm.do";
-
-			// 새로운 윈도우를 엽니다.
-			open(
-					url,
-					"fileupload",
-					"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=500");
-		}
 		
-		</script>
 	</head>
 	<body id="top">
 
 		<!-- Header -->
 			<header id="header">
 				<a href="#" class="image avatar"><img src="main_msg/images/avatar.jpg" alt="" /></a>
-				<h1><strong>이지웅</strong><br />
+				<h1><strong>${p_name }</strong><br />
 				프로필프로필프로필<br />
 				</h1>
 			</header>
@@ -50,7 +33,7 @@
 						<ul class="actions">
 							<form enctype="multipart/form-data">
 								<input type="button" class="button" value="파일올리기"
-								onclick="fileupload(this.form)">
+								onclick="javascript:window.location='person/p_mainview.do'">
 							</form>
 							<!-- <li><a href="#" class="button">파일올리기</a></li> -->
 						</ul>
@@ -72,7 +55,7 @@
 						<h2>나의 포트폴리오 목록</h2>
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item">
-								<a href="main_msg/images/fulls/01.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/01.jpg" alt="" /></a>
+								<a href="main_msg/images/fulls/01.jpg" class="image fit thumb"><img src="${realpath}" alt="" /></a>
 								<h3>Magna sed consequat tempus</h3>
 								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
 							</article>
