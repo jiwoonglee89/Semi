@@ -3,6 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="co_member">
+	<select id="confirm" parameterType="String" resultType="String">
+		select co_passwd from co_member where co_id=#{co_id}
+	</select>
 	<insert id="add" parameterType="DB.Co_MemBean">
 		insert into co_member values(#{co_id},#{co_passwd}, #{co_number}, #{co_com}, #{co_boss},#{co_job}, 
 		#{co_subjob},#{co_category}, #{co_name}, #{co_email}, #{co_tel}, #{co_phone},  0)

@@ -60,18 +60,27 @@
 					<h3>검색</h3>
 						<select name="search">
 							<option>검색종류</option>
+<<<<<<< HEAD
 							<option value="0">디자인분류</option>
 							<option value="1">이름</option>
+=======
+							<option value="0">디자인분야</option>
+							<option value="1">제목</option>
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi
 							<option value="2">설명</option>
 						</select>
+<<<<<<< HEAD
 						<c:forEach var="dataList" items="${searchn}">
 							<c:if test="${search}">
 						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
 						<input type="submit" value="검색" />
 						</c:if>
 						</c:forEach>
+=======
+						<input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
+						<input type="submit" value="검색" />
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi
 					</form>
-
 				<!-- Two -->
 					<section id="two">
 						<h2>나의 포트폴리오 목록</h2>
@@ -443,11 +452,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<!-- Footer -->
 			 <footer id="footer">
 				<ul class="icons">
-					<li><a href="#" ><span class="label">Q&A</span></a></li>
+					<li><a href="../QNA_board/QNA_list.do" ><span class="label">Q&A</span></a></li>
 					<li><a href="p_messageList.do" ><span class="label">쪽지함</span></a></li>
-					<li><a href="#" ><span class="label">정보수정</span></a></li>
-					<!-- <li><a href="deleteForm.do" ><span class="label">로그아웃</span></a></li> -->
-					<li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li>
+					<li><a href="" ><span class="label">정보수정</span></a></li>
+					<li><a href="../main.do" ><span class="label">로그아웃</span></a></li> 
+					<!-- <li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li> -->
 				</ul>
 			</footer>
 

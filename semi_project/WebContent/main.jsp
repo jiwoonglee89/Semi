@@ -3,10 +3,6 @@
 <html>
 <head><title>메인입니다..</title>
 <link href="view/style.css" rel="stylesheet" type="text/css">
-<% 
-	try{
-		if(session.getAttribute("memId")==null){
-%>
 <script>
 	function focusIt(){     
    		document.inform.id.focus();//내가 작업하고 있는 문서의 inform이라는 곳에 id에 커서를 가져다 줌
@@ -42,8 +38,8 @@
        </tr>
        <tr>
        	<td colspan="3" bgcolor="<%=title_c%>" align="center">
-       		<input type="radio" name="per_or_cop" value="per">개인회원
-			<input type="radio" name="per_or_cop" value="cop">기업회원
+       		<input type="radio" name="per_or_cor" value="per">개인회원
+			<input type="radio" name="per_or_cor" value="cor">기업회원
        	</td>
        </tr>
        <tr>
@@ -53,29 +49,7 @@
           </td>
        </tr>
        </form>   
-       
        </table>
-     <%}else{%>
-       <table width=500 cellpadding="0" cellspacing="0"  align="center" border="1" >
-         <tr>
-           <td width="300" bgcolor="<%=bodyback_c%>" height="20">하하하</td>
-
-           <td rowspan="3" bgcolor="<%=value_c%>" align="center">
-             <%=session.getAttribute("memId")%>님이 <br>
-             방문하셨습니다
-             <form  method="post" action="logout.jsp"> 
-             <input type="submit"  value="로그아웃">
-             <input type="button" value="회원정보변경" onclick="javascript:window.location='modify.jsp'">
-             </form>
-         </td>	
-        </tr>
-       <tr >
-         <td rowspan="2" bgcolor="<%=bodyback_c%>" width="300" >메인입니다.</td>
-      </tr>
-     </table>
      <br>
-<%}
-}catch(NullPointerException e){}
-%>
 </body>
 </html>

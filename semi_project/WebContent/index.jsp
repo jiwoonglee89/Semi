@@ -2,7 +2,7 @@
 
 <html>
 <body>
-<% response.sendRedirect("main.do"); %>
+<% response.sendRedirect("main.jsp"); %>
 
 </body>
 </html> 

@@ -9,11 +9,8 @@
 	<select id="all_co" resultType="DB.Co_MemBean">
 		select * from co_board
 	</select>
-	<select id="all_perid" resultType="DB.P_MemBean">
-		select p_id from PER_MEMBER
-	</select>
-	<select id="all_co" resultType="DB.Co_MemBean">
-		select co_id from co_board
-	</select>
+	<insert id="remove_per" parameterType="String">
+		insert into black_db(p_id, reason) values (#{p_id}, '강제 퇴출')
+	</insert>
 	
 </mapper>
