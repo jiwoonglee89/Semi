@@ -1,8 +1,10 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <%@ include file="./view/color.jsp"%>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="view/style.css" rel="stylesheet" type="text/css">
+
 <html>
 <head><title>메인입니다..</title>
-<link href="view/style.css" rel="stylesheet" type="text/css">
 <script>
 	function focusIt(){     
    		document.inform.id.focus();//내가 작업하고 있는 문서의 inform이라는 곳에 id에 커서를 가져다 줌
@@ -38,6 +40,9 @@
        </tr>
        <tr>
        	<td colspan="3" bgcolor="<%=title_c%>" align="center">
+       		<a href="#" class="fa fa-user fa-2x"></a>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       		<a href="#" class="fa fa-building fa-2x"></a>
+       		<br/>
        		<input type="radio" name="per_or_cor" value="per">개인회원
 			<input type="radio" name="per_or_cor" value="cor">기업회원
        	</td>

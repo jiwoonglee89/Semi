@@ -15,13 +15,14 @@ public class ModifyProAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession httpsession=request.getSession();
-		String id=(String)httpsession.getAttribute("memId");
+		String co_id=(String)httpsession.getAttribute("co_id");
 		Connection con=new Connection();
 		SqlSession session=con.connection();
 		Co_MemBean co_member=new Co_MemBean();
-		co_member=session.selectOne("co_member.get", id);
+		co_member=session.selectOne("co_member.get", co_id);
 		int success=session.update("co_member.modify", co_member);
 		if(success>0){
+			session.commit();
 			request.setAttribute("co", co_member);
 		}else
 			System.out.println("수정이 수행되지 않았습니다.");

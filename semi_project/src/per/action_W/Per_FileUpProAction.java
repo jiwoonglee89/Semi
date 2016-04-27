@@ -33,39 +33,46 @@ public class Per_FileUpProAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 
+		request.setCharacterEncoding("UTF-8");
+		
 		String f_title = null;
 		String f_description = null;
 		String f_category = null;
 		String realpath = null;
-
-		Vector fileList = new Vector();
+		String filename= null;
+		List fileList = null;
 
 		FileBean filebean = new FileBean();
 		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
+		
 		ServletFileUpload upload = new ServletFileUpload(factory);
+		upload.setHeaderEncoding("UTF-8");
+		
 		List<FileItem> items = upload.parseRequest(request);
 		System.out.println("items.size():::" + items.size());
 		// DB에 저장할 파일의 정보들
 		Iterator<FileItem> iter = items.iterator();
 		while (iter.hasNext()) {
 			FileItem item = iter.next();
+			
 			System.out.println("item.getName():::" + item.getFieldName());
 			if (item.isFormField()) {
 				String name = item.getFieldName();
 				if (name.equals("p_category")) {
 					f_category = item.getString();
-					System.out.println("f_title:::" + f_category);
+					
 				} else if (name.equals("f_title")) {
-					f_title = item.getString();
+					f_title = item.getString("UTF-8"); 
+					System.out.println("f_title:::" + f_title);
 				} else if (name.equals("f_description")) {
-					f_description = item.getString();
+					f_description = item.getString("UTF-8"); 
 				}
 			} else {
 				String name = item.getFieldName();
 				if (name.equals("file")) {
 					realpath = fileup(f_title, item);
-					request.setAttribute("f_filename", item.getName());
+					filename = item.getName();
 				}
 			}
 		}
@@ -93,24 +100,17 @@ public class Per_FileUpProAction implements CommandAction {
 		}else if (f_category.equals("2")) {
 			f_category = "gun";
 		}
+			filebean.setP_id(p_id);
+			filebean.setRealpath(realpath);
+			filebean.setF_regdate(new Timestamp(System.currentTimeMillis()));
+			filebean.setF_title(f_title);
+			filebean.setF_description(f_description);
+			filebean.setF_readcount(0);
+			filebean.setF_category(f_category);
+			filebean.setF_filename(filename);
 		
-		
-		while(fileList.){
-			fileList.addElement(filebean.getP_id());
-			fileList.addElement(new Timestamp(System.currentTimeMillis()));
-			fileList.addElement(filebean.getF_title());
-			fileList.addElement(filebean.getP_id());
-			fileList.addElement(filebean.getP_id());
-			fileList.addElement(filebean.getP_id());
-			fileList.addElement(filebean.getP_id());
 			
-			fileList.setRealpath(realpath);
-			fileList.setF_regdate(new Timestamp(System.currentTimeMillis()));
-			fileList.setF_title(f_title);
-			fileList.setF_description(f_description);
-			fileList.setF_readcount(0);
-			fileList.setF_category(f_category);
-		}
+			fileList=session.selectList("file.all", p_id);
 		
 		
 		int success = session.insert("per_member.fileadd", filebean);
@@ -122,7 +122,7 @@ public class Per_FileUpProAction implements CommandAction {
 			System.out.println("업로드 실패");
 		}
 		
-		request.setAttribute("file", filebean);
+		request.setAttribute("fileList", fileList);
 		/*request.setAttribute("f_category", f_category);
 		request.setAttribute("f_title", filebean.getF_title());
 		request.setAttribute("f_description", filebean.getF_description());
@@ -130,7 +130,7 @@ public class Per_FileUpProAction implements CommandAction {
 		request.setAttribute("realpath", filebean.getRealpath());*/
 		request.setAttribute("success", success);
 
-		return "/person/p_mainview.jsp";
+		return "/person/fileuploadPro.jsp";
 
 	}
 
@@ -141,13 +141,12 @@ public class Per_FileUpProAction implements CommandAction {
 		int randomValue = random.nextInt(50);
 		// String fileName = f_title + "_" + Integer.toString(randomValue);
 		String fileName = item.getName();
-		System.out.println("fileName:::"+fileName);
+		System.out.println("fileName:::" + fileName);
 		File file = new File(directory, fileName);
 		String realpath = file.getAbsolutePath();
 		System.out.println(realpath);
 		FileOutputStream os = null;
 
-		
 		InputStream is;
 		try {
 			is = item.getInputStream();

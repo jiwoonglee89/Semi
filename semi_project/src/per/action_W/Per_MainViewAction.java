@@ -1,5 +1,7 @@
 package per.action_W;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -66,16 +68,25 @@ public class Per_MainViewAction implements CommandAction {
 =======
 		// TODO Auto-generated method stub
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		Connection con=new Connection();
 		SqlSession session=con.connection();
 		
 		
+		List fileList = null;
+		
 		HttpSession session2 = request.getSession();
 		String p_id = (String) session2.getAttribute("p_id");
 		
-		P_MemBean pbean = session.selectOne("per_member.find",p_id);
+		//P_MemBean pbean = session.selectOne("per_member.find",p_id);
 			
-		request.setAttribute("p_name",pbean.getP_name());
+		
+		fileList = session.selectList("file.all",p_id );
+		P_MemBean p_list = session.selectOne("per_member.find",p_id);
+		
+		request.setAttribute("fileList", fileList);
+		request.setAttribute("p_list",p_list);
 				
 		return "p_mainview.jsp";
 >>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi

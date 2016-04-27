@@ -9,7 +9,7 @@
 	</insert>
 	
 	<insert id="fileadd" parameterType="DB.FileBean">
-		insert into fileupload values(f_seq.NEXTVAL,#{p_id},#{realpath},#{f_regdate},#{f_title},#{f_description},#{f_readcount}, #{f_category})
+		insert into fileupload values(f_seq.NEXTVAL,#{p_id},#{realpath},#{f_regdate},#{f_title},#{f_description},#{f_readcount}, #{f_category}, #{f_filename})
 	</insert>
 	
 	<update id="modify" parameterType="DB.P_MemBean">

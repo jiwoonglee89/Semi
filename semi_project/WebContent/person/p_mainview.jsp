@@ -1,13 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <html>
 	<head>
 		<title>Strata by HTML5 UP</title>
-		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="main_msg/assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		
 		
 	</head>
@@ -16,8 +15,13 @@
 		<!-- Header -->
 			<header id="header">
 				<a href="#" class="image avatar"><img src="main_msg/images/avatar.jpg" alt="" /></a>
-				<h1><strong>${p_name }</strong><br />
-				프로필프로필프로필<br />
+				<h1><strong>포트폴리오 자료실에 오신걸 환영합니다! </br>${p_list.p_name }님</strong><br />
+				이메일 : ${p_list.p_email }<br />
+				생년월일 : ${p_list.p_birth }<br />
+				전화번호 : ${p_list.p_tel }<br />
+				나의 디자인분야 : ${p_list.p_category }<br />
+				나의 경고횟수 : ${p_list.p_count }회<br />
+				
 				</h1>
 			</header>
 
@@ -31,7 +35,7 @@
 						</header>
 						
 						<ul class="actions">
-							<form enctype="multipart/form-data">
+							<form enctype="multipart/form-data" method="post">
 								<input type="button" class="button" value="파일올리기"
 								onclick="javascript:window.location='fileuploadForm.do'">
 							</form>
@@ -69,20 +73,14 @@
 						<h2>나의 포트폴리오 목록</h2>
 						
 						<div class="row">
-						<c:forEach var="f" items="${file}">
-						<c:set var="f_title" value="${f.f_title}"/>
-						<c:set var="f_description" value="${f.f_description}"/>
-						<c:set var="f_regdate" value="${f.f_regdate}"/>
+						<c:forEach var="f" items="${fileList}">
 							<article class="6u 12u$(xsmall) work-item">
-							<%-- <c:forEach var="i" items="${f_filename}">
-								<c:set var=""></c:set>
-							</c:forEach> --%>
-								<a href="main_msg/images/fulls/01.jpg" class="image fit thumb"><img src="/semi_project/File/${f_filename}" alt="" /></a>
-								<h3>${f_title}</h3>
-								<p>${f_description }</p>
-								<p>${f_regdate }</p>
+								<a href="p_detail.do" ><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
+								<h3>${f.f_title}</h3>
+								<p>${f.f_description }</p>
+								<p>${f.f_regdate }</p>
 							</article>
-							</c:forEach>
+						</c:forEach>
 							<!-- <article class="6u$ 12u$(xsmall) work-item">
 								<a href="main_msg/images/fulls/02.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/02.jpg" alt="" /></a>
 								<h3>Ultricies lacinia interdum</h3>

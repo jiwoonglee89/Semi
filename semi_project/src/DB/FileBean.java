@@ -11,6 +11,13 @@ public class FileBean {
 	int f_readcount;
 	String f_category;
 	int f_num;
+	String f_filename;
+	public String getF_filename() {
+		return f_filename;
+	}
+	public void setF_filename(String f_filename) {
+		this.f_filename = f_filename;
+	}
 	public String getP_id() {
 		return p_id;
 	}

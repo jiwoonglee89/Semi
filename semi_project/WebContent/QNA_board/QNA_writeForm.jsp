@@ -10,47 +10,41 @@
 <body bgcolor="${bodyback_c}">
 <center><b>write</b>
 <br>
-<form method="post" name="writeform" action="/MarJSP/mvc_board/writePro.do" onsumit="return writeSave()">
-<input type="hidden" name="num" value="${num}">
-<input type="hidden" name="ref" value="${ref}">
-<input type="hidden" name="re_step" value="${re_step}">
-<input type="hidden" name="re_level" value="${re_level}"> 
+
+<form method="post" name="writeform" action="QNA_writeForm.do" onsubmit="return writeSave()">
+
+<input type="hidden" name="q_num" value="${q_num}">
+<input type="hidden" name="Q_ref" value="${Q_ref}">
+
 
 <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr>
 		<td align="right" colspan="2" bgcolor="${value_c}">
-			<a href="/MarJSP/mvc_board/list.do">list</a>
+			<a href="QNA_list.do">list</a>
 		</td>
 	</tr>
 	
 	<tr>
-		<td width="70" bgcolor="${value_c}" align="center">name</td>
+		<td width="70" bgcolor="${value_c}" align="center">작성자ID</td>
 		<td width="330">
-			<input type="text" size="10" maxlength="10" name="writer">
+			<input type="text" size="10" maxlength="10" name="co_id">
 		</td>
 	</tr>
 	
 	<tr>
-		<td width="70" bgcolor="${value_c}" align="center">sub</td>
+		<td width="70" bgcolor="${value_c}" align="center">제목</td>
 		<td  width="330">
-			<c:if test="${num == 0}">
-       		<input type="text" size="40" maxlength="50" name="subject">
-       	</td>
-			</c:if>
+			<c:if test="${q_num == 0}">
+       		<input type="text" size="40" maxlength="50" name="qna_title">
+       		</td>
+       		</c:if>
 	
-	<c:if test="${num != 0}">
-   		<input type="text" size="40" maxlength="50" name="subject" value="[답변]"></td>
+	<c:if test="${q_num != 0}">
+   		<input type="text" size="40" maxlength="50" name="qna_title" value="[답변]"></td>
 	</c:if>
 	</tr>
 	
 	<tr>
-    	<td  width="70"  bgcolor="${value_c}" align="center">Email</td>
-    	<td  width="330">
-       		<input type="text" size="40" maxlength="30" name="email" >
-       	</td>
-  	</tr>
-  	
-  	<tr>
     	<td  width="70"  bgcolor="${value_c}" align="center" >content</td>
     	<td  width="330" >
      		<textarea name="content" rows="13" cols="40"></textarea>
@@ -60,7 +54,7 @@
   	<tr>
     	<td  width="70"  bgcolor="${value_c}" align="center" >passwd</td>
     	<td  width="330" >
-     		<input type="password" size="8" maxlength="12" name="passwd">
+     		<input type="password" size="8" maxlength="12" name="q_passwd">
 		</td>
   	</tr>
   	
@@ -68,7 +62,7 @@
 		<td colspan=2 bgcolor="${value_c}" align="center">
   			<input type="submit" value="글쓰기" > 
   			<input type="reset" value="다시작성">
-  			<input type="button" value="목록보기" OnClick="window.location='/MarJSP/mvc_board/list.do'">
+  			<input type="button" value="목록보기" OnClick="window.location='QNA_list.do'">
 		</td>
 	</tr>
 </table>   

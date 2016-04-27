@@ -13,24 +13,33 @@
 		
 	</head>
 	<body class="is-loading-0 is-loading-1 is-loading-2">
-
+		
 		<!-- Main -->
 			<div id="main">
-
+					
 				<!-- Header -->
 					<header id="header">
-						<h1>Lens</h1>
-						<p>Just another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+					
+					<!-- for문사용해서 변수명 지정후 컬럼값일치할시 빼옴 -->
+						<h1>사진설명</h1>
+						<p> <h3>${fbean.f_title}</h3></p>
+						<p>${fbean.f_description}</p>
+						<p>${fbean.f_regdate}</p>
+								
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">수정</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">삭제</span></a></li>
 						</ul>
 					</header>
 
 				<!-- Thumbnail -->
 					<section id="thumbnails">
+					<c:forEach var="f" items="${fileList}">
+							<article>
+								<a  class="thumbnail" href="/semi_project/File/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
+							</article>
+					</c:forEach>
+						
 						<article>
 							<a class="thumbnail" href="detail/images/fulls/01.jpg" data-position="left center"><img src="detail/images/thumbs/01.jpg" alt="" /></a>
 							<h2>Diam tempus accumsan</h2>

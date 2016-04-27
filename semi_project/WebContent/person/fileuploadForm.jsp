@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <html>
 <head><title>파일 등록</title></head>
 <body>
