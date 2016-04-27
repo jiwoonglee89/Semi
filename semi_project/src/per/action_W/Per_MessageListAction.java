@@ -51,7 +51,6 @@ public class Per_MessageListAction implements CommandAction {
 			
 			List dataList = session.selectList("message.m_list", p_id);
 			
-			System.out.println("3:::::"+dataList.contains("3"));
 			
 			request.setAttribute("dataList", dataList);
 			
