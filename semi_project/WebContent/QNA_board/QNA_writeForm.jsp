@@ -14,7 +14,7 @@
 <form method="post" name="writeform" action="QNA_writeForm.do" onsubmit="return writeSave()">
 
 <input type="hidden" name="q_num" value="${q_num}">
-<input type="hidden" name="Q_ref" value="${Q_ref}">
+<input type="hidden" name="q_ref" value="${q_refnumber}">
 
 
 <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">

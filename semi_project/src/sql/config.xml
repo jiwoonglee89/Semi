@@ -21,6 +21,7 @@
 		<mapper resource="sql/zipcode_Mapper.xml"/>
 		<mapper resource="sql/admin_Mapper.xml"/>
 		<mapper resource="sql/co_boardMapper.xml"/>
+		<mapper resource="sql/QNA_Mapper.xml"/>
 		<mapper resource="sql/file_Mapper.xml"/>
 	</mappers>
 </configuration>

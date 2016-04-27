@@ -1,5 +1,8 @@
 package qna_action;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
@@ -15,46 +18,34 @@ public class QNA_writeAction implements CommandAction {
 			    request.setCharacterEncoding("UTF-8");
 				Connection con = new Connection();
 				SqlSession session = con.connection();
+			try{
+				QNABean article = new QNABean();
 				
-			
-	        
-				int q_num =0,Q_ref=1;
+				article.setQ_num(Integer.parseInt(request.getParameter("q_num")));
+				article.setCo_id(request.getParameter("co_id"));
+				article.setP_id(request.getParameter("p_id"));
+				article.setContent(request.getParameter("content"));
+				article.setQ_passwd(request.getParameter("q_passwd"));
+				article.setQ_regdate(new Timestamp(System.currentTimeMillis()));
+				article.setQref_number(Integer.parseInt(request.getParameter("qref_number")));
+				article.setReadcount(Integer.parseInt(request.getParameter("readcount")));
+				article.setQna_title(request.getParameter("qna_title"));
 				
-				try{
-					if(request.getParameter("q_num")!=null){
-						q_num = Integer.parseInt(request.getParameter("q_num"));
-						Q_ref = Integer.parseInt(request.getParameter("Q_ref"));
-						
-						request.setAttribute("q_num", new Integer(q_num));
-						request.setAttribute("Q_ref", new Integer(Q_ref));
-					}
-				}
-				catch(Exception e){
-					e.printStackTrace();
-				}
-				
-				//QNA_writeForm.jsp
-				
-				QNABean article = session.selectOne("QNA_board.add", request.getParameter("q_num"));
-				
-				request.setAttribute("article", article);
-				
-				int success;
-				
-				success = session.insert("add", article);
-				 
-					if(success>0){
-
-						return "QNA_writePro.jsp";
-					}
-				
-				else{
-						return "QNA_writeForm.jsp";
-				
+				int success=session.insert("QNA_board.add", article);
+				if(success>0){
+					session.commit();
+				}else
+					session.rollback();
+				request.setAttribute("success", success);
+				session.close();
+			}catch(Exception e){
+				e.printStackTrace();
 			}
-			
-		 }
-}
+			System.out.println("È®ÀÎ¿ë");
+			return "QNA_writePro.jsp";
+		}
+
+	}
 //QNA_writePro.jsp
 	
 

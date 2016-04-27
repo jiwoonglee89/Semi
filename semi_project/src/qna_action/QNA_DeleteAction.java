@@ -26,7 +26,7 @@ public class QNA_DeleteAction implements CommandAction {//±Û»èÁ¦ Æû
 			 request.setAttribute("q_num", new Integer(q_num));
 			 request.setAttribute("pageNum", new Integer(pageNum));
 			
-			// QNA_updateForm.jsp
+			
 			
 		   
 			String q_passwd = request.getParameter("q_passwd");
