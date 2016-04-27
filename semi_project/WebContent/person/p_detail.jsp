@@ -27,7 +27,7 @@
 						<p>${fbean.f_regdate}</p> --%>
 								
 						<ul class="icons">
-							<li><a href="#" class="icon fa-github"><span class="label">수정</span></a></li>
+							<li><a href="" class="icon fa-github"><span class="label">수정</span></a></li>
 							<li><a href="#" class="icon fa-envelope-o"><span class="label">삭제</span></a></li>
 						</ul>
 					</header>
@@ -36,7 +36,7 @@
 					<section id="thumbnails">
 					  <c:forEach var="f" items="${fileList}">
 							<article>
-								<a  class="thumbnail" href="C:/Users/wonmo/Desktop/workspaces/semi_project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semi_project/File/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
+								<a  class="thumbnail" href="E:/FIle/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
 							</article>
 							<%-- <article>
 							<a class="thumbnail" href="/semi_project/File/${f.f_filename}" data-position="top center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>

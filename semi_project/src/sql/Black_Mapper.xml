@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="black">
+    <select id="info" parameterType="String" resultType="DB.Black_db">
+        select * from black_db where co_id=#{co_id}
+    </select>
+    
+    <insert id="addCo" parameterType="DB.Black_db">
+        insert into black_db (co_id,reason) values(#{co_id},#{reason})
+    </insert>
+    <insert id="addPer" parameterType="DB.Black_db">
+        insert into black_db (p_id,reason) values(#{p_id},#{reason})
+    </insert>
+    
+	<update id="co_countup" parameterType="DB.Co_MemBean">
+	    update co_member set co_count=co_count+1 where co_id=#{co_id}
+	</update>
+    
+</mapper>

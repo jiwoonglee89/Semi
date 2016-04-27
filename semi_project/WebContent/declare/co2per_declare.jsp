@@ -33,7 +33,7 @@
 					</tr>
 				</table>
 			</header>
-			<form method="post" action="#">
+			<form method="post" action="co_main.do">
 				<div class="row uniform">
 					<div class="12u$">
 						<textarea name="reason" id="reason" placeholder="신고사유"rows="4"></textarea>

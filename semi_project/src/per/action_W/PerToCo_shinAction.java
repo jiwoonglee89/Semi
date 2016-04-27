@@ -1,4 +1,4 @@
-package per.action_S;
+package per.action_W;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import DB.P_MemBean;
 import action.CommandAction;
 import per.action_W.Connection;
 
-public class Per_QnA_Sin implements CommandAction {
+public class PerToCo_shinAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -26,39 +26,25 @@ public class Per_QnA_Sin implements CommandAction {
 		SqlSession session = con.connection();
 
 		HttpSession session2 = request.getSession();
-
 		String p_id = (String) session2.getAttribute("p_id");
+		
 		String co_id = request.getParameter("co_id");
-		//String m_title = request.getParameter("m_title");
+		String reason = request.getParameter("reason");
 
-		//List pMem = session.selectList("black.p_mem", p_id);
-		List coMem = session.selectList("black.co_mem", co_id);
-		List mMem = session.selectList("black.m_title", p_id);
+		Co_MemBean coBean = session.selectOne("co_member.find", co_id);
 
-		String reason = null;
+		
+		//시퀀스넘버로 메세지타이틀가져옴
+		int m_num = Integer.parseInt(request.getParameter("m_num"));
+		MessageBean mbean = session.selectOne("message.m_list2seq",m_num);
+		
+		
+		Black_db black = new Black_db();
 
-		Black_db list = session.selectOne("black.search", co_id);
+		black.setCo_id(co_id);
+		black.setReason(reason);
 
-		try {
-
-			if (mMem!=null) {
-				if (coMem!=null) {
-
-					request.setAttribute("mMem", mMem);
-					request.setAttribute("coMem", coMem);
-					//request.setAttribute("pMem", pMem);
-					reason = request.getParameter("reason");
-
-				}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		request.setAttribute("reason", reason);
-
-		int success = session.insert("black.add", list);
+		int success = session.insert("black.addCo", black);
 
 		if (success == 1) {
 			session.commit();
@@ -66,7 +52,16 @@ public class Per_QnA_Sin implements CommandAction {
 			session.rollback();
 		}
 
-		return null;
+		Black_db blacklist = session.selectOne("black.info", co_id);
+
+		
+		if (coBean!=null) {
+			request.setAttribute("coBean", coBean);
+			request.setAttribute("m_title", mbean.getM_title());
+			request.setAttribute("success", success);
+		}
+
+		return "p_mainview.jsp";
 	}
 
 }
