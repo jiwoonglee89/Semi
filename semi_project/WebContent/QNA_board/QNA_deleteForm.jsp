@@ -36,14 +36,14 @@
   	
   	<tr height="30">
      	<td align=center >비밀번호 :  
-       		<input type="password" name="passwd" size="8" maxlength="12">
-   			<input type="hidden" name="num" value="${num}"></td>
+       		<input type="password" name="q_passwd" size="8" maxlength="12">
+   			<input type="hidden" name="q_num" value="${q_num}"></td>
 	</tr>
 
 	<tr height="30">
     	<td align=center bgcolor="${value_c}">
       		<input type="submit" value="글삭제" >
-      		<input type="button" value="글목록" onclick="document.location.href='/semi_project/QNA_board/QNA_list.do?pageNum=${pageNum}'">    
+      		<input type="button" value="글목록" onclick="document.location.href='QNA_list.do?pageNum=${pageNum}'">    
    		</td>
 	</tr>
 	 
