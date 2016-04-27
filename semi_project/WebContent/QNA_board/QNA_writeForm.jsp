@@ -10,11 +10,10 @@
 <body bgcolor="${bodyback_c}">
 <center><b>write</b>
 <br>
-<form method="post" name="writeform" action="/semi_project/QNA_board/QNA_writePro.do" onsumit="return writeSave()">
-<input type="hidden" name="num" value="${num}">
-<input type="hidden" name="ref" value="${ref}">
-<input type="hidden" name="re_step" value="${re_step}">
-<input type="hidden" name="re_level" value="${re_level}"> 
+<form method="post" name="writeform" action="/semi_project/QNA_board/QNA_writePro.do" onsubmit="return writeSave()">
+<input type="hidden" name="q_num" value="${q_num}">
+<input type="hidden" name="Q_ref" value="${Q_ref}">
+
 
 <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr>
