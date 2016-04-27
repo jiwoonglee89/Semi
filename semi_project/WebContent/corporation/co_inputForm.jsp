@@ -11,12 +11,12 @@ function checkIt() {
 	var userinput = eval("document.userinput");
 
 	if (!userinput.co_id.value) {
-		alert("ID를 입력하세요. ");
+		alert("ID를 입력하세요.");
 		return false;
 	}
 
 	if (!userinput.co_passwd.value) {
-		alert("비밀번호를 입력하세요. ");
+		alert("비밀번호를 입력하세요.");
 		return false;
 	}
 	if (userinput.co_passwd.value != userinput.co_passwd2.value) {
@@ -24,8 +24,36 @@ function checkIt() {
 		return false;
 	}
 
-	if (userinput.co_number.value == "") {
-		alert("사업자 번호를 입력하세요.");
+	if (userinput.co_com.value == "") {
+		alert("기업 이름을 입력하세요.");
+		return false;
+	}
+	if (userinput.co_boss.value == "") {
+		alert("대표자명을 입력하세요.");
+		return false;
+	}
+	if (userinput.co_tel.value == "") {
+		alert("회사 번호를 입력하세요.");
+		return false;
+	}
+	if (userinput.co_job.value == "") {
+		alert("업종을 선택해주세요.");
+		return false;
+	}
+	if (userinput.co_subjob.value == "") {
+		alert("상세업종을 선택해주세요.");
+		return false;
+	}
+	if (userinput.co_name.value == "") {
+		alert("담당자 이름을 입력해주세요.");
+		return false;
+	}
+	if (userinput.co_email.value == "") {
+		alert("담당자 이메일을 입력해주세요.");
+		return false;
+	}
+	if (userinput.co_phone.value == "") {
+		alert("담당자 휴대폰 번호를 입력해주세요.");
 		return false;
 	}
 	return true;
