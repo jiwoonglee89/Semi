@@ -5,27 +5,25 @@
 <html>
 <head>
 <title>게시판</title>
-<link href="style.css" rell="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
-a:link { color:black; text-decoration:none; }
-a:visited {  }
-a:active { text-decoration:underline; }
-a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif'); background-repeat:repeat-x; background-position:50% 100%; }
-
+a:link {color:balck; text-decoration:none;}
+a:visited {}
+a:active {text-decoration:underline;}
+a:hover {text-decoration:underline; background-image:url('text_dottdeline.gif'); background-repeat:repeat-x; background-position:50% 100%; }}
 </style>
-
 <style>
-	@font-face { font-family:굴림; src:url(); }
-	body,td,a,div,p,pre,input,textarear { font:굴림; font-size:9pt }
-</style>	
-</head bgcolor="${bodyback_c}">
-<center><b>content view</b>
+@font-face {font-family:굴림; src:url();}
+body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
+</style>
+</head>
+<body bgcolor="${bodyback_c }">
+<center><b>글내용 보기</b>
 <br>
 <form>
 <table width="500" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr height="30">
-		<td align="center" width="125" bgback="${value_c}">글번호</td>
+		<td align="center" width="125" bgcolor="${value_c}">글번호</td>
 		<td align="center" width="125" align="center">${article.q_num}</td>
     	<td align="center" width="125" bgcolor="${value_c}">조회수</td>
     	<td align="center" width="125" align="center">${article.readcount}</td>
@@ -33,7 +31,10 @@ a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif')
   
   	<tr height="30">
     	<td align="center" width="125" bgcolor="${value_c}">작성자</td>
-   	 	<td align="center" width="125" align="center">${article.co_id}</td>
+   	 	<td align="center" width="125" align="center">
+			<c:if test="${co_id!=null }">${article.co_id }</c:if>
+			<c:if test="${p_id!=null }">${article.p_id }</c:if>
+		</td>
     	<td align="center" width="125" bgcolor="${value_c}" >작성일</td>
     	<td align="center" width="125" align="center">${article.q_regdate}</td>
   	</tr>
@@ -45,18 +46,18 @@ a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif')
   	
   	<tr>
     	<td align="center" width="125" bgcolor="${value_c}">글내용</td>
-    	<td align="left" width="375" colspan="3"><pre>${article.content}</pre></td>
+    	<td align="left" width="375" colspan="3"><pre>${article.context}</pre></td>
   	</tr>
   	
   	<tr height="30">
   		<td colspan="4" bgcolor="${value_c}" align="right">
-  			<input type="button" value="글수정" onclick="document.location.href='/semi_project/QNA_board/QNA_updateForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
+  			<input type="button" value="글수정" onclick="document.location.href='QNA_updateForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
   			&nbsp;&nbsp;&nbsp;&nbsp;
-  			<input type="button" value="글삭제" onclick="document.location.href='/semi_project/QNA_board/QNA_deleteForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
+  			<input type="button" value="글삭제" onclick="document.location.href='QNA_deleteForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="button" value="답글쓰기" onclick="document.location.href='/semi_project/QNA_board/QNA_writeForm.do?q_num=${article.q_num}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'">
+      		<input type="button" value="답글쓰기" onclick="document.location.href='QNA_writeForm.do?q_num=${article.q_num}&ref=${article.qref_number}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
-       		<input type="button" value="글목록" onclick="document.location.href='/semi_project/QNA_board/QNA_list.do?pageNum=${pageNum}'">
+       		<input type="button" value="글목록" onclick="document.location.href='QNA_list.do?pageNum=${pageNum}'">
     	</td>
 	</tr>		
 </table>
