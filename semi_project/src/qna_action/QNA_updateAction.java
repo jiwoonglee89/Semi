@@ -22,20 +22,25 @@ public class QNA_updateAction implements CommandAction {
 	SqlSession session = con.connection();
 	QNABean article = new QNABean();
 
-	int q_num = Integer.parseInt(request.getParameter("q_num"));
 	String pageNum = request.getParameter("pageNum");
+	String q_passwd = request.getParameter("q_passwd");
 	
 	
-	article= session.selectOne("QNA_board.get", q_num);
+	article.setQ_num(Integer.parseInt(request.getParameter("q_num")));
+    article.setCo_id(request.getParameter("co_id"));
+    article.setQna_title(request.getParameter("qna_title"));
+    article.setContent(request.getParameter("content"));
+    article.setQ_passwd(request.getParameter("q_passwd"));
+    
+  
+  if(q_passwd.equals(request.getParameter("q_passwd"))){
+	   int Update = session.update("QNA_board.find",request.getParameter("q_num"));
+  }
+	
+	int check = session.update("QNA_board.modify", article);
 	
 	
-	//QNA_updateForm.jsp
-	
-	String q_passwd = session.selectOne("QNA_board.find_passwd", q_num);
-	
-	int check = session.selectOne("get",article);
-	
-	request.setAttribute("check", new Integer(check));
+	request.setAttribute("check", new Integer(suc));
 	request.setAttribute("pageNum", new Integer(pageNum));
 	request.setAttribute("article", article);
 	int success;
