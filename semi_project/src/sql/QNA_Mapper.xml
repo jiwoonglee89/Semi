@@ -10,6 +10,9 @@
 	<select id="get" parameterType="java.lang.Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
 	</select>
+	<update id="countup" parameterType="java.lang.Integer">
+		update QNA_board set readcount=readcount+1 where q_num=#{q_num}
+	</update>
 	
 	<update id="modify" parameterType="DB.QNABean">
 		update QNA_board set q_title=#{q_title}, q_content=#{q_content} where q_num=#{q_num} 

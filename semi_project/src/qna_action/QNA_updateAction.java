@@ -29,7 +29,7 @@ public class QNA_updateAction implements CommandAction {
 	article.setQ_num(Integer.parseInt(request.getParameter("q_num")));
     article.setCo_id(request.getParameter("co_id"));
     article.setQna_title(request.getParameter("qna_title"));
-    article.setContent(request.getParameter("content"));
+    article.setContext(request.getParameter("context"));
     article.setQ_passwd(request.getParameter("q_passwd"));
     
   
@@ -40,7 +40,7 @@ public class QNA_updateAction implements CommandAction {
 	int check = session.update("QNA_board.modify", article);
 	
 	
-	request.setAttribute("check", new Integer(suc));
+	request.setAttribute("check", new Integer(check));
 	request.setAttribute("pageNum", new Integer(pageNum));
 	request.setAttribute("article", article);
 	int success;
