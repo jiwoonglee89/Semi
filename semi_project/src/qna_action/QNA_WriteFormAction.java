@@ -10,8 +10,8 @@ public class QNA_WriteFormAction implements CommandAction{
 		int q_num=0, Q_ref=1;
 		try{
 			if(request.getParameter("q_num")!=null){
-				q_num=Integer.parseInt(request.getParameter("num"));
-				Q_ref=Integer.parseInt(request.getParameter("ref"));
+				q_num=Integer.parseInt(request.getParameter("q_num"));
+				Q_ref=Integer.parseInt(request.getParameter("q_ref"));
 			}
 		}catch(Exception e){e.printStackTrace();}
 		

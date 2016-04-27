@@ -150,11 +150,25 @@
 				<td width="200">기업기관분류</td>
 				<td width="400">
 					<c:if test="${co.co_category==null}"> 
-					<input type="text" name="co_category">
+					<select name="co_category" size="1" >
+					<option value="0" >일반기업</option>
+					<option value="1" >서치펌 </option>
+					<option value="2" >파견 대행 기업</option>
+					<option value="3" >교육 기관</option>
+					<option value="4" >기타</option>
+				
+				</select>
 					</c:if>
 					
 					<c:if test="${co.co_category!=null}">
-					 <input type="text" name="co_category" size="60" maxlength="50" value="${co.co_category}">
+					<select name="co_category" size="1" >
+						<option value="0" >일반기업</option>
+						<option value="1" >서치펌 </option>
+						<option value="2" >파견 대행 기업</option>
+						<option value="3" >교육 기관</option>
+						<option value="4" >기타</option>
+				
+				</select>
 				</c:if>
 				</td>
 			</tr>
