@@ -36,8 +36,8 @@
 		<td  width="330">
 			<c:if test="${q_num == 0}">
        		<input type="text" size="40" maxlength="50" name="qna_title">
-       	</td>
-			</c:if>
+       		</td>
+       		</c:if>
 	
 	<c:if test="${q_num != 0}">
    		<input type="text" size="40" maxlength="50" name="qna_title" value="[답변]"></td>
