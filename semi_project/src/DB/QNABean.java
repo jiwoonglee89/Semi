@@ -11,7 +11,7 @@ public class QNABean {
 	Timestamp q_regdate;
 	int qref_number;
 	int readcount;
-	String content;
+	String context;
 	public int getQ_num() {
 		return q_num;
 	}
@@ -60,11 +60,11 @@ public class QNABean {
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
 	}
-	public String getContent() {
-		return content;
+	public String getContext() {
+		return context;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setContext(String context) {
+		this.context = context;
 	}
 	
 	

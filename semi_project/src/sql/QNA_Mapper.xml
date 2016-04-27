@@ -4,21 +4,18 @@
  
 <mapper namespace="QNA_board">
 	<insert id="add" parameterType="DB.QNABean">
-		insert into QNA_board values(q_seq.NEXTVAL,#{p_id}, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number},
-		#{readCount},#{content}, q_passwd)
-	</insert>
-	<insert id="write_co_add" parameterType="DB.QNABean">
-		insert into QNA_board values(#{co_id},#{qna_title}, #{cotent}, #{q_passwd})
-	</insert>
-	<insert id="write_p_add" parameterType="DB.QNABean">
-		insert into QNA_board values(#{p_id},#{qna_title}, #{cotent}, #{q_passwd})
+		insert into QNA_board(q_num, co_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd) 
+		values(q_seq.NEXTVAL, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd})
 	</insert>
 	<select id="get" parameterType="java.lang.Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
 	</select>
+	<update id="countup" parameterType="java.lang.Integer">
+		update QNA_board set readcount=readcount+1 where q_num=#{q_num}
+	</update>
 	
 	<update id="modify" parameterType="DB.QNABean">
-		update QNA_board set q_title=#{q_title}, q_content=#{q_content} where q_num=#{q_num} 
+		update QNA_board set qna_title=#{qna_title}, context=#{context} where q_num=#{q_num} 
 	</update>
 	<delete id="remove" parameterType="java.lang.Integer">
 		delete from QNA_board where q_num=#{q_num}
@@ -26,10 +23,7 @@
 	<select id="list" resultType="DB.QNABean">
 		select * from QNA_board 
 	</select>
-	<update id="readArticle" parameterType="java.lang.Integer">
-		 update QNA_board set readCount=readCount+1 where q_num=#{q_num}
-	</update>
-	<select id="find_passwd" parameterType="java.lang.Integer" resultType="DB.QNABean">
+	<select id="find_passwd" parameterType="java.lang.Integer" resultType="String">
 		select q_passwd from QNA_board where q_num=#{q_num}
 	</select>
 	<select id="find" parameterType="Integer" resultType="DB.QNABean">
@@ -56,8 +50,8 @@
 	</select>
 	
 	<select id="getA" parameterType="java.util.HashMap" resultType="DB.QNABean">
-		select Q_num, p_id, co_id, qna_title, q_passwd, Q_regdate, Qref_number, content, readCount, r from 
-		(select Q_num, p_id, co_id, qna_title, q_passwd, Q_regdate, Qref_number, content, readCount, ROWNUM r from order by qref_number DESC) 
+		select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, r from 
+		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, ROWNUM r from qna_board order by qref_number DESC) 
 		<![CDATA[     
 		where r>=#{start} 
 		 ]]>
