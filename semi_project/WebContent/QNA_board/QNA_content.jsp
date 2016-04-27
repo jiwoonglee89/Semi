@@ -26,21 +26,21 @@ a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif')
 <table width="500" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr height="30">
 		<td align="center" width="125" bgback="${value_c}">글번호</td>
-		<td align="center" width="125" align="center">${article.num}</td>
+		<td align="center" width="125" align="center">${article.q_num}</td>
     	<td align="center" width="125" bgcolor="${value_c}">조회수</td>
     	<td align="center" width="125" align="center">${article.readcount}</td>
   	</tr>
   
   	<tr height="30">
     	<td align="center" width="125" bgcolor="${value_c}">작성자</td>
-   	 	<td align="center" width="125" align="center">${article.writer}</td>
+   	 	<td align="center" width="125" align="center">${article.co_id}</td>
     	<td align="center" width="125" bgcolor="${value_c}" >작성일</td>
-    	<td align="center" width="125" align="center">${article.reg_date}</td>
+    	<td align="center" width="125" align="center">${article.q_regdate}</td>
   	</tr>
   	
   	<tr height="30">
     	<td align="center" width="125" bgcolor="${value_c}">글제목</td>
-    	<td align="center" width="375" align="center" colspan="3">${article.subject}</td>
+    	<td align="center" width="375" align="center" colspan="3">${article.qna_title}</td>
   	</tr>
   	
   	<tr>
@@ -50,11 +50,11 @@ a:hover { text-decoration:underline; background-image:url('text_dottdeline.gif')
   	
   	<tr height="30">
   		<td colspan="4" bgcolor="${value_c}" align="right">
-  			<input type="button" value="글수정" onclick="document.location.href='/semi_project/QNA_board/QNA_updateForm.do?num=${article.num}&pageNum=${pageNum}'">
+  			<input type="button" value="글수정" onclick="document.location.href='/semi_project/QNA_board/QNA_updateForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
   			&nbsp;&nbsp;&nbsp;&nbsp;
-  			<input type="button" value="글삭제" onclick="document.location.href='/semi_project/QNA_board/QNA_deleteForm.do?num=${article.num}&pageNum=${pageNum}'">
+  			<input type="button" value="글삭제" onclick="document.location.href='/semi_project/QNA_board/QNA_deleteForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="button" value="답글쓰기" onclick="document.location.href='/semi_project/QNA_board/QNA_writeForm.do?num=${article.num}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'">
+      		<input type="button" value="답글쓰기" onclick="document.location.href='/semi_project/QNA_board/QNA_writeForm.do?q_num=${article.q_num}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
        		<input type="button" value="글목록" onclick="document.location.href='/semi_project/QNA_board/QNA_list.do?pageNum=${pageNum}'">
     	</td>

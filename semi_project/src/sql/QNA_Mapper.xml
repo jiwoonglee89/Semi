@@ -13,40 +13,33 @@
 	<insert id="write_p_add" parameterType="DB.QNABean">
 		insert into QNA_board values(#{p_id},#{qna_title}, #{cotent}, #{q_passwd})
 	</insert>
-	<select id="get" parameterType="Integer" resultType="DB.QNABean">
+	<select id="get" parameterType="java.lang.Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
 	</select>
-	<update id="p_modify" parameterType="DB.QNABean">
-		update QNA_board set p_id=#{p_id}, q_title=#{q_title}, q_content=#{q_content},
-		q_passwd=#{q_passwd} where q_num=#{q_num} 
-	</update>
-	<update id="co_modify" parameterType="DB.QNABean">
-		update QNA_board set co_id=#{co_id}, q_title=#{q_title}, q_content=#{q_content},
-		q_passwd=#{q_passwd} where q_num=#{q_num}
-	</update>
+	
 	<update id="modify" parameterType="DB.QNABean">
-		update QNA_board set q_title=#{q_title}, q_content=#{q_content}, q_passwd=#{q_passwd} where q_num=#{q_num} 
+		update QNA_board set q_title=#{q_title}, q_content=#{q_content} where q_num=#{q_num} 
 	</update>
-	<delete id="remove" parameterType="DB.QNABean">
+	<delete id="remove" parameterType="java.lang.Integer">
 		delete from QNA_board where q_num=#{q_num}
 	</delete>
 	<select id="list" resultType="DB.QNABean">
 		select * from QNA_board 
 	</select>
-	<update id="readArticle" parameterType="DB.QNABean" >
+	<update id="readArticle" parameterType="java.lang.Integer">
 		 update QNA_board set readCount=readCount+1 where q_num=#{q_num}
 	</update>
-	<select id="find_passwd" parameterType="Integer" resultType="String">
+	<select id="find_passwd" parameterType="java.lang.Integer" resultType="DB.QNABean">
 		select q_passwd from QNA_board where q_num=#{q_num}
 	</select>
-	<select id="find" parameterType="String" resultType="DB.QNABean">
+	<select id="find" parameterType="Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
 	</select>
 	
 	<select id="all" resultType="DB.QNABean">
 		select * from QNA_board
 	</select>
-	<select id="ArticleView" parameterType="String" resultType="DB.QNABean">
+	<select id="ArticleView" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select max(q_num) from QNA_board
 	</select>
 	<select id="getArticle" parameterType="DB.QNABean" resultType="java.lang.Integer">

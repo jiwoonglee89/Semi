@@ -1,5 +1,7 @@
 package qna_action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
@@ -16,32 +18,17 @@ public class QNA_writeAction implements CommandAction {
 				Connection con = new Connection();
 				SqlSession session = con.connection();
 				
+				
+				List W_boardList = null;
 			
-	        
-				int q_num =0,Q_ref=1;
+				QNABean W_board = new QNABean();
 				
-				try{
-					if(request.getParameter("q_num")!=null){
-						q_num = Integer.parseInt(request.getParameter("q_num"));
-						Q_ref = Integer.parseInt(request.getParameter("Q_ref"));
-						
-						request.setAttribute("q_num", new Integer(q_num));
-						request.setAttribute("Q_ref", new Integer(Q_ref));
-					}
-				}
-				catch(Exception e){
-					e.printStackTrace();
-				}
+				W_boardList = session.selectList("QNA_board.get", W_board);
+				request.setAttribute("W_boardList", W_boardList);
 				
-				//QNA_writeForm.jsp
 				
-				QNABean article = session.selectOne("QNA_board.add", request.getParameter("q_num"));
 				
-				request.setAttribute("article", article);
-				
-				int success;
-				
-				success = session.insert("add", article);
+				int	success = session.insert("QNA_board.add", W_boardList);
 				 
 					if(success>0){
 
