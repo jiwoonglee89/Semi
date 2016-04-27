@@ -22,9 +22,9 @@
 					
 					<!-- for문사용해서 변수명 지정후 컬럼값일치할시 빼옴 -->
 						<h1>사진설명</h1>
-						<p> <h3>${fbean.f_title}</h3></p>
+						<%-- <p> <h3>${fbean.f_title}</h3></p>
 						<p>${fbean.f_description}</p>
-						<p>${fbean.f_regdate}</p>
+						<p>${fbean.f_regdate}</p> --%>
 								
 						<ul class="icons">
 							<li><a href="#" class="icon fa-github"><span class="label">수정</span></a></li>
@@ -34,10 +34,13 @@
 
 				<!-- Thumbnail -->
 					<section id="thumbnails">
-					<c:forEach var="f" items="${fileList}">
+					  <c:forEach var="f" items="${fileList}">
 							<article>
-								<a  class="thumbnail" href="/semi_project/File/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
+								<a  class="thumbnail" href="C:/Users/wonmo/Desktop/workspaces/semi_project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semi_project/File/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
 							</article>
+							<%-- <article>
+							<a class="thumbnail" href="/semi_project/File/${f.f_filename}" data-position="top center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
+						</article> --%>
 					</c:forEach>
 						
 						<article>
