@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
+
 <html>
 		<style>
 			div#glayLayer{
@@ -42,22 +43,23 @@
 	<br>
 	<br>
 	<br>
-	<form method="post">
+	<form name="sel_category" onchange="javascript:click_check()">
 	<select name="category" size=1>
 	<option>디자인분류</option>
 	<option value=0>산업디자인</option>
 	<option value=1>웹디자인</option>
 	<option value=2>시각디자인</option>
 	</select>
-	</form>
-	<form>
+	</form>	
+
+	<form method="post" action="#" name="sel_order">
 	<select name="order" size=1>
 	<option>순서</option>
 	<option value=0>최신순</option>
 	<option value=1>인기순</option>
 	</select>
 	</form>
-	<form>
+	<form method="post" action="#" name="sel_option">
 	<select name="option" size=1>
 	<option>SEARCH</option>
 	<option value=0>제목</option>
@@ -101,6 +103,13 @@
 			</div>
 
 		<!-- Scripts -->
+			<script>
+				function click_check(){
+					sel_category=document.sel_category;
+					if(sel_category.category.options[sel_category.category.selectedIndex].value=="0")
+						alert("확인")
+				}
+			</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>

@@ -12,22 +12,40 @@
    function checkIt() {
 		var userinput = eval("document.userinput");
 
-		if (!userinput.co_id.value) {
-			alert("ID를 입력하세요. ");
-			return false;
-		}
-
 		if (!userinput.co_passwd.value) {
-			alert("비밀번호를 입력하세요. ");
+			alert("비밀번호를 입력하세요.");
 			return false;
 		}
-		if (userinput.co_passwd.value != userinput.co_passwd2.value) {
-			alert("비밀번호를 동일하게 입력하세요");
+		if (userinput.co_com.value == "") {
+			alert("기업 이름을 입력하세요.");
 			return false;
 		}
-
-		if (userinput.co_number.value == "") {
-			alert("사업자 번호를 입력하세요.");
+		if (userinput.co_boss.value == "") {
+			alert("대표자명을 입력하세요.");
+			return false;
+		}
+		if (userinput.co_tel.value == "") {
+			alert("회사 번호를 입력하세요.");
+			return false;
+		}
+		if (userinput.co_job.value == "") {
+			alert("업종을 선택해주세요.");
+			return false;
+		}
+		if (userinput.co_subjob.value == "") {
+			alert("상세업종을 선택해주세요.");
+			return false;
+		}
+		if (userinput.co_name.value == "") {
+			alert("담당자 이름을 입력해주세요.");
+			return false;
+		}
+		if (userinput.co_email.value == "") {
+			alert("담당자 이메일을 입력해주세요.");
+			return false;
+		}
+		if (userinput.co_phone.value == "") {
+			alert("담당자 휴대폰 번호를 입력해주세요.");
 			return false;
 		}
 		return true;
@@ -150,11 +168,25 @@
 				<td width="200">기업기관분류</td>
 				<td width="400">
 					<c:if test="${co.co_category==null}"> 
-					<input type="text" name="co_category">
+					<select name="co_category" size="1" >
+					<option value="0" >일반기업</option>
+					<option value="1" >서치펌 </option>
+					<option value="2" >파견 대행 기업</option>
+					<option value="3" >교육 기관</option>
+					<option value="4" >기타</option>
+				
+				</select>
 					</c:if>
 					
 					<c:if test="${co.co_category!=null}">
-					 <input type="text" name="co_category" size="60" maxlength="50" value="${co.co_category}">
+					<select name="co_category" size="1" >
+						<option value="0" >일반기업</option>
+						<option value="1" >서치펌 </option>
+						<option value="2" >파견 대행 기업</option>
+						<option value="3" >교육 기관</option>
+						<option value="4" >기타</option>
+				
+				</select>
 				</c:if>
 				</td>
 			</tr>
