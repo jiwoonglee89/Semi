@@ -10,7 +10,9 @@
 <body bgcolor="${bodyback_c}">
 <center><b>write</b>
 <br>
-<form method="post" name="writeform" action="QNA_writeForm.do" onsumit="return writeSave()">
+
+<form method="post" name="writeform" action="QNA_writeForm.do" onsubmit="return writeSave()">
+
 <input type="hidden" name="q_num" value="${q_num}">
 <input type="hidden" name="Q_ref" value="${Q_ref}">
 
@@ -34,8 +36,8 @@
 		<td  width="330">
 			<c:if test="${q_num == 0}">
        		<input type="text" size="40" maxlength="50" name="qna_title">
-       	</td>
-			</c:if>
+       		</td>
+       		</c:if>
 	
 	<c:if test="${q_num != 0}">
    		<input type="text" size="40" maxlength="50" name="qna_title" value="[답변]"></td>

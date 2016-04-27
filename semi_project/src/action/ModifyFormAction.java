@@ -19,8 +19,9 @@ public class ModifyFormAction implements CommandAction{
 		HttpSession session=request.getSession();
 		String co_id=(String)session.getAttribute("co_id");
 		Co_MemBean co_member=new Co_MemBean();
-		//System.out.println(session.getAttribute("co_id"));
 		co_member=sqlsession.selectOne("co_member.find", session.getAttribute("co_id"));
+
+		
 		request.setAttribute("co", co_member);
 		session.setAttribute("co_id", co_id);
 		return "co_modifyForm.jsp";
