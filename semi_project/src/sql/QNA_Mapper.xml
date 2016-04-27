@@ -15,7 +15,7 @@
 	</update>
 	
 	<update id="modify" parameterType="DB.QNABean">
-		update QNA_board set q_title=#{q_title}, q_content=#{q_content} where q_num=#{q_num} 
+		update QNA_board set qna_title=#{qna_title}, context=#{context} where q_num=#{q_num} 
 	</update>
 	<delete id="remove" parameterType="java.lang.Integer">
 		delete from QNA_board where q_num=#{q_num}
@@ -23,9 +23,6 @@
 	<select id="list" resultType="DB.QNABean">
 		select * from QNA_board 
 	</select>
-	<update id="readArticle" parameterType="java.lang.Integer">
-		 update QNA_board set readCount=readCount+1 where q_num=#{q_num}
-	</update>
 	<select id="find_passwd" parameterType="java.lang.Integer" resultType="String">
 		select q_passwd from QNA_board where q_num=#{q_num}
 	</select>

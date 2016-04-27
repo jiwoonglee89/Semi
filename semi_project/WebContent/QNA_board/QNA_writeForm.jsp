@@ -27,7 +27,8 @@
 	<tr>
 		<td width="70" bgcolor="${value_c}" align="center">작성자ID</td>
 		<td width="330">
-			${co_id }
+		<c:if test="${co_id!=null }">${co_id }</c:if>
+		<c:if test="${p_id!=null }">${p_id }</c:if>
 		</td>
 	</tr>
 	

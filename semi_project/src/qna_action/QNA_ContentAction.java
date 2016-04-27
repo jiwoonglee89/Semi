@@ -19,13 +19,13 @@ public class QNA_ContentAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		HttpSession httpsession=request.getSession();
-		//String co_id=(String)httpsession.getAttribute("co_id");
-
-		
+			
 		int q_num = Integer.parseInt(request.getParameter("q_num"));
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
-		int up_count=session.update("QNA_board.countup", new Integer(q_num));
 		
+		int up_count=session.update("QNA_board.countup", new Integer(q_num));
+		if(up_count>0)
+			session.commit();
 		QNABean article = session.selectOne("QNA_board.get", q_num);
 		request.setAttribute("q_num", new Integer(q_num));
 		request.setAttribute("pageNum", new Integer(pageNum));
