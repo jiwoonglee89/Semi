@@ -13,7 +13,7 @@
 <table width="700">
 	<tr>
 		<td align="right" bgcolor="${value_c}">
-		<a href="QNA_writeForm.do"> write </a>
+		<a href="QNA_writeForm.jsp"> write </a>
 		</td>
 	</tr>
 </table>
@@ -57,7 +57,7 @@
 				<img src="images/level.gif" width="${5 * article.re_level}" height="16">
 			</c:if>
 			
-			<a href="QNA_content.do?num=${article.num}&pageNum=${currentPage}"> <%-- context root, key 값 --%>
+			<a href="QNA_content.do?q_num=${article.num}&pageNum=${currentPage}"> <%-- context root, key 값 --%>
 			${article.subject}</a>
 			
 			<c:if test="${article.readcount >= 20}">

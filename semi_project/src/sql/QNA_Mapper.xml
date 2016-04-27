@@ -5,7 +5,7 @@
 <mapper namespace="QNA_board">
 	<insert id="add" parameterType="DB.QNABean">
 		insert into QNA_board values(q_seq.NEXTVAL,#{p_id}, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number},
-		#{readCount},#{content},q_passwd)
+		#{readCount},#{content}, q_passwd)
 	</insert>
 	<insert id="write_co_add" parameterType="DB.QNABean">
 		insert into QNA_board values(#{co_id},#{qna_title}, #{cotent}, #{q_passwd})
