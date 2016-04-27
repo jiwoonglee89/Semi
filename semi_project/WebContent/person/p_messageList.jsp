@@ -8,15 +8,15 @@
 <body>
 	메세지리스트
 	<hr />
-	<table>
-		<c:forEach var="i" items="${dataList }">
+	<table border="2 solid 2px">
+		<c:forEach var="i" items="${dataList}">
 			i.co_com::::${i.co_com}
 			<tr>
-				<td><a href="p_messageView.do">${i.co_com}</a></td>
-				<td>${i.m_title}</td>
+				<td>${i.co_com}</td>
+				<td><a href="p_messageView.do">${i.m_title}</a></td>
 				<td>${i.m_regdate}</td>
 				<td>${i.m_countdes}</td>
-				<td></td>
+				<td><input type ="hidden" name="co_id" value="${i.co_id}"/></td>
 			</tr>
 		</c:forEach>
 
