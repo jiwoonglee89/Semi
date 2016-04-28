@@ -9,49 +9,64 @@
 	<select id="all_per" resultType="DB.P_MemBean">
 		select * from per_member
 	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="all_fileDate" resultType="DB.FileBean">
+		select * from fileupload order by f_regdate desc
+	</select>
 
+	<select id="all_fileRead" resultType="DB.FileBean">
+		select * from fileupload order by f_readCount desc
+	</select>
     
-	
-	
-	
-	
-	
-	
-	
-	
-	<select id="categoryView" parameterType="DB.FileBean" resultType="java.lang.Integer">
-	   select from file where f_category = #{f_category}
+	<select id="getCategory" parameterType="DB.FileBean" resultType="java.lang.Integer">
+	   select from fileupload  where f_category = #{f_category}
 	</select>
 	
 	<select id="FileView" parameterType="DB.FileBean" resultType="java.lang.Integer">
-		select max(q_num) from file
+		select max(q_num) from fileupload 
 	</select>
-	<select id="getFile" parameterType="DB.FileBean" resultType="java.lang.Integer">
-		select count(*) from file
+	<select id="getFileCount" parameterType="DB.FileBean" resultType="java.lang.Integer">
+		select count(*) from fileupload 
 	</select>
 	
 	<select id="title_File" parameterType="DB.QNABean" resultType="java.lang.Integer">
-		select count(*) from file where f_title like '%'|| #{f_title} || '%'
+		select count(*) from fileupload  where f_title like '%'|| #{f_title} || '%'
 	</select>
 	<select id="description_File" parameterType="DB.QNABean" resultType="java.lang.Integer">
-		select count(*) from file where f_description like '%'|| #{f_description} || '%'
+		select count(*) from fileupload where f_description like '%'|| #{f_description} || '%'
 	</select>
 	
 	<select id="getFileInfo" parameterType="java.util.HashMap" resultType="DB.QNABean">
 		select f_num ,f_id, realpath, f_regdate, f_title, f_desciption, f_readCount,f_category, r from 
-		(select f_num ,f_id, realpath, f_regdate, f_title, f_desciption, f_readCount,f_category, ROWNUM r from order by qref_number DESC) 
+		(select f_num ,f_id, realpath, f_regdate, f_title, f_desciption, f_readCount,f_category, ROWNUM r from order by f_num DESC) 
 		<![CDATA[     
 		where r>=#{start} 
 		 ]]>
 		 <![CDATA[
 		 and r<=#{end}
 		 ]]>
-		 
 	</select>
-	<select id="searchCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-		select count(*) from file where #{search} like '%'|| #{search_content} || '%'
+	
+	<select id="option" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where #{option} like '%'|| #{search} || '%'
 	</select>
-	<select id="searchContent" parameterType="java.util.HashMap" resultType="java.util.List">
-		select * from file where #{search} like '%'|| #{search_content} || '%'
+	<select id="search" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where #{option} like '%'|| #{search} || '%'
 	</select>
 </mapper>

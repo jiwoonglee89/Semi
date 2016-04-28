@@ -13,15 +13,15 @@ import org.apache.ibatis.session.SqlSession;
 import DB.FileBean;
 import action.*;
 
-public class fileSearchAction implements CommandAction{//글목록 처리
+public class fileCategoryAction implements CommandAction{ //목록 처리
 
     public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
     	
     	Connection con=new Connection();
     	SqlSession session=con.connection();
     	String pageNum = request.getParameter("pageNum");
-        String option=null;
-        String search=null;   
+        String category=null;
+          
         
         if (pageNum == null) {
             pageNum = "1";
@@ -37,10 +37,10 @@ public class fileSearchAction implements CommandAction{//글목록 처리
         Map map=new HashMap();
         map.put("start", startRow);
         map.put("end", endRow);
-        map.put("option", search);
-        map.put("search", search);
+        map.put("category", category);
         
-        List articleList = null;
+        
+        List FileList = null;
         List forcount=null;
         
        
@@ -50,19 +50,39 @@ public class fileSearchAction implements CommandAction{//글목록 처리
         	count = forcount.size();
         }
         if (count > 0) {
-            articleList = session.selectList("co_board.getFileInfo", map);
+            FileList = session.selectList("co_board.getFileInfo", map);
         } else {
-            articleList = Collections.EMPTY_LIST;
+            FileList = Collections.EMPTY_LIST;
         }     
-        if(request.getParameter("option")!=null){
-        	option=request.getParameter("option");
-        	search=request.getParameter("search");
-        	count=session.selectOne("co_board.option", map);
-        	articleList=session.selectList("co_board.search", map);
-        	request.setAttribute("option", new String(option));
-            request.setAttribute("search", new String(search));
+        if(request.getParameter("category")!=null){
+        	category=request.getParameter("category");
+        	count=session.selectOne("co_board.categoryCount", map);
+        	FileList=session.selectList("co_board.categoryList", map);
+        	request.setAttribute("category", new String(category));
+            
         }
-       
+        
+        if(category.equals("0")){
+        	category=request.getParameter("category");
+        	count=session.selectOne("co_board.sanup_categoryCount", map);
+        	FileList=session.selectList("co_board.sanup_categoryList", map);
+        	request.setAttribute("category", new String(category));
+        }
+        if(category.equals("1")){
+        	category=request.getParameter("category");
+        	count=session.selectOne("co_board.web_categoryCount", map);
+        	FileList=session.selectList("co_board.web_categoryList", map);
+        	request.setAttribute("category", new String(category));
+        }
+        
+        if(category.equals("2")){
+        	category=request.getParameter("category");
+        	count=session.selectOne("co_board.sigak_categoryCount", map);
+        	FileList=session.selectList("co_board.sigak_categoryList", map);
+        	request.setAttribute("category", new String(category));
+        }
+       // 각 카테코리 당 출력되는 파일수랑 형태랑 다르게 하기 위함
+        
         number=count-(currentPage-1)*pageSize;//글목록에 표시할 글번호
         
         request.setAttribute("currentPage", new Integer(currentPage));
@@ -71,7 +91,7 @@ public class fileSearchAction implements CommandAction{//글목록 처리
         request.setAttribute("count", new Integer(count));
         request.setAttribute("pageSize", new Integer(pageSize));
         request.setAttribute("number", new Integer(number));
-        request.setAttribute("articleList", articleList);
+        request.setAttribute("FileList", FileList);
        
         return "co_main.jsp";//해당 뷰
     }
