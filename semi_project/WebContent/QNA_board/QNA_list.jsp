@@ -82,7 +82,7 @@
 <input type="submit" value="검색" />
 <input type="button" value="목록보기" onclick="window.location='QNA_list.do'" />
 </form>
-<c:if test="${search_content==null }">
+<c:if test="${search_content==null}">
 <c:if test="${count > 0}">
    <c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
    <c:set var="pageBlock" value="${10}"/>
@@ -104,7 +104,7 @@
    <c:if test="${endPage < pageCount}">
         <a href="QNA_list.do?pageNum=${startPage + 10}">[다음]</a>
    </c:if>
-</c:if>
+</c:if> 
 </c:if>
 </center>
 </body>
