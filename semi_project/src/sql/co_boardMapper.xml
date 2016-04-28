@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="co_board">
 	<select id="all_file" resultType="DB.FileBean">
 		select * from fileupload order by f_num desc
@@ -20,12 +21,6 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	<select id="all_fileDate" resultType="DB.FileBean">
 		select * from fileupload order by f_regdate desc
 	</select>
@@ -33,7 +28,8 @@
 	<select id="all_fileRead" resultType="DB.FileBean">
 		select * from fileupload order by f_readCount desc
 	</select>
-    
+	
+	
 	<select id="getCategory" parameterType="DB.FileBean" resultType="java.lang.Integer">
 	   select from fileupload  where f_category = #{f_category}
 	</select>
@@ -68,5 +64,37 @@
 	</select>
 	<select id="search" parameterType="java.util.HashMap" resultType="java.util.List">
 		select * from fileupload where #{option} like '%'|| #{search} || '%'
+	</select>
+	
+		<select id="categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where f_category=#{f_category}
+		</select>
+		
+		<select id="sanup_categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where #{f_category} '%'|| 0 || '%'
+		</select>
+		
+		<select id="web_categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where #{f_category} '%'|| 1 || '%'
+		</select>
+		
+		<select id="sigak_categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where #{f_category} '%'|| 2 || '%'
+		</select>
+		
+		
+	
+	<select id="categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where f_category=#{f_category}
+	</select>
+	
+	<select id="sanup_categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where #{f_category} '%'|| 0 || '%
+	</select>
+	<select id="web_categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where #{f_category} '%'|| 1 || '%
+	</select>
+	<select id="sigak_categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where #{f_category} '%'|| 2 || '%
 	</select>
 </mapper>

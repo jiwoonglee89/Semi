@@ -13,7 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import DB.FileBean;
 import action.*;
 
-public class fileSearchAction implements CommandAction{//臂格废 贸府
+public class fileSearchAction implements CommandAction{//格废 贸府
 
     public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
     	
@@ -40,7 +40,7 @@ public class fileSearchAction implements CommandAction{//臂格废 贸府
         map.put("option", search);
         map.put("search", search);
         
-        List articleList = null;
+        List FileList = null;
         List forcount=null;
         
        
@@ -50,15 +50,15 @@ public class fileSearchAction implements CommandAction{//臂格废 贸府
         	count = forcount.size();
         }
         if (count > 0) {
-            articleList = session.selectList("co_board.getFileInfo", map);
+        	FileList = session.selectList("co_board.getFileInfo", map);
         } else {
-            articleList = Collections.EMPTY_LIST;
+        	FileList = Collections.EMPTY_LIST;
         }     
         if(request.getParameter("option")!=null){
         	option=request.getParameter("option");
         	search=request.getParameter("search");
         	count=session.selectOne("co_board.option", map);
-        	articleList=session.selectList("co_board.search", map);
+        	FileList=session.selectList("co_board.search", map);
         	request.setAttribute("option", new String(option));
             request.setAttribute("search", new String(search));
         }
@@ -71,7 +71,7 @@ public class fileSearchAction implements CommandAction{//臂格废 贸府
         request.setAttribute("count", new Integer(count));
         request.setAttribute("pageSize", new Integer(pageSize));
         request.setAttribute("number", new Integer(number));
-        request.setAttribute("articleList", articleList);
+        request.setAttribute("FileList", FileList);
        
         return "co_main.jsp";//秦寸 轰
     }
