@@ -5,7 +5,7 @@
 </head>
 <body>
 <form>
-<input type="button" value="개인" onclick="javascript:window.location='p_inputForm.do'">
+<input type="button" value="개인" onclick="javascript:window.location='person/p_inputForm.do'">
 <input type="button" value="기업" onclick="javascript:window.location='corporation/co_inputForm.do'">
 </form>
 </body>
