@@ -104,7 +104,7 @@
    <c:if test="${endPage < pageCount}">
         <a href="QNA_list.do?pageNum=${startPage + 10}">[다음]</a>
    </c:if>
-</c:if>
+</c:if> 
 </c:if>
 </center>
 </body>

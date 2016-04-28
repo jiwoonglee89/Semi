@@ -9,7 +9,7 @@
 
 
 <script>
-   function checkIt() {
+   function checkIt() { 
 		var userinput = eval("document.userinput");
 
 		if (!userinput.co_passwd.value) {
