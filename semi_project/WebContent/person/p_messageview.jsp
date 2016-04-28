@@ -18,20 +18,21 @@
 			<td>회사이름: </td> <td>${co_com}</td>
 		</tr>
 		<tr>
-			<td>제목: </td> <td>${co_name}</td>
+			<td>담당자이름: </td> <td>${co_name}</td>
 		</tr>
 		<tr>
-			<td>제목: </td> <td>${co_phone}</td>
+			<td>담당자핸드폰: </td> <td>${co_phone}</td>
 		</tr>
 		<tr>
-			<td>제목: </td> <td>${co_email}</td>
+			<td>담당자E-Mail: </td> <td>${co_email}</td>
 		</tr>
 		<tr>
-			<td>제목: </td> <td>${m_context}</td>
+			<td>내용: </td> <td>${m_context}</td>
 		</tr>
-		<tr><input type="hidden" name = "m_count"/>
-		<input type="button" value="신고" onclick="javascript:window.location='declare/per2co_declare.do'"/>
+		<tr><form method="get" action="p_messageList.do">
+		<input type="hidden" name = "m_count" value="${m_count}"/>
 		<input type="submit" value="닫기"/>
+		</form>
 		</tr>
 	</table>
 

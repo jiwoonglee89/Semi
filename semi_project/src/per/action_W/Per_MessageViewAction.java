@@ -21,14 +21,14 @@ public class Per_MessageViewAction implements CommandAction{
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		
-		String m_num = request.getParameter("m_num");
+		int m_num = Integer.parseInt(request.getParameter("m_num"));
 		int m_count = 1;
 		
 		MessageBean mlist = session.selectOne("message.m_list2seq", m_num);
 
-		String co_id = mlist.getCo_com();
+		String co_id = mlist.getCo_id();
 		
-		Co_MemBean colist = session.selectOne("message.co_list",co_id);
+		Co_MemBean colist = session.selectOne("co_member.find",co_id);
 		
 		
 		

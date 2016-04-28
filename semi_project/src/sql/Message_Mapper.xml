@@ -17,15 +17,18 @@
 		select m_title, m_regdate, m_count from message where m_title=#{m_title} and m_regdate=#{m_regdate} and m_count=#{m_count} 
 	</select>
 	<!-- join 으로 co_id값 일치하는 co_member의 정보들 가져옴 -->
-	<select id="co_list" parameterType="DB.Co_MemBean">
+	<!-- <select id="co_list" parameterType="DB.Co_MemBean">
 		select * from co_member where co_id=#{co_id}
-	</select>
+	</select> -->
 	<!-- 메세지 데이터조회 -->
 	<select id="m_list" parameterType="String" resultType="DB.MessageBean">
 		select * from message where p_id=#{p_id}
 	</select>
+	<select id="m_listbyco" parameterType="String" resultType="DB.MessageBean">
+		select * from message where co_id=#{co_id}
+	</select>
 	<!-- message 테이블의 시퀀스를 이용해 메세지타이틀 가져옴 -->
-	<select id="m_list2seq" parameterType="DB.MessageBean">
+	<select id="m_list2seq" parameterType="java.lang.Integer" resultType="DB.MessageBean">
 		select * from message where m_num=#{m_num}
 	</select>
 	<select id="view1" parameterType="DB.MessageBean">
