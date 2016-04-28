@@ -12,22 +12,22 @@
 
 	<table>
 		<tr>
-			<td>力格: </td> <td>${m_title }</td>
+			<td>力格: </td> <td>${m_title}</td>
 		</tr>
 		<tr>
-			<td>雀荤捞抚: </td> <td>${co_com }</td>
+			<td>雀荤捞抚: </td> <td>${co_com}</td>
 		</tr>
 		<tr>
-			<td>力格: </td> <td>${co_name }</td>
+			<td>力格: </td> <td>${co_name}</td>
 		</tr>
 		<tr>
-			<td>力格: </td> <td>${co_phone }</td>
+			<td>力格: </td> <td>${co_phone}</td>
 		</tr>
 		<tr>
-			<td>力格: </td> <td>${co_email }</td>
+			<td>力格: </td> <td>${co_email}</td>
 		</tr>
 		<tr>
-			<td>力格: </td> <td>${m_context }</td>
+			<td>力格: </td> <td>${m_context}</td>
 		</tr>
 		<tr><input type="hidden" name = "m_count"/>
 		<input type="button" value="脚绊" onclick="javascript:window.location='declare/per2co_declare.do'"/>
