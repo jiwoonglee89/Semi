@@ -18,7 +18,7 @@
 				<td height="39">${p_id}이미사용중인 아이디입니다.</td>
 			</tr>
 		</table>
-		<form name="checkForm" method="post" action="confirmId.do">
+		<form name="checkForm" method="post" action="per_confirmId.do">
 			<table width="270" border="0" cellspacing="0" cellpadding="5">
 				<tr>
 					<td bgcolor="<%=value_c%>" align="center">
@@ -35,7 +35,7 @@
 		<table width="270" border="0" cellspacing="0" cellpadding="5">
 			<tr bgcolor="<%=title_c%>">
 				<td align="center">
-					<p>입력하신 ${param.id}는 사용하실 수 있는 ID입니다.</p> 
+					<p>입력하신 ${param.p_id}는 사용하실 수 있는 ID입니다.</p> 
 					<input type="button" value="닫기" onclick="setid()">
 				</td>
 			</tr>
@@ -45,7 +45,7 @@
 </html>
 <script>
 	function setid() {
-		opener.document.userinput.p_id.value = "${param.id}";
+		opener.document.userinput.p_id.value = "${param.p_id}";
 		self.close();
 	}
 </script>
