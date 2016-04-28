@@ -3,17 +3,29 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
+	<select id="find" resultType="DB.AdminBean">
+		select * from ADMIN_DB
+	</select>
+	<select id="confirm" parameterType="String" resultType="String">
+		select admin_passwd from ADMIN_DB where admin_id=#{admin_id}
+	</select>
 	<select id="all_per" resultType="DB.P_MemBean">
 		select * from PER_MEMBER
 	</select>
 	<select id="all_co" resultType="DB.Co_MemBean">
-		select * from co_board
+		select * from CO_MEMBER
 	</select>
 	<insert id="remove_per" parameterType="String">
-		insert into black_db(p_id, reason) values (#{p_id}, '강제 퇴출')
+		insert into black_db(p_id) values (#{p_id})
 	</insert>
 	<update id="countup_per" parameterType="String">
 		update per_member set p_count=4 where p_id=#{p_id} 
+	</update>
+	<insert id="remove_co" parameterType="String">
+		insert into black_db(co_id) values (#{co_id})
+	</insert>
+	<update id="countup_co" parameterType="String">
+		update co_member set co_count=4 where co_id=#{co_id} 
 	</update>
 	
 </mapper>

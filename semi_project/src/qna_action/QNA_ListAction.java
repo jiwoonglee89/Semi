@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,11 +19,12 @@ public class QNA_ListAction implements CommandAction{//글목록 처리
     public String requestPro(HttpServletRequest request, HttpServletResponse response)throws Throwable {
     	Connection con=new Connection();
     	SqlSession session=con.connection();
+    	HttpSession httpsession=request.getSession();
         String pageNum = request.getParameter("pageNum");//페이지 번호
-        String search=null;
-        String search_content=null;
-       
         
+        String search=request.getParameter("search");
+        String search_context=request.getParameter("search_context");
+                
         if (pageNum == null) {
             pageNum = "1";
         }
@@ -37,7 +39,7 @@ public class QNA_ListAction implements CommandAction{//글목록 처리
         map.put("start", startRow);
         map.put("end", endRow);
         map.put("search", search);
-        map.put("search_content", search_content);
+        map.put("search_context", search_context);
         List articleList = null;
         List forcount=null;
         
@@ -51,12 +53,15 @@ public class QNA_ListAction implements CommandAction{//글목록 처리
             articleList = Collections.EMPTY_LIST;
         }     
         if(request.getParameter("search")!=null){
-        	search=request.getParameter("search");
-        	search_content=request.getParameter("search_content");
-        	count=session.selectOne("QNA_board.searchCount", map);
-        	articleList=session.selectList("QNA_board.searchContent", map);
-        	request.setAttribute("search", new String(search));
-            request.setAttribute("search_content", new String(search_content));
+        	
+        	articleList=session.selectList("QNA_board.searchContext", map);
+        	System.out.println(search);
+        	System.out.println(search_context);
+        	System.out.println(articleList.size());
+        	count=articleList.size();
+        	
+        	request.setAttribute("search", search);
+            request.setAttribute("search_context", search_context);
         }
         number=count-(currentPage-1)*pageSize;//글목록에 표시할 글번호
         
