@@ -31,9 +31,18 @@ public class PerToCo_shinProAction implements CommandAction {
 		//여기수정해야함
 		String co_id = request.getParameter("co_id");
 		String reason = request.getParameter("reason");
-
+		String count= null;
 		
 		
+		
+		Co_MemBean cbean = session.selectOne("co_member.find",co_id);
+		int co_count = cbean.getCo_count();
+		
+		Co_MemBean countplus = new Co_MemBean();
+		countplus.setCo_count(co_count);
+		countplus.setCo_id(co_id);
+		
+		int increaseCount = session.update("co_member.upco_count",countplus);
 		
 		Black_db black = new Black_db();
 		black.setCo_id(co_id);
@@ -46,9 +55,13 @@ public class PerToCo_shinProAction implements CommandAction {
 		} else {
 			session.rollback();
 		}
+		
+		if (increaseCount >0) {
+			count = co_id+"님의 신고횟수가 증가되었습니다";
+		}
 
 		//Black_db blacklist = session.selectOne("black.info", co_id);
-
+		request.setAttribute("count", count);
 		request.setAttribute("success", success);
 		
 
