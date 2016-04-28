@@ -21,12 +21,16 @@ public class Per_MessageViewAction implements CommandAction{
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		
-		String co_id = request.getParameter("co_id");
+		int m_num = Integer.parseInt(request.getParameter("m_num"));
 		int m_count = 1;
 		
-		Co_MemBean colist = session.selectOne("message.co_list",co_id);
+		MessageBean mlist = session.selectOne("message.m_list2seq", m_num);
+
+		String co_id = mlist.getCo_id();
 		
-		MessageBean mlist = session.selectOne("message.m_list", co_id);
+		Co_MemBean colist = session.selectOne("co_member.find",co_id);
+		
+		
 		
 		request.setAttribute("m_title", mlist.getM_title());
 		request.setAttribute("co_com", colist.getCo_com());
@@ -36,6 +40,6 @@ public class Per_MessageViewAction implements CommandAction{
 		request.setAttribute("m_context", mlist.getM_context());
 		request.setAttribute("m_count", new Integer(m_count));
 		
-		return "/person/p_messageview.jsp";
+		return "p_messageview.jsp";
 	}
 }

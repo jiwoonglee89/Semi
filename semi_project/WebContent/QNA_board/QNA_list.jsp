@@ -75,14 +75,14 @@
 <form>
 <select name="search">
 	<option value="writer">작성자</option>
-	<option value="subject">제목</option>
-	<option value="content">내용</option>
+	<option value="qna_title">제목</option>
+	<option value="context">내용</option>
 </select>
-<input type="text" name="search_content" size="15" maxlength="50" />
+<input type="text" name="search_context" size="15" maxlength="50" />
 <input type="submit" value="검색" />
 <input type="button" value="목록보기" onclick="window.location='QNA_list.do'" />
 </form>
-<c:if test="${search_content==null}">
+<c:if test="${search_context==null }">
 <c:if test="${count > 0}">
    <c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
    <c:set var="pageBlock" value="${10}"/>

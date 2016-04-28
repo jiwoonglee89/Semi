@@ -59,10 +59,18 @@
 		 and r<=#{end}
 		 ]]>
 	</select>
-	<select id="searchCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-		select count(*) from qna_board where #{search} like '%'|| #{search_content} || '%'
-	</select>
-	<select id="searchContent" parameterType="java.util.HashMap" resultType="java.util.List">
-		select * from qna_board where #{search} like '%'|| #{search_content} || '%'
+	<select id="searchContext" parameterType="java.util.HashMap" resultType="DB.QNABean">
+		select * from qna_board 
+		<where>
+		<if test="search=='qna_title'">
+			qna_title like '%'||#{search_context}||'%'
+		</if>
+		<if test="search=='context'">
+			context like '%'||#{search_context}||'%'
+		</if>
+		<if test="search=='writer'">
+			co_id like '%'||#{search_context}||'%' OR p_id like '%'||#{search_context}||'%'
+		</if>
+		</where>
 	</select>
 </mapper>

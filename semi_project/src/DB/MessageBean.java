@@ -11,6 +11,17 @@ public class MessageBean {
 	Timestamp m_regdate;
 	int m_count;
 	String m_countdes;
+	int m_num;
+
+	public int getM_num() {
+		return m_num;
+	}
+
+
+	public void setM_num(int m_num) {
+		this.m_num = m_num;
+	}
+
 
 	public MessageBean() {
 	}

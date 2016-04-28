@@ -32,8 +32,8 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
   	<tr height="30">
     	<td align="center" width="125" bgcolor="${value_c}">작성자</td>
    	 	<td align="center" width="125" align="center">
-			<c:if test="${co_id!=null }">${article.co_id }</c:if>
-			<c:if test="${p_id!=null }">${article.p_id }</c:if>
+			<c:if test="${article.co_id!=null }">${article.co_id }</c:if>
+			<c:if test="${article.p_id!=null }">${article.p_id }</c:if>
 		</td>
     	<td align="center" width="125" bgcolor="${value_c}" >작성일</td>
     	<td align="center" width="125" align="center">${article.q_regdate}</td>
@@ -55,8 +55,12 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
   			&nbsp;&nbsp;&nbsp;&nbsp;
   			<input type="button" value="글삭제" onclick="document.location.href='QNA_deleteForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
+   			<c:if test="${co_id==null && p_id==null}">
       		<input type="button" value="답글쓰기" onclick="document.location.href='QNA_writeForm.do?q_num=${article.q_num}&ref=${article.qref_number}'">
-   			&nbsp;&nbsp;&nbsp;&nbsp;
+      		&nbsp;&nbsp;&nbsp;&nbsp;
+      		</c:if>
+      		
+   			
        		<input type="button" value="글목록" onclick="document.location.href='QNA_list.do?pageNum=${pageNum}'">
     	</td>
 	</tr>		

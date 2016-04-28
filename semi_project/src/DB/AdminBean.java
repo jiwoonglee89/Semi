@@ -2,15 +2,23 @@ package DB;
 
 public class AdminBean {
 	String admin_id;
+	String admin_passwd;
 	int q_num;
 	String co_id;
-	int f_num;
 	String p_id;
+	
+	
 	public String getAdmin_id() {
 		return admin_id;
 	}
 	public void setAdmin_id(String admin_id) {
 		this.admin_id = admin_id;
+	}
+	public String getAdmin_passwd() {
+		return admin_passwd;
+	}
+	public void setAdmin_passwd(String admin_passwd) {
+		this.admin_passwd = admin_passwd;
 	}
 	public int getQ_num() {
 		return q_num;
@@ -24,12 +32,7 @@ public class AdminBean {
 	public void setCo_id(String co_id) {
 		this.co_id = co_id;
 	}
-	public int getF_num() {
-		return f_num;
-	}
-	public void setF_num(int f_num) {
-		this.f_num = f_num;
-	}
+
 	public String getP_id() {
 		return p_id;
 	}
