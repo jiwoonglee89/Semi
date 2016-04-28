@@ -138,7 +138,7 @@
 				function click_check(){
 					sel_category=document.sel_category;
 					if(sel_category.category.options[sel_category.category.selectedIndex].value=="0")
-						alert("확인")
+						location.href("co_main.do?category=0")
 				}
 			</script>
 			<script src="assets/js/jquery.min.js"></script>

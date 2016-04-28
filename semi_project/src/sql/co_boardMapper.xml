@@ -21,21 +21,12 @@
 	
 	
 	
-	<select id="all_fileDate" resultType="DB.FileBean">
-		select * from fileupload order by f_regdate desc
-	</select>
-
-	<select id="all_fileRead" resultType="DB.FileBean">
-		select * from fileupload order by f_readCount desc
-	</select>
 	
 	
-	<select id="getCategory" parameterType="DB.FileBean" resultType="java.lang.Integer">
-	   select from fileupload  where f_category = #{f_category}
-	</select>
+	
 	
 	<select id="FileView" parameterType="DB.FileBean" resultType="java.lang.Integer">
-		select max(q_num) from fileupload 
+		select max(q_num)* from fileupload 
 	</select>
 	<select id="getFileCount" parameterType="DB.FileBean" resultType="java.lang.Integer">
 		select count(*) from fileupload 
@@ -66,35 +57,69 @@
 		select * from fileupload where #{option} like '%'|| #{search} || '%'
 	</select>
 	
+		<select id="getCategory" parameterType="DB.FileBean" resultType="java.lang.Integer">
+	     select * from fileupload  where f_category = #{f_category}
+		</select>
+		
 		<select id="categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-		select count(*) from fileupload where f_category=#{f_category}
+		select count(*) from fileupload where f_category=#{category}
 		</select>
 		
 		<select id="sanup_categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-		select count(*) from fileupload where #{f_category} '%'|| 0 || '%'
+		select count(*) from fileupload where #{category} '%'|| "0" || '%'
 		</select>
 		
 		<select id="web_categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-		select count(*) from fileupload where #{f_category} '%'|| 1 || '%'
+		select count(*) from fileupload where #{category} '%'|| "1" || '%'
 		</select>
 		
 		<select id="sigak_categoryCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-		select count(*) from fileupload where #{f_category} '%'|| 2 || '%'
+		select count(*) from fileupload where #{category} '%'|| "2" || '%'
 		</select>
 		
 		
 	
 	<select id="categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
-		select * from fileupload where f_category=#{f_category}
+		select * from fileupload where f_category=#{category}
 	</select>
 	
 	<select id="sanup_categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
-		select * from fileupload where #{f_category} '%'|| 0 || '%
+		select * from fileupload where #{category} '%'|| "0" || '%'
 	</select>
 	<select id="web_categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
-		select * from fileupload where #{f_category} '%'|| 1 || '%
+		select * from fileupload where #{category} '%'|| "1" || '%'
 	</select>
 	<select id="sigak_categoryList" parameterType="java.util.HashMap" resultType="java.util.List">
-		select * from fileupload where #{f_category} '%'|| 2 || '%
+		select * from fileupload where #{category} '%'|| "2" || '%'
+	</select>
+	
+	<select id="OrderCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where f_category=#{order}
+		</select>
+	<select id="Date_OrderCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where #{order} '%'|| "0" || '%', f_regdate desc
+		</select>
+		
+		<select id="Read_OrderCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) from fileupload where #{category} '%'|| "1" || '%', max(f_readCount) desc
+		</select>
+	
+	
+	<select id="orderList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where f_category=#{order}
+	</select>
+	<select id="Date_OrderList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where #{order} '%'|| "0" || '%', f_regdate desc
+	</select>
+	<select id="Read_OrderList" parameterType="java.util.HashMap" resultType="java.util.List">
+		select * from fileupload where #{order} '%'|| "1" || '%' , max(f_readCount) desc
+	</select>
+	
+	<select id="fileDateOrder" resultType="DB.FileBean">
+		select * from fileupload order by f_regdate desc
+	</select>
+
+	<select id="fileReadOrder" resultType="DB.FileBean">
+		select * from fileupload order by f_readCount desc
 	</select>
 </mapper>

@@ -20,6 +20,7 @@ public class Co_mainAction implements CommandAction{
 		List file=session.selectList("co_board.all_file");
 		request.setAttribute("people", people);
 		request.setAttribute("file", file);
+		System.out.println(request.getParameter("category"));
 		return "co_main.jsp";
 	}
 
