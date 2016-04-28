@@ -72,7 +72,7 @@ public class Per_InputProAction implements CommandAction {
 		HttpSession session2 = request.getSession();
 		session2.setAttribute("memId", p_id);
 		
-		return "/person/p_inputPro.jsp";
+		return "p_inputPro.jsp";
 	}
  
 }
