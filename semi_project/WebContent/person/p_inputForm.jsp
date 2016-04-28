@@ -43,7 +43,7 @@
 			return;
 		}
 		// url과 사용자 입력 id를 조합합니다.
-		url = "per_confirmId.do?id=" + userinput.id.value;
+		url = "per_confirmId.do?p_id=" + userinput.p_id.value;
 
 		// 새로운 윈도우를 엽니다.
 		open(
