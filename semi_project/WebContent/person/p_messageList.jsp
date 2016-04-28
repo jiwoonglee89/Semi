@@ -10,6 +10,7 @@
 	<hr />
 	<table border="2 solid 2px">
 		<c:forEach var="i" items="${dataList}">
+			<c:set var="m_num" value="${m_num}"></c:set>
 			i.co_com::::${i.co_com}
 			<tr>
 				<td>${i.co_com}</td>
@@ -17,9 +18,15 @@
 				<td>${i.m_regdate}</td>
 				<td>${i.m_countdes}</td>
 				<td><form action="p_messageView.do" method="get">
-				<input type ="hidden" name="m_num" value="${i.m_num}"/>
-				<input type ="submit" value="상세조회"/>
-				</form></td>
+						<input type="hidden" name="m_num" value="${m_num}" /> 
+						<input type="submit" value="상세조회" />
+					</form></td>
+				<td><form action="per2co_declareForm.do" method="get">
+						<input type="hidden" name="co_id" value="${co_id}" />
+						<input type="hidden" name="m_num" value="${m_num}" /> 
+						<input type="submit" value="신고" />
+					</form></td>
+
 			</tr>
 		</c:forEach>
 

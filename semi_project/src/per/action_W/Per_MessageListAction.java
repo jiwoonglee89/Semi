@@ -30,30 +30,35 @@ public class Per_MessageListAction implements CommandAction {
 			int m_count_request = Integer.parseInt(request.getParameter("m_count"));
 			String m_countdes = null;
 
-			System.out.println("m_count_request:::"+m_count_request);
-			
+			System.out.println("m_count_request:::" + m_count_request);
+
 			HttpSession session2 = request.getSession();
 			String p_id = (String) session2.getAttribute("p_id");
-			
+			String co_id = "1";
+
 			if (m_count == m_count_request) {
 				m_countdes = "읽지않음";
 			} else {
 				m_countdes = "읽음";
 			}
-			System.out.println("m_countdes::::"+m_countdes);
-			
+			System.out.println("m_countdes::::" + m_countdes);
+
+			List dataList = session.selectList("message.m_list", p_id);
+
 			MessageBean mbean = new MessageBean();
 			mbean.setM_countdes(m_countdes);
-			mbean.setM_num(3);
 			
-			/*int insertdes = */
+			MessageBean mbeanList = session.selectOne("message.m_listbyco", co_id);
+			
+			int m_num = mbeanList.getM_num();
+			mbean.setM_num(m_num);
+			
 			session.update("message.insertdes", mbean);
-			
-			List dataList = session.selectList("message.m_list", p_id);
-			
-			
+
+			request.setAttribute("m_num", new Integer(m_num));
+			request.setAttribute("co_id", co_id);
 			request.setAttribute("dataList", dataList);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

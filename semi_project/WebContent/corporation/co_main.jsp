@@ -46,20 +46,20 @@
 	<form name="sel_category" onchange="javascript:click_check()">
 	<select name="category" size=1>
 	<option>디자인분류</option>
-	<option value=0>산업디자인</option>
-	<option value=1>웹디자인</option>
-	<option value=2>시각디자인</option>
+	<option value="sanup">산업디자인</option>
+	<option value="web">웹디자인</option>
+	<option value="gun">시각디자인</option>
 	</select>
 	</form>	
 
-	<form method="post" action="#" name="sel_order">
+	<form onchange="javascript:click_check2()" name="sel_order">
 	<select name="order" size=1>
 	<option>순서</option>
 	<option value=0>최신순</option>
 	<option value=1>인기순</option>
 	</select>
 	</form>
-	<form method="post" action="#" name="sel_option">
+	<form method="post" name="sel_option" action="co_main.do">
 	<select name="option" size=1>
 	<option>SEARCH</option>
 	<option value=0>제목</option>
@@ -68,6 +68,37 @@
 	<input type="text" name="search" size="15" maxlength="50">
 	<input type="submit" value="검색">
 	</form>
+	
+	
+<!--  
+	<c:if test="${search==null}">
+	<c:if test="${count > 0}">
+   <c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
+   <c:set var="pageBlock" value="${10}"/>
+   
+   <fmt:parseNumber var="result" value="${currentPage / 10}" integerOnly="true" />
+   <c:set var="startPage" value="${result * 10 + 1}" />
+   <c:set var="endPage" value="${startPage + pageBlock-1}"/>
+   <c:if test="${endPage > pageCount}">
+        <c:set var="endPage" value="${pageCount}"/>
+   </c:if>
+         
+   <c:if test="${startPage > 10}">
+        <a href="co_main.do?pageNum=${startPage - 10 }">[이전]</a>
+   </c:if>
+
+   <c:forEach var="i" begin="${startPage}" end="${endPage}">
+       <a href="co_main.do?pageNum=${i}">[${i}]</a>
+   </c:forEach>
+
+   <c:if test="${endPage < pageCount}">
+        <a href="co_main.do?pageNum=${startPage + 10}">[다음]</a>
+   </c:if>
+</c:if>
+</c:if>
+-->
+
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -84,9 +115,9 @@
 							<c:forEach var="item" items="${file}">
 								<article class="style1">
 									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
+										<img src="/semi_project/File/${item.f_filename}" alt="" />
 									</span>
-									<a href="images/pic01.jpg" class="modal">
+									<a href="/semi_project/File/${item.f_filename}" class="modal">
 										<h2>Magna</h2>
 										<div class="content">
 											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
@@ -106,10 +137,24 @@
 			<script>
 				function click_check(){
 					sel_category=document.sel_category;
-					if(sel_category.category.options[sel_category.category.selectedIndex].value=="0")
-						alert("확인")
+					if(sel_category.category.options[sel_category.category.selectedIndex].value=="sanup")
+						location.href("co_main.do?category=sanup")
+					else if(sel_category.category.options[sel_category.category.selectedIndex].value=="web")
+						location.href("co_main.do?category=web")
+					else
+						location.href("co_main.do?category=gun")
+				}
+				
+				function click_check2(){
+					sel_order=document.sel_order;
+					if(sel_order.order.options[sel_order.order.selectedIndex].value=="0")
+						location.href("co_main.do?order=0")
+					
+					else
+						location.href("co_main.do?order=1")
 				}
 			</script>
+			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
