@@ -8,56 +8,58 @@ import org.apache.ibatis.session.SqlSession;
 
 import DB.P_MemBean;
 
-public class LoginAction implements CommandAction{
+public class LoginAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		Connection con=new Connection();
-		SqlSession session=con.connection();
+		Connection con = new Connection();
+		SqlSession session = con.connection();
 		request.setCharacterEncoding("UTF-8");
-		String id=request.getParameter("id");
-		String passwd=request.getParameter("passwd");
+		String id = request.getParameter("id");
+		String passwd = request.getParameter("passwd");
+
+		String confirm_co = session.selectOne("co_member.confirm", id);
+		String confirm_per = session.selectOne("per_member.findpass", id);
+		String confirm_admin = session.selectOne("admin.confirm", id);
+
+		HttpSession httpsession = request.getSession();
 		
 		
-		String confirm_co=session.selectOne("co_member.confirm", id);
-		String confirm_per=session.selectOne("per_member.findpass", id);
-		
-		
-		HttpSession httpsession=request.getSession();
-		
-		if(request.getParameter("per_or_cor").equals("cor")){
-			if(confirm_co.equals(passwd)){
+
+		if(request.getParameter("per_or_cor") == null){
+			if(confirm_admin.equals(passwd)){
+				httpsession.setAttribute("admin_id", id);
+				request.setAttribute("select", new Integer(0));
+				return "loginPro.jsp";
+			}
+			else{
+				return "main.jsp";
+			}
+		}else if (request.getParameter("per_or_cor").equals("cor")) {
+			if (confirm_co.equals(passwd)) {
 				httpsession.setAttribute("co_id", id);
 				request.setAttribute("select", new Integer(2));
 				return "loginPro.jsp";
-			}
-			else {
+			} else {
 				return "main.jsp";
 			}
-			
-		}
-		else{
-			if(confirm_per.equals(passwd)){
+
+		}else {
+			if (confirm_per.equals(passwd)) {
 				httpsession.setAttribute("p_id", id);
 				request.setAttribute("select", new Integer(1));
 				return "loginPro.jsp";
-			}
-			else {
+			} else {
 				return "main.jsp";
 			}
-			
+
 		}
-		
-		
-		
-		/*HttpSession httpsession=request.getSession();
-		if(confirm_co.equals(passwd)){
-			httpsession.setAttribute("co_id", id);
-			return "loginPro.jsp";
-		}
-		else {
-			return "main.jsp";
-		}*/
+
+		/*
+		 * HttpSession httpsession=request.getSession();
+		 * if(confirm_co.equals(passwd)){ httpsession.setAttribute("co_id", id);
+		 * return "loginPro.jsp"; } else { return "main.jsp"; }
+		 */
 	}
 
 }

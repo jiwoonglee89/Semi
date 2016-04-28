@@ -5,11 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:if test="${select==0 }">
+<c:redirect url="admin_main.do"></c:redirect>
+</c:if>
 <c:if test="${select==2}">
 <c:redirect url="corporation/co_main.do"></c:redirect>
 </c:if>
 <c:if test="${select==1 }">
 <c:redirect url="person/p_mainview.do"></c:redirect>
 </c:if>
+
 </body>
 </html>

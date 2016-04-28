@@ -17,6 +17,7 @@ public class ConfirmIdAction implements CommandAction {
 		request.setCharacterEncoding("UTF-8");
 		Connection con=new Connection();
 		SqlSession session = con.connection();
+		
 		String p_id=request.getParameter("p_id");
 		
 		String id = session.selectOne("per_member.confirmId", p_id);
