@@ -34,7 +34,11 @@
 		select * from per_member where p_id=#{p_id}
 	</select>
 	
-	<select id="search" parameterType="String" resultType="DB.FileBean">
+<!-- 	<select id="search" parameterType="String" resultType="DB.FileBean">
 		select * from filebean where #{search} like '%#{searchn}%'
+	</select> -->
+	
+	<select id="confirmId" parameterType="String" resultType="String">
+		select p_id from per_member where p_id=#{p_id}
 	</select>
 </mapper>

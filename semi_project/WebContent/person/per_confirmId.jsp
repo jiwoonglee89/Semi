@@ -15,15 +15,16 @@
 	<c:if test="${check == 1}">
 		<table width="270" border="0" cellspacing="0" cellpadding="5">
 			<tr bgcolor="<%=title_c%>">
-				<td height="39">${id}이미사용중인 아이디입니다.</td>
+				<td height="39">${p_id}이미사용중인 아이디입니다.</td>
 			</tr>
 		</table>
 		<form name="checkForm" method="post" action="confirmId.do">
 			<table width="270" border="0" cellspacing="0" cellpadding="5">
 				<tr>
 					<td bgcolor="<%=value_c%>" align="center">
-						<p>다른 아이디를 선택하세요.</p> <input type="text" size="10" maxlength="12"
-						name="id"> <input type="submit" value="ID중복확인">
+						<p>다른 아이디를 선택하세요.</p> 
+						<input type="text" size="10" maxlength="12" name="id"> 
+						<input type="submit" value="ID중복확인">
 					</td>
 				</tr>
 			</table>
