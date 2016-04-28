@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import action.CommandAction;
 
-public class MainAction2 implements CommandAction {
+public class MainAction_co implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {

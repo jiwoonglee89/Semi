@@ -44,7 +44,7 @@ $(function(){
 		<td>${people.p_category }</td>
 		<td></td>
 		<td>${people.p_count }</td>
-		<td><a href="admin_delete.do?id=${people.p_id}">퇴출</a></td>
+		<td><a href="admin_delete_per.do?id=${people.p_id}">퇴출</a></td>
 	</tr>
 </c:forEach>
 </tbody>
@@ -77,7 +77,7 @@ $(function(){
 		<td>${cor.co_category }</td>
 		<td></td>
 		<td>${cor.co_count }</td>
-		<td></td>
+		<td><a href="admin_delete_co.do?co_id=${cor.co_id}">퇴출</a></td>
 	</tr>
 </c:forEach>
 </tbody>
