@@ -46,20 +46,20 @@
 	<form name="sel_category" onchange="javascript:click_check()">
 	<select name="category" size=1>
 	<option>디자인분류</option>
-	<option value=0>산업디자인</option>
-	<option value=1>웹디자인</option>
-	<option value=2>시각디자인</option>
+	<option value="sanup">산업디자인</option>
+	<option value="web">웹디자인</option>
+	<option value="gun">시각디자인</option>
 	</select>
 	</form>	
 
-	<form method="post" action="#" name="sel_order">
+	<form onchange="javascript:click_check2()" name="sel_order">
 	<select name="order" size=1>
 	<option>순서</option>
 	<option value=0>최신순</option>
 	<option value=1>인기순</option>
 	</select>
 	</form>
-	<form method="post" name="sel_option">
+	<form method="post" name="sel_option" action="co_main.do">
 	<select name="option" size=1>
 	<option>SEARCH</option>
 	<option value=0>제목</option>
@@ -137,10 +137,24 @@
 			<script>
 				function click_check(){
 					sel_category=document.sel_category;
-					if(sel_category.category.options[sel_category.category.selectedIndex].value=="0")
-						location.href("co_main.do?category=0")
+					if(sel_category.category.options[sel_category.category.selectedIndex].value=="sanup")
+						location.href("co_main.do?category=sanup")
+					else if(sel_category.category.options[sel_category.category.selectedIndex].value=="web")
+						location.href("co_main.do?category=web")
+					else
+						location.href("co_main.do?category=gun")
+				}
+				
+				function click_check2(){
+					sel_order=document.sel_order;
+					if(sel_order.order.options[sel_order.order.selectedIndex].value=="0")
+						location.href("co_main.do?order=0")
+					
+					else
+						location.href("co_main.do?order=1")
 				}
 			</script>
+			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
