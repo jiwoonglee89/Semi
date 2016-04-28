@@ -64,8 +64,8 @@
 <body bgcolor="<%=bodyback_c%>">
 
 	<form method="get" action="p_inputPro.do" name="userinput" onSubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3"
-			align="center">
+		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
+
 			<tr>
 				<td colspan="2" height="39" align="center" bgcolor="<%=value_c%>">
 					<font size="+1"><b>회원가입</b></font>

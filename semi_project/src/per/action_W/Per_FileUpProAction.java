@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,7 +34,7 @@ public class Per_FileUpProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
-
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String f_title = null;
@@ -71,7 +73,7 @@ public class Per_FileUpProAction implements CommandAction {
 			} else {
 				String name = item.getFieldName();
 				if (name.equals("file")) {
-					realpath = fileup(f_title, item);
+					realpath = fileup(f_title, item, request);
 					filename = item.getName();
 				}
 			}
@@ -134,11 +136,12 @@ public class Per_FileUpProAction implements CommandAction {
 
 	}
 
-	public String fileup(String f_title, FileItem item) {
+	public String fileup(String f_title, FileItem item, HttpServletRequest request) {
 		System.out.println("fileup()");
-		String directory = "C:/Users/wonmo/Desktop/workspaces/semi_project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semi_project/File";
-
-		int randomValue = random.nextInt(50);
+		ServletContext app =  (ServletContext)request.getAttribute("app");
+		String directory =app.getRealPath("/File"); 
+		System.out.println("억지로 만든 경로::"+directory);
+		//int randomValue = random.nextInt(50);
 		// String fileName = f_title + "_" + Integer.toString(randomValue);
 		String fileName = item.getName();
 		System.out.println("fileName:::" + fileName);

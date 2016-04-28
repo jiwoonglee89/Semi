@@ -41,7 +41,7 @@
 					</tr>
 					</table>
 			</header>
-			<form method="post" action="declare/per2co_declarePro.do">
+			<form method="post" action="per2co_declarePro.do">
 				<input type="hidden" name="co_id" value="${co_id}"/>
 				<div class="row uniform">
 					<div class="12u$">
