@@ -18,6 +18,7 @@ public class Co_mainAction implements CommandAction{
 		SqlSession session=con.connection();
 		List people=session.selectList("co_board.all_per");
 		List file=session.selectList("co_board.all_file");
+		System.out.println(file.size());
 		String search=null;
 		
 		if(request.getParameter("category")!=null){

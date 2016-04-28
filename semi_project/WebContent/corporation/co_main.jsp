@@ -115,7 +115,7 @@
 							<c:forEach var="item" items="${file}">
 								<article class="style1">
 									<span class="image">
-										<img src="/semi_project/File/${item.f_filename}" alt="" />
+										<img src="${app}'/'${item.f_filename}" alt="" />
 									</span>
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
 										<h2>Magna</h2>
