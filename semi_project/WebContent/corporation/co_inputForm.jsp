@@ -90,8 +90,9 @@ function openConfirmid(userinput) {
 
 			<tr>
 				<td width="200">아이디 :</td>
-				<td width="400"><input type="text" name="co_id" size="10" maxlength="12"> 
-					<input type="button" name="confirm_id" value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
+				<td width="400">
+				<input type="text" name="co_id" size="10" maxlength="12"> 
+				<input type="button" name="confirm_id" value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
 			</tr>
 			<tr>
 				<td width="200">패스워드 :</td>

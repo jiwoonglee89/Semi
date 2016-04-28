@@ -1,15 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="../view/color.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <title>회원가입</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="view/style.css" rel="stylesheet" type="text/css">
 <script>
 	function checkIt() {
 		var userinput = eval("document.userinput");
 
 		if (!userinput.p_id.value) {
-			alert("ID를 입력하세 요");
+			alert("ID를 입력하세요");
 			return false;
 		}
 
@@ -78,19 +79,19 @@
 
 			<tr>
 				<td width="200">사용자 ID</td>
-				<td width="400"><input type="text" name="p_id" size="10"
-					maxlength="12"> <input type="button" name="confirm_id"
-					value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
+				<td width="400">
+				<input type="text" name="p_id" size="10" maxlength="12"> 
+				<input type="button" name="confirm_id" value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
 					<!-- this.form 버튼이 속해있는  폼의 값을 들고 호출  -->
 			</tr>
 			<tr>
 				<td width="200">비밀번호</td>
-				<td width="400"><input type="password" name="p_passwd" size="15"
-					maxlength="12"></td>
+				<td width="400">
+				<input type="password" name="p_passwd" size="15" maxlength="12"></td>
 			<tr>
 				<td width="200">비밀번호 확인</td>
-				<td width="400"><input type="password" name="p_passwd2" size="15"
-					maxlength="12"></td>
+				<td width="400">
+				<input type="password" name="p_passwd2" size="15" maxlength="12"></td>
 			</tr>
 
 			<tr>
@@ -99,25 +100,23 @@
 			<tr>
 			<tr>
 				<td width="200">이름</td>
-				<td width="400"><input type="text" name="p_name" size="15"
-					maxlength="10"></td>
+				<td width="400">
+				<input type="text" name="p_name" size="15" maxlength="10"></td>
 			</tr>
 			<tr>
 				<td width="200">주민등록번호</td>
-				<td width="400"><input type="text" name="jumin1" size="7"
-					maxlength="6"> -<input type="text" name="jumin2" size="7"
-					maxlength="7"></td>
+				<td width="400"><input type="text" name="jumin1" size="7" maxlength="6"> 
+				-<input type="text" name="jumin2" size="7" maxlength="7"></td>
 			</tr>
 			<tr>
 				<td width="200">성별</td>
-				<td width="400"><input type="radio" name="p_gender" size="40"
-					maxlength="30" value="male" checked="checked">남성<input type="radio" name="p_gender" size="40"
-					maxlength="30" value="female">여성</td>
+				<td width="400">
+				<input type="radio" name="p_gender" size="40" maxlength="30" value="male" checked="checked">남성
+				<input type="radio" name="p_gender" size="40" maxlength="30" value="female">여성</td>
 			</tr>
 			<tr>
 				<td width="200">Tel</td>
-				<td width="400"><input type="text" name="p_tel" size="40"
-					maxlength="30"></td>
+				<td width="400"><input type="text" name="p_tel" size="40" maxlength="30"></td>
 			</tr>
 			<tr>
 				<td width="200">E-Mail</td>
@@ -126,14 +125,12 @@
 			</tr>
 			<tr>
 				<td width="200">생년월일</td>
-				<td width="400"><input type="number" name="p_birth" size="40"
-					maxlength="30" value="ex)19910101"></td>
+				<td width="400"><input type="number" name="p_birth" size="40" maxlength="30" value="ex)19910101"></td>
 			</tr>
 			<tr>
 				<td width="200">우편번호</td>
 				<td><input type="text" name="p_zipcode" size="7">
-					<input type="button" value="우편번호찾기" onClick="zipCheck()">
-					우편번호를 검색하세요.</td>
+					<input type="button" value="우편번호찾기" onClick="zipCheck()"> 우편번호를 검색하세요.</td>
 			</tr>
 			<tr>
 			<tr>
@@ -161,12 +158,10 @@
 				<td><textarea rows="30" cols="70" name="p_award"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center" bgcolor="<%=value_c%>"><input
-					type="submit" name="confirm" value="회원가입"> <!-- <input
-					type="reset" name="reset" value="다시입력">  -->
-					<input
-					type="button" value="취소"
-					onclick="javascript:window.location='main.do'"></td>
+				<td colspan="2" align="center" bgcolor="<%=value_c%>">
+				<input type="submit" name="confirm" value="회원가입"> 
+				<!-- <input type="reset" name="reset" value="다시입력">  -->
+				<input type="button" value="취소" onclick="javascript:window.location='main.do'"></td>
 			</tr>
 		</table>
 	</form>
