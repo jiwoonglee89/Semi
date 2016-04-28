@@ -19,12 +19,14 @@ public class Per_DetailAction implements CommandAction {
 		
 		Connection con = new Connection();
 		SqlSession session = con.connection();
-		
+		List fileList = null;
 		
 		HttpSession session2 = request.getSession();
 		String p_id = (String) session2.getAttribute("p_id");
 		
-		List fileList = session.selectList("file.all",p_id);
+		fileList = session.selectList("file.all",p_id);
+		
+		//FileBean fbean = session.selectOne("file.f_filename",)
 		
 		//FileBean fbean = (FileBean) session.selectList("file.all",p_id);
 		

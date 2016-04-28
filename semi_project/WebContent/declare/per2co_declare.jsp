@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>Q&A 신고</title>
+<title>기업신고</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/main.css" />
@@ -14,23 +14,30 @@
 	<section id="footer">
 		<div class="container">
 			<header class="major">
-				<h2>Q&A 신고</h2>
+				<h2>기업신고</h2>
 				<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
 					<tr>
 						<td width="200">글제목</td>
-						<td width="400">${QNA_title}</td>
+						<td width="400">${m_title}</td>
 					</tr>
 					<tr>
-						<td width="200">분야</td>
-						<td width="400">${f_category}</td>
+						<td width="200">기업명</td>
+						<td width="400">${co_com}</td>
+					<tr>
+						<td width="200">담당자이름</td>
+						<td width="400">${co_name}</td>
 					</tr>
 					<tr>
-						<td width="200">내용</td>
-						<td width="400">${Content}</td>
+						<td width="200">담당자연락처</td>
+						<td width="400">${co_phone}</td>
 					</tr>
-				</table>
+					<tr>
+						<td width="200">담당자E-Mail</td>
+						<td width="400">${co_email}</td>
+					</tr>
+					</table>
 			</header>
-			<form method="post" action="#">
+			<form method="post" action="p_mainview.do">
 				<div class="row uniform">
 					<div class="12u$">
 						<textarea name="reason" id="reason" placeholder="신고사유"rows="4"></textarea>

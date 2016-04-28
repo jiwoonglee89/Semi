@@ -1,10 +1,15 @@
 package per.action_W;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
-import DB.FileBean;
+
+import DB.P_MemBean;
 import action.CommandAction;
 import action.Connection;
 
@@ -17,7 +22,7 @@ public class Per_MainViewAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 
-		String search= null;
+		/*String search= null;
 		
 		String searchn = request.getParameter("searchn");
 
@@ -40,17 +45,21 @@ public class Per_MainViewAction implements CommandAction {
 				search  = "f_description";
 				
 			}
-		}
-
-		fBean = session.selectOne("member.search",searchn);
+		}*/
 		
+		HttpSession session2 = request.getSession();
+		String p_id = (String) session2.getAttribute("p_id");
+		P_MemBean p_list = session.selectOne("per_member.find",p_id);
+		List fileList = session.selectList("file.all",p_id);
 		
-		request.setAttribute("dataList",fBean);
+		request.setAttribute("p_list", p_list);
+		request.setAttribute("fileList", fileList);
+		/*request.setAttribute("dataList",fBean);
 		request.setAttribute("realpath", fBean.getRealpath());
 		request.setAttribute("f_title", fBean.getF_title());
 		
 		request.setAttribute("f_description", fBean.getF_description());
-		request.setAttribute("f_regdate", fBean.getF_regdate());
+		request.setAttribute("f_regdate", fBean.getF_regdate());*/
 		
 		
 		//request.setAttribute("search", search);

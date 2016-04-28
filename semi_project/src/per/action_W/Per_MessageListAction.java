@@ -1,5 +1,6 @@
 package per.action_W;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,28 +26,39 @@ public class Per_MessageListAction implements CommandAction {
 			SqlSession session = con.connection();
 
 			int m_count = 0;
+			System.out.println("여기까진됨");
 			int m_count_request = Integer.parseInt(request.getParameter("m_count"));
 			String m_countdes = null;
 
+			System.out.println("m_count_request:::"+m_count_request);
+			
 			HttpSession session2 = request.getSession();
-			String p_id = (String) session2.getAttribute("memId");
+			String p_id = (String) session2.getAttribute("p_id");
 			
 			if (m_count == m_count_request) {
 				m_countdes = "읽지않음";
 			} else {
 				m_countdes = "읽음";
 			}
-			int insertdes = session.insert("message.insertdes", m_countdes);
+			System.out.println("m_countdes::::"+m_countdes);
+			
+			MessageBean mbean = new MessageBean();
+			mbean.setM_countdes(m_countdes);
+			mbean.setM_num(3);
+			
+			/*int insertdes = */
+			session.update("message.insertdes", mbean);
 			
 			List dataList = session.selectList("message.m_list", p_id);
-		
+			
+			
 			request.setAttribute("dataList", dataList);
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return "/person/p_messageList.jsp";
+		return "p_messageList.jsp";
 	}
 
 }

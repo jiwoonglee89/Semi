@@ -11,7 +11,7 @@
 <center><b>write</b>
 <br>
 
-<form method="post" name="writeform" action="QNA_writeForm.do" onsubmit="return writeSave()">
+<form method="post" name="writeform" action="QNA_writePro.do" onsubmit="return writeSave()">
 
 <input type="hidden" name="q_num" value="${q_num}">
 <input type="hidden" name="q_ref" value="${q_refnumber}">
@@ -27,7 +27,8 @@
 	<tr>
 		<td width="70" bgcolor="${value_c}" align="center">작성자ID</td>
 		<td width="330">
-			<input type="text" size="10" maxlength="10" name="co_id">
+		<c:if test="${co_id!=null }">${co_id }</c:if>
+		<c:if test="${p_id!=null }">${p_id }</c:if>
 		</td>
 	</tr>
 	
@@ -45,9 +46,9 @@
 	</tr>
 	
 	<tr>
-    	<td  width="70"  bgcolor="${value_c}" align="center" >content</td>
+    	<td  width="70"  bgcolor="${value_c}" align="center" >context</td>
     	<td  width="330" >
-     		<textarea name="content" rows="13" cols="40"></textarea>
+     		<textarea name="context" rows="13" cols="40"></textarea>
      	</td>
   	</tr>
   	

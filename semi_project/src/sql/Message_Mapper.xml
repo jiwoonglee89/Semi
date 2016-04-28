@@ -3,17 +3,17 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="message">
-
-	<insert id="add" parameterType="DB.Message">
-		insert into message (p_id,co_id,m_title,m_context,m_regdate,m_count)values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count})
+	<!-- message table 시퀀스 , co_com 컬럼추가 -->
+	<insert id="add" parameterType="DB.MessageBean">
+		insert into message (p_id,co_id,m_title,m_context,m_regdate,m_count,m_num,co_com)values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count},m_seq.NEXTVAL,#{co_com})
 	</insert>
-	<insert id="insertdes" parameterType="DB.Message">
-		insert into message (m_countdes) values(#{m_countdes})
-	</insert>
-	<delete id="del" parameterType="DB.Message">
+	<update id="insertdes" parameterType="DB.MessageBean">
+		update message set m_countdes=#{m_countdes} where m_num=#{m_num}
+	</update>
+	<delete id="del" parameterType="DB.MessageBean">
 		delete from message where p_id=#{p_id} and co_id=#{co_id} and m_title=#{m_title} and m_context=#{m_context} and m_regdate = #{m_regdate} and m_count = #{m_count}
 	</delete>
-	<select id="set" parameterType="DB.Message">
+	<select id="set" parameterType="DB.MessageBean">
 		select m_title, m_regdate, m_count from message where m_title=#{m_title} and m_regdate=#{m_regdate} and m_count=#{m_count} 
 	</select>
 	<!-- join 으로 co_id값 일치하는 co_member의 정보들 가져옴 -->
@@ -21,16 +21,20 @@
 		select * from co_member where co_id=#{co_id}
 	</select>
 	<!-- 메세지 데이터조회 -->
-	<select id="m_list" parameterType="DB.MessageBean">
+	<select id="m_list" parameterType="String" resultType="DB.MessageBean">
 		select * from message where p_id=#{p_id}
 	</select>
-	<select id="view1" parameterType="DB.Message">
+	<!-- message 테이블의 시퀀스를 이용해 메세지타이틀 가져옴 -->
+	<select id="m_list2seq" parameterType="DB.MessageBean">
+		select * from message where m_num=#{m_num}
+	</select>
+	<select id="view1" parameterType="DB.MessageBean">
 		select co_com, co_name, co_phone, co_email from co_member where co_com=#{co_com} and co_name=#{co_name} and co_phone=#{co_phone} and co_email=#{co_email} 
 	</select>
-	<select id="view2" parameterType="DB.Message">
+	<select id="view2" parameterType="DB.MessageBean">
 		select m_title, m_context from message where m_title=#{m_title} and m_context=#{m_context} 
 	</select>
-	<select id="co_com" parameterType="DB.Message">
+	<select id="co_com" parameterType="DB.MessageBean">
 		select co_com from co_member where co_com=#{co_com} 
 	</select>
 	
