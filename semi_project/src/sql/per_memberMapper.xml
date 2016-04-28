@@ -37,5 +37,5 @@
 	
 	<select id="search" parameterType="String" resultType="DB.FileBean">
 		select * from fileupload where #{search} like '%#{searchn}%'
-	</select>
+	</select>  
 </mapper>
