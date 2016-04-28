@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import admin_action.*;
 
 
 public class Controller extends HttpServlet {
+	static ServletContext app;
 	private Map commandMap = new HashMap();
 
 	// 명령어와 처리클래스가 매핑되어있는 properties 파일을 읽어서 Map객체인 commandMap에 저장
@@ -36,12 +38,13 @@ public class Controller extends HttpServlet {
 		try {
 			
 			//경로를 이용해 모델 선택(전체경로 설정하는 configFilePath)
-			String configFilePath = config.getServletContext().getRealPath(props);
+			app = config.getServletContext();
+			String configFilePath = app.getRealPath(props);
 			fis = new FileInputStream(configFilePath);
 			
 			//commandHandlerURI.properties 객체생성
 			pr.load(fis);
-			System.out.println(pr);
+			//System.out.println(pr);
 			
 		} catch (IOException e) {
 			throw new ServletException(e);
@@ -82,6 +85,9 @@ public class Controller extends HttpServlet {
 	//사용자 요청을 분석해서 해당 작업을 처리 (Action 클래스로)
 	private void requestPro(HttpServletRequest request, HttpServletResponse response)
 		    throws ServletException, IOException {
+		
+		request.setAttribute("app", app);
+		
 		String view = null;
 		CommandAction com = null;
 		
