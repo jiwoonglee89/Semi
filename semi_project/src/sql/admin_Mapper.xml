@@ -7,13 +7,19 @@
 		select * from PER_MEMBER
 	</select>
 	<select id="all_co" resultType="DB.Co_MemBean">
-		select * from co_board
+		select * from CO_MEMBER
 	</select>
 	<insert id="remove_per" parameterType="String">
 		insert into black_db(p_id, reason) values (#{p_id}, '강제 퇴출')
 	</insert>
+	<insert id="remove_co" parameterType="String">
+		insert into black_db(co_id, reason) values (#{co_id, '강제 퇴출');
+	</insert>
 	<update id="countup_per" parameterType="String">
 		update per_member set p_count=4 where p_id=#{p_id} 
+	</update>
+	<update id="countup_co" parameterType="String">
+		update co_member set co_count=4 where co_id=#{co_id} 
 	</update>
 	
 </mapper>
