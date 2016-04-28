@@ -3,6 +3,12 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
+	<select id="find" resultType="DB.AdminBean">
+		select * from ADMIN_DB
+	</select>
+	<select id="confirm" parameterType="String" resultType="String">
+		select admin_passwd from ADMIN_DB where admin_id=#{admin_id}
+	</select>
 	<select id="all_per" resultType="DB.P_MemBean">
 		select * from PER_MEMBER
 	</select>
