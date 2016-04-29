@@ -116,16 +116,15 @@
 							<c:forEach var="item" items="${file}">
 								<article class="style1">
 									<span class="image">
-										<img src="${app}'/'${item.f_filename}" alt="" />
-									</span>
+										
+									
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
-									
-									
-										<%-- <div class="content">
+											<%-- <div class="content">
 											<p>${item.f_description}</p>
 										</div>--%>
 										
- 									</a>
+ 									<img src="${app}'/'${item.f_filename}" alt="" /></a>
+ 									</span>
 									제목 : ${item.f_title} <br> 
 									설명 :	 ${item.f_description} <br>
 									날짜 : ${item.f_regdate}<br>
