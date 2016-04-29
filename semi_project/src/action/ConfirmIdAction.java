@@ -18,7 +18,7 @@ public class ConfirmIdAction implements CommandAction {
 		
 		Co_MemBean cBean = new Co_MemBean();
 		int check;
-		if(cBean.getCo_id()!=co_id){
+		if(cBean.getCo_id()!=id){
 			check=-1;
 		}else
 			check=1;
