@@ -120,24 +120,11 @@
 									</span>
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
 									
-									<c:forEach var="people" items="${people}">
-										<c:if test="${item.p_id==people.p_id}">
-										<h2>ID : ${item.p_id }</h2>
-										<h2>이름 : ${people.p_name }</h2>
-										<h2>성별 : ${people.p_gender }</h2>
-										<h2>디자인 분류 : ${item.f_category}</h2>
-										<h2>주소 : ${people.p_address }</h2>
-										<h2>전화번호 : ${people.p_tel } </h2>
-										<h2>휴대폰 번호 : ${people.p_phone }</h2>
-										<h2>EMAIL : ${people.p_email }</h2>
-										<h2>생일 : ${people.p_birth }</h2>
-										<h2>경력사항 : ${people.p_career }</h2>
-										<h2>수상경력 : ${people.p_award }</h2>
+									
 										<%-- <div class="content">
 											<p>${item.f_description}</p>
 										</div>--%>
-										</c:if>
-										</c:forEach>
+										
  									</a>
 									제목 : ${item.f_title} <br> 
 									설명 :	 ${item.f_description} <br>
