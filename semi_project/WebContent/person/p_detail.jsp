@@ -36,7 +36,9 @@
 							<h2>${f.f_title}</h2>
 							<p>${f.f_description}</p>
 						</article>
-						<c:set var="filename" value="${f.f_filename}"></c:set>
+						
+						<!-- 폼생성 후 삭제해야함 -->
+						<input type="hidden" name="filename" value="${f.f_filename}"/>
 					</c:forEach>
 						<!-- <article>
 							<a class="thumbnail" href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" /></a>
