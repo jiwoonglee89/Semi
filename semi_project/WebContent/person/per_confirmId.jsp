@@ -11,7 +11,7 @@
 %>
 <script>
 	function setid() {
-		opener.document.userinput.p_id.value = "${param.p_id}"
+		opener.document.userinput.p_id.value="${param.p_id}"
 		self.close()
 	}
 </script>
@@ -23,7 +23,7 @@
 				<td height="39">${param.p_id} 이미사용중인 아이디입니다.</td>
 			</tr>
 		</table>
-		<form name="checkForm" method="post" action="per_confirmId.do?p_id=${param.p_id }">
+		<form name="checkForm" method="post" action="per_confirmId.do?p_id=${param.p_id}">
 
 			<table width="270" border="0" cellspacing="0" cellpadding="5">
 				<tr>
