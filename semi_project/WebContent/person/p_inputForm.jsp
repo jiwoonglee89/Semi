@@ -114,6 +114,10 @@
 				<input type="radio" name="p_gender" size="40" maxlength="30" value="female">여성</td>
 			</tr>
 			<tr>
+				<td width="200">PHONE</td>
+				<td width="400"><input type="text" name="p_phone" size="40" maxlength="30"></td>
+			</tr>
+			<tr>
 				<td width="200">Tel</td>
 				<td width="400"><input type="text" name="p_tel" size="40" maxlength="30"></td>
 			</tr>
