@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Lens</h1>
+						<h1>${filename}</h1>
 						<p>Just another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
 						<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -30,13 +30,15 @@
 
 				<!-- Thumbnail -->
 					<section id="thumbnails">
-					<c:forEach var="i" items="${ }"></c:forEach>
+					<c:forEach var="f" items="${fileList}">
 						<article>
-							<a class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img src="images/thumbs/01.jpg" alt="" /></a>
-							<h2>Diam tempus accumsan</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<a class="thumbnail" href="/semi_project/File/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
+							<h2>${f.f_title}</h2>
+							<p>${f.f_description}</p>
 						</article>
-						<article>
+						<c:set var="filename" value="${f.f_filename}"></c:set>
+					</c:forEach>
+						<!-- <article>
 							<a class="thumbnail" href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" /></a>
 							<h2>Vivamus convallis libero</h2>
 							<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
@@ -90,7 +92,7 @@
 							<a class="thumbnail" href="images/fulls/12.jpg"><img src="images/thumbs/12.jpg" alt="" /></a>
 							<h2>Mattis lorem sodales</h2>
 							<p>Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.</p>
-						</article>
+						</article> -->
 					</section>
 
 				<!-- Footer -->

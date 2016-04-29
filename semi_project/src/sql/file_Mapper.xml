@@ -10,6 +10,10 @@
         select f_filename from fileupload where f_num=#{f_num}        
     </select>
     
+    <select id="info" parameterType="String" resultType="DB.FileBean">
+        select * from fileupload where f_filename=#{f_filename}        
+    </select>
+    
     <select id="infom" parameterType="String" resultType="DB.P_MemBean">
     	select p.p_gender, p.p_address, p.p_tel, p.p_phone, p.p_email, p.p_birth, p.p_career, p.rp_award
     	from per_member p, fileupload f where p.p_id=f.p_id;
