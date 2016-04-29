@@ -118,11 +118,21 @@
 										<img src="${app}'/'${item.f_filename}" alt="" />
 									</span>
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
-										<h2>Magna</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
+										<h2>ID : ${item.p_id }</h2>
+										<h2>이름 : </h2>
+										<h2>성별 : </h2>
+										<h2>디자인 분류 : ${item.f_category}</h2>
+										<h2>주소 : </h2>
+										<h2>전화번호 : </h2>
+										<h2>휴대폰 번호 : </h2>
+										<h2>EMAIL : </h2>
+										<h2>생일 : </h2>
+										<h2>경력사항 : </h2>
+										<h2>수상경력 : </h2>
+										<%-- <div class="content">
+											<p>${item.f_description}</p>
+										</div>--%>
+ 									</a>
 									제목 : ${item.f_title} <br> 
 									설명 :	 ${item.f_description} <br>
 									날짜 : ${item.f_regdate}<br>
