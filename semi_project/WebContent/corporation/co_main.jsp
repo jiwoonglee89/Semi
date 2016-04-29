@@ -119,6 +119,7 @@
 										<img src="${app}'/'${item.f_filename}" alt="" />
 									</span>
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
+									
 									<c:forEach var="people" items="${people}">
 										<c:if test="${item.p_id==people.p_id}">
 										<h2>ID : ${item.p_id }</h2>
