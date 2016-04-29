@@ -21,7 +21,7 @@
 						<h1>${filename}</h1>
 						<p>Just another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="p_mainview.do" class="icon fa-twitter"><span class="label"></span></a></li>
 							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
 							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
@@ -35,10 +35,14 @@
 							<a class="thumbnail" href="/semi_project/File/${f.f_filename}" data-position="left center"><img src="/semi_project/File/${f.f_filename}" alt="" /></a>
 							<h2>${f.f_title}</h2>
 							<p>${f.f_description}</p>
+							<form action = "filedelete.do" method="get">
+								<input type="hidden" name="f_filename" value="${f.f_filename}"/>
+								<input type="submit" value="삭제"/>
+							</form>
 						</article>
 						
 						<!-- 폼생성 후 삭제해야함 -->
-						<input type="hidden" name="filename" value="${f.f_filename}"/>
+						
 					</c:forEach>
 						<!-- <article>
 							<a class="thumbnail" href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" /></a>

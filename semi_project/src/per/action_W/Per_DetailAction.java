@@ -34,6 +34,8 @@ public class Per_DetailAction implements CommandAction {
 		
 		//FileBean fbean = (FileBean) session.selectList("file.all",p_id);
 		
+		
+		
 		request.setAttribute("fileList", fileList);
 		//request.setAttribute("fbean", fbean);
 		return "p_detail.jsp";

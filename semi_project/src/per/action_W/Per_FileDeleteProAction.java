@@ -2,6 +2,7 @@ package per.action_W;
 
 import java.io.File;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,29 +19,40 @@ public class Per_FileDeleteProAction implements CommandAction{
 		Connection con=new Connection();
 		SqlSession session = con.connection();
 		
-		String app = (String) request.getAttribute("app");
+		//HttpSession session2 = request.getSession();
 		
 		
+		/*String context = request.getContextPath();
+		System.out.println("context:::::"+context);
+		*/
 		
-		int f_num = (int)request.getAttribute("f_num");
+		ServletContext app =  (ServletContext)request.getAttribute("app");
+		String directory =app.getRealPath("/File");
+
+		String f_filename = new String(request.getParameter("f_filename").getBytes("8859_1"), "UTF-8");
+		System.out.println("f_filename::::"+f_filename);
+		
+		FileBean fbean = new FileBean();
+		fbean.setF_filename(f_filename);
+		int success = session.delete("file.delete", fbean);
+		if (success ==0) {
+			return "p_detail.jsp";
+		}
 		
 		
-		FileBean fbean = session.selectOne("file.allbyfname",f_num);
-		
-		String filename = fbean.getF_filename();
+		File file = new File(directory,f_filename);
 		
 		
-		app+="/"+filename;
-		File file = new File(app); 
-		
+		System.out.println();
 		try {
 			file.delete();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		
-		return "p_mainview.jsp";
+		return "p_detail.jsp";
 	}
 
 }
