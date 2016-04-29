@@ -2,25 +2,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="view/color.jsp" %>
 <!DOCTYPE html>
+
 <html>
+<script>
+	function setid(){
+		opener.document.userinput.id.value="${co_id}";
+		self.close();
+	}
+</script>
 <title>ID 중복확인</title>
 <link href="view/style.css" rel="stylesheet" type="text/css">
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <body bgcolor="<%=bodyback_c%>">
 
-<c:if test="${check == 1}">
+<c:if test="${co_check == 1}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
 	<tr bgcolor="<%=title_c %>">
-		<td height="39">${co_id}이미 사용중인 아이디입니다.</td>
+		<td height="39">${param.co_id}이미 사용중인 아이디입니다.</td>
 	</tr> 
 </table>
-<form name="checkForm" method="post" action="confirmId.do">
+<form name="checkForm" method="post" action="confirmId.do?co_id=${param.co_id}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
 	<tr>
 		<td bgcolor="<%= value_c %>" align="center">
 		<p>다른 아이디를 선택하세요.</p>
-		<input type="text" size="10" maxlength="12" name="id">
+		<input type="text" size="10" maxlength="12" name="co_id">
 		<input type="submit" value="ID중복확인">
 	</td>
 	</tr>
@@ -28,7 +35,7 @@
 </form>
 </c:if>
 
-<c:if test="${check==-1}">
+<c:if test="${co_check == -1}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
 	<tr bgcolor="<%= title_c %>">
 		<td align="center">
@@ -40,9 +47,3 @@
 </c:if>
 </body>
 </html>
-<script>
-	function setid(){
-		opener.document.userinput.id.value="${param.id}";
-		self.close();
-	}
-</script>
