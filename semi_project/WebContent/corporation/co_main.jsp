@@ -118,7 +118,7 @@
 										<img src="${app}'/'${item.f_filename}" alt="" />
 									</span>
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
-										<h2>ID : </h2>
+										<h2>ID : ${item.p_id }</h2>
 										<h2>이름 : </h2>
 										<h2>성별 : </h2>
 										<h2>디자인 분류 : ${item.f_category}</h2>

@@ -42,7 +42,7 @@
 </html>
 <script>
 	function setid(){
-		opener.document.userinput.id.value="${param.co_id}";
+		opener.document.userinput.id.value="${param.id}";
 		self.close();
 	}
 </script>
