@@ -9,7 +9,7 @@ public class ConfirmIdAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("UTF-8");
-		String co_id=request.getParameter("id");
+		String co_id=request.getParameter("co_id");
 		Connection con=new Connection();
 		SqlSession session = con.connection();
 		String id = session.selectOne("co_member.confirmId", co_id);

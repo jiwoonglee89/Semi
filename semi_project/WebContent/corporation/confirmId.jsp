@@ -20,7 +20,7 @@
 	<tr>
 		<td bgcolor="<%= value_c %>" align="center">
 		<p>다른 아이디를 선택하세요.</p>
-		<input type="text" size="10" maxlength="12" name="id">
+		<input type="text" size="10" maxlength="12" name="co_id">
 		<input type="submit" value="ID중복확인">
 	</td>
 	</tr>
@@ -42,7 +42,7 @@
 </html>
 <script>
 	function setid(){
-		opener.document.userinput.id.value="${param.co_id}";
+		opener.document.userinput.co_id.value="${param.co_id}";
 		self.close();
 	}
 </script>

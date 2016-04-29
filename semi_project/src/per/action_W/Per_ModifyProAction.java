@@ -38,8 +38,7 @@ public class Per_ModifyProAction implements CommandAction {
 			String address = request.getParameter("p_address");
 			String category = request.getParameter("p_category");
 
-			P_MemBean check = new P_MemBean(passwd, name, gender, jumin1, jumin2, email, birth, tel, career, award,
-					zipcode, address, category, 0);
+			P_MemBean check = new P_MemBean(passwd, name, gender, jumin1, jumin2, email, birth, tel, career, award,zipcode, address, category, 0);
 
 			int success = session.update("per_member.modify", memId);
 
