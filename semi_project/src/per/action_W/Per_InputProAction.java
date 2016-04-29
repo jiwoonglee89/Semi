@@ -38,7 +38,7 @@ public class Per_InputProAction implements CommandAction {
 			String p_zipcode = request.getParameter("p_zipcode");
 			String p_address = request.getParameter("p_address");
 			String p_category = request.getParameter("p_category");
-			
+			String p_phone=request.getParameter("p_phone");
 			if (p_category != null) {
 				if (p_category.equals("0")) {
 					p_category = "sanup";
@@ -49,7 +49,7 @@ public class Per_InputProAction implements CommandAction {
 				}
 			}
 
-			P_MemBean p_bean = new P_MemBean(p_id, p_passwd, p_name, p_gender, jumin1, jumin2, p_email, p_birth, p_tel,  p_career, p_award, p_zipcode, p_address, p_category,0);
+			P_MemBean p_bean = new P_MemBean(p_id, p_passwd, p_name, p_gender, jumin1, jumin2, p_email, p_birth, p_tel,  p_career, p_award, p_zipcode, p_address, p_category,0, p_phone);
 			
 			success = session.insert("per_member.add", p_bean);
 		
