@@ -12,7 +12,7 @@
 			
 			</c:if>
 			<c:if test="${success==0 }">
-		<c:redirect url="/p_inputForm.do" context="/semi_project"/>
+		<c:redirect url="p_inputForm.do" context="/semi_project"/>
 	</c:if>
 
 	<c:if test="${success!=0 }">

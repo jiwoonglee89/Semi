@@ -24,5 +24,6 @@
 		<mapper resource="sql/QNA_Mapper.xml"/>
 		<mapper resource="sql/file_Mapper.xml"/>
 		<mapper resource="sql/Message_Mapper.xml"/>
+		<mapper resource="sql/Black_Mapper.xml"/>
 	</mappers>
 </configuration>

@@ -41,7 +41,7 @@
 					</tr>
 					</table>
 			</header>
-			<form method="post" action="declare/per2co_declarePro.do">
+			<form method="post" action="per2co_declarePro.do">
 				<input type="hidden" name="co_id" value="${co_id}"/>
 				<div class="row uniform">
 					<div class="12u$">
@@ -69,8 +69,9 @@
 			<div class="12u$">
 						<ul class="actions">
 							<li>신고되었습니다</li>
+							<li>${count}</li>
 							<li><input type="button" value="닫기" class="special"
-							onclick="javascript:window.location='person/p_messageList.do'" /></li>
+							onclick="javascript:window.location='p_messageList.do'" /></li>
 						</ul>
 			</div>
 		</div>
