@@ -37,5 +37,4 @@
 	<select id="get" parameterType="String" resultType="DB.Co_MemBean">
 		select * from co_member where co_id=#{co_id}
 	</select>
-	
 </mapper>
