@@ -17,18 +17,15 @@ public class ConfirmIdAction implements CommandAction {
 		SqlSession session = con.connection();
 
 		String co_id = session.selectOne("co_member.confirmId", request.getParameter("co_id"));
-		
-		
 
 		int check;
 
-		if(co_id==null){
-			check=-1;
-		}else
-			check=1;
-		
-		
-		request.setAttribute("co_id",co_id);
+		if (co_id == null) {
+			check = -1;
+		} else
+			check = 1;
+
+		request.setAttribute("co_id", co_id);
 
 		request.setAttribute("check", new Integer(check));
 
