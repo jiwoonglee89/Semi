@@ -50,6 +50,6 @@ public class Per_FileDeleteProAction implements CommandAction {
 			e.printStackTrace();
 		}
 
-		return "p_detail.jsp";
+		return "p_filedeletePro.jsp";
 	}
 }

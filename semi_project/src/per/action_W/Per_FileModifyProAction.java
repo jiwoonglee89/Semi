@@ -19,6 +19,7 @@ public class Per_FileModifyProAction implements CommandAction{
 	
 	Connection con = new Connection();
 	SqlSession session = con.connection();
+	FileBean FileUp = new FileBean();
 
 	// HttpSession session2 = request.getSession();
 
@@ -50,7 +51,12 @@ public class Per_FileModifyProAction implements CommandAction{
 		// TODO: handle exception
 		e.printStackTrace();
 	}
-
+	
+	request.setAttribute("f_title", FileUp.getF_title());
+	request.setAttribute("realpath", FileUp.getRealpath());
+	request.setAttribute("f_description", FileUp.getF_description());
+	request.setAttribute("f_category", FileUp.getF_category());
+	
 	return "p_detail.jsp";
 }
 }
