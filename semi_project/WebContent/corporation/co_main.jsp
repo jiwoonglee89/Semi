@@ -3,40 +3,11 @@
 <!DOCTYPE HTML>
 
 <html> 
-		<style>
-			div#glayLayer{ 
-				display:none;
-				position:fixed;
-				left:0;
-				top:0;
-				height:100%;
-				width:100%;
-				background:black;
-				filter:alpha(opacity=60);
-				opacity: 0.60;
-			}
-			* html div#glayLayer{
-				position:absolute;
-			}
-			#overLayer{
-				display:none;
-				position: fixed;
-				top:50%;
-				left:50%;
-				margin-top:-244px;
-				margin-left:-325px;
-			}
-			* html #overLayer{
-				position: absolute;
-			}
-		</style>
-		
 	<head>
 		<title>기업용 페이지</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="jquery.avgrund.js-master/style/avgrund.css" />
 		
 	</head>
 	<body>
@@ -90,13 +61,10 @@
 								<article class="style1">
 									<span class="image">
 										
-				
-									<a href="/semi_project/File/${item.f_filename}" class="modal">
-											<%-- <div class="content">
-											<p>${item.f_description}</p>
-										</div>--%>
-										
- 									<img src="/semi_project/File/${item.f_filename}" alt="" /></a>
+									<%-- <a href="/semi_project/File/${item.f_filename}" class="modal"> --%>
+									<a href="co_detail.do?id=${item.p_id}&num=${item.f_num}" target="_blank">
+ 									<img src="/semi_project/File/${item.f_filename}" />
+ 									</a>
  									</span>
 									제목 : ${item.f_title} <br> 
 									설명 :	 ${item.f_description} <br>
@@ -136,43 +104,5 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-			<script src="./jquery.avgrund.js-master/jquery.avgrund.min.js"></script>
-			<script>
-				$(function(){
-					$('#show1').avgrund({
-						width: 640,
-						height: 350, // max is 350px
-						holderClass: 'custom',
-						showClose: true,
-						showCloseText: 'close',
-						enableStackAnimation: true, // another animation type
-						onBlurContainer: '.container', // enables blur filter for specified block 
-						setEvent: 'click',	
-						template: 
-							'<p>안녕하세요</p>'+
-							'<div>'+
-							'<img src="images/pic01.jpg"/>'+
-							'</div>'
-							
-					});
-				});
-			</script>
-			<!-- <script>
-				$(function(){
-					$("body").append("<div id='glayLayer'></div><div id='overLayer'></div>");
-					
-					$("#glayLayer").click(function(){
-						$(this).hide()
-						$("#overLayer").hide();
-					});
-					
-					$("a.modal").click(function(){
-						$("#glayLayer").show();
-						$("#overLayer").show().html("<img src='"+$(this).attr("href")+"' />");
-						return false;
-					});
-					
-				});
-			</script> -->
 	</body>
 </html>
