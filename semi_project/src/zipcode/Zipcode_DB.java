@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 
 import action.CommandAction;
-import per.action_W.Connection;
+import per.action.Connection;
 
 public class Zipcode_DB implements CommandAction {
 
