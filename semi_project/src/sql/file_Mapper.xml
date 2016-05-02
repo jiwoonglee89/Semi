@@ -10,7 +10,7 @@
         select f_filename from fileupload where f_num=#{f_num}        
     </select>
     
-    <select id="info" parameterType="String" resultType="DB.FileBean">
+    <select id="info" parameterType="String" resultType="DB.FileBean"> 
         select * from fileupload where f_filename=#{f_filename}        
     </select>
     <select id="ca" parameterType="String" resultType="DB.FileBean">

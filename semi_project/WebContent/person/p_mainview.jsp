@@ -50,7 +50,7 @@
 							<option>검색종류</option>
 							<option value="0">디자인분야</option>
 							<option value="1">제목</option>
-							<option value="2">설명</option>
+							<option value="2">설명</option> 
 						</select>
 
 						

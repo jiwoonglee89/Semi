@@ -33,7 +33,7 @@ public class Per_MainViewAction implements CommandAction {
 		System.out.println("fileList.size():::"+fileList.size());
 		//List dataList = null;
 
-		String search = request.getParameter("search");
+		String search = request.getParameter("search"); 
 		
 
 		//FileBean fBean = new FileBean();
