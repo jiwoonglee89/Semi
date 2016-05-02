@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
+import DB.Co_MemBean;
 import action.CommandAction;
 
 public class MainAction_co implements CommandAction {
