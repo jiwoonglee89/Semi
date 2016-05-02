@@ -21,7 +21,9 @@ public class Per_FileModifyProAction implements CommandAction{
 	String f_filename = request.getParameter("f_filename");
 	
 	
+	
 	FileBean file= new FileBean();
+	
 	file.setF_title("f_title");
 	file.setRealpath("realpath");
 	file.setF_description("f_description");
@@ -32,12 +34,14 @@ public class Per_FileModifyProAction implements CommandAction{
 	
 	 if(success>0){
 			sqlsession.commit();
-			request.setAttribute("f_filename", file);
+			
 		}
 		else
 			System.out.println("수정이 수행되지 않았습니다.");
 		
-		return "p_modifyPro.jsp";
+	 	request.setAttribute("f_filename", f_filename);
+		
+	 	return "p_filemodifyPro.jsp";
 	
 }
 	}
