@@ -22,7 +22,7 @@ public class Admin_Reason implements CommandAction{
 		int kind = 0;
 		
 		if (session.selectOne("per_member.find",id)!=null) {
-			reasonList = session.selectList("black.info_p",id);
+			reasonList = session.selectList("black.info_p", id);
 			kind = 1;
 		}else {
 			reasonList = session.selectList("black.info",id);
