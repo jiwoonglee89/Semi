@@ -22,7 +22,7 @@ public class Co_declareProAction implements CommandAction{
 		int success=session.insert("black.addPer", map);
 		if(success>0){
 			session.commit();
-			session.update("per_member.countup");
+			session.update("per_member.countup", map);
 			session.commit();
 		}
 		else
