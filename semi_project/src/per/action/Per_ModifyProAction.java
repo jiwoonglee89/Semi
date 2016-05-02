@@ -1,4 +1,4 @@
-package per.action_W;
+package per.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import DB.P_MemBean;
 import action.CommandAction;
-import per.action_W.Connection;
+import per.action.Connection;
 
 public class Per_ModifyProAction implements CommandAction {
 
