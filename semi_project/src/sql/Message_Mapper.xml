@@ -7,11 +7,11 @@
 	<insert id="add" parameterType="HashMap">
 		insert into message (p_id,co_id,m_title,m_context,m_regdate,m_count,m_num,co_com)values(#{p_id},#{co_id}, #{m_title},#{m_context}, sysdate, 0 ,m_seq.NEXTVAL,#{co_com})
 	</insert>
-	<update id="insertdes" parameterType="String">
+	<update id="insertdes" parameterType="HashMap">
 		update message set m_countdes=#{m_countdes} where m_num=#{m_num}
 	</update>
 	
-	<update id="increascount" parameterType="String">
+	<update id="increascount" parameterType="java.lang.Integer">
 		update message set m_count=m_count+1 where m_num=#{m_num}
 	</update>
 	
