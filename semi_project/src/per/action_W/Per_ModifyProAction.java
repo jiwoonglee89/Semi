@@ -47,6 +47,7 @@ public class Per_ModifyProAction implements CommandAction {
 				session.commit();
 			} else {
 				session.rollback();
+				return "/person/p_modifyForm.jsp";
 			}
 
 			request.setAttribute("success", success);

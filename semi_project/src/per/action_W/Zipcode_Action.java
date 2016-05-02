@@ -1,4 +1,4 @@
-package action;
+package per.action_W;
 
 import java.util.List;
 import java.util.Vector;
@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import sql.*;
 
 import DB.ZipcodeBean;
+import action.CommandAction;
+import action.Connection;
 
 
 public class Zipcode_Action implements CommandAction{

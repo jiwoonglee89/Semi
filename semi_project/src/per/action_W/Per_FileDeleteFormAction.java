@@ -17,5 +17,4 @@ public class Per_FileDeleteFormAction implements CommandAction{
 		
 		return "p_filedeleteForm.jsp";
 	}
-
 }

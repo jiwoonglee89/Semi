@@ -43,13 +43,18 @@ public class Per_FileDeleteProAction implements CommandAction{
 		File file = new File(directory,f_filename);
 		
 		
-		System.out.println();
-		try {
-			file.delete();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+		System.out.println("filepath:::"+file.getPath());
+		System.out.println("절대경로?"+file.isAbsolute());
+		
+		if (file.getName().equals(f_filename)) {
+			try {
+				file.delete();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		return "p_detail.jsp";
