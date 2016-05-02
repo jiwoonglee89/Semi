@@ -6,7 +6,7 @@
 <title>개인신고</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="../declare/assets/css/main.css" />
 </head>
 
 <body>
@@ -22,25 +22,26 @@
 					</tr>
 					<tr>
 						<td width="200">이름</td>
-						<td width="400">${p_name}</td>
+						<td width="400">${person.p_name}</td>
 					<tr>
 						<td width="200">E-Mail</td>
-						<td width="400">${p_email}</td>
+						<td width="400">${person.p_email}</td>
 					</tr>
 					<tr>
 						<td width="200">분야</td>
-						<td width="400">${p_category}</td>
+						<td width="400">${person.p_category}</td>
 					</tr>
 				</table>
 			</header>
-			<form method="post" action="co_main.do">
+			<form method="post" action="co_declarePro.do">
 				<div class="row uniform">
 					<div class="12u$">
-						<textarea name="reason" id="reason" placeholder="신고사유"rows="4"></textarea>
+						<textarea name="reason" id="reason" placeholder="신고사유" rows="4"></textarea>
 					</div>
 					<div class="12u$">
 						<ul class="actions">
 							<li><input type="submit" value="신고하기" class="special" /></li>
+							<input type="hidden" name="p_id" value="${person.p_id }"/>
 							<li><input type="button" value="닫기" class="special" /></li>
 						</ul>
 					</div>
@@ -50,13 +51,12 @@
 	</section>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
+	<script src="../declare/assets/js/jquery.min.js"></script>
+	<script src="../declare/assets/js/jquery.scrollex.min.js"></script>
+	<script src="../declare/assets/js/jquery.scrolly.min.js"></script>
+	<script src="../declare/assets/js/skel.min.js"></script>
+	<script src="../declare/assets/js/util.js"></script>
+	<script src="../declare/assets/js/main.js"></script>
 
 </body>
 </html>
