@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 
 import DB.FileBean;
+import DB.MessageBean;
 import DB.P_MemBean;
 import action.CommandAction;
 import action.Connection;
@@ -28,6 +29,8 @@ public class Per_MainViewAction implements CommandAction {
 
 		System.out.println("app::::" + app);
 
+		List mbean = session.selectList("message.m_list",p_id);
+		
 		P_MemBean p_list = session.selectOne("per_member.find", p_id);
 		List fileList = session.selectList("file.all", p_id);
 		System.out.println("fileList.size():::" + fileList.size());
@@ -51,6 +54,7 @@ public class Per_MainViewAction implements CommandAction {
 			}
 		}
 
+		request.setAttribute("mbean", mbean);
 		request.setAttribute("p_list", p_list);
 
 		request.setAttribute("fileList", fileList);
