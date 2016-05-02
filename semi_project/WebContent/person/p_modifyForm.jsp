@@ -8,11 +8,6 @@
 	function checkIt() {
 		var userinput = eval("document.userinput");
 
-		if (!userinput.p_id.value) {
-			alert("ID를 입력하세요");
-			return false;
-		}
-
 		if (!userinput.p_passwd.value) {
 			alert("비밀번호를 입력하세요");
 			return false;
@@ -33,24 +28,6 @@
 		}
 		return true;
 	}
-
-/* 	// 아이디 중복 여부를 판단
-	function openConfirmid(userinput) {
-		// 아이디를 입력했는지 검사
-		if (userinput.p_id.value == "") {
-			alert("아이디를 입력하세요");
-			return;
-		}
-		// url과 사용자 입력 id를 조합합니다.
-		url = "per_confirmId.do?id=" + userinput.id.value;
-
-		// 새로운 윈도우를 엽니다.
-		open(
-				url,
-				"confirm",
-				"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
-	}
- */
 	function zipCheck() {
 
 		url = "zipcheck.do?check=y";
@@ -83,50 +60,49 @@
 			</tr>
 
 			<tr>
-				<td width="200" bgcolor="<%=value_c%>"><b>개인정보 입력</b></td>
-				<td width="400" bgcolor="<%=value_c%>"></td>
+				<td width="200" bgcolor="<%=value_c%>" colspan="2" align="center"><b>개인정보 입력</b></td>
+		<%-- 		<td width="400" bgcolor="<%=value_c%>"></td> --%>
 			<tr>
 			<tr>
 				<td width="200">이름</td>
-				<td width="400"><input type="text" name="p_name" size="15" maxlength="10" value="${param.name}"></td>
+				<td width="400"><input type="text" name="p_name" size="15" maxlength="10" value="${name}"></td>
 			</tr>
 			<tr>
 				<td width="200">주민등록번호</td>
-				<td width="400"><input type="text" name="jumin1" size="7"
-					maxlength="6"> -<input type="text" name="jumin2" size="7"
-					maxlength="7"></td>
+				<td width="400">
+				<input type="text" name="jumin1" size="7" maxlength="6" value="${jumin1}"> 
+				-<input type="text" name="jumin2" size="7" maxlength="7" value="${jumin2}"></td>
 			</tr>
 			<tr>
 				<td width="200">성별</td>
-				<td width="400"><input type="radio" name="p_gender" size="40"
-					maxlength="30" value="male" checked="checked">남성<input type="radio" name="p_gender" size="40"
-					maxlength="30" value="female">여성</td>
+				<td width="400">
+				<input type="radio" name="p_gender" size="40" maxlength="30" value="male" checked="checked">남성
+				<input type="radio" name="p_gender" size="40" maxlength="30" value="female">여성</td>
 			</tr>
 			<tr>
 				<td width="200">Tel</td>
-				<td width="400"><input type="text" name="p_tel" size="40"
-					maxlength="30"></td>
+				<td width="400"><input type="text" name="p_tel" size="40" maxlength="30" value="${tel}"></td>
 			</tr>
 			<tr>
 				<td width="200">E-Mail</td>
 				<td width="400">
-				<input type="text" name="p_email" size="40" maxlength="30"></td>
+				<input type="text" name="p_email" size="40" maxlength="30" value="${email}"></td>
 			</tr>
 			<tr>
 				<td width="200">생년월일</td>
 				<td width="400">
-				<input type="number" name="p_birth" size="40" maxlength="30" value="ex)19910101"></td>
+				<input type="number" name="p_birth" size="40" maxlength="30" value="${birth}"></td>
 			</tr>
 			<tr>
 				<td width="200">우편번호</td>
-				<td><input type="text" name="p_zipcode" size="7">
+				<td><input type="text" name="p_zipcode" size="7" value="${zipcode}">
 					<input type="button" value="우편번호찾기" onClick="zipCheck()">
 					우편번호를 검색하세요.</td>
 			</tr>
 			<tr>
 			<tr>
 				<td>주소</td>
-				<td><input type="text" name="p_address" size="70"></td>
+				<td><input type="text" name="p_address" size="70" value="${address}"></td>
 			</tr>
 			<tr>
 				<td width="200">디자인분류</td>
@@ -141,16 +117,16 @@
 			</tr>
 			<tr>
 				<td>경력사항</td>
-				<td><textarea rows="30" cols="70" name="p_career"></textarea></td>
+				<td><textarea rows="30" cols="70" name="p_career" value="${career}"></textarea></td>
 			</tr>
 			
 			<tr>
 				<td>수상이력</td>
-				<td><textarea rows="30" cols="70" name="p_award"></textarea></td>
+				<td><textarea rows="30" cols="70" name="p_award" value="${award}"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center" bgcolor="<%=value_c%>">
-				<input type="submit" name="confirm" value="회원가입"> 
+				<input type="submit" name="confirm" value="수정"> 
 				<!-- <input type="reset" name="reset" value="다시입력">  -->
 				<input type="button" value="취소" onclick="javascript:window.location=history.go(-1)"></td>
 			</tr>
