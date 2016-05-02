@@ -7,10 +7,14 @@
         select * from black_db where co_id=#{co_id}
     </select>
     
+    <select id="info_p" parameterType="String" resultType="DB.Black_db">
+        select * from black_db where p_id=#{p_id}
+    </select>
+    
     <insert id="addCo" parameterType="DB.Black_db">
         insert into black_db (co_id,reason) values(#{co_id},#{reason})
     </insert>
-    <insert id="addPer" parameterType="DB.Black_db">
+    <insert id="addPer" parameterType="HashMap">
         insert into black_db (p_id,reason) values(#{p_id},#{reason})
     </insert>
     
