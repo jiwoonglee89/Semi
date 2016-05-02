@@ -31,6 +31,7 @@
 		</tr>
 		<tr><form method="get" action="p_messageList.do">
 		<input type="hidden" name = "m_count" value="${m_count}"/>
+		<input type="hidden" name ="m_num" value="${m_num}"/>
 		<input type="submit" value="´Ý±â"/>
 		</form>
 		</tr>

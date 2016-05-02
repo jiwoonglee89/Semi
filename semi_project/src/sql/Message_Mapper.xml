@@ -10,6 +10,11 @@
 	<update id="insertdes" parameterType="String">
 		update message set m_countdes=#{m_countdes} where m_num=#{m_num}
 	</update>
+	
+	<update id="increascount" parameterType="String">
+		update message set m_count=m_count+1 where m_num=#{m_num}
+	</update>
+	
 	<delete id="del" parameterType="DB.MessageBean">
 		delete from message where p_id=#{p_id} and co_id=#{co_id} and m_title=#{m_title} and m_context=#{m_context} and m_regdate = #{m_regdate} and m_count = #{m_count}
 	</delete>

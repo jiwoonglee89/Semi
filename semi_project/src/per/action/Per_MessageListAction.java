@@ -25,45 +25,39 @@ public class Per_MessageListAction implements CommandAction {
 			Connection con = new Connection();
 			SqlSession session = con.connection();
 
+			String m_countdes = null;
 			int m_count = 0;
 			System.out.println("여기까진됨");
 			int m_count_request = Integer.parseInt(request.getParameter("m_count"));
-			String m_countdes = null;
+			int m_num = Integer.parseInt(request.getParameter("m_num"));
+			if (m_num !=0 ) {
+				session.update("message.increascount", m_num);
+
+				if (m_count_request > 0) {
+					m_countdes = "읽음";
+				} else {
+					m_countdes = "읽지않음";
+				}
+				
+				MessageBean mbean = new MessageBean();
+				mbean.setM_countdes(m_countdes);
+				mbean.setM_num(m_num);
+				
+				session.update("message.insertdes", mbean);
+			}
+			
 
 			System.out.println("m_count_request:::" + m_count_request);
 
 			HttpSession session2 = request.getSession();
-			String p_id = (String) session2.getAttribute("p_id");
-			//String co_id = "1";
+			String p_id = (String) session2.getAttribute("p_id");			
 
-			/*if (m_count == m_count_request) {
-				m_countdes = "읽지않음";
-			} else {
-				m_countdes = "읽음";
-			}
-			System.out.println("m_countdes::::" + m_countdes);*/
-
+			
+			
+			
+			
 			List dataList = session.selectList("message.m_list", p_id);
 			
-			
-			String countdes =null;
-			//MessageBean mbean = new MessageBean();
-			//mbean.setM_countdes(m_countdes);
-			
-			//MessageBean mbeanList = session.selectOne("message.m_listbyco", co_id);
-			
-			//int m_num = mbeanList.getM_num();
-			//mbean.setM_num(m_num);
-			if(m_count_request>0){
-				countdes = "읽음";
-			}else {
-				countdes = "읽지않음";
-			}
-			
-
-			//request.setAttribute("m_num", new Integer(m_num));
-			request.setAttribute("countdes", countdes);
-			//request.setAttribute("co_id", co_id);
 			request.setAttribute("dataList", dataList);
 
 		} catch (Exception e) {

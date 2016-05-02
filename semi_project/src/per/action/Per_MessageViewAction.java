@@ -39,6 +39,7 @@ public class Per_MessageViewAction implements CommandAction{
 		request.setAttribute("co_email", colist.getCo_email());
 		request.setAttribute("m_context", mlist.getM_context());
 		request.setAttribute("m_count", new Integer(m_count));
+		request.setAttribute("m_num", m_num);
 		
 		return "p_messageview.jsp";
 	}
