@@ -20,7 +20,7 @@ public class Per_ModifyFormAction implements CommandAction{
 		HttpSession session=request.getSession();
 		String p_id=(String)session.getAttribute("p_id");
 		P_MemBean pbean=new P_MemBean();
-		pbean=sqlsession.selectOne("per_member.find", session.getAttribute("p_id"));
+		pbean=sqlsession.selectOne("per_member.find", p_id);
 
 		request.setAttribute("name", pbean.getP_name());
 		request.setAttribute("passwd", pbean.getP_passwd());

@@ -39,7 +39,7 @@
 </script>
 <body bgcolor="<%=bodyback_c%>">
 
-	<form method="get" action="p_inputPro.do" name="userinput"
+	<form method="get" action="p_modifyPro.do" name="userinput"
 		onSubmit="return checkIt()">
 		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
 			<tr>

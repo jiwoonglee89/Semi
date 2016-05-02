@@ -50,8 +50,7 @@
 					<div class="12u$">
 						<ul class="actions">
 							<li><input type="submit" value="신고하기" class="special" /></li>
-							<li><input type="button" value="닫기" class="special" 
-							onclick="javascript:window.location='person/p_messageList.do'"/></li>
+							<li><input type="button" value="닫기" class="special" onclick="javascript:window.location='person/p_messageList.do'"/></li>
 						</ul>
 					</div>
 				</div>
@@ -70,8 +69,7 @@
 						<ul class="actions">
 							<li>신고되었습니다</li>
 							<li>${count}</li>
-							<li><input type="button" value="닫기" class="special"
-							onclick="javascript:window.location='p_messageList.do'" /></li>
+							<li><input type="button" value="닫기" class="special" onclick="javascript:window.location='p_messageList.do'" /></li>
 						</ul>
 			</div>
 		</div>

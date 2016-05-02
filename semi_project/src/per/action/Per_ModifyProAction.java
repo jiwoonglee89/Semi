@@ -45,7 +45,8 @@ public class Per_ModifyProAction implements CommandAction {
 					zipcode, address, category, 0);
 
 			int success = session.update("per_member.modify", p_id);
-
+			
+			System.out.println(success);
 			if (success > 0) {
 				session.commit();
 			} else {
@@ -72,7 +73,7 @@ public class Per_ModifyProAction implements CommandAction {
 			e.printStackTrace();
 		}
 
-		return "/login/p_mainview.jsp";
+		return "/person/p_mainview.jsp";
 	}
 
 }
