@@ -39,10 +39,10 @@
             <input type="password" name="passwd" size="15" maxlength="10"></td>
        </tr>
        <tr>
-       	<td colspan="3" bgcolor="<%=title_c%>" align="center">
-       		<a href="#" class="fa fa-user fa-2x"></a>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       		<a href="#" class="fa fa-building fa-2x"></a>
-       		<br/>
+       	<td colspan="3" bgcolor="<%=title_c%>" align="center" >
+       		<div class="fa fa-user fa-2x"></div>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       		<div class="fa fa-building fa-2x"></div>
+       		<br>
        		<input type="radio" name="per_or_cor" value="per">개인회원
 			<input type="radio" name="per_or_cor" value="cor">기업회원
        	</td>
