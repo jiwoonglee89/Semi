@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 
-<html>
+<html> 
 		<style>
-			div#glayLayer{
+			div#glayLayer{ 
 				display:none;
 				position:fixed;
 				left:0;
@@ -29,15 +29,18 @@
 			* html #overLayer{
 				position: absolute;
 			}
-		</style>	
+		</style>
+		
 	<head>
 		<title>기업용 페이지</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-	
+		<link rel="stylesheet" href="jquery.avgrund.js-master/style/avgrund.css" />
+		
 	</head>
 	<body>
+
 	${co_id}님의 페이지입니다.<br>
 	<a href="../QNA_board/QNA_list.do">QnA</a> <a href="co_modify.do">정보수정</a> <a href="logout.jsp">로그아웃</a>
 	<br>
@@ -69,36 +72,6 @@
 	<input type="submit" value="검색">
 	</form>
 	
-	
-<!--  
-	<c:if test="${search==null}">
-	<c:if test="${count > 0}">
-   <c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
-   <c:set var="pageBlock" value="${10}"/>
-   
-   <fmt:parseNumber var="result" value="${currentPage / 10}" integerOnly="true" />
-   <c:set var="startPage" value="${result * 10 + 1}" />
-   <c:set var="endPage" value="${startPage + pageBlock-1}"/>
-   <c:if test="${endPage > pageCount}">
-        <c:set var="endPage" value="${pageCount}"/>
-   </c:if>
-         
-   <c:if test="${startPage > 10}">
-        <a href="co_main.do?pageNum=${startPage - 10 }">[이전]</a>
-   </c:if>
-
-   <c:forEach var="i" begin="${startPage}" end="${endPage}">
-       <a href="co_main.do?pageNum=${i}">[${i}]</a>
-   </c:forEach>
-
-   <c:if test="${endPage < pageCount}">
-        <a href="co_main.do?pageNum=${startPage + 10}">[다음]</a>
-   </c:if>
-</c:if>
-</c:if>
--->
-
-		
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -115,7 +88,9 @@
 							
 							<c:forEach var="item" items="${file}">
 								<article class="style1">
-									<span class="image">						
+									<span class="image">
+										
+				
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
 											<%-- <div class="content">
 											<p>${item.f_description}</p>
@@ -161,7 +136,28 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+			<script src="./jquery.avgrund.js-master/jquery.avgrund.min.js"></script>
 			<script>
+				$(function(){
+					$('#show1').avgrund({
+						width: 640,
+						height: 350, // max is 350px
+						holderClass: 'custom',
+						showClose: true,
+						showCloseText: 'close',
+						enableStackAnimation: true, // another animation type
+						onBlurContainer: '.container', // enables blur filter for specified block 
+						setEvent: 'click',	
+						template: 
+							'<p>안녕하세요</p>'+
+							'<div>'+
+							'<img src="images/pic01.jpg"/>'+
+							'</div>'
+							
+					});
+				});
+			</script>
+			<!-- <script>
 				$(function(){
 					$("body").append("<div id='glayLayer'></div><div id='overLayer'></div>");
 					
@@ -177,6 +173,6 @@
 					});
 					
 				});
-			</script>
+			</script> -->
 	</body>
 </html>
