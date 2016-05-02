@@ -40,7 +40,10 @@
 	<select id="search" parameterType="String" resultType="DB.FileBean">
 		select * from fileupload where #{search} like '%#{searchn}%'
 	</select>  
-
+	
+	<update id="countup" parameterType="HashMap">
+		update per_member set p_count=p_count+1 where p_id=#{p_id}
+	</update>
 
 
 	<select id="confirmId" parameterType="String" resultType="String">
