@@ -17,12 +17,14 @@ public class Admin_Reason implements CommandAction{
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		List reasonList = null;
 		int kind = 0;
 		
 		if (session.selectOne("per_member.find",id)!=null) {
-			reasonList = session.selectList("black.info_p",id);
+			reasonList = session.selectList("black.info_p", id);
 			kind = 1;
 		}else {
 			reasonList = session.selectList("black.info",id);
