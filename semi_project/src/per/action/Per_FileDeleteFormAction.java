@@ -13,6 +13,7 @@ public class Per_FileDeleteFormAction implements CommandAction{
 		String f_filename = request.getParameter("f_filename");
 		
 		System.out.println("form filename"+f_filename);
+		
 		request.setAttribute("f_filename", f_filename);
 		
 		return "p_filedeleteForm.jsp";

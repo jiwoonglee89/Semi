@@ -19,7 +19,7 @@
     	from per_member p, fileupload f where p.p_id=f.p_id;
     </select>
       
-    <delete id="delete" parameterType="DB.FileBean">
-        delete from fileupload where f_filename='#{f_filename}'
+    <delete id="delete" parameterType="String">
+        delete from fileupload where f_filename=#{f_filename}
     </delete>
 </mapper>

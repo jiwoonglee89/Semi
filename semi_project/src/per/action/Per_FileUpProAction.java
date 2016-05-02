@@ -112,7 +112,7 @@ public class Per_FileUpProAction implements CommandAction {
 			filebean.setF_filename(filename);
 		
 			
-			fileList=session.selectList("file.all", p_id);
+			//fileList=session.selectList("file.all", p_id);
 		
 		
 		int success = session.insert("per_member.fileadd", filebean);
@@ -124,7 +124,7 @@ public class Per_FileUpProAction implements CommandAction {
 			System.out.println("업로드 실패");
 		}
 		
-		request.setAttribute("fileList", fileList);
+		request.setAttribute("filebean", filebean);
 		/*request.setAttribute("f_category", f_category);
 		request.setAttribute("f_title", filebean.getF_title());
 		request.setAttribute("f_description", filebean.getF_description());
