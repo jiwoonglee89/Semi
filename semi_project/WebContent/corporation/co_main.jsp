@@ -88,23 +88,15 @@
 							
 							<c:forEach var="item" items="${file}">
 								<article class="style1">
-<<<<<<< HEAD
 									<span class="image">
 										
-									
-									<a href="#" id="show1">										
-										<img src="images/pic01.jpg" />
-									</a>
- 									<%-- <img src="${app}'/'${item.f_filename}" alt="" /></a> --%>
-=======
-									<span class="image">						
+				
 									<a href="/semi_project/File/${item.f_filename}" class="modal">
 											<%-- <div class="content">
 											<p>${item.f_description}</p>
 										</div>--%>
 										
  									<img src="/semi_project/File/${item.f_filename}" alt="" /></a>
->>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi.git
  									</span>
 									제목 : ${item.f_title} <br> 
 									설명 :	 ${item.f_description} <br>
