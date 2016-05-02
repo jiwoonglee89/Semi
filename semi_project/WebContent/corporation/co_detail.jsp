@@ -25,6 +25,7 @@
 
 <form action="co_message.do" target="_blank">
 	<input type="submit" value="메세지 보내기">
+	<input type="button" value="신고하기" onclick="javascript:window.location='co_declareForm.do?id=${person.p_id}&title=${file.f_title}'">
 	<input type="hidden" value="${person.p_id}" name="id">
 	<input type="button" value="닫기" onclick="javascript:window.close()">
 </form>
