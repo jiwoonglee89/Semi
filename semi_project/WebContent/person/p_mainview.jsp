@@ -44,6 +44,7 @@
 					</section>
 					
 					<form id="signup-form" method="post" action="#">
+					<%-- <c:forEach var="d" items="${dataList}"> --%>
 					<h3>검색</h3>
 						<select>
 							<option>검색종류</option>
@@ -52,15 +53,14 @@
 							<option value="2">설명</option>
 						</select>
 
-						<%-- <c:forEach var="dataList" items="${searchn}">
-							<c:if test="${search}">
+						
+							
 						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
 						<input type="submit" value="검색" />
-						</c:if>
-						</c:forEach> --%>
-
-						<input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
-						<input type="submit" value="검색" />
+						
+						<%-- </c:forEach> --%>
+						<!-- <input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
+						<input type="submit" value="검색" /> -->
 
 					</form>
 				<!-- Two -->
