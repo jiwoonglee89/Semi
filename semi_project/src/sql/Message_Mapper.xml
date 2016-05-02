@@ -4,10 +4,10 @@
 
 <mapper namespace="message">
 	<!-- message table 시퀀스 , co_com 컬럼추가 -->
-	<insert id="add" parameterType="DB.MessageBean">
-		insert into message (p_id,co_id,m_title,m_context,m_regdate,m_count,m_num,co_com)values(#{p_id},#{co_id}, #{m_title},#{m_context}, #{m_regdate},#{m_count},m_seq.NEXTVAL,#{co_com})
+	<insert id="add" parameterType="HashMap">
+		insert into message (p_id,co_id,m_title,m_context,m_regdate,m_count,m_num,co_com)values(#{p_id},#{co_id}, #{m_title},#{m_context}, sysdate, 0 ,m_seq.NEXTVAL,#{co_com})
 	</insert>
-	<update id="insertdes" parameterType="DB.MessageBean">
+	<update id="insertdes" parameterType="String">
 		update message set m_countdes=#{m_countdes} where m_num=#{m_num}
 	</update>
 	<delete id="del" parameterType="DB.MessageBean">
@@ -15,6 +15,9 @@
 	</delete>
 	<select id="set" parameterType="DB.MessageBean">
 		select m_title, m_regdate, m_count from message where m_title=#{m_title} and m_regdate=#{m_regdate} and m_count=#{m_count} 
+	</select>
+	<select id="find_com" parameterType="String" resultType="String">
+		select co_com from co_member where co_id=#{co_id}
 	</select>
 	<!-- join 으로 co_id값 일치하는 co_member의 정보들 가져옴 -->
 	<!-- <select id="co_list" parameterType="DB.Co_MemBean">

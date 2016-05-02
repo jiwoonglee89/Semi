@@ -40,7 +40,7 @@ public class Per_FileDeleteProAction implements CommandAction {
 
 		File file = new File(directory+"/"+f_filename);
 
-		System.out.println("file.path :::" + file.getPath());
+		//System.out.println("file.path :::" + file.getPath());
 
 		try {
 			file.delete();

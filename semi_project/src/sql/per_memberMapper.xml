@@ -5,8 +5,8 @@
 <mapper namespace="per_member">
 	<insert id="add" parameterType="DB.P_MemBean">
 		insert into per_member(p_id, p_passwd, p_name, p_gender, jumin1, jumin2, p_email, p_birth, p_tel, 
-		p_career, p_award, p_zipcode, p_address, p_category, p_phone) values(#{p_id},#{p_passwd},#{p_name},#{p_gender}, #{jumin1},#{jumin2}, #{p_email}, 
-		#{p_birth}, #{p_tel}, #{p_career}, #{p_award}, #{p_zipcode}, #{p_address}, #{p_category}, #{p_phone})
+		p_career, p_award, p_zipcode, p_address, p_category) values(#{p_id},#{p_passwd},#{p_name},#{p_gender}, #{jumin1},#{jumin2}, #{p_email}, 
+		#{p_birth}, #{p_tel}, #{p_career}, #{p_award}, #{p_zipcode}, #{p_address}, #{p_category})
 	</insert>
 	
 	<insert id="fileadd" parameterType="DB.FileBean">
@@ -16,7 +16,7 @@
 	<update id="modify" parameterType="DB.P_MemBean">
 		update per_member set p_passwd=#{p_passwd}, p_name=#{p_name}, p_gender=#{p_gender}, p_email=#{p_email},
 		p_birth=#{p_birth}, p_tel=#{p_tel}, p_career=#{p_career}, p_award=#{p_award}, p_zipcode=#{p_zipcode},
-		p_address=#{p_address}, p_category=#{p_category} where id=#{id}
+		p_address=#{p_address}, p_category=#{p_category} where p_id=#{p_id}
 	</update>
 	
 	<!-- 잘못된거이거 -->

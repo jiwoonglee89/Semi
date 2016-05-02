@@ -8,32 +8,10 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <script>
-<<<<<<< HEAD
-   function setid(){
-      opener.document.userinput.id.value="${param.co_id}";
-      self.close();
-   }
-   
-   function set(checkForm){
-	   
-	   url = "co_confirmId.do?co_id=" + userinput.co_id.value;
-	   
-	   id = session.selectOne("co_member.confirmId", request.getParameter("co_id"));
-	   if(co_id==id){
-		   check = 1;
-	   }else{
-		   check = -1;
-	   }
-	   opener.document.userinput.id.value="${param.co_id}";
-   }
-   
-   
-=======
 	function setid(){
 		opener.document.userinput.co_id.value="${param.co_id}";
 		self.close();
 	}
->>>>>>> branch 'master' of https://github.com/jiwoonglee89/Semi
 </script>
 
 <body bgcolor="${bodyback_c}">

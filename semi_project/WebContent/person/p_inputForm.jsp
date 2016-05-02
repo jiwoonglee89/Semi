@@ -114,10 +114,6 @@
 				<input type="radio" name="p_gender" size="40" maxlength="30" value="female">여성</td>
 			</tr>
 			<tr>
-				<td width="200">PHONE</td>
-				<td width="400"><input type="text" name="p_phone" size="40" maxlength="30"></td>
-			</tr>
-			<tr>
 				<td width="200">Tel</td>
 				<td width="400"><input type="text" name="p_tel" size="40" maxlength="30"></td>
 			</tr>
@@ -128,7 +124,7 @@
 			</tr>
 			<tr>
 				<td width="200">생년월일</td>
-				<td width="400"><input type="number" name="p_birth" size="40" maxlength="30" value="ex)19910101"></td>
+				<td width="400"><input type="number" name="p_birth" size="40" maxlength="30" placeholder="ex)19910101"></td>
 			</tr>
 			<tr>
 				<td width="200">우편번호</td>
@@ -164,7 +160,7 @@
 				<td colspan="2" align="center" bgcolor="<%=value_c%>">
 				<input type="submit" name="confirm" value="회원가입"> 
 				<!-- <input type="reset" name="reset" value="다시입력">  -->
-				<input type="button" value="취소" onclick="javascript:window.location='main.do'"></td>
+				<input type="button" value="취소" onclick="javascript:window.location=history.go(-1)"></td>
 			</tr>
 		</table>
 	</form>

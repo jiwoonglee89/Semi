@@ -34,29 +34,36 @@ public class Per_MessageListAction implements CommandAction {
 
 			HttpSession session2 = request.getSession();
 			String p_id = (String) session2.getAttribute("p_id");
-			String co_id = "1";
+			//String co_id = "1";
 
-			if (m_count == m_count_request) {
+			/*if (m_count == m_count_request) {
 				m_countdes = "읽지않음";
 			} else {
 				m_countdes = "읽음";
 			}
-			System.out.println("m_countdes::::" + m_countdes);
+			System.out.println("m_countdes::::" + m_countdes);*/
 
 			List dataList = session.selectList("message.m_list", p_id);
+			
+			
+			String countdes =null;
+			//MessageBean mbean = new MessageBean();
+			//mbean.setM_countdes(m_countdes);
+			
+			//MessageBean mbeanList = session.selectOne("message.m_listbyco", co_id);
+			
+			//int m_num = mbeanList.getM_num();
+			//mbean.setM_num(m_num);
+			if(m_count_request>0){
+				countdes = "읽음";
+			}else {
+				countdes = "읽지않음";
+			}
+			
 
-			MessageBean mbean = new MessageBean();
-			mbean.setM_countdes(m_countdes);
-			
-			MessageBean mbeanList = session.selectOne("message.m_listbyco", co_id);
-			
-			int m_num = mbeanList.getM_num();
-			mbean.setM_num(m_num);
-			
-			session.update("message.insertdes", mbean);
-
-			request.setAttribute("m_num", new Integer(m_num));
-			request.setAttribute("co_id", co_id);
+			//request.setAttribute("m_num", new Integer(m_num));
+			request.setAttribute("countdes", countdes);
+			//request.setAttribute("co_id", co_id);
 			request.setAttribute("dataList", dataList);
 
 		} catch (Exception e) {

@@ -16,7 +16,7 @@
 				<td>${i.co_com}</td>
 				<td><a href="p_messageView.do">${i.m_title}</a></td>
 				<td>${i.m_regdate}</td>
-				<td>${i.m_countdes}</td>
+				<td>${countdes}</td>
 				<td><form action="p_messageView.do" method="get">
 						<input type="hidden" name="m_num" value="${i.m_num}" /> 
 						<input type="submit" value="상세조회" />
