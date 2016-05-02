@@ -11,19 +11,20 @@
 %>
 <script>
 	function setid() {
-		opener.document.userinput.p_id.value="${param.p_id}"
+		opener.document.userinput.p_id.value="${param.p_id}";
 		self.close()
 	}
 </script>
-<body bgcolor="<%=bodyback_c%>">
+<body bgcolor="${bodyback_c}">
 
 	<c:if test="${check == 1}">
 		<table width="270" border="0" cellspacing="0" cellpadding="5">
 			<tr bgcolor="<%=title_c%>">
-				<td height="39">${param.p_id} 이미사용중인 아이디입니다.</td>
+				<td height="39">${p_id}는 이미사용중인 아이디입니다.</td>
 			</tr>
 		</table>
-		<form name="checkForm" method="post" action="per_confirmId.do?p_id=${param.p_id}">
+		
+		<form name="checkForm" method="post" action="per_confirmId.do">
 
 			<table width="270" border="0" cellspacing="0" cellpadding="5">
 				<tr>
@@ -41,11 +42,12 @@
 		<table width="270" border="0" cellspacing="0" cellpadding="5">
 			<tr bgcolor="<%=title_c%>">
 				<td align="center">
-					<p>입력하신 ${param.p_id}는 사용하실 수 있는 ID입니다.</p> 
+					<p>입력하신 ${param.p_id}는 사용하실 수 있는 ID입니다.</p>
 					<input type="button" value="닫기" onclick="setid()">
 				</td>
 			</tr>
 		</table>
 	</c:if>
+	
 </body>
 </html>

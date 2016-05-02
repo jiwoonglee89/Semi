@@ -16,14 +16,15 @@ public class ConfirmIdAction implements CommandAction {
 		Connection con=new Connection();
 		SqlSession session = con.connection();
 		
-		String id = session.selectOne("per_member.confirmId", request.getParameter("p_id"));
+		String p_id = session.selectOne("per_member.confirmId", request.getParameter("p_id"));
 		int check;
-		if(id==null){
+		if(p_id==null){
 			check=-1;
 		}else
 			check=1;
+		
+		request.setAttribute("p_id", p_id);
 		request.setAttribute("check", new Integer(check));
-		request.setAttribute("p_id", id);
 		return "per_confirmId.jsp";
 	}
 
