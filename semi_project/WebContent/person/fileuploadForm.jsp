@@ -11,7 +11,7 @@
 	<option value="2">건축디자인</option>
 </select>
 파일 : <input type="file" name="file"/> <br>
-파일이름 : <input type="text" name="f_title"/> <br>
+파일이름 : <input type="text" name="f_title" value="${filebean.f_title}"/> <br>
 설명 : <input type="text" name="f_description"/> <br>
 <input type="submit" value="업로드"/>
 

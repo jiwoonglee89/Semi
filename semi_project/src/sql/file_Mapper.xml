@@ -22,4 +22,10 @@
     <delete id="delete" parameterType="DB.FileBean">
         delete from fileupload where f_filename='#{f_filename}'
     </delete>
+    
+    <update id="modify" parameterType="DB.Co_MemBean">
+		update fileupload set f_title=#{f_title}, realpath=#{realpath}, f_description=#{f_description}, f_category=#{f_category}
+		where f_num=#{f_num}
+		
+	</update>
 </mapper>
