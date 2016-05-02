@@ -56,7 +56,7 @@ $(function(){
 		<td>${people.p_gender }</td>
 		<td>${people.p_tel }</td>
 		<td>${people.p_category }</td>
-		<td></td>
+		<td><a href="admin_reason.do?id=${people.p_id}">신고사유</a></td>
 		<td>${people.p_count }</td>
 		<td><a href="admin_delete_per.do?id=${people.p_id}">퇴출</a></td>
 	</tr>
@@ -89,7 +89,7 @@ $(function(){
 		<td>${cor.co_name }</td>
 		<td>${cor.co_tel }</td>
 		<td>${cor.co_category }</td>
-		<td></td>
+		<td><a href="admin_reason.do?id=${cor.co_id}">신고사유</a></td>
 		<td>${cor.co_count }</td>
 		<td><a href="admin_delete_co.do?co_id=${cor.co_id}">퇴출</a></td>
 	</tr>
