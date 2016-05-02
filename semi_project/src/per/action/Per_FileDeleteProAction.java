@@ -58,6 +58,6 @@ public class Per_FileDeleteProAction implements CommandAction {
 		
 		request.setAttribute("fileList", fileList);
 
-		return "p_detail.jsp";
+		return "p_filedeletePro.jsp";
 	}
 }
