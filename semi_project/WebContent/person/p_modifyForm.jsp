@@ -9,7 +9,7 @@
 		var userinput = eval("document.userinput");
 
 		if (!userinput.p_id.value) {
-			alert("ID를 입력하세 요");
+			alert("ID를 입력하세요");
 			return false;
 		}
 
@@ -34,7 +34,7 @@
 		return true;
 	}
 
-	// 아이디 중복 여부를 판단
+/* 	// 아이디 중복 여부를 판단
 	function openConfirmid(userinput) {
 		// 아이디를 입력했는지 검사
 		if (userinput.p_id.value == "") {
@@ -50,7 +50,7 @@
 				"confirm",
 				"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
 	}
-
+ */
 	function zipCheck() {
 
 		url = "zipcheck.do?check=y";
@@ -64,30 +64,22 @@
 
 	<form method="get" action="p_inputPro.do" name="userinput"
 		onSubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3"
-			align="center">
+		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
 			<tr>
 				<td colspan="2" height="39" align="center" bgcolor="<%=value_c%>">
-					<font size="+1"><b>회원가입</b></font>
+					<font size="+1"><b>개인회원정보수정</b></font>
 				</td>
 			</tr>
 			<tr>
-				<td width="200" bgcolor="<%=value_c%>"><b>아이디 입력</b></td>
-				<td width="400" bgcolor="<%=value_c%>"></td>
-			</tr>
-
-			<tr>
 				<td width="200">사용자 ID</td>
-				<td width="400">${memId }</td>
+				<td width="400">${p_id}</td>
 			</tr>
 			<tr>
 				<td width="200">비밀번호</td>
-				<td width="400"><input type="password" name="p_passwd" size="15"
-					maxlength="12"></td>
+				<td width="400"><input type="password" name="p_passwd" size="15" maxlength="12"></td>
 			<tr>
 				<td width="200">비밀번호 확인</td>
-				<td width="400"><input type="password" name="p_passwd2" size="15"
-					maxlength="12"></td>
+				<td width="400"><input type="password" name="p_passwd2" size="15" maxlength="12"></td>
 			</tr>
 
 			<tr>
@@ -96,8 +88,7 @@
 			<tr>
 			<tr>
 				<td width="200">이름</td>
-				<td width="400"><input type="text" name="p_name" size="15"
-					maxlength="10"></td>
+				<td width="400"><input type="text" name="p_name" size="15" maxlength="10" value="${param.name}"></td>
 			</tr>
 			<tr>
 				<td width="200">주민등록번호</td>
@@ -118,13 +109,13 @@
 			</tr>
 			<tr>
 				<td width="200">E-Mail</td>
-				<td width="400"><input type="text" name="p_email" size="40"
-					maxlength="30"></td>
+				<td width="400">
+				<input type="text" name="p_email" size="40" maxlength="30"></td>
 			</tr>
 			<tr>
 				<td width="200">생년월일</td>
-				<td width="400"><input type="number" name="p_birth" size="40"
-					maxlength="30" value="ex)19910101"></td>
+				<td width="400">
+				<input type="number" name="p_birth" size="40" maxlength="30" value="ex)19910101"></td>
 			</tr>
 			<tr>
 				<td width="200">우편번호</td>
@@ -158,12 +149,10 @@
 				<td><textarea rows="30" cols="70" name="p_award"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center" bgcolor="<%=value_c%>"><input
-					type="submit" name="confirm" value="회원가입"> <!-- <input
-					type="reset" name="reset" value="다시입력">  -->
-					<input
-					type="button" value="취소"
-					onclick="javascript:window.location='main.do'"></td>
+				<td colspan="2" align="center" bgcolor="<%=value_c%>">
+				<input type="submit" name="confirm" value="회원가입"> 
+				<!-- <input type="reset" name="reset" value="다시입력">  -->
+				<input type="button" value="취소" onclick="javascript:window.location=history.go(-1)"></td>
 			</tr>
 		</table>
 	</form>
