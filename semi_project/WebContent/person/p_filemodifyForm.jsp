@@ -33,7 +33,7 @@
 <%try{%>
 </head>
 <body bgcolor="${bodyback_c}>">
-	<form method="post" action="fileModify.do" name="Fileinput" onsubmit="return checkIt()">
+	<form method="post" action="Per_fileModify.do?f_filename=${f_filename}" name="Fileinput" onsubmit="return checkIt()">
 
 		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
 			<tr>
@@ -52,7 +52,7 @@
 			<tr>
 				<td width="200" bgcolor="${value_c}">파일 제목: </td>
 				<td width="400">
-				<input type="text" size="10" maxlength="20" value="${FileBean.f_title}"></td>
+				<input type="text" size="10" maxlength="20" value="${file.f_title}"></td>
 			</tr>
 		
 		<td width="200" bgcolor="${value_c}">파일 : </td>
@@ -66,7 +66,7 @@
 			<tr>
 				<td width="200" bgcolor="${value_c}" >파일 설명</td>
 				<td width="400" bgcolor="${value_c}">
-				<input type="textarea" name="f_description" value="${FileBean.f_desciption}"></td>
+				<input type="textarea" name="f_description" value="${file.f_desciption}"></td>
 			</tr>
 			
 			<tr>

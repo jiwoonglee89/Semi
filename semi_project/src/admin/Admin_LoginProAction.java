@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import DB.AdminBean;
 import action.CommandAction;
-import per.action_W.Connection;
+import per.action.Connection;
 
 public class Admin_LoginProAction implements CommandAction{
 

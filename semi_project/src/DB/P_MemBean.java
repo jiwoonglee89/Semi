@@ -6,14 +6,6 @@ public class P_MemBean {
 	String p_name;
 	String p_gender; 
 	String p_email;
-	String p_phone;
-	public String getP_phone() {
-		return p_phone;
-	}
-
-	public void setP_phone(String p_phone) {
-		this.p_phone = p_phone;
-	}
 	int p_birth;
 	String p_tel;
 	String jumin1;
@@ -29,7 +21,7 @@ public class P_MemBean {
 	
 	public P_MemBean(String p_passwd, String p_name, String p_gender, String jumin1, String jumin2,String p_email, int p_birth,
 			 String p_tel, String p_career, String p_award,
-			String p_zipcode, String p_address, String p_category,int p_count, String p_phone) {
+			String p_zipcode, String p_address, String p_category,int p_count) {
 		super();
 		this.p_passwd = p_passwd;
 		this.p_name = p_name;
@@ -45,12 +37,11 @@ public class P_MemBean {
 		this.p_address = p_address;
 		this.p_category = p_category;
 		this.p_count = p_count;
-		this.p_phone=p_phone;
 	}
 	
 	public P_MemBean(String p_id, String p_passwd, String p_name, String p_gender, String jumin1, String jumin2,String p_email, int p_birth,
 			 String p_tel, String p_career, String p_award,
-			String p_zipcode, String p_address, String p_category,int p_count, String p_phone) {
+			String p_zipcode, String p_address, String p_category,int p_count) {
 		super();
 		this.p_id = p_id;
 		this.p_passwd = p_passwd;
@@ -67,7 +58,7 @@ public class P_MemBean {
 		this.p_address = p_address;
 		this.p_category = p_category;
 		this.p_count = p_count;
-		this.p_phone=p_phone;
+
 	}
 
 
