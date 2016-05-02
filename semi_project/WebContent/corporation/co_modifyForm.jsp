@@ -32,7 +32,7 @@
 			alert("업종을 선택해주세요.");
 			return false;
 		}
-		if (userinput.co_subjob.value == "") {
+		if (userinput.co_subjob.value == "-1") {
 			alert("상세업종을 선택해주세요.");
 			return false;
 		}
@@ -122,7 +122,7 @@
 				<td width="200">상세업종 :</td>
 				<td width="400">
 				<select name="co_subjob" size="1" >
-				<option>----- 제조업 ----- </option>
+				<option value="-1">----- 제조업 ----- </option>
 				<option value="0" >농업 임업 어업 광업</option>
 				<option value="1" >가죽 가방 신발</option>
 				<option value="2" >기계 조선 자동차 운송장비</option>
@@ -130,7 +130,7 @@
 				<option value="4" >생활 용품 화장품</option>
 				<option value="5" >전자 전기 반도체</option>
 				<option value="6" >제조업 기타</option>
-				<option>----- 정보통신업 -----</option>
+				<option value="-1">----- 정보통신업 -----</option>
 				<option value="0" >네트워크 통신</option>
 				<option value="1" >소프트웨어 솔루션 ASP</option>
 				<option value="2" >인터넷 포털 컨텐츠 게임</option>
@@ -138,7 +138,7 @@
 				<option value="4" >웹 에이전시 IT 컨설팅</option>
 				<option value="5" >모바일 무선 </option>
 				<option value="6" >디자인 CAD</option>
-				<option>----- 건설토목업 -----</option>
+				<option value="-1">----- 건설토목업 -----</option>
 				<option value="0" >건설 건축 토목 조경</option>
 				<option value="1" >인테리어 디자인</option>
 				<option value="2" >건축사 감리회사</option>
@@ -146,18 +146,18 @@
 				<option value="4" >토목 ENG CM 시험 측량</option>
 				<option value="5" >건설자재 중장비 </option>
 				<option value="6" >전기 설비 환경 플랜트</option>
-				<option>-----개인 가사서비스업-----</option>
+				<option value="-1">-----개인 가사서비스업-----</option>
 				<option value="0" >건설 건축 토목 조경</option>
 				<option value="1" >수리업</option>
 				<option value="2" >하수 폐기물 청소</option>
 				<option value="3" >개인서비스</option>
 				<option value="4" >가사 서비스</option>
-				<option>-----공공 의료 사회기반 사업-----</option>
+				<option value="-1">-----공공 의료 사회기반 사업-----</option>
 				<option value="0" >의약 보건 사회복지</option>
 				<option value="1" >정부 비영리 단체</option>
 				<option value="2" >전기 가스 수도 에너지</option>
 				<option value="3" >국제 및 외국 기관</option>
-				<option>-----여행 숙박 음식점업-----</option>
+				<option value="-1">-----여행 숙박 음식점업-----</option>
 				<option value="0" >호텔 여행 항공</option>
 				<option value="1" >식음료 외식(프랜차이즈)</option>
 				

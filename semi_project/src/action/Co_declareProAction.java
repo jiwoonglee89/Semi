@@ -20,8 +20,11 @@ public class Co_declareProAction implements CommandAction{
 		map.put("p_id", p_id);
 		map.put("reason", reason);
 		int success=session.insert("black.addPer", map);
-		if(success>0)
+		if(success>0){
 			session.commit();
+			session.update("per_member.countup");
+			session.commit();
+		}
 		else
 			session.rollback();
 		request.setAttribute("success", new Integer(success));
