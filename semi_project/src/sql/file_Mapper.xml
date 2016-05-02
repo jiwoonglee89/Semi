@@ -13,9 +13,17 @@
     <select id="info" parameterType="String" resultType="DB.FileBean">
         select * from fileupload where f_filename=#{f_filename}        
     </select>
-
+    <select id="ca" parameterType="String" resultType="DB.FileBean">
+        select * from fileupload where f_category like '%'||#{dataList}||'%'        
+    </select>
+    <select id="ti" parameterType="String" resultType="DB.FileBean">
+        select realpath, f_title, f_description, f_regdate from fileupload where f_title=#{f_title}        
+    </select>
+    <select id="de" parameterType="String" resultType="DB.FileBean">
+        select realpath, f_title, f_description, f_regdate from fileupload where f_description=#{f_description}        
+    </select>
       
     <delete id="delete" parameterType="DB.FileBean">
-        delete from fileupload where f_filename='#{f_filename}'
+        delete from fileupload where f_filename='#{f_filename}
     </delete>
 </mapper>

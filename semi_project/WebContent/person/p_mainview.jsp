@@ -44,6 +44,7 @@
 					</section>
 					
 					<form id="signup-form" method="post" action="#">
+					<%-- <c:forEach var="d" items="${dataList}"> --%>
 					<h3>검색</h3>
 						<select>
 							<option>검색종류</option>
@@ -52,15 +53,14 @@
 							<option value="2">설명</option>
 						</select>
 
-						<%-- <c:forEach var="dataList" items="${searchn}">
-							<c:if test="${search}">
+						
+							
 						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
 						<input type="submit" value="검색" />
-						</c:if>
-						</c:forEach> --%>
-
-						<input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
-						<input type="submit" value="검색" />
+						
+						<%-- </c:forEach> --%>
+						<!-- <input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
+						<input type="submit" value="검색" /> -->
 
 					</form>
 				<!-- Two -->
@@ -423,7 +423,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<span class="label"><input type="submit" value="쪽지함"/></span>
 					</Form></li>
 					<li><a href="../QNA_board/QNA_list.do" ><span class="label">Q&A</span></a></li>
-					<li><a href="" ><span class="label">정보수정</span></a></li>
+					<li><a href="p_modifyForm.do" ><span class="label">정보수정</span></a></li>
 					<li><a href="p_logout.jsp"><span class="label">로그아웃</span></a></li> 
 					<!-- <li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li> -->
 				</ul>
