@@ -1,17 +1,12 @@
 package per.action;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
-import java.util.Vector;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +18,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.ibatis.session.SqlSession;
 
 import DB.FileBean;
-import DB.P_MemBean;
 import action.CommandAction;
 
-public class Per_FileUpProAction implements CommandAction {
+public class Per_FileModifyProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -40,6 +34,7 @@ public class Per_FileUpProAction implements CommandAction {
 		String f_category = null;
 		String realpath = null;
 		String filename = null;
+		String f_filename = null;
 		List fileList = null;
 
 		FileBean filebean = new FileBean();
@@ -61,7 +56,9 @@ public class Per_FileUpProAction implements CommandAction {
 				String name = item.getFieldName();
 				if (name.equals("f_category")) {
 					f_category = item.getString();
-
+				} else if (name.equals("f_filename")) {
+					f_filename = item.getString("UTF-8");
+					System.out.println("f_filename:::" + f_filename);
 				} else if (name.equals("f_title")) {
 					f_title = item.getString("UTF-8");
 					System.out.println("f_title:::" + f_title);
@@ -71,7 +68,7 @@ public class Per_FileUpProAction implements CommandAction {
 			} else {
 				String name = item.getFieldName();
 				if (name.equals("file")) {
-					realpath = fileup(f_title, item, request);
+					realpath = fileup_del(f_title, item, request, f_filename);
 					filename = item.getName();
 				}
 			}
@@ -81,17 +78,13 @@ public class Per_FileUpProAction implements CommandAction {
 
 		// P_MemBean pbean = new P_MemBean();
 
-		// 세션값가져오기
+
+		session.delete("file.delete", f_filename);
+
 		HttpSession session1 = request.getSession();
 		String p_id = (String) session1.getAttribute("p_id");
 
-		// String realPath = file.getAbsolutePath();
-		// 아이디에맞는 카테고리 가져오기
-		// String p_category = session.selectOne("per_member.find", p_id);
-
-		// String p_category = request.getParameter("p_category");
-
-		System.out.println(/* p_id+"\n"+ */realpath + "\n" + f_title + "\n" + f_description + "\n" + f_category);
+		//System.out.println(/* p_id+"\n"+ */realpath + "\n" + f_title + "\n" + f_description + "\n" + f_category);
 
 		if (f_category.equals("0")) {
 			f_category = "sanup";
@@ -109,7 +102,7 @@ public class Per_FileUpProAction implements CommandAction {
 		filebean.setF_category(f_category);
 		filebean.setF_filename(filename);
 
-		
+		// fileList=session.selectList("file.all", p_id);
 
 		int success = session.insert("per_member.fileadd", filebean);
 		if (success > 0) {
@@ -120,14 +113,23 @@ public class Per_FileUpProAction implements CommandAction {
 			System.out.println("업로드 실패");
 		}
 
+		fileList = session.selectList("file.all", p_id);
+		
 		request.setAttribute("filebean", filebean);
+		/*
+		 * request.setAttribute("f_category", f_category);
+		 * request.setAttribute("f_title", filebean.getF_title());
+		 * request.setAttribute("f_description", filebean.getF_description());
+		 * request.setAttribute("f_regdate", filebean.getF_regdate());
+		 * request.setAttribute("realpath", filebean.getRealpath());
+		 */
 		request.setAttribute("success", success);
 
-		return "/person/fileuploadPro.jsp";
+		return "p_detail.jsp";
 
 	}
 
-	public String fileup(String f_title, FileItem item, HttpServletRequest request) {
+	public String fileup_del(String f_title, FileItem item, HttpServletRequest request, String f_filename) {
 		// System.out.println("fileup()");
 		ServletContext app = (ServletContext) request.getAttribute("app");
 		String directory = app.getRealPath("/File");
@@ -164,6 +166,15 @@ public class Per_FileUpProAction implements CommandAction {
 			}
 		}
 
+		File fileDel = new File(directory + "/" + f_filename);
+
+		try {
+			fileDel.delete();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return realpath;
 	}
+
 }

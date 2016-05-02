@@ -25,8 +25,8 @@
 </script>
 </head>
   
-<body onLoad="focusIt();" bgcolor="<%= bodyback_c%>">
-  <table width=250 cellpadding="0" cellspacing="0"  align="center" border="1" >
+<body onLoad="focusIt();" bgcolor="<%= bodyback_c%>" marginheight="230">
+  <table width=250 cellpadding="0" cellspacing="0"  align="center" border="3 solid">
       <tr>
        <form name="inform" method="post" action="loginPro.do"  onSubmit="return checkIt();">
 	   <td bgcolor="<%=title_c%>"  width="50" align="right">아이디</td>
