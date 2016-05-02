@@ -71,8 +71,7 @@ function openConfirmid(userinput) {
 	// 새로운 윈도우를 엽니다.
 	open(
 			url,
-			"confirm",
-			"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
+			"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
 	}
 </script>
 </head>
@@ -80,8 +79,7 @@ function openConfirmid(userinput) {
 
 <body bgcolor="${bodyback_c}">
 	<form method="post" action="co_inputPro.do" name="userinput" onsubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3"
-			align="center">
+		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
 			<tr>
 				<td colspan="2" height="39" align="center" bgcolor="${value_c}">
 					<font size="+1"><b>기업회원 회원가입</b></font>
@@ -216,16 +214,11 @@ function openConfirmid(userinput) {
 
 
 			<tr>
-				<td colspan="2" align="center" bgcolor="${value_c}"><input
-					type="submit" name="confirm" value="회원가입"> 
-					<input	type="button" value="취소"
-					onclick="javascript:window.location='main.do'"></td>
+				<td colspan="2" align="center" bgcolor="${value_c}">
+				<input type="submit" name="confirm" value="회원가입"> 
+				<input type="button" value="취소" onclick="javascript:window.location='main.do'"></td>
 			</tr>
 		</table>
 	</form>
-
-
-
-
 </body>
 </html>
