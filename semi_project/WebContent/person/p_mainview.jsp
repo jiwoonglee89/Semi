@@ -420,12 +420,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				<ul class="icons">
 				<li><Form method="get" action="p_messageList.do">
 					<input type="hidden" name="m_count" value="0"/>
+					<!--  -->
+					<input type="hidden" name="m_num" value="0"/>
 					<span class="label"><input type="submit" value="쪽지함"/></span>
 					</Form></li>
 					<li><a href="../QNA_board/QNA_list.do" ><span class="label">Q&A</span></a></li>
 					<li><a href="p_modifyForm.do" ><span class="label">정보수정</span></a></li>
 					<li><a href="p_logout.jsp"><span class="label">로그아웃</span></a></li> 
-					<!-- <li><input type="button" value="로그아웃" OnClick="window.location='/semi_project/person/p_deleteForm.do'"><li> -->
 				</ul>
 			</footer>
 

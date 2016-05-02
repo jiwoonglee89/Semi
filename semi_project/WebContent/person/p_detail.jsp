@@ -36,6 +36,11 @@
 								<input type="hidden" name="f_filename" value="${f.f_filename}"/>
 								<input type="submit" value="삭제"/>
 							</form>
+							
+							<form action = "filemodify.do?f_filename=${f.f_filename }">
+								<input type="hidden" name="f_filename" value="${f.f_filename}"/>
+								<input type="submit" value="수정"/>
+							</form>
 						</article>
 					</c:forEach>
 						
