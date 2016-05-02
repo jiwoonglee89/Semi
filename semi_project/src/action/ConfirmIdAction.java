@@ -11,22 +11,24 @@ public class ConfirmIdAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("UTF-8");
-		
-		Connection con=new Connection();
+
+		Connection con = new Connection();
+
 		SqlSession session = con.connection();
+
 		String co_id = session.selectOne("co_member.confirmId", request.getParameter("co_id"));
-		
-		
+
 		int check;
-		if(co_id==null){
-			check=-1;
-		}else
-			check=1;
-		
-		
-		request.setAttribute("co_id",co_id);
+
+		if (co_id == null) {
+			check = -1;
+		} else
+			check = 1;
+
+		request.setAttribute("co_id", co_id);
+
 		request.setAttribute("check", new Integer(check));
-		
+
 		return "confirmId.jsp";
 	}
 

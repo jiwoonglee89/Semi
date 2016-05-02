@@ -1,4 +1,4 @@
-package per.action_S;
+package per.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

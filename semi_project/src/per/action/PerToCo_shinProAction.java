@@ -1,4 +1,4 @@
-package per.action_W;
+package per.action;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import DB.Co_MemBean;
 import DB.MessageBean;
 import DB.P_MemBean;
 import action.CommandAction;
-import per.action_W.Connection;
+import per.action.Connection;
 
 public class PerToCo_shinProAction implements CommandAction {
 
