@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -6,19 +6,19 @@
 </head>
 <body>
 <c:if test="${kind==1}">
-	°³ÀÎ
+	ê°œì¸
 
 	<c:forEach var ="i" items="${reasonList}">
-		<p>¾ÆÀÌµğ : ${i.p_id}</p>
-		<p>½Å°í»çÀ¯: ${i.reason}</p></br></br>
+		<p>ì•„ì´ë”” : ${i.p_id}</p>
+		<p>ì‹ ê³ ì‚¬ìœ : ${i.reason}</p></br></br>
 	</c:forEach>
 </c:if>
 <c:if test="${kind==2}">
-	±â¾÷
+	ê¸°ì—…
 	
 	<c:forEach var ="i" items="${reasonList}">
-		<a>¾ÆÀÌµğ : ${i.co_id}</a>
-		<p>½Å°í»çÀ¯: ${i.reason}</p></br></br>
+		<a>ì•„ì´ë”” : ${i.co_id}</a>
+		<p>ì‹ ê³ ì‚¬ìœ : ${i.reason}</p></br></br>
 	</c:forEach>
 </c:if>
 

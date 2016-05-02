@@ -17,6 +17,8 @@ public class Admin_Reason implements CommandAction{
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		List reasonList = null;
 		int kind = 0;
