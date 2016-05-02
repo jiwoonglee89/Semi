@@ -21,11 +21,20 @@ public class Per_MainViewAction implements CommandAction {
 
 		Connection con = new Connection();
 		SqlSession session = con.connection();
+		
+		HttpSession session2 = request.getSession();
+		String p_id = (String) session2.getAttribute("p_id");
+		ServletContext app = (ServletContext) request.getAttribute("app");
 
-		List dataList = null;
+		System.out.println("app::::" + app);
+
+		P_MemBean p_list = session.selectOne("per_member.find", p_id);
+		List fileList = session.selectList("file.all", p_id);
+		System.out.println("fileList.size():::"+fileList.size());
+		//List dataList = null;
 
 		String search = request.getParameter("search");
-		// 검색내용
+		
 
 		//FileBean fBean = new FileBean();
 
@@ -35,45 +44,27 @@ public class Per_MainViewAction implements CommandAction {
 
 				search = "f_category";
 
-				dataList = session.selectList("file.ca", searchn);
+				fileList = session.selectList("file.ca", searchn);
 
 			} else if (search.equals("1")) {
 				search = "f_title";
 
-				dataList = session.selectList("file.ti", searchn);
+				fileList = session.selectList("file.ti", searchn);
 
 			} else if (search.equals("2")) {
 				search = "f_description";
 
-				dataList = session.selectList("file.de", searchn);
+				fileList = session.selectList("file.de", searchn);
 
 			}
 		}
 
-		HttpSession session2 = request.getSession();
-		String p_id = (String) session2.getAttribute("p_id");
-		ServletContext app = (ServletContext) request.getAttribute("app");
-
-		System.out.println("app::::" + app);
-
-		P_MemBean p_list = session.selectOne("per_member.find", p_id);
-		List fileList = session.selectList("file.all", p_id);
+		
 
 		request.setAttribute("p_list", p_list);
+		request.setAttribute("search", search);
 		request.setAttribute("fileList", fileList);
 		request.setAttribute("app", app);
-
-		request.setAttribute("dataList", dataList);
-
-		/*
-		 * request.setAttribute("realpath", fBean.getRealpath());
-		 * request.setAttribute("f_title", fBean.getF_title());
-		 * 
-		 * request.setAttribute("f_description", fBean.getF_description());
-		 * request.setAttribute("f_regdate", fBean.getF_regdate());
-		 */
-
-		request.setAttribute("search", search);
 
 		return "/person/p_mainview.jsp";
 	}

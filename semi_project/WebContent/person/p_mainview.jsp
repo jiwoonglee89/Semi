@@ -44,9 +44,9 @@
 					</section>
 					
 					<form id="signup-form" method="post" action="#">
-					<%-- <c:forEach var="d" items="${dataList}"> --%>
+					
 					<h3>검색</h3>
-						<select>
+						<select name="search">
 							<option>검색종류</option>
 							<option value="0">디자인분야</option>
 							<option value="1">제목</option>
@@ -58,14 +58,13 @@
 						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
 						<input type="submit" value="검색" />
 						
-						<%-- </c:forEach> --%>
-						<!-- <input type="text" name="text" id="email" placeholder="검색내용" size="50"/>
-						<input type="submit" value="검색" /> -->
+						
 
 					</form>
 				<!-- Two -->
 					<section id="two">
 						<h2>나의 포트폴리오 목록</h2>
+						
 						
 						<div class="row">
 						<c:forEach var="f" items="${fileList}">
@@ -76,6 +75,7 @@
 								<p>${f.f_regdate }</p>
 							</article>
 						</c:forEach>
+						
 							<!-- <article class="6u$ 12u$(xsmall) work-item">
 								<a href="main_msg/images/fulls/02.jpg" class="image fit thumb"><img src="main_msg/images/thumbs/02.jpg" alt="" /></a>
 								<h3>Ultricies lacinia interdum</h3>

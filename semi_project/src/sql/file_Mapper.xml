@@ -14,13 +14,13 @@
         select * from fileupload where f_filename=#{f_filename}        
     </select>
     <select id="ca" parameterType="String" resultType="DB.FileBean">
-        select * from fileupload where f_category like '%'||#{dataList}||'%'        
+        select * from fileupload where f_category like '%'|| #{fileList} ||'%'       
     </select>
     <select id="ti" parameterType="String" resultType="DB.FileBean">
-        select realpath, f_title, f_description, f_regdate from fileupload where f_title=#{f_title}        
+        select * from fileupload where f_title  like '%'|| #{fileList} ||'%'       
     </select>
     <select id="de" parameterType="String" resultType="DB.FileBean">
-        select realpath, f_title, f_description, f_regdate from fileupload where f_description=#{f_description}        
+        select * from fileupload where f_description like '%'|| #{fileList} ||'%'   
     </select>
     <select id="infom" parameterType="String" resultType="DB.P_MemBean">
     	select p.p_gender, p.p_address, p.p_tel, p.p_phone, p.p_email, p.p_birth, p.p_career, p.rp_award
