@@ -32,6 +32,12 @@
 		select * from fileupload where f_description like '%'||#{f_discription}||'%'
 	</select>
 	
-	
+	<select id="inform_per" parameterType="Integer" resultType="String">
+		select p_id from fileupload where f_num=#{f_num}
+	</select>
+	<select id="infom" parameterType="String">
+    	select p.p_gender, p.p_address, p.p_tel, p.p_phone, p.p_email, p.p_birth, p.p_career, p.rp_award
+    	from per_member p, fileupload f where p.p_id=#{f.p_id};
+    </select>
 		
 </mapper>

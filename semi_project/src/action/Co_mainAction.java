@@ -18,6 +18,10 @@ public class Co_mainAction implements CommandAction{
 		SqlSession session=con.connection();
 		List people=session.selectList("co_board.all_per");
 		List file=session.selectList("co_board.all_file");
+		//List inform=session.selectList("co_board.inform", )
+		
+		//String app =request.getParameter("app");
+		
 		System.out.println(file.size());
 		String search=null;
 		
@@ -46,6 +50,7 @@ public class Co_mainAction implements CommandAction{
 	}
 		request.setAttribute("people", people);
 		request.setAttribute("file", file);
+		//request.setAttribute("app",app);
 		return "co_main.jsp";
 	}
 
