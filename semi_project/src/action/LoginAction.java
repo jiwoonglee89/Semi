@@ -17,20 +17,25 @@ public class LoginAction implements CommandAction {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
-		int count;
-		if(session.selectOne("co_member.areyoublack", id)!=null){
-			count=session.selectOne("co_member.areyoublack", id);
-		}else if(session.selectOne("per_member.areyoublack", id)!=null){
-			count=session.selectOne("per_member.areyoublack", id);
-		}else{
-			count=0;
-		}
-		request.setAttribute("count", new Integer(count));
+		int count=0;
+
 		String confirm_co = session.selectOne("co_member.confirm", id);
 		String confirm_per = session.selectOne("per_member.findpass", id);
 		String confirm_admin = session.selectOne("admin.confirm", id);
 
 		HttpSession httpsession = request.getSession();
+		
+		if(request.getParameter("per_or_cor").equals("cor")){
+			if(session.selectOne("co_member.areyoublack", id)!=null){
+				count=session.selectOne("co_member.areyoublack", id);
+			}
+			
+		}else if(request.getParameter("per_or_cor").equals("per")){
+			if(session.selectOne("per_member.areyoublack", id)!=null){
+				count=session.selectOne("per_member.areyoublack", id);
+			}
+		}
+		request.setAttribute("count", new Integer(count));
 		
 		if(request.getParameter("per_or_cor") == null){
 			if(confirm_admin.equals(passwd)){
