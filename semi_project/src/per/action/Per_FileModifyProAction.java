@@ -125,7 +125,7 @@ public class Per_FileModifyProAction implements CommandAction {
 		 */
 		request.setAttribute("success", success);
 
-		return "p_detail.jsp";
+		return "filemodifyPro.jsp";
 
 	}
 

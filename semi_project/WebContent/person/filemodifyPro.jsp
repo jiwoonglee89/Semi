@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-삭제되었습니다.<br>
+수정되었습니다.<br>
 <a href="p_detail.do?m_num=0">목록보기</a>
 </body>
 </html>

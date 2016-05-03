@@ -40,11 +40,11 @@ public class Per_InputProAction implements CommandAction {
 			String p_category = request.getParameter("p_category");
 			if (p_category != null) {
 				if (p_category.equals("0")) {
-					p_category = "sanup";
+					p_category = "산업디자인";
 				}else if (p_category.equals("1")) {
-					p_category = "web";
+					p_category = "웹디자인";
 				}else if (p_category.equals("2")) {
-					p_category = "guncuck";
+					p_category = "건축디자인";
 				}
 			}
 

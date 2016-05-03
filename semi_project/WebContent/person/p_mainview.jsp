@@ -3,7 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <html>
 	<head>
-		<title>Strata by HTML5 UP</title>
+		<title>JUNCO</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="main_msg/assets/css/main.css" />
@@ -14,7 +14,12 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href="#" class="image avatar"><img src="main_msg/images/avatar.jpg" alt="" /></a>
+				<Form method="get" action="p_messageList.do">
+					<input type="hidden" name="m_count" value="0"/>
+					<!--  -->
+					<input type="hidden" name="m_num" value="0"/>
+					<span class="label"><input type="submit" value="쪽지함"/></span>
+					</Form>
 				<h1><strong>포트폴리오 자료실에 오신걸 환영합니다! </br>${p_list.p_name}님</strong><br />
 				이메일 : ${p_list.p_email }<br />
 				생년월일 : ${p_list.p_birth }<br />
@@ -417,12 +422,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<!-- Footer -->
 			 <footer id="footer">
 				<ul class="icons">
-				<li><Form method="get" action="p_messageList.do">
-					<input type="hidden" name="m_count" value="0"/>
-					<!--  -->
-					<input type="hidden" name="m_num" value="0"/>
-					<span class="label"><input type="submit" value="쪽지함"/></span>
-					</Form></li>
 					<li><a href="../QNA_board/QNA_list.do" ><span class="label">Q&A</span></a></li>
 					<li><a href="p_modifyForm.do" ><span class="label">정보수정</span></a></li>
 					<li><a href="p_logout.jsp"><span class="label">로그아웃</span></a></li> 
