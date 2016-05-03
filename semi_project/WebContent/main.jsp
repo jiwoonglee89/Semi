@@ -30,9 +30,9 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<div class="fa fa-building fa-2x"></div> <br> 
 					<div class="4u 12u$(xsmall)">
-						<input type="radio" id="per" name="per_or_cor">
+						<input type="radio" id="per" value="per" name="per_or_cor">
 						<label for="per">개인회원</label>
-						<input type="radio" id="cor" name="per_or_cor">
+						<input type="radio" id="cor" value="cor" name="per_or_cor">
 						<label for="cor">기업회원</label>
 					</div>
 				</td>

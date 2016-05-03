@@ -89,7 +89,7 @@
 						</div>
 						
 						<ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
+							<li><a href="#" class="button">처음으로</a></li>
 						</ul>
 						
 								

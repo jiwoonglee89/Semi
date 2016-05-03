@@ -18,6 +18,9 @@ public class LoginAction implements CommandAction {
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		int count=0;
+		
+		String a = request.getParameter("per_or_cor");
+		System.out.println("a:::"+a);
 
 		String confirm_co = session.selectOne("co_member.confirm", id);
 		String confirm_per = session.selectOne("per_member.findpass", id);
