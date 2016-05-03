@@ -1,14 +1,15 @@
 package per.action;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
-import DB.FileBean;
 import action.CommandAction;
 
 public class Per_FileDeleteProAction implements CommandAction {
@@ -19,13 +20,16 @@ public class Per_FileDeleteProAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 
-		// HttpSession session2 = request.getSession();
+		HttpSession session2 = request.getSession();
+		String p_id = (String) session2.getAttribute("p_id");
 
 		/*
 		 * String context = request.getContextPath();
 		 * System.out.println("context:::::"+context);
 		 */
 
+		List fileList = null;
+		
 		ServletContext app = (ServletContext) request.getAttribute("app");
 		String directory = app.getRealPath("/File");
 
@@ -49,7 +53,11 @@ public class Per_FileDeleteProAction implements CommandAction {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		
+		fileList = session.selectList("file.all", p_id);
+		
+		request.setAttribute("fileList", fileList);
 
-		return "p_detail.jsp";
+		return "p_filedeletePro.jsp";
 	}
 }

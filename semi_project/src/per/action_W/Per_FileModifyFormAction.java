@@ -18,14 +18,13 @@ public class Per_FileModifyFormAction implements CommandAction{
 		Connection con=new Connection();
 		SqlSession sqlsession=con.connection();
 		
-		String f_filename=request.getParameter("f_filename");
-		FileBean file= new FileBean();
-		f_filename=sqlsession.selectOne("file.info", f_filename);
-
+		String f_filename = request.getParameter("f_filename");
 		
-		request.setAttribute("f_filename", file);
+		System.out.println("form filename"+f_filename);
 		
-		return "p_modifyForm.jsp";
+		request.setAttribute("f_filename", f_filename);
+		
+		return "p_filemodifyForm.jsp";
 	}
 
 } 

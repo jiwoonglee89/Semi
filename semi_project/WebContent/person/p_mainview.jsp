@@ -15,7 +15,7 @@
 		<!-- Header -->
 			<header id="header">
 				<a href="#" class="image avatar"><img src="main_msg/images/avatar.jpg" alt="" /></a>
-				<h1><strong>포트폴리오 자료실에 오신걸 환영합니다! </br>${p_list.p_name }님</strong><br />
+				<h1><strong>포트폴리오 자료실에 오신걸 환영합니다! </br>${p_list.p_name}님</strong><br />
 				이메일 : ${p_list.p_email }<br />
 				생년월일 : ${p_list.p_birth }<br />
 				전화번호 : ${p_list.p_tel }<br />
@@ -36,8 +36,7 @@
 						
 						<ul class="actions">
 							<form enctype="multipart/form-data" method="post">
-								<input type="button" class="button" value="파일올리기"
-								onclick="javascript:window.location='fileuploadForm.do'">
+								<input type="button" class="button" value="파일올리기" onclick="javascript:window.location='fileuploadForm.do'">
 							</form>
 							<!-- <li><a href="#" class="button">파일올리기</a></li> -->
 						</ul>

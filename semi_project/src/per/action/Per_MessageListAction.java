@@ -30,13 +30,11 @@ public class Per_MessageListAction implements CommandAction {
 			System.out.println("여기까진됨");
 			int m_count_request = Integer.parseInt(request.getParameter("m_count"));
 			int m_num = Integer.parseInt(request.getParameter("m_num"));
-			if (m_num !=0 ) {
+			if (m_num != 0 ) {
 				session.update("message.increascount", m_num);
 
 				if (m_count_request > 0) {
 					m_countdes = "읽음";
-				} else {
-					m_countdes = "읽지않음";
 				}
 				
 				MessageBean mbean = new MessageBean();
@@ -46,13 +44,13 @@ public class Per_MessageListAction implements CommandAction {
 				session.update("message.insertdes", mbean);
 			}
 			
-
+			System.out.println("m_num:::"+m_num);
 			System.out.println("m_count_request:::" + m_count_request);
 
 			HttpSession session2 = request.getSession();
-			String p_id = (String) session2.getAttribute("p_id");			
+			String p_id = (String) session2.getAttribute("p_id");	
 
-			
+			System.out.println("p_id:::"+p_id);
 			
 			
 			
