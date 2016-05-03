@@ -21,6 +21,10 @@ public class QNA_WriteProAction implements CommandAction{
 		SqlSession sqlsession=con.connection();
 		HttpSession httpsession=request.getSession();
 		DB.QNABean article=new DB.QNABean();
+		
+		System.out.println(request.getParameter("q_num"));
+		System.out.println(request.getParameter("qref_number"));
+		
 		if(httpsession.getAttribute("co_id")!=null)
 			article.setCo_id((String)httpsession.getAttribute("co_id"));
 		else if(httpsession.getAttribute("p_id")!=null)
@@ -34,22 +38,34 @@ public class QNA_WriteProAction implements CommandAction{
 		article.setQref_number(Integer.parseInt(request.getParameter("qref_number")));
 		article.setReadcount(new Integer(0));
 		
-//		if(Integer.parseInt(request.getParameter("q_num"))==){
-//			int reply=Integer.parseInt(request.getParameter("q_num"));
-//		}
+		if(Integer.parseInt(request.getParameter("qref_number"))>0){
+			article.setQ_step(Integer.parseInt(request.getParameter("q_num")));
+		}
 		
 		int success=0;
-		if(httpsession.getAttribute("co_id")!=null)
-			success=sqlsession.insert("QNA_board.add_cor", article);
+		if(httpsession.getAttribute("co_id")!=null){
+			if(Integer.parseInt(request.getParameter("qref_number"))==0){
+				success=sqlsession.insert("QNA_board.add_cor", article);
+			}else
+				success=sqlsession.insert("QNA_board.add_cor2", article);
+		}
 		else if(httpsession.getAttribute("p_id")!=null)
-			success=sqlsession.insert("QNA_board.add_per", article);
-		else if(httpsession.getAttribute("admin_id")!=null)
-			success=sqlsession.insert("QNA_board.add_admin", article);
-		
+			if(Integer.parseInt(request.getParameter("qref_number"))==0){
+				success=sqlsession.insert("QNA_board.add_per", article);
+			}else
+				success=sqlsession.insert("QNA_board.add_per2", article);
+		else if(httpsession.getAttribute("admin_id")!=null){
+			if(Integer.parseInt(request.getParameter("qref_number"))==0){
+				success=sqlsession.insert("QNA_board.add_admin", article);
+			}
+			else
+				success=sqlsession.insert("QNA_board.add_admin2", article);
+		}
 		if(success>0)
 			sqlsession.commit();
 		else
 			sqlsession.rollback();
+		
 		
 		request.setAttribute("articleList", article);
 		return "QNA_writePro.jsp";

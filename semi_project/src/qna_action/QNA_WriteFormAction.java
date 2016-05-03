@@ -7,7 +7,7 @@ import action.*;
 public class QNA_WriteFormAction implements CommandAction{
 	
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable{
-		int q_num=0, qref_number=1;
+		int q_num=0, qref_number=0;
 		try{
 			if(request.getParameter("q_num")!=null){
 				q_num=Integer.parseInt(request.getParameter("q_num"));
