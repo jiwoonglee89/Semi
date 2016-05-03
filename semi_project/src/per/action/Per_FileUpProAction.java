@@ -128,12 +128,8 @@ public class Per_FileUpProAction implements CommandAction {
 	}
 
 	public String fileup(String f_title, FileItem item, HttpServletRequest request) {
-		// System.out.println("fileup()");
 		ServletContext app = (ServletContext) request.getAttribute("app");
 		String directory = app.getRealPath("/File");
-		System.out.println("억지로 만든 경로::" + directory);
-		// int randomValue = random.nextInt(50);
-		// String fileName = f_title + "_" + Integer.toString(randomValue);
 		String fileName = item.getName();
 		System.out.println("fileName:::" + fileName);
 		File file = new File(directory, fileName);
