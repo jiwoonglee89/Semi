@@ -17,15 +17,21 @@ public class LoginAction implements CommandAction {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
-
+		int count;
+		if(session.selectOne("co_member.areyoublack", id)!=null){
+			count=session.selectOne("co_member.areyoublack", id);
+		}else if(session.selectOne("per_member.areyoublack", id)!=null){
+			count=session.selectOne("per_member.areyoublack", id);
+		}else{
+			count=0;
+		}
+		request.setAttribute("count", new Integer(count));
 		String confirm_co = session.selectOne("co_member.confirm", id);
 		String confirm_per = session.selectOne("per_member.findpass", id);
 		String confirm_admin = session.selectOne("admin.confirm", id);
 
 		HttpSession httpsession = request.getSession();
 		
-		
-
 		if(request.getParameter("per_or_cor") == null){
 			if(confirm_admin.equals(passwd)){
 				httpsession.setAttribute("admin_id", id);
@@ -33,15 +39,16 @@ public class LoginAction implements CommandAction {
 				return "loginPro.jsp";
 			}
 			else{
-				return "main.jsp";
+				return "errorPage.jsp";
 			}
 		}else if (request.getParameter("per_or_cor").equals("cor")) {
+			
 			if (confirm_co.equals(passwd)) {
 				httpsession.setAttribute("co_id", id);
 				request.setAttribute("select", new Integer(2));
 				return "loginPro.jsp";
 			} else {
-				return "main.jsp";
+				return "errorPage.jsp";
 			}
 
 		}else {
@@ -50,16 +57,10 @@ public class LoginAction implements CommandAction {
 				request.setAttribute("select", new Integer(1));
 				return "loginPro.jsp";
 			} else {
-				return "main.jsp";
+				return "errorPage.jsp";
 			}
 
 		}
-
-		/*
-		 * HttpSession httpsession=request.getSession();
-		 * if(confirm_co.equals(passwd)){ httpsession.setAttribute("co_id", id);
-		 * return "loginPro.jsp"; } else { return "main.jsp"; }
-		 */
 	}
 
 }

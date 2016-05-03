@@ -22,8 +22,24 @@
 			return false;
 		}
 
-		if (!userinput.jumin1.value || !userinput.jumin2.value) {
-			alert("주민등록번호를 입력하세요");
+		if (userinput.p_tel.value=="") {
+			alert("전화번호 혹은 핸드폰 번호를 입력하세요");
+			return false;
+		}
+		if (userinput.p_email.value=="") {
+			alert("E-mail을 입력하세요");
+			return false;
+		}
+		if (userinput.p_birth.value=="") {
+			alert("생년월일을 입력하세요");
+			return false;
+		}
+		if (userinput.p_zipcode.value=="") {
+			alert("우편번호를 입력하세요");
+			return false;
+		}
+		if (userinput.p_address.value=="") {
+			alert("주소를 입력하세요");
 			return false;
 		}
 		return true;
@@ -39,7 +55,7 @@
 </script>
 <body bgcolor="<%=bodyback_c%>">
 
-	<form method="get" action="p_inputPro.do" name="userinput"
+	<form method="get" action="p_modifyPro.do" name="userinput"
 		onSubmit="return checkIt()">
 		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
 			<tr>

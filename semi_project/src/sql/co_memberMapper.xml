@@ -3,6 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="co_member">
+	<select id="areyoublack" parameterType="String" resultType="Integer">
+		select co_count from co_member where co_id=#{co_id}
+	</select>
 	<select id="confirm" parameterType="String" resultType="String">
 		select co_passwd from co_member where co_id=#{co_id}
 	</select>

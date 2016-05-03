@@ -21,4 +21,8 @@
     <servlet-name>handler</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/errorPage.jsp</location>
+  </error-page>
 </web-app>
