@@ -12,6 +12,7 @@ public class Co_declareProAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		request.setCharacterEncoding("UTF-8");
 		Connection con=new Connection();
 		SqlSession session=con.connection();
 		String p_id=request.getParameter("p_id");
