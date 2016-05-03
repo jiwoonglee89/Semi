@@ -1,13 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
- Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- <script>
- <%
+
+<%
  	String admin_id = (String)session.getAttribute("admin_id");
  	request.setAttribute("admin_id", admin_id);
- %>
- </script>
+%>
+<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+<script>
+$(function(){
+	 $("#myTable").tablesorter(); 
+});
+</script>
 <html>
 	<head>
 		<title>관리자 페이지</title>
@@ -21,13 +25,7 @@
 		<a href="QNA_board/QNA_list.do">Q&A</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="logout.jsp">로그아웃</a>
 		
-		<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
-		<script type="text/javascript" src="jquery.tablesorter.min.js"></script>
-		<script type="text/javascript">
-$(function(){
-	 $("#myTable").tablesorter(); 
-});
-		</script>
+
 		<link rel="stylesheet" href="blue/style.css" type="text/css" media="print, projection, screen" />
 	</head>
 	<body>
