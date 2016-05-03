@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<% request.setCharacterEncoding("UTF-8");%>
 <html>
 <head>
 <title>기업신고</title>
@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="declare/assets/css/main.css" />
 </head>
 
-
-<c:if test="${success==0}">
 	<body>
 		<section id="footer">
 
@@ -50,9 +48,10 @@
 						</div>
 						<div class="12u$">
 							<ul class="actions">
+								<input type="hidden" name="co_com" value="${coBean.co_com}"/>
 								<li><input type="submit" value="신고하기" class="special" /></li>
 								<li><input type="button" value="닫기" class="special"
-									onclick="javascript:window.location='person/p_messageList.do'" /></li>
+									onclick="javascript:window.location='p_messageList.do?m_num=0'" /></li>
 							</ul>
 						</div>
 					</div>
@@ -61,26 +60,6 @@
 			</div>
 
 		</section>
-</c:if>
-
-<c:if test="${success==1}">
-	<section id="footer">
-
-		<div class="container">
-			<div class="12u$">
-				<ul class="actions">
-					<li>신고되었습니다</li>
-					<li>${coBean.co_com}님의 신고횟수가 증가</li>
-					<li><form action="p_messageList.do">
-							<input type="hidden" name="m_count" value="${count}"/>
-							<input type="submit" value="닫기" class="special" />
-						</form></li>
-				</ul>
-			</div>
-		</div>
-
-	</section>
-</c:if>
 
 <!-- Scripts -->
 <script src="declare/assets/js/jquery.min.js"></script>

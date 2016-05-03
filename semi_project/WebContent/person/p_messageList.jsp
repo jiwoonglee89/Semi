@@ -9,9 +9,17 @@
 	메세지리스트
 	<hr />
 	<table border="2 solid 2px">
+	<tr> <td>회사이름</td>
+				<td align="center">쪽지제목</td>
+				<td align="center">보낸시간</td>
+				<td align="center">확인여부</td>
+				<td align="center">내용조회</td>
+				<td align="center">신고하기</td>
+			
+			</tr>
 		<c:forEach var="i" items="${dataList}">
 			<input type="hidden" value="${i.m_num}" name="m_num"/>
-			i.co_com::::${i.co_com}
+			
 			<tr>
 				<td>${i.co_com}</td>
 				<td><a href="p_messageView.do">${i.m_title}</a></td>
