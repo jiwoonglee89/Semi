@@ -4,16 +4,28 @@
  
 <mapper namespace="QNA_board">
 	<insert id="add_cor" parameterType="DB.QNABean">
-		insert into QNA_board(q_num, co_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd) 
-		values(q_seq.NEXTVAL, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd})
+		insert into QNA_board(q_num, co_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd, q_step) 
+		values(q_seq.NEXTVAL, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd}, q_seq.currval)
 	</insert>
 	<insert id="add_per" parameterType="DB.QNABean">
-		insert into QNA_board(q_num, p_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd) 
-		values(q_seq.NEXTVAL, #{p_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd})
+		insert into QNA_board(q_num, p_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd, q_step) 
+		values(q_seq.NEXTVAL, #{p_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd}, q_seq.currval)
 	</insert>
 	<insert id="add_admin" parameterType="DB.QNABean">
-		insert into QNA_board(q_num, admin_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd) 
-		values(q_seq.NEXTVAL, #{admin_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd})
+		insert into QNA_board(q_num, admin_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd, q_step) 
+		values(q_seq.NEXTVAL, #{admin_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd}, q_seq.currval)
+	</insert>
+		<insert id="add_cor2" parameterType="DB.QNABean">
+		insert into QNA_board(q_num, co_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd, q_step) 
+		values(q_seq.NEXTVAL, #{co_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd}, #{q_step})
+	</insert>
+	<insert id="add_per2" parameterType="DB.QNABean">
+		insert into QNA_board(q_num, p_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd, q_step) 
+		values(q_seq.NEXTVAL, #{p_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd}, #{q_step})
+	</insert>
+	<insert id="add_admin2" parameterType="DB.QNABean">
+		insert into QNA_board(q_num, admin_id, qna_title, q_regdate, qref_number, readcount, context, q_passwd, q_step) 
+		values(q_seq.NEXTVAL, #{admin_id}, #{qna_title}, #{q_regdate},#{qref_number}, #{readcount}, #{context}, #{q_passwd}, #{q_step})
 	</insert>
 	<select id="get" parameterType="java.lang.Integer" resultType="DB.QNABean">
 		select * from QNA_board where q_num=#{q_num}
@@ -57,10 +69,10 @@
 		select count(*) from QNA_board where content like '%'|| #{content} || '%'
 	</select>
 	<select id="getA" parameterType="java.util.HashMap" resultType="DB.QNABean">
-		select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, r from
-		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, ROWNUM r from
-		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id from qna_board order by q_num DESC, qref_number ASC)
-		order by q_num DESC, qref_number ASC)
+		select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, q_step, r from
+		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, q_step, ROWNUM r from
+		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, q_step from qna_board order by q_step DESC, qref_number ASC)
+		order by q_step DESC, qref_number ASC)
 		<![CDATA[     
 		where r>=#{start} 
 		 ]]>

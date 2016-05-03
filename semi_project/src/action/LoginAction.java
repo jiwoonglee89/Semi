@@ -17,15 +17,17 @@ public class LoginAction implements CommandAction {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
+		
+		
 		int count=0;
 		
 		String a = request.getParameter("per_or_cor");
 		System.out.println("a:::"+a);
-
+		System.out.println(passwd);
 		String confirm_co = session.selectOne("co_member.confirm", id);
 		String confirm_per = session.selectOne("per_member.findpass", id);
 		String confirm_admin = session.selectOne("admin.confirm", id);
-
+		
 		HttpSession httpsession = request.getSession();
 		
 		request.setAttribute("count", new Integer(count));

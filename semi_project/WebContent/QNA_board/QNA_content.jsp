@@ -56,7 +56,7 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
   			<input type="button" value="글삭제" onclick="document.location.href='QNA_deleteForm.do?q_num=${article.q_num}&pageNum=${pageNum}'">
    			&nbsp;&nbsp;&nbsp;&nbsp;
    			<c:if test="${co_id==null && p_id==null}">
-      		<input type="button" value="답글쓰기" onclick="document.location.href='QNA_writeForm.do?q_num=${article.q_num}&ref=${article.qref_number}'">
+      		<input type="button" value="답글쓰기" onclick="document.location.href='QNA_writeForm.do?q_num=${article.q_num}&qref_number=${article.qref_number+1}'">
       		&nbsp;&nbsp;&nbsp;&nbsp;
       		</c:if>
       		

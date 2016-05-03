@@ -13,7 +13,13 @@ public class QNABean {
 	int qref_number;
 	int readcount;
 	String context;
-	
+	int q_step;
+	public int getQ_step() {
+		return q_step;
+	}
+	public void setQ_step(int q_step) {
+		this.q_step = q_step;
+	}
 	public String getAdmin_id() {
 		return admin_id;
 	}
