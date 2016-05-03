@@ -41,12 +41,8 @@ public class Per_ModifyProAction implements CommandAction {
 			pbean.setP_address(request.getParameter("p_address"));
 			pbean.setP_category(request.getParameter("p_category"));
 
-<<<<<<< HEAD
-			int success = session.update("per_member.modify", p_id);
-			
-=======
 			int success = session.update("per_member.modify", pbean);
->>>>>>> branch 'master' of https://github.com/jiwoonglee89/semi
+
 			System.out.println(success);
 			if (success > 0) {
 				session.commit();
@@ -74,11 +70,8 @@ public class Per_ModifyProAction implements CommandAction {
 			e.printStackTrace();
 		}
 
-<<<<<<< HEAD
-		return "/person/p_mainview.jsp";
-=======
+
 		return "p_modifyPro.jsp";
->>>>>>> branch 'master' of https://github.com/jiwoonglee89/semi
 	}
 
 }
