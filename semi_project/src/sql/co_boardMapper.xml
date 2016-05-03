@@ -4,6 +4,9 @@
 
 
 <mapper namespace="co_board">
+	<update id="countup" parameterType="Integer">
+		update fileupload set f_readcount=f_readcount+1 where f_num=#{f_num}
+	</update>
 	<select id="all_file" resultType="DB.FileBean">
 		select * from fileupload order by f_num desc
 	</select>

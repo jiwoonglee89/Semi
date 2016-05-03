@@ -1,7 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE HTML>
-
 <html> 
 	<head>
 		<title>기업용 페이지</title>
@@ -20,9 +18,9 @@
 	<form name="sel_category" onchange="javascript:click_check()">
 	<select name="category" size=1>
 	<option>디자인분류</option>
-	<option value="sanup">산업디자인</option>
-	<option value="web">웹디자인</option>
-	<option value="gun">시각디자인</option>
+	<option value="0">산업디자인</option>
+	<option value="1">웹디자인</option>
+	<option value="2">건축디자인</option>
 	</select>
 	</form>	
 
@@ -82,20 +80,20 @@
 				function click_check(){
 					sel_category=document.sel_category;
 					if(sel_category.category.options[sel_category.category.selectedIndex].value=="sanup")
-						location.href("co_main.do?category=sanup")
+						location.href="co_main.do?category=sanup"
 					else if(sel_category.category.options[sel_category.category.selectedIndex].value=="web")
-						location.href("co_main.do?category=web")
+						location.href="co_main.do?category=web"
 					else
-						location.href("co_main.do?category=gun")
+						location.href="co_main.do?category=gun"
 				}
 				
 				function click_check2(){
 					sel_order=document.sel_order;
 					if(sel_order.order.options[sel_order.order.selectedIndex].value=="0")
-						location.href("co_main.do?order=0")
+						location.href="co_main.do?order=0"
 					
 					else
-						location.href("co_main.do?order=1")
+						location.href="co_main.do?order=1"
 				}
 			</script>
 			

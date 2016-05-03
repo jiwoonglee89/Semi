@@ -19,7 +19,7 @@ public class P_MemBean {
 	
 	public P_MemBean(){}
 	
-	public P_MemBean(String p_passwd, String p_name, String p_gender, String jumin1, String jumin2,String p_email, int p_birth,
+	public P_MemBean(String p_passwd, String p_name, String p_gender, String jumin1, String jumin2, String p_email, int p_birth,
 			 String p_tel, String p_career, String p_award,
 			String p_zipcode, String p_address, String p_category,int p_count) {
 		super();

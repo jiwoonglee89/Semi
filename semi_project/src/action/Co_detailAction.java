@@ -21,7 +21,12 @@ public class Co_detailAction implements CommandAction{
 		map.put("f_num", num);
 		DB.P_MemBean person=session.selectOne("co_board.who_per", p_id);
 		DB.FileBean file=session.selectOne("co_board.who_item", map);
-				
+		int success=session.update("co_board.countup", num);
+		if(success>0){
+			session.commit();
+		}
+		else
+			session.rollback();
 		request.setAttribute("person", person);
 		request.setAttribute("file", file);
 		
