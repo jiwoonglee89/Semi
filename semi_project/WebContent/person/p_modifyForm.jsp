@@ -22,8 +22,24 @@
 			return false;
 		}
 
-		if (!userinput.jumin1.value || !userinput.jumin2.value) {
-			alert("주민등록번호를 입력하세요");
+		if (userinput.p_tel.value=="") {
+			alert("전화번호 혹은 핸드폰 번호를 입력하세요");
+			return false;
+		}
+		if (userinput.p_email.value=="") {
+			alert("E-mail을 입력하세요");
+			return false;
+		}
+		if (userinput.p_birth.value=="") {
+			alert("생년월일을 입력하세요");
+			return false;
+		}
+		if (userinput.p_zipcode.value=="") {
+			alert("우편번호를 입력하세요");
+			return false;
+		}
+		if (userinput.p_address.value=="") {
+			alert("주소를 입력하세요");
 			return false;
 		}
 		return true;

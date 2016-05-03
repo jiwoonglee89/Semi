@@ -1,5 +1,6 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <%@ include file="./view/color.jsp"%>
+<%@ page errorPage="errorPage.jsp" %>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="view/style.css" rel="stylesheet" type="text/css">
 
@@ -46,6 +47,7 @@
        		<input type="radio" name="per_or_cor" value="per">개인회원
 			<input type="radio" name="per_or_cor" value="cor">기업회원
        	</td>
+       	
        </tr>
        <tr>
           <td colspan="3" bgcolor="<%=title_c%>"   align="center">

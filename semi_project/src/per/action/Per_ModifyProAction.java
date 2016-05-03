@@ -27,25 +27,26 @@ public class Per_ModifyProAction implements CommandAction {
 			
 			P_MemBean pbean = session.selectOne("per_member.find",p_id);
 			
-			String passwd = request.getParameter("p_passwd");
-			String name = request.getParameter("p_name");
-			String gender = request.getParameter("p_gender");
-			String email = request.getParameter("p_email");
-			int birth = Integer.parseInt(request.getParameter("P_birth"));
-			String tel = request.getParameter("p_tel");
-			String jumin1 = request.getParameter("jumin1");
-			String jumin2 = request.getParameter("jumin2");
-			String career = request.getParameter("p_career");
-			String award = request.getParameter("p_award");
-			String zipcode = request.getParameter("p_zipcode");
-			String address = request.getParameter("p_address");
-			String category = request.getParameter("p_category");
-			
-			P_MemBean check = new P_MemBean(passwd, name, gender, jumin1, jumin2, email, birth, tel, career, award,
-					zipcode, address, category, 0);
+			pbean.setP_passwd(request.getParameter("p_passwd"));
+			pbean.setP_name(request.getParameter("p_name"));
+			pbean.setP_gender(request.getParameter("p_gender"));
+			pbean.setP_email(request.getParameter("p_email"));
+			pbean.setP_tel(request.getParameter("p_tel"));
+			pbean.setP_birth(Integer.parseInt(request.getParameter("p_birth")));
+			pbean.setJumin1(request.getParameter("jumin1"));
+			pbean.setJumin2(request.getParameter("jumin2"));
+			pbean.setP_career(request.getParameter("p_career"));
+			pbean.setP_award(request.getParameter("p_award"));
+			pbean.setP_zipcode(request.getParameter("p_zipcode"));
+			pbean.setP_address(request.getParameter("p_address"));
+			pbean.setP_category(request.getParameter("p_category"));
 
+<<<<<<< HEAD
 			int success = session.update("per_member.modify", p_id);
 			
+=======
+			int success = session.update("per_member.modify", pbean);
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/semi
 			System.out.println(success);
 			if (success > 0) {
 				session.commit();
@@ -73,7 +74,11 @@ public class Per_ModifyProAction implements CommandAction {
 			e.printStackTrace();
 		}
 
+<<<<<<< HEAD
 		return "/person/p_mainview.jsp";
+=======
+		return "p_modifyPro.jsp";
+>>>>>>> branch 'master' of https://github.com/jiwoonglee89/semi
 	}
 
 }

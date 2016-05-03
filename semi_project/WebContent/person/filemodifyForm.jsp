@@ -6,9 +6,9 @@
 <form action="filemodifyPro.do?f_title=${fbean.f_title}" method="post"  enctype="multipart/form-data">
 <select name="f_category">
 	<option>디자인분류</option>
-	<option value="0" selected="${fbean.f_category eq 'sanup'?'selected':''}">산업디자인</option>
-	<option value="1" selected="${fbean.f_category eq 'web'?'selected':''}" >웹디자인</option>
-	<option value="2" selected="${fbean.f_category eq 'gun'?'selected':''}" >건축디자인</option>
+	<option value="0" selected="${fbean.f_category eq '산업디자인'?'selected':''}">산업디자인</option>
+	<option value="1" selected="${fbean.f_category eq '웹디자인'?'selected':''}" >웹디자인</option>
+	<option value="2" selected="${fbean.f_category eq '건축디자인'?'selected':''}" >건축디자인</option>
 </select>
 수정전 파일이름: <input type="text" name="f_filename" value="${fbean.f_filename}"/> <br>
 수정할 파일선택: <input type="file" name="file"/> <br>

@@ -60,6 +60,11 @@
 		window.open(url,"post",
 						"toolbar=no ,width=500 ,height=300,directories=no,status=yes,scrollbars=yes,menubar=no");
 	}
+	
+	function checkpass1_2(form){
+		
+		
+	}
 </script>
 <body bgcolor="<%=bodyback_c%>">
 
