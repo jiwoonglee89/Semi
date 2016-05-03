@@ -22,13 +22,13 @@
 </script>
 </head>
 <BODY onload="begin()" bgcolor="<%=bodyback_c%>">
-	<form name="myform" action="deletePro.do" method="post"
+	<form name="myform" action="deletePro.do" method="get"
 		onSubmit="return checkIt()">
 		<TABLE cellSpacing=1 cellPadding=1 width="260" border=1 align="center">
 
 			<TR height="30">
 				<TD colspan="2" align="middle" bgcolor="<%=title_c%>"><font
-					size="+1"><b>È¸¿ø Å»Åð</b></font></TD>
+					size="+1"><b>È¸¿ø Å»Åð // ${p_id}</b></font></TD>
 			</TR>
 
 			<TR height="30">
@@ -39,7 +39,7 @@
 			<TR height="30">
 				<TD colspan="2" align="middle" bgcolor="<%=value_c%>"><INPUT
 					type=submit value="È¸¿øÅ»Åð"> <input type="button" value="Ãë  ¼Ò"
-					onclick="javascript:window.location='main.jsp'"></TD>
+					onclick="javascript:window.location=history.go(-1)"></TD>
 			</TR>
 		</TABLE>
 	</form>

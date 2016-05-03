@@ -424,7 +424,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				<ul class="icons">
 					<li><a href="../QNA_board/QNA_list.do" ><span class="label">Q&A</span></a></li>
 					<li><a href="p_modifyForm.do" ><span class="label">정보수정</span></a></li>
-					<li><a href="p_logout.jsp"><span class="label">로그아웃</span></a></li> 
+					<li><a href="p_logout.jsp"><span class="label">로그아웃</span></a></li>
+					<li><a href="deleteForm.do"><span class="label">회원탈퇴</span></a></li> 
 				</ul>
 			</footer>
 

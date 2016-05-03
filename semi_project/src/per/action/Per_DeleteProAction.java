@@ -17,31 +17,27 @@ public class Per_DeleteProAction implements CommandAction {
 
 		Connection con = new Connection();
 		SqlSession session = con.connection();
-		
-		try {
-			HttpSession session2 = request.getSession();
-			String id = (String) session2.getAttribute("memId");
-			String passwd = request.getParameter("passwd");
-			int success = 0;
 
-			P_MemBean p_memInfo = session.selectOne("per_member.find", id);
-			
-			if (p_memInfo != null) {
-				if ((p_memInfo.getP_passwd()).equals(passwd)) {
-					session2.invalidate();
-					success = 1;
-				}
+		HttpSession session2 = request.getSession();
+		String p_id = (String) session2.getAttribute("p_id");
+		String passwd = request.getParameter("passwd");
+		
+		System.out.println("p_id:::"+p_id);
+
+		P_MemBean p_memInfo = session.selectOne("per_member.find", p_id);
+
+		if (p_memInfo != null) {
+			if ((p_memInfo.getP_passwd()).equals(passwd)) {
+				session.delete("per_member.remove", p_id);
+				session.commit();
+				session2.invalidate();
 			}
+			return "p_deletePro.jsp";
 			
-			request.setAttribute("success", new Integer(success));
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
 		}
 
-		return "main.jsp";
+
+		return "p_deleteForm.jsp";
 	}
 
 }

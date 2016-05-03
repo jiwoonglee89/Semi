@@ -65,9 +65,9 @@
 		var userinput = eval("document.userinput");
 		
 		if(userinput.p_passwd.value != userinput.p_passwd2.value){
-			document.getElementById("passcheckText").innerHTML="<b><font color=red size=5pt align='center'>틀림</font></b>"
+			document.getElementById("passcheckText").innerHTML="<b><font color=red size=4pt align='center'>비밀번호 확인다름</font></b>"
 		}else{
-			document.getElementById("passcheckText").innerHTML="<b><font color=red size=5pt align='center'>일치</font></b>"
+			document.getElementById("passcheckText").innerHTML="<b><font color=red size=4pt align='center'>비밀번호 확인일치</font></b>"
 		}
 		
 	}
@@ -179,6 +179,5 @@
 			</tr>
 		</table>
 	</form>
-	${gender1}
 </body>
 </html>
