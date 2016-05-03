@@ -35,7 +35,13 @@ public class QNA_WriteProAction implements CommandAction{
 		article.setQref_number(new Integer(0));
 		article.setReadcount(new Integer(0));
 		
-		int success=sqlsession.insert("QNA_board.add", article);
+		int success=0;
+		if(httpsession.getAttribute("co_id")!=null)
+			success=sqlsession.insert("QNA_board.add_cor", article);
+		else if(httpsession.getAttribute("p_id")!=null)
+			success=sqlsession.insert("QNA_board.add_per", article);
+		else if(httpsession.getAttribute("admin_id")!=null)
+			success=sqlsession.insert("QNA_board.add_admin", article);
 		
 		if(success>0)
 			sqlsession.commit();

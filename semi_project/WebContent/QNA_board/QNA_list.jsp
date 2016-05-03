@@ -62,6 +62,7 @@
     <td align="center"  width="100">
     <c:if test="${article.co_id!=null }">${article.co_id }</c:if>
     <c:if test="${article.p_id!=null }">${article.p_id }</c:if>
+    <c:if test="${article.admin_id!=null }">${article.admin_id }</c:if>
     </a>
 </td>
     <td align="center"  width="150">${article.q_regdate}
