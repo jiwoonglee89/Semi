@@ -20,8 +20,6 @@ public class QNA_WriteProAction implements CommandAction{
 		Connection con=new Connection();
 		SqlSession sqlsession=con.connection();
 		HttpSession httpsession=request.getSession();
-		System.out.println(request.getParameter("q_num"));
-		System.out.println(request.getParameter("qref_number"));
 		DB.QNABean article=new DB.QNABean();
 		if(httpsession.getAttribute("co_id")!=null)
 			article.setCo_id((String)httpsession.getAttribute("co_id"));
@@ -33,8 +31,12 @@ public class QNA_WriteProAction implements CommandAction{
 		article.setQ_passwd(request.getParameter("q_passwd"));
 		article.setQ_regdate(new Timestamp(System.currentTimeMillis()));
 		article.setQna_title(request.getParameter("qna_title"));
-		article.setQref_number(new Integer(0));
+		article.setQref_number(Integer.parseInt(request.getParameter("qref_number")));
 		article.setReadcount(new Integer(0));
+		
+//		if(Integer.parseInt(request.getParameter("q_num"))==){
+//			int reply=Integer.parseInt(request.getParameter("q_num"));
+//		}
 		
 		int success=0;
 		if(httpsession.getAttribute("co_id")!=null)
