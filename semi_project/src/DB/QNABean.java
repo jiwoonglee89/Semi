@@ -6,12 +6,20 @@ public class QNABean {
 	int q_num;
 	String p_id;
 	String co_id;
+	String admin_id;
 	String qna_title; 
 	String q_passwd;
 	Timestamp q_regdate;
 	int qref_number;
 	int readcount;
 	String context;
+	
+	public String getAdmin_id() {
+		return admin_id;
+	}
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
+	}
 	public int getQ_num() {
 		return q_num;
 	}
