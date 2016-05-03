@@ -58,7 +58,7 @@ public class Per_MainViewAction implements CommandAction {
 		request.setAttribute("fileList", fileList);
 		request.setAttribute("app", app);
 
-		return "/person/p_mainview.jsp";
+		return "p_mainview.jsp";
 	}
 
 }
