@@ -25,16 +25,6 @@ public class LoginAction implements CommandAction {
 
 		HttpSession httpsession = request.getSession();
 		
-		if(request.getParameter("per_or_cor").equals("cor")){
-			if(session.selectOne("co_member.areyoublack", id)!=null){
-				count=session.selectOne("co_member.areyoublack", id);
-			}
-			
-		}else if(request.getParameter("per_or_cor").equals("per")){
-			if(session.selectOne("per_member.areyoublack", id)!=null){
-				count=session.selectOne("per_member.areyoublack", id);
-			}
-		}
 		request.setAttribute("count", new Integer(count));
 		
 		if(request.getParameter("per_or_cor") == null){
@@ -47,7 +37,11 @@ public class LoginAction implements CommandAction {
 				return "errorPage.jsp";
 			}
 		}else if (request.getParameter("per_or_cor").equals("cor")) {
-			
+			if(session.selectOne("co_member.areyoublack", id)!=null){
+				count=session.selectOne("co_member.areyoublack", id);
+				request.setAttribute("count", new Integer(count));
+				return "loginPro.jsp";
+			}
 			if (confirm_co.equals(passwd)) {
 				httpsession.setAttribute("co_id", id);
 				request.setAttribute("select", new Integer(2));
@@ -57,6 +51,11 @@ public class LoginAction implements CommandAction {
 			}
 
 		}else {
+			if(session.selectOne("per_member.areyoublack", id)!=null){
+				count=session.selectOne("per_member.areyoublack", id);
+				request.setAttribute("count", new Integer(count));
+				return "loginPro.jsp";
+			}
 			if (confirm_per.equals(passwd)) {
 				httpsession.setAttribute("p_id", id);
 				request.setAttribute("select", new Integer(1));

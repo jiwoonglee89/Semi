@@ -29,6 +29,7 @@
 		<td width="330">
 		<c:if test="${co_id!=null }">${co_id }</c:if>
 		<c:if test="${p_id!=null }">${p_id }</c:if>
+		<c:if test="${admin_id!=null }">${admin_id }</c:if>
 		</td>
 	</tr>
 	
