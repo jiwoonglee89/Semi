@@ -32,11 +32,11 @@
 							<h2>${f.f_title}</h2>
 							<p>${f.f_description}</p>
 							<p>${f.f_filename }</p>
-							<form action = "fileModifyPro.do?f_filename=${f.f_filename }">
+							<form action = "fileModify.do">
 								<input type="hidden" name="f_filename" value="${f.f_filename}"/>
 								<input type="submit" value="수정"/>
-							</form><!--
-							--><form action = "filedelete.do?f_filename=${f.f_filename }">
+							</form>
+							<form action = "filedelete.do">
 								<input type="hidden" name="f_filename" value="${f.f_filename}"/>
 								<input type="submit" value="삭제"/>
 							</form>
