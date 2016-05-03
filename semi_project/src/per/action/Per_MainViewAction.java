@@ -27,8 +27,6 @@ public class Per_MainViewAction implements CommandAction {
 		String p_id = (String) session2.getAttribute("p_id");
 		ServletContext app = (ServletContext) request.getAttribute("app");
 
-		System.out.println("app::::" + app);
-
 		List mbean = session.selectList("message.m_list",p_id);
 		
 		P_MemBean p_list = session.selectOne("per_member.find", p_id);
