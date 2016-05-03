@@ -17,6 +17,8 @@ public class LoginAction implements CommandAction {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
+		
+		
 		int count=0;
 
 		String confirm_co = session.selectOne("co_member.confirm", id);

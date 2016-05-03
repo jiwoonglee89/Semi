@@ -20,7 +20,8 @@ public class QNA_WriteProAction implements CommandAction{
 		Connection con=new Connection();
 		SqlSession sqlsession=con.connection();
 		HttpSession httpsession=request.getSession();
-		
+		System.out.println(request.getParameter("q_num"));
+		System.out.println(request.getParameter("qref_number"));
 		DB.QNABean article=new DB.QNABean();
 		if(httpsession.getAttribute("co_id")!=null)
 			article.setCo_id((String)httpsession.getAttribute("co_id"));
