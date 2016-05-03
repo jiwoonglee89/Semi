@@ -3,6 +3,7 @@
 
 <%
  	String admin_id = (String)session.getAttribute("admin_id");
+	session.setAttribute("admin_id", admin_id);
  	request.setAttribute("admin_id", admin_id);
 %>
 <script type="text/javascript" src="jquery-1.3.2.min.js"></script>

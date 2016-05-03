@@ -24,8 +24,11 @@ public class QNA_ContentAction implements CommandAction {
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		
 		int up_count=session.update("QNA_board.countup", new Integer(q_num));
-		if(up_count>0)
+		if(up_count>0){
 			session.commit();
+		}
+		else
+			session.rollback();
 		QNABean article = session.selectOne("QNA_board.get", q_num);
 		request.setAttribute("q_num", new Integer(q_num));
 		request.setAttribute("pageNum", new Integer(pageNum));
