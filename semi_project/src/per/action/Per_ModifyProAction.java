@@ -42,6 +42,7 @@ public class Per_ModifyProAction implements CommandAction {
 			pbean.setP_category(request.getParameter("p_category"));
 
 			int success = session.update("per_member.modify", pbean);
+
 			System.out.println(success);
 			if (success > 0) {
 				session.commit();
@@ -68,6 +69,7 @@ public class Per_ModifyProAction implements CommandAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 
 		return "p_modifyPro.jsp";
 	}

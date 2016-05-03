@@ -56,10 +56,11 @@
 	<select id="content_article" parameterType="DB.QNABean" resultType="java.lang.Integer">
 		select count(*) from QNA_board where content like '%'|| #{content} || '%'
 	</select>
-	
 	<select id="getA" parameterType="java.util.HashMap" resultType="DB.QNABean">
-		select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, r from 
-		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, ROWNUM r from qna_board order by qref_number DESC) 
+		select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, r from
+		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id, ROWNUM r from
+		(select q_num, p_id, co_id, qna_title, q_passwd, q_regdate, qref_number, context, readCount, admin_id from qna_board order by q_num DESC, qref_number ASC)
+		order by q_num DESC, qref_number ASC)
 		<![CDATA[     
 		where r>=#{start} 
 		 ]]>
