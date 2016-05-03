@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -6,12 +6,12 @@
 </head>
 <body>
 <c:if test="${success>0 }">
-¼º°øÀûÀ¸·Î ½Å°íµÇ¾ú½À´Ï´Ù.<br>
-<a href="co_main.do"> ¸ñ·Ïº¸±â</a>
+ì„±ê³µì ìœ¼ë¡œ ì‹ ê³ ë˜ì—ˆìŠµë‹ˆë‹¤.<br>
+<a href="co_main.do"> ëª©ë¡ë³´ê¸°</a>
 </c:if>
 <c:if test="${success<=0 }">
-½Å°í°¡ ½ÇÆÐµÇ¾ú½À´Ï´Ù.<br>
-<a href="co_main.do"> ¸ñ·Ïº¸±â</a>
+ì‹ ê³ ê°€ ì‹¤íŒ¨ë˜ì—ˆìŠµë‹ˆë‹¤.<br>
+<a href="co_main.do"> ëª©ë¡ë³´ê¸°</a>
 </c:if>
 </body>
 </html>

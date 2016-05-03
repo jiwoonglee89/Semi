@@ -9,6 +9,7 @@ public class Co_declareFormAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		response.setCharacterEncoding("UTF-8");
 		Connection con=new Connection();
 		SqlSession sqlsession=con.connection();
 		
