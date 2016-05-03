@@ -31,7 +31,6 @@ public class LoginAction implements CommandAction {
 			if(confirm_admin.equals(passwd)){
 				httpsession.setAttribute("admin_id", id);
 				request.setAttribute("select", new Integer(0));
-				return "loginPro.jsp";
 			}
 			else{
 				return "errorPage.jsp";
@@ -40,7 +39,6 @@ public class LoginAction implements CommandAction {
 			if(session.selectOne("co_member.areyoublack", id)!=null){
 				count=session.selectOne("co_member.areyoublack", id);
 				request.setAttribute("count", new Integer(count));
-				return "loginPro.jsp";
 			}
 			if (confirm_co.equals(passwd)) {
 				httpsession.setAttribute("co_id", id);
@@ -54,7 +52,6 @@ public class LoginAction implements CommandAction {
 			if(session.selectOne("per_member.areyoublack", id)!=null){
 				count=session.selectOne("per_member.areyoublack", id);
 				request.setAttribute("count", new Integer(count));
-				return "loginPro.jsp";
 			}
 			if (confirm_per.equals(passwd)) {
 				httpsession.setAttribute("p_id", id);
@@ -65,6 +62,7 @@ public class LoginAction implements CommandAction {
 			}
 
 		}
+		return "loginPro.jsp";
 	}
 
 }
