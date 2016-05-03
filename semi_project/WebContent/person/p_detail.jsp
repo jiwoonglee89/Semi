@@ -32,7 +32,7 @@
 							<h2>${f.f_title}</h2>
 							<p>${f.f_description}</p>
 							<p>${f.f_filename }</p>
-							<form action = "p_fileModifyPro.do?f_filename=${f.f_filename }">
+							<form action = "fileModifyPro.do?f_filename=${f.f_filename }">
 								<input type="hidden" name="f_filename" value="${f.f_filename}"/>
 								<input type="submit" value="수정"/>
 							</form><!--

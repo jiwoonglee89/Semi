@@ -61,15 +61,21 @@
 						"toolbar=no ,width=500 ,height=300,directories=no,status=yes,scrollbars=yes,menubar=no");
 	}
 	
-	function checkpass1_2(form){
+	function checkpass1_2(){
+		var userinput = eval("document.userinput");
 		
+		if(userinput.p_passwd.value != userinput.p_passwd2.value){
+			document.getElementById("passcheckText").innerHTML="<b><font color=red size=5pt align='center'>틀림</font></b>"
+		}else{
+			document.getElementById("passcheckText").innerHTML="<b><font color=red size=5pt align='center'>일치</font></b>"
+		}
 		
 	}
 </script>
 <body bgcolor="<%=bodyback_c%>">
 
 	<form method="get" action="p_inputPro.do" name="userinput" onSubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
+		<table width="700" border="1" cellspacing="0" cellpadding="3" align="center">
 
 			<tr>
 				<td colspan="2" height="39" align="center" bgcolor="<%=value_c%>">
@@ -77,63 +83,67 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="200" bgcolor="<%=value_c%>"><b>아이디 입력</b></td>
-				<td width="400" bgcolor="<%=value_c%>"></td>
+				<td width="700" bgcolor="<%=value_c%>" colspan="2"><b>아이디 입력</b></td>
+				<%-- <td width="400" bgcolor="<%=value_c%>"></td> --%>
 			</tr>
 
 			<tr>
-				<td width="200">사용자 ID</td>
+				<td width="300">사용자 ID</td>
 				<td width="400">
 				<input type="text" name="p_id" size="10" maxlength="12"> 
 				<input type="button" name="confirm_id" value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
 					<!-- this.form 버튼이 속해있는  폼의 값을 들고 호출  -->
 			</tr>
 			<tr>
-				<td width="200">비밀번호</td>
+				<td width="300">비밀번호</td>
 				<td width="400">
 				<input type="password" name="p_passwd" size="15" maxlength="12"></td>
 			<tr>
-				<td width="200">비밀번호 확인</td>
+				<td width="300">비밀번호 확인</td>
 				<td width="400">
-				<input type="password" name="p_passwd2" size="15" maxlength="12"></td>
+				<input type="password" name="p_passwd2" size="15" maxlength="12"
+				onblur="checkpass1_2()"></td>
+			</tr>	
+			<tr >
+				<td>일치여부</td><td id="passcheckText" width="50"></td>
 			</tr>
 
 			<tr>
-				<td width="200" bgcolor="<%=value_c%>"><b>개인정보 입력</b></td>
-				<td width="400" bgcolor="<%=value_c%>"></td>
+				<td width="300" bgcolor="<%=value_c%>" colspan="2"><b>개인정보 입력</b></td>
+				<%-- <td width="400" bgcolor="<%=value_c%>"></td> --%>
 			<tr>
 			<tr>
-				<td width="200">이름</td>
+				<td width="300">이름</td>
 				<td width="400">
 				<input type="text" name="p_name" size="15" maxlength="10"></td>
 			</tr>
 			<tr>
-				<td width="200">주민등록번호</td>
+				<td width="300">주민등록번호</td>
 				<td width="400"><input type="text" name="jumin1" size="7" maxlength="6"> 
 				-<input type="text" name="jumin2" size="7" maxlength="7"></td>
 			</tr>
 			<tr>
-				<td width="200">성별</td>
+				<td width="300">성별</td>
 				<td width="400">
 				<input type="radio" name="p_gender" size="40" maxlength="30" value="male" checked="checked">남성
 				<input type="radio" name="p_gender" size="40" maxlength="30" value="female">여성</td>
 			</tr>
 			<tr>
-				<td width="200">Tel</td>
+				<td width="300">Tel</td>
 				<td width="400"><input type="text" name="p_tel" size="40" maxlength="30"></td>
 			</tr>
 			<tr>
-				<td width="200">E-Mail</td>
+				<td width="300">E-Mail</td>
 				<td width="400"><input type="text" name="p_email" size="40"
 					maxlength="30"></td>
 			</tr>
 			<tr>
-				<td width="200">생년월일</td>
+				<td width="300">생년월일</td>
 				<td width="400"><input type="number" name="p_birth" size="40" maxlength="30" placeholder="ex)19910101"></td>
 			</tr>
 			<tr>
-				<td width="200">우편번호</td>
-				<td><input type="text" name="p_zipcode" size="7">
+				<td width="300">우편번호</td>
+				<td><input type="text" name="p_zipcode" size="7" readonly>
 					<input type="button" value="우편번호찾기" onClick="zipCheck()"> 우편번호를 검색하세요.</td>
 			</tr>
 			<tr>
@@ -142,7 +152,7 @@
 				<td><input type="text" name="p_address" size="70"></td>
 			</tr>
 			<tr>
-				<td width="200">디자인분류</td>
+				<td width="300">디자인분류</td>
 				<td width="400">
 				<select name="p_category">
 					<option>분야선택</option>

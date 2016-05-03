@@ -79,7 +79,7 @@ function openConfirmid(userinput) {
 
 <body bgcolor="${bodyback_c}">
 	<form method="post" action="co_inputPro.do" name="userinput" onsubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3" align="center">
+		<table width="700" border="1" cellspacing="0" cellpadding="3" align="center">
 			<tr>
 				<td colspan="2" height="39" align="center" bgcolor="${value_c}">
 					<font size="+1"><b>기업회원 회원가입</b></font>
@@ -87,41 +87,40 @@ function openConfirmid(userinput) {
 			</tr>
 
 			<tr>
-				<td width="200">아이디 :</td>
+				<td width="300">아이디 :</td>
 				<td width="400">
 				<input type="text" name="co_id" size="10" maxlength="12"> 
 				<input type="button" name="confirm_id" value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
 			</tr>
 			<tr>
-				<td width="200">패스워드 :</td>
+				<td width="300">패스워드 :</td>
 				<td width="400"><input type="password" name="co_passwd"	size="15" maxlength="20"></td>
 			<tr>
-				<td width="200">패스워드 확인 :</td>
+				<td width="300">패스워드 확인 :</td>
 				<td width="400"><input type="password" name="co_passwd2" size="15" maxlength="20"></td>
 			</tr>
 			<tr>
-				<td width="200">사업자 번호 :</td>
+				<td width="300">사업자 번호 :</td>
 				<td width="400"><input type="text" name="co_number" size="15" maxlength="20"></td>
 			</tr>
 			<tr>
-				<td width="200" bgcolor="${value_c}"><b>기업 정보</b></td>
-				<td width="400" bgcolor="${value_c}"></td>
+				<td width="300" bgcolor="${value_c}" colspan="2"><b>기업 정보</b></td>
 			<tr>
 			<tr>
-				<td width="200">기업 이름 :</td>
+				<td width="300">기업 이름 :</td>
 				<td width="400"><input type="text" name="co_com" size="15" maxlength="20"></td>
 			</tr>
 			<tr>
-				<td width="200">대표자 명 :</td>
+				<td width="300">대표자 명 :</td>
 				<td width="400"><input type="text" name="co_boss" size="15" maxlength="20"></td>
 			</tr>
 			<tr>
-				<td width="200">회사 전화번호 :</td>
+				<td width="300">회사 전화번호 :</td>
 				<td width="400"><input type="text" name="co_tel" size="15" maxlength="20"></td>
 			</tr>
 			
 			<tr> 
-				<td width="200">업종 :</td>
+				<td width="300">업종 :</td>
 				<td width="400">
 				<select name="co_job" size="1">
 				<option value="0" >제조업 </option>
@@ -135,7 +134,7 @@ function openConfirmid(userinput) {
 				</td>
 			</tr>
 			<tr>
-				<td width="200">상세업종 :</td>
+				<td width="300">상세업종 :</td>
 				<td width="400">
 				<select name="co_subjob" size="1" >
 				<option>----- 제조업 ----- </option>
@@ -181,7 +180,7 @@ function openConfirmid(userinput) {
 				</td>
 			</tr>
 			<tr>
-				<td width="200">기업기관분류 :</td>
+				<td width="300">기업기관분류 :</td>
 				<td>
 				<select name="co_category" size="1" >
 				<option value="0" >일반기업</option>
@@ -195,20 +194,19 @@ function openConfirmid(userinput) {
 			</tr>
 
 			<tr>
-				<td width="200" bgcolor="${value_c}"><b>담당자 정보</b></td>
-				<td width="400" bgcolor="${value_c}"></td>
+				<td width="300" bgcolor="${value_c}" colspan="2"><b>담당자 정보</b></td>
 			</tr>
 
 			<tr>
-				<td width="200">담당자 이름 :</td>
+				<td width="300">담당자 이름 :</td>
 				<td width="400"><input type="text" name="co_name" size="15" maxlength="30"></td>
 			<tr>
-				<td width="200">담당자 E-Mail :</td>
+				<td width="300">담당자 E-Mail :</td>
 				<td width="400"><input type="text" name="co_email" size="15" maxlength="30"></td>
 			</tr>
 			
 			<tr>
-				<td width="200">담당자 휴대폰 :</td>
+				<td width="300">담당자 휴대폰 :</td>
 				<td width="400"><input type="text" name="co_phone" size="15" maxlength="20"></td>
 			</tr>
 
