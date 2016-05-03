@@ -87,11 +87,11 @@ public class Per_FileModifyProAction implements CommandAction {
 		//System.out.println(/* p_id+"\n"+ */realpath + "\n" + f_title + "\n" + f_description + "\n" + f_category);
 
 		if (f_category.equals("0")) {
-			f_category = "sanup";
+			f_category = "산업디자인";
 		} else if (f_category.equals("1")) {
-			f_category = "web";
+			f_category = "웹디자인";
 		} else if (f_category.equals("2")) {
-			f_category = "gun";
+			f_category = "건축디자인";
 		}
 		filebean.setP_id(p_id);
 		filebean.setRealpath(realpath);

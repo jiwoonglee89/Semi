@@ -12,5 +12,4 @@ public class Per_InputFormAction implements CommandAction{
 		
 		return "/person/p_inputForm.jsp";
 	}
-
 }
