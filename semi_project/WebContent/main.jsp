@@ -18,11 +18,11 @@
 			<tr>
 				<form name="inform" method="post" action="loginPro.do" onSubmit="return checkIt();">
 					<td width="50" align="right">아이디</td>
-					<td width="50"><input type="text" name="id" size="15" maxlength="10"></td>
+					<td width="50"><input type="text" name="id" size="15" maxlength="15"></td>
 			</tr>
 			<tr>
 				<td width="50" align="right">패스워드</td>
-				<td width="50"><input type="password" name="passwd" size="15" maxlength="10"></td>
+				<td width="50"><input type="password" name="passwd" size="15" maxlength="15"></td>
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
