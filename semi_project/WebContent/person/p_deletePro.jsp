@@ -3,6 +3,7 @@
 <%@ include file="../view/color.jsp"%>
 <html>
 <head>
+
 <title>회원탈퇴</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
@@ -23,7 +24,7 @@
 			<tr bgcolor="<%=value_c%>">
 				<td align="center"><input
 					type="button" value="메인으로"
-					onclick="javascript:window.location='main.jsp'"></td>
+					onclick="javascript:window.location='../main.jsp'"></td>
 			</tr>
 		</table>
 	</form>

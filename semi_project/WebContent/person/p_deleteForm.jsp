@@ -28,7 +28,7 @@
 
 			<TR height="30">
 				<TD colspan="2" align="middle" bgcolor="<%=title_c%>"><font
-					size="+1"><b>È¸¿ø Å»Åð // ${p_id}</b></font></TD>
+					size="+1"><b>È¸¿ø Å»Åð</b></font></TD>
 			</TR>
 
 			<TR height="30">
