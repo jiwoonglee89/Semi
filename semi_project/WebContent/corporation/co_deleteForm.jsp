@@ -22,7 +22,7 @@
 </script>
 </head>
 <body onload="begin()" bgcolor="${bodyback_c}">
-	<form name="myform" action="deletePro.do" method="post" onSubmit="return checkIt()">
+	<form name="myform" action="co_deletePro.do" method="post" onSubmit="return checkIt()">
 		
 		<table cellSpacing=1 cellPadding=1 width="260" border=1 align="center">
 
@@ -39,7 +39,7 @@
 			<tr height="30">
 				<td colspan="2" align="middle" bgcolor="${value_c}">
 				<input type=submit value="회원탈퇴"> 
-				<input type="button" value="취  소" onclick="javascript:window.location='co_main.do'"></TD>
+				<input type="button" value="취  소" onclick="javascript:window.location=history.go(-1)"></TD>
 			</tr>
 		</table>
 	</form>

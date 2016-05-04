@@ -9,7 +9,23 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="${bodyback_c}">
-<center><b>글목록(전체 글:${count})</b>
+<center>
+<c:if test="${admin_id!=null }">
+		<a href="../admin_main_per.do?who_p=1">개인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="../admin_main_co.do?who_co=1">기업</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="../QNA_board/QNA_list.do">Q&A</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="../logout.jsp">로그아웃</a>
+		<br>
+</c:if>
+<c:if test="${co_id!=null }">
+		<a href="../corporation/co_main.do">메인으로 돌아가기</a>
+		<br>
+</c:if>
+<c:if test="${p_id!=null }">
+		<a href="../person/p_mainview.do">메인으로 돌아가기</a>
+		<br>
+</c:if>
+<b>글목록(전체 글:${count})</b>
 <table width="700">
   <tr>
     <td align="right" bgcolor="${value_c}">
