@@ -9,6 +9,8 @@ public class Co_messageAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		Connection con=new Connection();
 		SqlSession session=con.connection();
 		String p_id=request.getParameter("id");

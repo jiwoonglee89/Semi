@@ -13,6 +13,8 @@ public class Co_messageProAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		Connection con=new Connection();
 		SqlSession sqlsession=con.connection();
 		HttpSession httpsession=request.getSession();
