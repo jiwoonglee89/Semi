@@ -175,7 +175,7 @@
 				<td colspan="2" align="center" bgcolor="<%=value_c%>">
 				<input type="submit" name="confirm" value="회원가입"> 
 				<!-- <input type="reset" name="reset" value="다시입력">  -->
-				<input type="button" value="취소" onclick="javascript:window.location=history.go(-1)"></td>
+				<input type="button" value="취소" onclick="javascript:window.location='../main.do'"></td>
 			</tr>
 		</table>
 	</form>
