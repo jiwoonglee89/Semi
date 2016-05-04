@@ -37,10 +37,8 @@ public class Per_LoginProAction implements CommandAction{
 				request.setAttribute("memId", memId);
 				
 				session.commit();
-				System.out.println("로그인 성공");
 			}else{
 				session.rollback();
-				System.out.println("로그인 실패"); 
 			}
 		}else{
 			session.rollback();

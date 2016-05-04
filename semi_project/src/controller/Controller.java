@@ -96,12 +96,10 @@ public class Controller extends HttpServlet {
 			if (command.indexOf(request.getContextPath()) == 0) {
 				command = command.substring(request.getContextPath().length());
 			}
-			System.out.println("command:::"+command);
 			com = (CommandAction)commandMap.get(command);
 			
 			//∫‰∆‰¿Ã¡ˆ ∞Ê∑Œ ∞°¡Æø» 
 			view = com.requestPro(request,response);
-			System.out.println(view);
 		} catch (Throwable e) {
 			// TODO: handle exception 
 			throw new ServletException(e);

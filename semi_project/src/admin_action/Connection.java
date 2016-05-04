@@ -14,8 +14,7 @@ public class Connection {
 		try {
 			InputStream is = Resources.getResourceAsStream(res);
 
-			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-			System.out.println("factory ok");
+			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);;
 			SqlSession session = factory.openSession();
 			return session;
 		} catch (Exception e) {

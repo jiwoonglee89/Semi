@@ -55,8 +55,6 @@ public class Per_FileUpProAction implements CommandAction {
 		Iterator<FileItem> iter = items.iterator();
 		while (iter.hasNext()) {
 			FileItem item = iter.next();
-
-			System.out.println("item.getName():::" + item.getFieldName());
 			if (item.isFormField()) {
 				String name = item.getFieldName();
 				if (name.equals("f_category")) {
@@ -64,7 +62,6 @@ public class Per_FileUpProAction implements CommandAction {
 
 				} else if (name.equals("f_title")) {
 					f_title = item.getString("UTF-8");
-					System.out.println("f_title:::" + f_title);
 				} else if (name.equals("f_description")) {
 					f_description = item.getString("UTF-8");
 				}
@@ -90,8 +87,6 @@ public class Per_FileUpProAction implements CommandAction {
 		// String p_category = session.selectOne("per_member.find", p_id);
 
 		// String p_category = request.getParameter("p_category");
-
-		System.out.println(/* p_id+"\n"+ */realpath + "\n" + f_title + "\n" + f_description + "\n" + f_category);
 
 		if (f_category.equals("0")) {
 			f_category = "산업디자인";
@@ -131,10 +126,8 @@ public class Per_FileUpProAction implements CommandAction {
 		ServletContext app = (ServletContext) request.getAttribute("app");
 		String directory = app.getRealPath("/File");
 		String fileName = item.getName();
-		System.out.println("fileName:::" + fileName);
 		File file = new File(directory, fileName);
 		String realpath = file.getAbsolutePath();
-		System.out.println(realpath);
 		FileOutputStream os = null;
 
 		InputStream is;
