@@ -214,6 +214,7 @@
 			<tr>
 				<td colspan="2" align="center" bgcolor="${value_c}>">
 				<input type="submit" name="modify" value="수   정"> 
+				<input type="button" name="co_delete" value="탈   퇴" onclick="javascript:window.location='co_deleteForm.jsp'">
 				<input type="button" value="취  소" onclick="javascript:window.location=history.go(-1)"></td>
 			</tr>
 		</table>
