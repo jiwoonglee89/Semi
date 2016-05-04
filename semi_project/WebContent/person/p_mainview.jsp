@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<% request.setCharacterEncoding("UTF-8"); %>
+<% request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");%>
 <html>
 	<head>
 		<title>JUNCO</title>
@@ -47,7 +48,7 @@
 						</ul>
 					</section>
 					
-					<form id="signup-form" method="post" action="#">
+					<form id="signup-form" method="get" action="#">
 					
 					<h3>검색</h3>
 						<select name="search">
@@ -56,9 +57,6 @@
 							<option value="1">제목</option>
 							<option value="2">설명</option> 
 						</select>
-
-						
-							
 						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
 						<input type="submit" value="검색" />
 						
@@ -89,7 +87,7 @@
 						</div>
 						
 						<ul class="actions">
-							<li><a href="#" class="button">처음으로</a></li>
+							<li><a href="#" class="button">맨위로</a></li>
 						</ul>
 						
 								

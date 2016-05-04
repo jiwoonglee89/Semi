@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="declare/assets/css/main.css" />
+<% request.setCharacterEncoding("UTF-8"); %>
+
+
 </head>
 
 <body>
@@ -12,29 +15,29 @@
 		<div class="container">
 			메세지리스트
 			<hr />
-			<table border="2 solid 2px">
+			<table width="600" border="2 solid 2px" >
 				<tr>
 					<td>회사이름</td>
-					<td align="center" >쪽지제목</td>
-					<td align="center">보낸시간</td>
-					<td align="center">확인여부</td>
-					<td align="center">내용조회</td>
-					<td align="center">신고하기</td>
+					<td width="100" align="center" wid >쪽지제목</td>
+					<td width="100" align="center">보낸시간</td>
+					<td width="100" align="center">확인여부</td>
+					<td width="100" align="center">내용조회</td>
+					<td width="100" align="center">신고하기</td>
 
 				</tr>
 				<c:forEach var="i" items="${dataList}">
 					<input type="hidden" value="${i.m_num}" name="m_num" />
 
 					<tr>
-						<td>${i.co_com}</td>
-						<td><a href="p_messageView.do">${i.m_title}</a></td>
-						<td>${i.m_regdate}</td>
-						<td>${i.m_countdes}</td>
-						<td><form action="p_messageView.do" method="get">
+						<td width="100" >${i.co_com}</td>
+						<td width="100" >${i.m_title}</td>
+						<td width="100" >${i.m_regdate}</td>
+						<td width="100">${i.m_countdes}</td>
+						<td width="100"><form action="p_messageView.do" method="get">
 								<input type="hidden" name="m_num" value="${i.m_num}" /> <input
 									type="submit" value="상세조회" />
 							</form></td>
-						<td><form action="per2co_declareForm.do" method="get">
+						<td width="100"><form action="per2co_declareForm.do" method="get">
 								<input type="hidden" name="m_num" value="${i.m_num}" /> <input
 									type="hidden" name="co_id" value="${i.co_id}" /> <input
 									type="submit" value="신고" />
@@ -42,7 +45,7 @@
 
 					</tr>
 				</c:forEach>
-
+				<a href="p_mainview.do">메인으로</a>
 			</table>
 		</div>
 
