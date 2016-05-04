@@ -58,14 +58,10 @@ public class PerToCo_shinProAction implements CommandAction {
 		} else {
 			session.rollback();
 		}
-		
-		/*if (increaseCount >0) {
-			count = co_id+"님의 신고횟수가 증가되었습니다";
-		}*/
+
 
 		request.setAttribute("co_com", co_com);
 		request.setAttribute("dataList", dataList);
-		//Black_db blacklist = session.selectOne("black.info", co_id);
 		request.setAttribute("count", count);
 		request.setAttribute("success", success);
 		

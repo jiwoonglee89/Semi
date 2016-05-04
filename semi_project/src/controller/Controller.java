@@ -42,9 +42,8 @@ public class Controller extends HttpServlet {
 			String configFilePath = app.getRealPath(props);
 			fis = new FileInputStream(configFilePath);
 			
-			//commandHandlerURI.properties °´Ã¼»ý¼º
 			pr.load(fis);
-			//System.out.println(pr);
+
 			
 		} catch (IOException e) {
 			throw new ServletException(e);

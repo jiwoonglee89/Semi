@@ -73,20 +73,11 @@ public class Per_FileUpProAction implements CommandAction {
 				}
 			}
 		}
-		// String f_description = request.getParameter("f_description");
-		// String realpath = request.getParameter("realpath");
-
-		// P_MemBean pbean = new P_MemBean();
-
-		// 세션값가져오기
+	
 		HttpSession session1 = request.getSession();
 		String p_id = (String) session1.getAttribute("p_id");
 
-		// String realPath = file.getAbsolutePath();
-		// 아이디에맞는 카테고리 가져오기
-		// String p_category = session.selectOne("per_member.find", p_id);
-
-		// String p_category = request.getParameter("p_category");
+		
 
 		if (f_category.equals("0")) {
 			f_category = "산업디자인";

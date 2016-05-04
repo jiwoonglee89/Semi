@@ -23,10 +23,6 @@ public class Per_FileDeleteProAction implements CommandAction {
 		HttpSession session2 = request.getSession();
 		String p_id = (String) session2.getAttribute("p_id");
 
-		/*
-		 * String context = request.getContextPath();
-		 * System.out.println("context:::::"+context);
-		 */
 
 		List fileList = null;
 		
@@ -34,17 +30,17 @@ public class Per_FileDeleteProAction implements CommandAction {
 		String directory = app.getRealPath("/File");
 
 		String f_filename = new String(request.getParameter("f_filename").getBytes("8859_1"), "UTF-8");
-		System.out.println("f_filename::::" + f_filename);
+		
 
 		int success = session.delete("file.delete", f_filename);
-		System.out.println("success:::" + success);
+
 		if (success != 0) {
 			session.commit();
 		}
 
 		File file = new File(directory+"/"+f_filename);
 
-		//System.out.println("file.path :::" + file.getPath());
+	
 
 		try {
 			file.delete();

@@ -30,8 +30,6 @@ public class Per_MessageViewAction implements CommandAction{
 		
 		Co_MemBean colist = session.selectOne("co_member.find",co_id);
 		
-		//List dataList = session.selectList("message.m_list", p_id);
-		
 		request.setAttribute("m_title", mlist.getM_title());
 		request.setAttribute("co_com", colist.getCo_com());
 		request.setAttribute("co_name", colist.getCo_name());

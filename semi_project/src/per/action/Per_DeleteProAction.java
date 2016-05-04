@@ -21,8 +21,6 @@ public class Per_DeleteProAction implements CommandAction {
 		HttpSession session2 = request.getSession();
 		String p_id = (String) session2.getAttribute("p_id");
 		String passwd = request.getParameter("passwd");
-		
-		System.out.println("p_id:::"+p_id);
 
 		P_MemBean p_memInfo = session.selectOne("per_member.find", p_id);
 

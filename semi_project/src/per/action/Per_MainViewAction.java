@@ -34,8 +34,7 @@ public class Per_MainViewAction implements CommandAction {
 		
 		P_MemBean p_list = session.selectOne("per_member.find", p_id);
 		List fileList = session.selectList("file.all", p_id);
-		//System.out.println("fileList.size():::" + fileList.size());
-
+		
 		String search = request.getParameter("search");
 
 		if (search != null) {

@@ -73,18 +73,11 @@ public class Per_FileModifyProAction implements CommandAction {
 				}
 			}
 		}
-		// String f_description = request.getParameter("f_description");
-		// String realpath = request.getParameter("realpath");
-
-		// P_MemBean pbean = new P_MemBean();
-
 
 		session.delete("file.delete", f_filename);
 
 		HttpSession session1 = request.getSession();
 		String p_id = (String) session1.getAttribute("p_id");
-
-		//System.out.println(/* p_id+"\n"+ */realpath + "\n" + f_title + "\n" + f_description + "\n" + f_category);
 
 		if (f_category.equals("0")) {
 			f_category = "산업디자인";
@@ -102,8 +95,6 @@ public class Per_FileModifyProAction implements CommandAction {
 		filebean.setF_category(f_category);
 		filebean.setF_filename(filename);
 
-		// fileList=session.selectList("file.all", p_id);
-
 		int success = session.insert("per_member.fileadd", filebean);
 		if (success > 0) {
 			session.commit();
@@ -116,13 +107,6 @@ public class Per_FileModifyProAction implements CommandAction {
 		fileList = session.selectList("file.all", p_id);
 		
 		request.setAttribute("filebean", filebean);
-		/*
-		 * request.setAttribute("f_category", f_category);
-		 * request.setAttribute("f_title", filebean.getF_title());
-		 * request.setAttribute("f_description", filebean.getF_description());
-		 * request.setAttribute("f_regdate", filebean.getF_regdate());
-		 * request.setAttribute("realpath", filebean.getRealpath());
-		 */
 		request.setAttribute("success", success);
 
 		return "filemodifyPro.jsp";
@@ -130,17 +114,11 @@ public class Per_FileModifyProAction implements CommandAction {
 	}
 
 	public String fileup_del(String f_title, FileItem item, HttpServletRequest request, String f_filename) {
-		// System.out.println("fileup()");
 		ServletContext app = (ServletContext) request.getAttribute("app");
 		String directory = app.getRealPath("/File");
-		System.out.println("억지로 만든 경로::" + directory);
-		// int randomValue = random.nextInt(50);
-		// String fileName = f_title + "_" + Integer.toString(randomValue);
 		String fileName = item.getName();
-		System.out.println("fileName:::" + fileName);
 		File file = new File(directory, fileName);
 		String realpath = file.getAbsolutePath();
-		System.out.println(realpath);
 		FileOutputStream os = null;
 
 		InputStream is;
