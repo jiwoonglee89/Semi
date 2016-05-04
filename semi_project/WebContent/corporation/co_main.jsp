@@ -79,12 +79,12 @@
 			<script>
 				function click_check(){
 					sel_category=document.sel_category;
-					if(sel_category.category.options[sel_category.category.selectedIndex].value=="sanup")
-						location.href="co_main.do?category=sanup"
-					else if(sel_category.category.options[sel_category.category.selectedIndex].value=="web")
-						location.href="co_main.do?category=web"
-					else
-						location.href="co_main.do?category=gun"
+					if(sel_category.category.options[sel_category.category.selectedIndex].value=="0")
+						location.href="co_main.do?category=산업디자인"
+					else if(sel_category.category.options[sel_category.category.selectedIndex].value=="1")
+						location.href="co_main.do?category=웹디자인"
+					else if(sel_category.category.options[sel_category.category.selectedIndex].value=="2")
+						location.href="co_main.do?category=건축디자인"
 				}
 				
 				function click_check2(){
