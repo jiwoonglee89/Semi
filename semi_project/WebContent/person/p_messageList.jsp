@@ -45,7 +45,7 @@
 
 					</tr>
 				</c:forEach>
-				<a href="p_mainview.do">메인으로</a>
+				<a href="javascript:self.close()">창닫기</a>
 			</table>
 		</div>
 
