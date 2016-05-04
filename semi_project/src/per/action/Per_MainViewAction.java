@@ -23,6 +23,8 @@ public class Per_MainViewAction implements CommandAction {
 		Connection con = new Connection();
 		SqlSession session = con.connection();
 
+		request.setCharacterEncoding("UTF-8");
+		
 		HttpSession session2 = request.getSession();
 		String p_id = (String) session2.getAttribute("p_id");
 		ServletContext app = (ServletContext) request.getAttribute("app");
@@ -31,12 +33,13 @@ public class Per_MainViewAction implements CommandAction {
 		
 		P_MemBean p_list = session.selectOne("per_member.find", p_id);
 		List fileList = session.selectList("file.all", p_id);
-		System.out.println("fileList.size():::" + fileList.size());
+		//System.out.println("fileList.size():::" + fileList.size());
 
 		String search = request.getParameter("search");
 
 		if (search != null) {
-			String searchn = request.getParameter("searchn");
+			String searchn = new String(request.getParameter("searchn").getBytes("ISO_8859_1"),"UTF-8");
+			System.out.println("searchn::::"+searchn);
 			if (search.equals("0")) {
 
 				fileList = session.selectList("file.ca", searchn);

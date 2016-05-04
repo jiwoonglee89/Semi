@@ -16,7 +16,7 @@
 설명 : <textarea name="f_description" rows="25" cols="20"/>${fbean.f_description}</textarea> <br>
 
 <input type="submit" value="파일수정"/>
-
+<input type="button" value="취소" onclick="javascript:window.location=history.go(-1)"/>
 
 </form>
 

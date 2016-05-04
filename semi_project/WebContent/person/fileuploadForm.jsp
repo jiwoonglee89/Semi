@@ -14,6 +14,7 @@
 파일이름 : <input type="text" name="f_title" value="${filebean.f_title}"/> <br>
 설명 : <textarea name="f_description"/></textarea> <br>
 <input type="submit" value="업로드"/>
+<input type="button" value="취소" onclick="javascript:window.location=history.go(-1)"/>
 
 
 </form>
