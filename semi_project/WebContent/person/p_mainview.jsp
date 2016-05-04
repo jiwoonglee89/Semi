@@ -8,19 +8,29 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="main_msg/assets/css/main.css" />
+		<script>
+		function msg() {
+
+			url = "p_messageList.do?m_count=0&m_num=0";
+			/* check의 속성값을 y로 보내줌  */
+
+			window.open(url,"get",
+							"toolbar=no ,width=950 ,height=650,directories=no,status=yes,scrollbars=yes,menubar=no,resizable=no");
+		}
 		
+		</script>
 		
 	</head>
-	<body id="top">
-
+	<body id="top">		
 		<!-- Header -->
 			<header id="header">
-				<Form method="get" action="p_messageList.do">
+				<Form method="get"  onsubmit="msg()">
 					<input type="hidden" name="m_count" value="0"/>
 					<!--  -->
 					<input type="hidden" name="m_num" value="0"/>
 					<span class="label"><input type="submit" value="쪽지함"/></span>
 					</Form>
+					
 				<h1><strong>포트폴리오 자료실에 오신걸 환영합니다! </br>${p_list.p_name}님</strong><br />
 				이메일 : ${p_list.p_email }<br />
 				생년월일 : ${p_list.p_birth }<br />
@@ -59,9 +69,6 @@
 						</select>
 						<input type="text" name="searchn" id="searchn" placeholder="검색내용" size="50"/>
 						<input type="submit" value="검색" />
-						
-						
-
 					</form>
 				<!-- Two -->
 					<section id="two">

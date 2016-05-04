@@ -24,6 +24,7 @@ public class Per_MainViewAction implements CommandAction {
 		SqlSession session = con.connection();
 
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
 		HttpSession session2 = request.getSession();
 		String p_id = (String) session2.getAttribute("p_id");
