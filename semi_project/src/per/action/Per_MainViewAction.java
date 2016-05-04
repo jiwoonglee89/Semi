@@ -38,8 +38,7 @@ public class Per_MainViewAction implements CommandAction {
 		String search = request.getParameter("search");
 
 		if (search != null) {
-			String searchn = new String(request.getParameter("searchn").getBytes("ISO_8859_1"),"UTF-8");
-			System.out.println("searchn::::"+searchn);
+			String searchn = request.getParameter("searchn");
 			if (search.equals("0")) {
 
 				fileList = session.selectList("file.ca", searchn);
